@@ -56,6 +56,7 @@
 
             <td>
                 <img class="img-thumbnail img-fluid" src="{{asset('storage').'/'.$empleado->Foto}}" width="100" alt="">
+
                 
         
             </td>

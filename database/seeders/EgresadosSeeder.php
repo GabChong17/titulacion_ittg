@@ -26,7 +26,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'gabo.pro3@gmail.com',
                 'Telefono'=>'9612465121',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'19270999',
@@ -38,7 +38,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'gentianmunoz@outlook.es',
                 'Telefono'=>'9611817136',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'16270844',
@@ -50,7 +50,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'L16270844@tuxtla.tecnm.mx',
                 'Telefono'=>'9611985948',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'16270796',
@@ -62,7 +62,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'hectormartinez2v@gmail.com',
                 'Telefono'=>'9671475452',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'16270770',
@@ -74,7 +74,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'gretchengalvezlaguna@hotmail.com',
                 'Telefono'=>'9614553797',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'17270172',
@@ -86,7 +86,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'victor_1996_darojo@hotmail.com',
                 'Telefono'=>'9612284856',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'16270745',
@@ -98,7 +98,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'josecastmarroquin@gmail.com',
                 'Telefono'=>'9612086374',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'17270832',
@@ -110,7 +110,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'danielmontes652@gmail.com',
                 'Telefono'=>'9611175328',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'14270782 ',
@@ -122,7 +122,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'L14270782@tuxtla.tecnm.mx',
                 'Telefono'=>'9613138152',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'17271050',
@@ -134,7 +134,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'L17271050@tuxtla.tecnm.mx',
                 'Telefono'=>'9613649868',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
             [
                 'NoControl'=>'16270786',
@@ -146,7 +146,7 @@ class EgresadosSeeder extends Seeder
                 'PlanDeEstudios'=>'1',
                 'email'=>'eugeniaabelinaj@gmail.com',
                 'Telefono'=>'9611010278',
-                'password' => bcrypt( env('prueba123'))
+                'password' => bcrypt('prueba123'),
             ], 
 
             

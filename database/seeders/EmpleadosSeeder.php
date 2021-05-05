@@ -23,7 +23,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'priscila.corzooo@gmail.com',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9612325427',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ], 
             [
                 'Nombre'=>'Itzel Alejandra',
@@ -32,7 +32,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'itzelhernandez367@gmail.com',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9613184211',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ],
             [
                 'Nombre'=>'Manuel Alejandro',
@@ -41,7 +41,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'manuel10881@hotmail.com',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9613875821',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ],
             [
                 'Nombre'=>'Jose Fernando',
@@ -50,7 +50,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'josefernandoperezgarcia98@gmail.com',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9611652148',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ],
             [
                 'Nombre'=>'Eliezer Berlain',
@@ -59,7 +59,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'L17270141@tuxtla.tecnm.mx',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9191336022',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ],
             [
                 'Nombre'=>'Jorge',
@@ -68,7 +68,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'jorfc.-@gmail.com',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9611364489',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ],
             [
                 'Nombre'=>'Ramiro de Jesus',
@@ -77,7 +77,7 @@ class EmpleadosSeeder extends Seeder
                 'email'=>'L16270739@tecnm.tutla.mx',
                 'Foto'=>'nohay.jpg',
                 'Telefono'=>'9611229978',
-                'password' => bcrypt( env('prueba321'))
+                'password' => bcrypt('prueba321'),
             ],
             
         ]);

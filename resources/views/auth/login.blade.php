@@ -28,6 +28,7 @@
                 <tr>
                     <th><center><img src="/imagen/ittg.png"  width="150" alt="Cover Image"> </th>
                 </table>
+                
                     <table id="login" class="table table-striped table-bordered" style="width:60% ">
                     <th>
 

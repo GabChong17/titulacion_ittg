@@ -110,8 +110,8 @@ class MainController extends Controller
     }
 
    function dashboard(){
-    $data = ['LoggedUserInfo'=>Egresado::where('id','=', session('LoggedUser'))->first()];
-    return view('admin.dashboard', $data);
+    $egresado = Egresado::where('id','=', session('LoggedUser'))->first() ;
+    return view('admin.dashboard',compact('egresado') );
     }
 
     function settings(){

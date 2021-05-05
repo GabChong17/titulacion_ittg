@@ -27,14 +27,14 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>{{ $LoggedUserInfo['NoControl'] }}</td>
-                            <td>{{ $LoggedUserInfo['Nombre'] }}</td>
-                            <td>{{ $LoggedUserInfo['APaterno'] }}</td>
-                            <td>{{ $LoggedUserInfo['AMaterno'] }}</td>
-                            <td>{{ $LoggedUserInfo['Carrera'] }}</td>
-                            <td>{{ $LoggedUserInfo['Campus'] }}</td>
-                            <td>{{ $LoggedUserInfo['PlanDeEstudios'] }}</td>
-                            <td>{{ $LoggedUserInfo['email'] }}</td>
+                            <td>{{ $egresado->NoControl }}</td>
+                            <td>{{ $egresado->Nombre }}</td>
+                            <td>{{ $egresado->APaterno }}</td>
+                            <td>{{ $egresado->AMaterno }}</td>
+                            <td>{{ $egresado->Carrera }}</td>
+                            <td>{{ $egresado->Campus }}</td>
+                            <td>{{ $egresado->plan->Nombre }}</td>
+                            <td>{{ $egresado->email }}</td>
                             <td><a href="{{ route('auth.logout') }}" class="btn btn-warning">Logout</a></td>
                             
                          </tr>

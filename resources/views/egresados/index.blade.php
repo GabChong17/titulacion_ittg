@@ -11,32 +11,16 @@
 
 
 <div class="container">
-<div class="row" >
-    <div class="container my-4">
-        <h2 class="text-center font-weight-bold">Bienvenido, Gabo</h2>
-    </div>
-
-    <div class="container">
+    <div class="row" >
+        <h2 class="text-center font-weight-bold">Bienvenido, {{$egresado->Nombre}} );</h2>
         <h4 class="text-center text-danger font-weight-normal">A continuacion se le presentan las opciones disponibles por las cuales podria iniciar tu tramite de titulacion, te en cuenta que segun la opcion que elijas tendrias que proporcionar los docuemntos que se soliciten.</h4>
+        <div class="w-100"></div>
+        @foreach ($egresado->plan->opciones as $opcion)
+            <div class="col-sm">
+            <a class="btn btn-success" href="{{url('/crearCita/' . $opcion->id )}}">{{$opcion->Nombre}}</a>
+            </div>
+        @endforeach
     </div>
-   
-</div>
-<br>
-<div class="row text-center">
-<div class="col-md-4">
-    
-    <a  class="btn btn-success" href="{{url('/crearCita/Tesis')}}">Tesis</a>
-</div>
-<div class="col-md-4">
-    
-    <a  class="btn btn-success" href="{{url('/crearCita/Opc')}}">Opc</a>
-</div>
-<div class="col-md-4">
-    
-    <a  class="btn btn-success" href="{{url('/crearCita/Examen')}}">Examen Global de Conocimiento</a>
-</div>
-</div>
-
 </div>
 </body>
 </html>

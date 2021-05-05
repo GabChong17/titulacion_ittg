@@ -18,4 +18,10 @@ class Egresado extends Model
         'fullacces',
         'codigo',
     ];
+
+    public function plan()
+    {
+        return $this->belongsTo('App\Models\Plan','PlanDeEstudios','id');
+
+    }
 }

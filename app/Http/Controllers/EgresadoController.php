@@ -17,7 +17,8 @@ class EgresadoController extends Controller
      */
     public function index()
     {
-        return view('egresados.index');
+        $egresado = Egresado::where('id','=', session('LoggedUser'))->first() ;  
+        return view('egresados.index',compact('egresado') );
     }
 
     /**

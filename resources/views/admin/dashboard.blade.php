@@ -33,7 +33,7 @@
                             <td>{{ $egresado->AMaterno }}</td>
                             <td>{{ $egresado->Carrera }}</td>
                             <td>{{ $egresado->Campus }}</td>
-                            <td>{{ $egresado->plan->Nombre }}</td>
+                            <td>{{ $egresado->PlanDeEstudios }}</td>
                             <td>{{ $egresado->email }}</td>
                             <td><a href="{{ route('auth.logout') }}" class="btn btn-warning">Logout</a></td>
                             

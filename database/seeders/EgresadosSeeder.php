@@ -23,7 +23,7 @@ class EgresadosSeeder extends Seeder
                 'AMaterno'=>'Chong',
                 'Carrera'=>'Sistemas Computacionales',
                 'Campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
-                'PlanDeEstudios'=>'1',
+                'PlanDeEstudios'=>1,
                 'email'=>'gabo.pro3@gmail.com',
                 'Telefono'=>'9612465121',
                 'password' => bcrypt('prueba123'),

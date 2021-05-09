@@ -13,10 +13,10 @@ class MainController extends Controller
         return view('auth.login');
     }
     function register(){
+        
         return view('auth.register');
     }
 
-    
 
     public function aval()
     {
@@ -76,7 +76,7 @@ class MainController extends Controller
 
        $userInfo = Egresado::where('email','=', $request->email)->first();
        $userInfo2 = Empleado::where('email','=', $request->email)->first();
-
+    
         if(!$userInfo){
             if(!$userInfo2){
                 return back()->with('fail','No reconocemos su correo electronico.');
@@ -94,6 +94,7 @@ class MainController extends Controller
            //check password
            if(Hash::check($request->password, $userInfo->password)){
                $request->session()->put('LoggedUser', $userInfo->id);
+              
                return redirect('admin/dashboard');
            }else{
                return back()->with('fail','Contraseña incorrecta.');

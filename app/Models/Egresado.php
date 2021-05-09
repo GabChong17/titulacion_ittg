@@ -21,7 +21,7 @@ class Egresado extends Model
 
     public function plan()
     {
-        return $this->belongsTo('App\Models\Plan','PlanDeEstudios','id');
+        return $this->belongsTo('App\Models\Plan','PlanDeEstudios');
 
     }
 }

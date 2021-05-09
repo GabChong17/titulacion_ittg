@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\DocumentosController;
 use App\Models\Opcion;
+use App\Models\Egresado;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,8 @@ Route::get('/auth/logout',[MainController::class, 'logout'])->name('auth.logout'
 
 Route::group(['middleware'=>['AuthCheck']], function(){
 
-    Route::get('/auth/login',[MainController::class, 'login'])->name('auth.login');
-    Route::get('/auth/register',[MainController::class, 'register'])->name('auth.register');
+    //Route::get('/auth/login',[MainController::class, 'login'])->name('auth.login');
+    //Route::get('/auth/register',[MainController::class, 'register'])->name('auth.register');
 
     Route::get('/admin/dashboard',[MainController::class, 'dashboard']); 
     Route::get('/admin/settings',[MainController::class,'settings']);
@@ -62,10 +63,14 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
     Route::get('/empleado', [EmpleadoController::class, 'index'])->name('home');
 
-    Route::get('/prueba',function () {
-        return view('egresados.aval');
+    Route::get('/avances',function () {
+
+        $datos2['egresados']=Egresado::paginate();
+        return view('empleado.aval', $datos2);
+    
     });
-        
+    Route::resource('egresado', EgresadoController::class);
+         
   
 });
 

@@ -21,11 +21,13 @@ class CreateEgresadosTable extends Migration
             $table->string('AMaterno');
             $table->string('Carrera');
             $table->string('Campus');
-            $table->string('PlanDeEstudios');
+            $table->unsignedBigInteger('PlanDeEstudios');
             $table->string('email');
             $table->string('Telefono');
             $table->string('password');
             $table->timestamps();
+
+            $table->foreign('PlanDeEstudios')->references('id')->on('plans');
         });
     }
 

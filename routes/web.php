@@ -51,8 +51,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         return view('egresados.confirmar');
     });
 
-    Route::get('/crearCita/{opcion}',function ($id) {
-        $opcion = Opcion::find($id);
+    Route::get('/crearCita/{opcion}',function ($opcion){
         return view('egresados.create')->with('opcion',$opcion);;
     });
     

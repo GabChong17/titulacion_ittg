@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Egresado extends Model
+class titulacion extends Model
 {
-    
     use HasFactory;
-    protected $table='egresados';
+
+    protected $table='opcions';
 
     protected $fillable = [
         'name',
@@ -18,10 +18,4 @@ class Egresado extends Model
         'fullacces',
         'codigo',
     ];
-
-    public function plan()
-    {
-        return $this->belongsTo('App\Models\Plan','PlanDeEstudios','id');
-
-    }
 }

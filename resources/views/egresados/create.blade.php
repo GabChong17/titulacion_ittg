@@ -15,7 +15,6 @@
         {{ session()->get('message') }}
     </div>
 @endif
-para la opcion solicitada ({{$opcion->Nombre}})
 <div class="container">
     <br>
     <div class="row text-primary">
@@ -25,11 +24,25 @@ para la opcion solicitada ({{$opcion->Nombre}})
         </div>
 
     <div style=”text-align: justify;”>
-        <ol>
-        @foreach ($opcion->requisitos as $requisito)
-            <li>{{$requisito->Concepto}}:{{$requisito->Descripcion}}</li>
-        @endforeach 
-    </ol>
+        @if($opcion=="Tesis")
+     <h4 class=" text-danger text-center  my-2 font-weight-bold">Tesis</h4>
+     <p style=”text-align: justify;”> 
+      A) Segun la opcion que hayas elegido se solicitara subir los archivos necesarios.<br>
+      B) Despues de que hayas presentado tus archivos, procede a seleccionar una fecha y hora.<br>
+      C) Acude el dia señalado 10 minutos antes de tu cita y ten listos tus docuemntos.<br>
+      D) Si deseas explorar otras opciones de titulacion puedes regresar  <a class="text-danger" href="{{url('/egresado')}}">aqui.</a>
+     </p>
+      @endif
+      
+      @if($opcion=="Examen")
+      <h4 class="text-center text-danger my-2 font-weight-bold">Examen</h4>
+      <p style=”text-align: justify;”> 
+       A) Segun la opcion que hayas elegido se solicitara subir los archivos necesarios.<br>
+       B) Despues de que hayas presentado tus archivos, procede a seleccionar una fecha y hora.<br>
+       C) Acude el dia señalado 10 minutos antes de tu cita y ten listos tus docuemntos.<br>
+       D) Si deseas explorar otras opciones de titulacion puedes regresar  <a class="text-danger" href="{{url('/egresado')}}">aqui.</a>
+      </p>  
+      @endif
 
     </div>
     </div> 
@@ -37,13 +50,17 @@ para la opcion solicitada ({{$opcion->Nombre}})
         <div class=" text-center">
             2- SUBE TUS REQUISITOS
         </div>
+
+        <h4 class="text-center text-danger my-2 font-weight-bold">Tema:</h4> 
+
+
+        <label for="documento">Agrega documentos PDF</label>
+
         <form method="POST" action="/documento" enctype="multipart/form-data"> 
             @csrf
 
-        @foreach ($opcion->requisitos as $requisito)
-        <label for="documento">Agrega documento PDF para {{$requisito->Concepto}}</label>
-        <input type="file" class="form-control" name="documento" multiple>
-        @endforeach 
+        
+        
         <button type="submit" class="btn btn-primary my-4">SUBIR</button>
         </form>
 

@@ -12,14 +12,24 @@
 
 <div class="container">
     <div class="row" >
-        <h2 class="text-center font-weight-bold">Bienvenido, {{$egresado->Nombre}} );</h2>
+        <h2 class="text-center font-weight-bold">Bienvenido, {{$egresado->Nombre}}</h2>
         <h4 class="text-center text-danger font-weight-normal">A continuacion se le presentan las opciones disponibles por las cuales podria iniciar tu tramite de titulacion, te en cuenta que segun la opcion que elijas tendrias que proporcionar los docuemntos que se soliciten.</h4>
         <div class="w-100"></div>
-        @foreach ($egresado->PlanDeEstudios->opciones as $opcion)
-            <div class="col-sm">
-            <a class="btn btn-success" href="{{url('/crearCita/' . $opcion->id )}}">{{$opcion->Nombre}}</a>
-            </div>
-        @endforeach
+    <br>
+    <table class="table table-hover">
+        <thead>
+          <th>Titulacion</th>
+          
+        </thead>
+        <<tbody>
+            @foreach ($opcions as $item)
+            <tr>
+              <th scope="row">{{ $item->Plans_id }}</th>
+              
+            @endforeach
+          </tbody>
+     </table>
+
     </div>
 </div>
 </body>

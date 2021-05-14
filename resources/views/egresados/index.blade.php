@@ -21,6 +21,8 @@
             </div>
         @endforeach
     </div>
+    <td><a href="/admin/dashboard" class="btn btn-warning">Regresar</a></td>
+    
 </div>
 </body>
 </html>

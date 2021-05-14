@@ -70,8 +70,8 @@ para la opcion solicitada ({{$opcion->Nombre}})
             
         </form>
     </div>
-       
-    </div>
-    </div>
     
+    </div>
+    </div>
+    <td><a href="/egresado" class="btn btn-warning">Regresar</a></td>
     </div>

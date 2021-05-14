@@ -6,7 +6,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\DocumentosController;
 use App\Models\Opcion;
-
+use App\Models\Egresado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,12 +63,21 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/empleado', [EmpleadoController::class, 'index'])->name('home');
 
     Route::get('/prueba',function () {
-        return view('egresados.aval');
+        return view('empleado.aval');
     });
+
+    Route::get('/avances',function () {
+
+        $datos2['egresados']=Egresado::paginate();
+        return view('empleado.aval', $datos2);
+    
+    });
+    Route::resource('egresado', EgresadoController::class);
         
   
 });
 
+Route::get('/plans_id/{id}', 'OpcionsController@plans_id')->name('opcions.plans_id');
 
 
 

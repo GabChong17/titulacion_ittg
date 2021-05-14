@@ -11,5 +11,8 @@ class Plan extends Model
     public function opciones(){
         return $this->hasMany('App\Models\Opcion','Planes_id','id');
 
+        return $this->belongsTo('App\Models\Egresado');
+
+
     }
 }

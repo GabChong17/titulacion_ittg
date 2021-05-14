@@ -47,6 +47,7 @@
                        <li><a href="/admin/settings">Settings</a></li>
                        <li><a href="/admin/staff">Staff</a></li>
                        <li><a href="/egresado">Egresado</a></li>
+                       <li><a href="/avances">Avances</a></li>
                    </ul>
             </div>
          </div>

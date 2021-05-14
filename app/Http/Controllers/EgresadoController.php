@@ -41,20 +41,11 @@ class EgresadoController extends Controller
         $datos2['egresados']=Egresado::paginate(5);
         return view('egresados.aval', $datos2);
     }
-    public function edit( $id)
+
+    
+
+    public function getEgresado()
     {
-        $egresado=Egresado::findOrFail($id );
-
-        return view('empleado.editEgresado', compact('egresado'));
+        return view('egresados.aval');
     }
-    public function destroy( $id)
-    {
-        //
-        $egresado=Egresado::findOrFail($id);
-     
-            Egresado::destroy($id);        
-
-        return redirect('avances')->with('mensaje','Egresado Borrado');
-    }
-
 }

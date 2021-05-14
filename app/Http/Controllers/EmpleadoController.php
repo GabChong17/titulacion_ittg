@@ -93,7 +93,7 @@ class EmpleadoController extends Controller
     {
         $empleado=Empleado::findOrFail($id );
 
-        return view('empleado.editEmpleado', compact('empleado'));
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**

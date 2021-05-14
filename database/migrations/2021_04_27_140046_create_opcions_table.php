@@ -13,13 +13,13 @@ class CreateOpcionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('opcions', function (Blueprint $table) { 
+        Schema::create('opcions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Plans_id');
+
+            $table->unsignedBigInteger('Planes_id');
             $table->string('Nombre');
             $table->string('Descripcion');
-
-            $table->foreign('Plans_id')->references('id')->on('plans');
+            $table->foreign('Planes_id')->references('id')->on('plans');
 
             $table->timestamps();
         });

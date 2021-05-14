@@ -15,12 +15,12 @@ $(document).ready( function () {
     $('#table_id').DataTable();
 } );
 </script>
-
 <div class="container">
 
 @section('css')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">   
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
+    
 @endsection
 
 <div class="card">
@@ -36,7 +36,6 @@ $(document).ready( function () {
             <th>Carrera</th>
             <th>Opción</th>
             <th>Acciones</th>
-            <th>Documentos</th>
         </tr>
     </thead>
 
@@ -48,18 +47,7 @@ $(document).ready( function () {
             <td>{{ $egresado ->Nombre }}</td>
             <td>{{ $egresado ->Carrera }}</td>
             <td>Opción</td>
-            <td>
-                <a href="{{ url('/egresado/'.$egresado->id.'/edit' )}}" class="btn btn-warning my-1">Editar</a>
-                <form action="{{ url('/egresado/'.$egresado->id )}}" class="d-inline" method="post">
-                    @csrf
-                    {{ method_field('DELETE')}}
-                    <input  class="btn btn-danger my-2" type="submit" onclick="return confirm('¿Quieres borrar?')" 
-                    value="Borrar">
-                </form> 
-            </td>
-            <td>
-                <a href="{{ url('/egresado/'.$egresado->id.'/edit' )}}" class="btn btn-primary my-1">Documentos</a>
-            </td>
+            <td>Acciones</td>
         </tr>
         @endforeach
         

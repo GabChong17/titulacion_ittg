@@ -1,0 +1,15 @@
+body{
+    background-color: gray;
+}
+
+.caja-logo{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img.logo-tec{
+    width: 30%;
+    height: 30%;
+}

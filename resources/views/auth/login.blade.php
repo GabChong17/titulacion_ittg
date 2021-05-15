@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('/css/plantilla.css') }}" rel="stylesheet">
     <title>Titulacion</title>
-    <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
+    
 </head>
-<body bgcolor= "blue">
+<body>
     @section('css')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
-        
+    <link href="{{ asset('/css/plantilla.css') }}" rel="stylesheet">
     @endsection
     
 
@@ -23,20 +24,24 @@
         <div class="card loginpanel">
             <div class="card-block">
         
-        <table id="login" class="table table-striped table-bordered" style="width:60% " >
+        {{-- <table id="login" class="table table-striped table-bordered" style="width:60% " > --}}
             <thead>
                 <tr>
-                    <th><center><img src="/imagen/ittg.png"  width="150" alt="Cover Image"> </th>
-                </table>
-                
-                    <table id="login" class="table table-striped table-bordered" style="width:60% ">
+                    
+                    <th><center><div class="caja-logo"><img class="logo-tec" src="/imagen/ittg.png" alt="Cover Image"> </div></th>
+               {{-- </table> --}}
+            
+                   {{-- <table id="login" class="table table-striped table-bordered" style="width:60% "> --}}
+                    
                     <th>
-
+                    </div>
+        </div>
+                    
                         
                         <div class="contrainer">
                             <div class="row" style="margin-top:45px">
                                 <div class="col-md-4 col-md-offset-4">
-                                    <h4>Login</h4><hr>
+                                    <h4>Login</h4>
                                     <form action="{{ route('auth.check') }}" method="post">
                                         @if(Session::get('fail'))
                                            <div class="alert alert-danger">
@@ -73,7 +78,7 @@
                     
                 </tr>
             </thead>
-        </table>
+        {{--</table> --}}
     </div>
 </div>
 @section('js')

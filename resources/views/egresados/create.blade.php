@@ -39,13 +39,11 @@ para la opcion solicitada ({{$opcion->Nombre}})
         </div>
         <form method="POST" action="/documento" enctype="multipart/form-data"> 
             @csrf
-
         @foreach ($opcion->requisitos as $requisito)
         <label for="documento">Agrega documento PDF para {{$requisito->Concepto}}</label>
         <input type="file" class="form-control" name="documento" multiple>
-        
         @endforeach 
-        <button type="submit" class="btn btn-primary my-4">SUBIR</button>
+        {{-- <button type="submit" class="btn btn-primary my-4">SUBIR</button> --}}
         </form>
 
         
@@ -56,22 +54,26 @@ para la opcion solicitada ({{$opcion->Nombre}})
             3- AGENDA TU CITA
         </div>  
        <div class="row my-4">
-        <form method="POST" action="/crearCita" enctype="multipart/form-data"> 
-            @csrf
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='date' class="form-control" name ="cita"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-            <input button type="submit" value="Enviar"  onclick="this.disabled=true;"></button>
-            
-        </form>
+            <form method="POST" action="/crearCita" enctype="multipart/form-data"> 
+                @csrf
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='date' class="form-control" name ="cita"/>
+                        <input type="datetime-local" name="fecha">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>               
+                <input type="submit" value="Enviar">
+            </form>            
+
     </div>
     
     </div>
     </div>
     <td><a href="/egresado" class="btn btn-warning">Regresar</a></td>
     </div>
+
+</body>
+</html>

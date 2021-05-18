@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Egresado;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Tramite;
+use App\Models\Opcion;
+use App\Models\Egresado;
 
 
 class EgresadoController extends Controller
@@ -56,5 +59,19 @@ class EgresadoController extends Controller
 
         return redirect('/avances')->with('mensaje','Egresado Borrado');
     }
+
+    public function crearCita (Request $request, $id) {
+        //aqui debes agregar el tramite
+        
+        
+ 
+        $tramite = new Tramite();
+        $tramite->opcion_id= $id;
+        $tramite->egresado_id=$request->session()->get('LoggedUser');
+        $tramite->save();
+ 
+         $opcion = Opcion::find($id);
+         return view('egresados.create')->with('opcion',$opcion);;
+     }
 
 }

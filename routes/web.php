@@ -5,7 +5,6 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\DocumentosController;
-use App\Models\Opcion;
 use App\Models\Egresado;
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +49,8 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         return view('egresados.confirmar');
     });
 
-   Route::get('/crearCita/{opcion}',function ($id) {
-        $opcion = Opcion::find($id);
-        return view('egresados.create')->with('opcion',$opcion);;
-    });
+    Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
+   
     
 
     Route::resource('empleado', EmpleadoController::class); //->middleware('auth');

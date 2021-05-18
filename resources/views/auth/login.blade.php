@@ -13,35 +13,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
     <link href="{{ asset('/css/plantilla.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
     @endsection
-    
-
             
+        <!-- ID particulas -->
 
+        <div id="particles-js"></div>
         
-    <center><br><br><br><br><br>
+        
+                    <div class="caja-ittg"> 
 
-        <div class="card loginpanel">
-            <div class="card-block">
-        
-        {{-- <table id="login" class="table table-striped table-bordered" style="width:60% " > --}}
-            <thead>
-                <tr>
+                        <div class="content-fa">
+
+                            <div class="contenedor-logo">
+                                <img class="logo-ittg" src="/imagen/ittg1.png" alt="cover logo">
+                            
                     
-                    <th><center><div class="caja-logo"><img class="logo-tec" src="/imagen/ittg.png" alt="Cover Image"> </div></th>
-               {{-- </table> --}}
-            
-                   {{-- <table id="login" class="table table-striped table-bordered" style="width:60% "> --}}
                     
-                    <th>
-                    </div>
-        </div>
-                    
-                        
-                        <div class="contrainer">
-                            <div class="row" style="margin-top:45px">
-                                <div class="col-md-4 col-md-offset-4">
-                                    <h4>Login</h4>
+                                <div class="contenedor-login">
+                                    <!-- <h4>Login</h4> -->
+                                    <br>
                                     <form action="{{ route('auth.check') }}" method="post">
                                         @if(Session::get('fail'))
                                            <div class="alert alert-danger">
@@ -52,45 +43,53 @@
                     
                     
                                         <div class="form-group">
-                                            <label>Email</label>
+                                            <label style="font-weight: bold;">Email</label>
+                                            <div class="col-xs-5">
                                             <input type="text" class="form-control" name="email" placeholder="Introduzca su correo electronico" value="{{ old('name') }}">
                                             <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                                            </div>
                                          </div>
+                                         <br>
                         
                                          <div class="form-group">
-                                            <label>Password</label>
+                                            <label style="font-weight: bold;">Password</label>
+                                            <div class="col-xs-5">
                                             <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña">
                                             <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                                            </div>
                                          </div>
+                                         <br>
                     
-                                    <button type="submit" class="btn btn-block btn-primary">Ingresar</button>
-                                    <br>
+                                            <button type="submit" class="boton-personalizado">Ingresar</button>
+                                                <br><br>
                                     
-                                    <a href="{{ route('auth.register') }}" class="">Crear cuenta nueva.</a>
-                                </from>
-                                </div>
-                            </div>
-                    
+                                                <a href="{{ route('auth.register') }}" class="">Crear cuenta nueva.</a><br><br>
+                                    </from>
+                                </div> 
+                                    <img class="logo-ittg2" src="/imagen/logo_tecnm_2.png" alt="cover tec">      
+                            </div> 
                         </div>
+                     </div>        
                     
-                  
-                    </th>
                     
-                </tr>
-            </thead>
-        {{--</table> --}}
-    </div>
-</div>
-@section('js')
+               
+            
+      <!-- Js Particulas -->
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
-<script >
-     $('#login').DataTable();
-</script>
+      <script src="js/particles.min.js"></script>
+      <script src="js/app.js"></script>
+      
 
-@endsection
+    @section('js')
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+            <script >
+              $('#login').DataTable();
+             </script>
+
+    @endsection
         
     
 </body>

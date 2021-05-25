@@ -18,8 +18,11 @@ class DocumentosController extends Controller
     {
 
         $cita = request()->except(['_token']);
-        //actualizar el tramite para ponerle la fecha y hora
+        //actualizar el tramite para ponerle la fecha y hora       
+        //detalle
+        //le cambio al tramite el estado a "CITA AGENDADA"
         Tramite::insert($cita);
+        
         return redirect('/crearCita/confirm')->with('message', 'Cita guardada');  
     }
 }

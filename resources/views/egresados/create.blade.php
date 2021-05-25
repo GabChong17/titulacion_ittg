@@ -95,6 +95,7 @@ para la opcion solicitada ({{$opcion->Nombre}})
                     </div>
                 </div>         
                 <input type="submit" id="boton_enviar" disabled value="Enviar">
+                
             </form>          
 
     </div>

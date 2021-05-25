@@ -21,6 +21,14 @@ class EgresadoController extends Controller
     public function index()
     {
         $egresado = Egresado::where('id','=', session('LoggedUser'))->first() ;  
+
+        //detalle
+        //revisar si tiene algun tramite
+        //si tiene su estado en null es que no le siguio y lo borro
+        //se el estado esta en "CITA AGENDADA" le aviso que tiene una cita para tal dia a tal hora
+    
+        //si esta si su estado esta en otra cosa, le muestro su avanse y no le muestro las opciones de tiutlacion
+
         return view('egresados.index',compact('egresado') );
     }
 

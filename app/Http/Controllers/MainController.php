@@ -83,6 +83,10 @@ class MainController extends Controller
             }else{
                 if(Hash::check($request->password, $userInfo2->password)){
                     $request->session()->put('LoggedUser', $userInfo2->id);
+                    //detalle
+                    /*
+                    debes regresarle la vista que le corresponde
+                     */
                     return redirect('empleado');
                 }else{
                     return back()->with('fail','Contraseña incorrecta.');

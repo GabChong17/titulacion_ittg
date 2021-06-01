@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\EmpleadoController;
-use App\Http\Controllers\EgresadoController;
-use App\Http\Controllers\DocumentosController;
-use App\Models\Egresado;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,63 +14,11 @@ use App\Models\Egresado;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('auth/login');
 });
 
-Route::get('/auth/login',[MainController::class, 'login'])->name('auth.login');
-Route::get('/auth/register',[MainController::class, 'register'])->name('auth.register');
-Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
-Route::post('/auth/check',[MainController::class, 'check'])->name('auth.check');
-Route::get('/auth/logout',[MainController::class, 'logout'])->name('auth.logout');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-
-
-Route::group(['middleware'=>['AuthCheck']], function(){
-
-    Route::get('/auth/login',[MainController::class, 'login'])->name('auth.login');
-    Route::get('/auth/register',[MainController::class, 'register'])->name('auth.register');
-
-    Route::get('/admin/dashboard',[MainController::class, 'dashboard']); 
-    Route::get('/admin/settings',[MainController::class,'settings']);
-    Route::get('/admin/profile',[MainController::class,'profile']);
-    Route::get('/admin/staff',[MainController::class,'staff']);
-
-    Route::get('/egresado',[EgresadoController::class,'index']);
-
-
-    Route::POST('documento',[DocumentosController::class, 'store' ]);
-    Route::POST('/crearCita',[DocumentosController::class, 'cita' ]);
-
-    Route::get('/crearCita/confirm',function () {
-        return view('egresados.confirmar');
-    });
-
-    Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
-   
-    
-
-    Route::resource('empleado', EmpleadoController::class); //->middleware('auth');
-    Route::resource('tramite', TramiteController::class);
-    
-    Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
-    Route::get('/empleado', [EmpleadoController::class, 'index'])->name('home');
-
-    Route::get('/prueba',function () {
-        return view('empleado.aval');
-    });
-
-    Route::get('/avances',function () {
-
-        $datos2['egresados']=Egresado::paginate();
-        return view('empleado.aval', $datos2);
-    
-    });
-    Route::resource('egresado', EgresadoController::class);
-        
-  
-});
-
-Route::get('/plans_id/{id}', 'OpcionsController@plans_id')->name('opcions.plans_id');
-
-
-
+require __DIR__.'/auth.php';

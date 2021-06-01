@@ -1,128 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
-    <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
-</head>
-<body>
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+        <img src="/Imagenes/ITTG_Escudo.png" style="width: 200px; height: 200px;">
+            </a>
+        </x-slot>
 
-    <div class="contrainer">
-        <div class="row" style="margin-top:45px">
-            <div class="col-md-4 col-md-offset-4">
-                <h4>Registro</h4><hr>
-                <form action="{{ route('auth.save') }}" method="post">
- 
-                    @if(Session::get('success'))
-                    <div class="alert alert-success">
-                       {{ Session::get('success') }}
-                    </div>
-                  @endif
-       
-                  @if(Session::get('fail'))
-                    <div class="alert alert-danger">
-                       {{ Session::get('fail') }}  
-                    </div>
-                  @endif
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-                @csrf
+            <!-- No de Control -->
+            <div>
+                <x-label for="NoControl" :value="__('No de Control')" />
 
-                <div class="form-group">
-                    <label>NoControl</label>
-                    <input type="string" class="form-control" name="NoControl" placeholder="Ingrese N° de control" value="{{ old('NoControl') }}">
-                    <span class="text-danger">@error('NoControl'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="string" class="form-control" name="Nombre" placeholder="Ingrese nombre" value="{{ old('Nombre') }}">
-                    <span class="text-danger">@error('Nombre'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Apellido Paterno</label>
-                    <input type="string" class="form-control" name="APaterno" placeholder="Ingrese apellido paterno" value="{{ old('APaterno') }}">
-                    <span class="text-danger">@error('APaterno'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Apellido Materno</label>
-                    <input type="string" class="form-control" name="AMaterno" placeholder="Ingrese apellido materno" value="{{ old('AMaterno') }}">
-                    <span class="text-danger">@error('AMaterno'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Carrera</label>
-                    <br>
-                    <div class="col-md-6">
-                        <select class="form-select" aria-label="Default select example" name="Carrera" value="{{ old('Carrera') }}">
-                            <option selected>Selecciona una Carrera</option>
-                            <option >Sistemas Computacionales</option>
-                            <option >Logistica</option>
-                            <option >Gestion Empresarial</option>
-                            <option >Industrial</option>
-                            <option >Mecanica</option>
-                            <option >Electrica</option>
-                            <option >Electronica</option>
-                            <option >Quimica</option>
-                            <option >Bioquimica</option>
-                          </select>
-                    </div>
-                    <span class="text-danger">@error('Carrera'){{ $message }} @enderror</span>
-                 </div><br>
-
-                 <div class="form-group">
-                    <label>Campus</label>
-                   <br>
-                    <div class="col-md-6">
-                     <select class="form-select" aria-label="Default select example" name="Campus" value="{{ old('Campus') }}">
-                         <option selected>Selecciona un campus</option>
-                         <option >Instituto Tecnologico de Tuxtla Gutierrez</option>
-                         <option >Instituto Tecnologico de Comitan</option>
-                         <option >Instituto Tecnologico de Tapachula</option>
-                         <
-                       </select>
-                 </div>
-                    <span class="text-danger">@error('Campus'){{ $message }} @enderror</span>
-                 </div><br>
-
-                 <div class="form-group">
-                    <label>Plan de estudios</label>
-                    <input type="string" class="form-control" name="PlanDeEstudios" placeholder="Ingrese su plan de estudios" value="{{ old('PlanDeEstudios') }}">
-                    <span class="text-danger">@error('PlanDeEstudios'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="string" class="form-control" name="email" placeholder="Ingrese correo electronico" value="{{ old('name') }}">
-                    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Telefono</label>
-                    <input type="string" class="form-control" name="Telefono" placeholder="Ingrese numero de telefono" value="{{ old('Telefono') }}">
-                    <span class="text-danger">@error('Telefono'){{ $message }} @enderror</span>
-                 </div>
-
-                 <div class="form-group">
-                    <label>Contraseña</label>
-                    <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña">
-                    <span class="text-danger">@error('password'){{ $message }} @enderror</span>
-                 </div>
-
-               
-                <button type="submit" class="btn btn-block btn-primary">Registrar</button>
-                <br>
-
-                <a href="{{ route('auth.login') }}" class="">Ya tengo cuenta, ingresar</a>
-            </from>
+                <x-input id="NoControl" class="block mt-1 w-full" type="text" name="NoControl" :value="old('NoControl')" required />
             </div>
-        </div>
 
-    </div>
-    
-</body>
-</html>
+            <!-- Nombre -->
+            <div>
+                <x-label for="name" :value="__('Nombre')" />
+
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+            </div>
+
+            <!-- Apellido Paterno -->
+            <div>
+                <x-label for="a_paterno" :value="__('Apellido Paterno')" />
+
+                <x-input id="a_paterno" class="block mt-1 w-full" type="text" name="a_paterno" :value="old('a_paterno')" />
+            </div>
+
+            <!-- Apellido Materno -->
+            <div>
+                <x-label for="a_materno" :value="__('Apellido Materno')" />
+
+                <x-input id="a_materno" class="block mt-1 w-full" type="text" name="a_materno" :value="old('a_materno')" />
+            </div>
+
+            <!-- Carrera -->
+            <div>
+                <br>
+                <x-label for="carrera" :value="__(' ') " />
+                <div class="col-md-6">
+                    <select class="form-select" aria-label="Default select example" name="carrera" :value="{{ old('carrera') }}">
+                        <option selected>Selecciona una Carrera</option>
+                        <option >Sistemas Computacionales</option>
+                         <option >Logistica</option>
+                        <option >Gestion Empresarial</option>
+                        <option >Industrial</option>
+                        <option >Mecanica</option>
+                        <option >Electrica</option>
+                        <option >Electronica</option>
+                        <option >Quimica</option>
+                        <option >Bioquimica</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Campus -->
+            <div>
+                <br>
+                <x-label for="campus" :value="__(' ') " />
+                    <div class="col-md-6">
+                         <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
+                           <option selected>Selecciona un Campus</option>
+                           <option >Instituto Tecnologico de Tuxtla Gutierrez</option>
+                           <option >Instituto Tecnologico de Comitan</option>
+                           <option >Instituto Tecnologico de Tapachula</option> 
+                        </select>
+                    </div>
+            </div>
+
+            <!-- Plan de Estudios -->
+            <div>
+                <br>
+                <x-label for="planDeestudios" :value="__(' ') " />
+                    <div class="col-md-6">
+                         <select class="form-select" aria-label="Default select example" name="planDeestudios" :value="{{ old('planDeestudios') }}">
+                           <option selected>Selecciona un Plan de Estudios</option>
+                           <option >Plan 94</option>
+                           <option >Plan 2004</option>
+                        </select>
+                    </div>
+            </div>
+
+
+            <!-- Correo Electronico -->
+            <div class="mt-4">
+                <x-label for="email" :value="__('Correo Electrónico')" />
+
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <!-- Telefono -->
+            <div class="mt-4">
+                <x-label for="telefono" :value="__('Teléfono')" />
+
+                <x-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" />
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Contraseña')" />
+
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
+            </div>
+
+            <!-- Confirmar Contraseña -->
+            <div class="mt-4">
+                <x-label for="password_confirmation" :value="__('Confirmar Contraseña')" />
+
+                <x-input id="password_confirmation" class="block mt-1 w-full"
+                                type="password"
+                                name="password_confirmation" required />
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('¿Ya tienes cuenta?') }}
+                </a>
+
+                <x-button class="ml-4">
+                    {{ __('Registrarse') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

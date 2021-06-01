@@ -29,9 +29,7 @@
 
             <!-- Page Content -->
             <main>
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <p> A continuacion se te presentan las opciones disponibles por las cuales podras iniciar tu tramite de titulación, ten en cuenta que segun la opción que elijas tendras que proporcionar los documentos que te soliciten </p>
-                
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">                
                 {{ $slot }}
             </main>
         </div>

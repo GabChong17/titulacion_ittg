@@ -80,7 +80,7 @@
                     <div class="col-md-6">
                          <select class="form-select" aria-label="Default select example" name="planDeestudios" :value="{{ old('planDeestudios') }}">
                            <option selected>Selecciona un Plan de Estudios</option>
-                           <option >Plan 94</option>
+                           <option >Plan 93</option>
                            <option >Plan 2004</option>
                         </select>
                     </div>

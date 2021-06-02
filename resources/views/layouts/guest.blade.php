@@ -12,13 +12,19 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/modulo.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body class="columna2-login">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
     </body>
+    
+    <div class="columna2-login">
+       
+    </div>
+                
 </html>

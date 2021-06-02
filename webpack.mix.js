@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+mix.js('resources/js/app.js', 'public/js').js('resources/js/admin/sb-admin-2.js', 'public/js/admin').js('resources/js/admin/demo/chart-area-demo.js', 'public/js/admin/demo').js('resources/js/admin/demo/chart-bar-demo.js', 'public/js/admin/demo').js('resources/js/admin/demo/chart-pie-demo.js', 'public/js/admin/demo').js('resources/js/admin/demo/datatables-demo.js', 'public/js/admin/demo').sass('resources/sass/admin/sb-admin-2.scss', 'public/css/admin').postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),

@@ -46,3 +46,10 @@
     width: 100%;
     font-size: 0.9rem;
 }
+
+.footer2.max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8{
+    background-color: #D0D2F2;
+    position: absolute;
+    width: 100%;
+    font-size: 0.9rem;
+}

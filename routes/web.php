@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmpleadoController;
 
 
 /*
@@ -25,4 +26,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
+
+Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');
+
+Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('auth');
+
+Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth');
+
+Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');

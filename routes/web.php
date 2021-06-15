@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpleadoController;
+
 
 
 /*
@@ -35,3 +37,7 @@ Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('auth
 Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth');
 
 Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');
+
+Route::get('/tesis', [EgresadoController::class, 'tesis']);
+Route::get('/proyecto', [EgresadoController::class, 'proyecto']);
+Route::get('/prototipo', [EgresadoController::class, 'prototipo']);

@@ -21,9 +21,9 @@
     </div>
 
     <div class="logos max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div class="libro-img"><a href=""><img src="/Imagenes/libros.png"><div class="text-content"><p>Tesis</a></p></div></div>
-        <div class="globo-img"><a href=""><img src="/Imagenes/terraqueo.png"><div class="text-content"><p>Proyecto</a></p></div></div>
-        <div class="examen-img"><a href=""><img src="/Imagenes/exam.png"><div class="text-content"><p>Texto o Prototipo</a></p></div></div>
+        <div class="libro-img"><a href="/tesis"><img src="/Imagenes/libros.png"><div class="text-content"><p>Tesis</a></p></div></div>
+        <div class="globo-img"><a href="/proyecto"><img src="/Imagenes/terraqueo.png"><div class="text-content"><p>Proyecto</a></p></div></div>
+        <div class="examen-img"><a href="/prototipo"><img src="/Imagenes/exam.png"><div class="text-content"><p>Texto o Prototipo</a></p></div></div>
      </div>
 
      <div class="footer mx-auto px-4 sm:px-6 lg:px-8">

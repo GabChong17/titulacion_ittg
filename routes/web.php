@@ -28,6 +28,9 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
+//supongamos la ruta agregar "crear tramite" --> 'crear-tramite'
+
 Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
 Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');

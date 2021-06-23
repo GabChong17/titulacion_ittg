@@ -176,13 +176,13 @@
             <table class="table table-border" id="dataTable" width="auto" cellspacing="0" style="display:grid;">
                 <thead>
                 <tr>
-                    <th>NoControl</th>
+                    <th>id</th>
                     <th>Nombre</th>
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
+                    <th>Departamento</th>
                     <th>Carrera</th>
                     <th>Campus</th>
-                    <th>Plan de Estudios</th>
                     <th>Email</th>
                     <th>Telefono</th>
                 </tr>
@@ -196,9 +196,9 @@
                 <td>{{$user['name']}}</td>
                 <td>{{$user['a_paterno']}}</td>
                 <td>{{$user['a_materno']}}</td>
+                <td>{{$user['departamento']}}</td>
                 <td>{{$user['carrera']}}</td>
                 <td>{{$user['campus']}}</td>
-                <td>{{$user['planDeestudios']}}</td>
                 <td>{{$user['email']}}</td>
                 <td>{{$user['telefono']}}</td>
             </tr>

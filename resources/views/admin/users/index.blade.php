@@ -192,7 +192,7 @@
             <tbody>
                 @foreach($users as $user)
             <tr>
-                <td>{{$user['NoControl']}}</td>
+                <td>{{$user['id']}}</td>
                 <td>{{$user['name']}}</td>
                 <td>{{$user['a_paterno']}}</td>
                 <td>{{$user['a_materno']}}</td>

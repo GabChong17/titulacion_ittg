@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpleadoController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AcademiaController;
+
 
 
 
@@ -52,9 +53,9 @@ Route::POST('/documento',[EgresadoController::class, 'store' ]);
 Route::POST('/crearCita',[EgresadoController::class, 'cita' ]);
 
 Route::get('/crearCita/confirm',function () {
-    return view('egresados.confirmar');
+    return view('egresado.confirmar');
 });
 
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
 
-Route::resource('users', UsersController::class);
+Route::get('/liberacionAcademia', [AcademiaController::class, 'egresado']);

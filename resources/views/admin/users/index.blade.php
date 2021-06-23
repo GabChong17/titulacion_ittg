@@ -190,7 +190,7 @@
                 <tfood>
                 </tfood>
             <tbody>
-                @foreach($users as $user)
+                @foreach($empleados as $user)
             <tr>
                 <td>{{$user['id']}}</td>
                 <td>{{$user['name']}}</td>

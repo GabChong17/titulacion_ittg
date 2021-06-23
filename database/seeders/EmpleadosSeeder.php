@@ -36,7 +36,7 @@ class EmpleadosSeeder extends Seeder
                 'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
                 'email'=>'ja_sanchez7@hotmail.com',
                 'email_verified_at'=>null,
-                'telefono'=>'0987654301',
+                'telefono'=>'0987654321',
                 'password'=> bcrypt('prueba321'),
             ],           
         ]);

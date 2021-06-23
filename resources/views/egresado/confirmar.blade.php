@@ -6,7 +6,7 @@
     </x-slot>
 
 
-    <div class="container text-center">
+    <div class="container text-center" style="color: #fff;>
         <div class="row" >
             <div class="container my-4">
                 <h2 class="font-weight-bold">Bienvenido  {{ Auth::user()->name }}</h2>

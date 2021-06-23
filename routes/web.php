@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\AcademiaController;
+
 
 
 
@@ -54,5 +56,6 @@ Route::get('/crearCita/confirm',function () {
     return view('egresado.confirmar');
 });
 
-
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
+
+Route::get('/academia', [AcademiaController::class, 'egresado']);

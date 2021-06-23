@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -14,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->get();
+        $users = Empleado::orderBy('id', 'asc')->get();
 
         return view('admin.users.index',['users' => $users]);
     }

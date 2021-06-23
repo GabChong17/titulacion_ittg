@@ -20,7 +20,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         $datos['empleados']=Empleado::paginate(5);
-        return view('empleado.index', $datos);
+        return view('empleados.empleado', $datos);
     }
 
     /**
@@ -30,7 +30,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        return view('empleado.create');
+        return view('empleados.empleado');
     }
 
     /**
@@ -51,8 +51,8 @@ class EmpleadoController extends Controller
             'departamento' => 'required|string|max:255',
             'carrera' => 'required|string|max:255',
             'campus' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'telefono'=>'required|unique:users',
+            'email' => 'required|string|email|max:255|unique:empleados',
+            'telefono'=>'required|unique:empleados',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
         $mensaje=[
@@ -102,7 +102,7 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $id)
+    public function update(Request $request)
     {
 
         $campos=[
@@ -112,9 +112,9 @@ class EmpleadoController extends Controller
             'departamento' => 'required|string|max:255',
             'carrera' => 'required|string|max:255',
             'campus' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'telefono'=>'required|unique:users',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'email' => 'required|string|email|max:255|unique:empleados',
+            'telefono'=>'required|unique:empleados',
+            'password' => 'required', 'confirmed',
 
             
         ];
@@ -146,8 +146,6 @@ class EmpleadoController extends Controller
 
         return redirect('empleado')->with('mensaje','Empleado Borrado');
     }
-    public function getEmpleado()
-    {
-        return view('empleado.index');
-    }
+    //public function getEmpleado(){
+    //    return view('empleado.index');}
 }

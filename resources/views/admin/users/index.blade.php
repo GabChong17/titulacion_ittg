@@ -172,11 +172,11 @@
         <i class="fas fa-table"></i>
             Tabla Usuarios </div>
     <div class="card body">
-        <div class="table-resp">
-            <table class="table table-border" id="dataTable" width="auto" cellspacing="0" style="display:grid;">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>id</th>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
@@ -185,12 +185,15 @@
                     <th>Campus</th>
                     <th>Email</th>
                     <th>Telefono</th>
+                    <th>Roles</th>
+                    <th>Permisos</th>
+                    <th>Herramientas</th>
                 </tr>
                 </thead>
                 <tfood>
                 </tfood>
             <tbody>
-                @foreach($empleados as $user)
+                @foreach($users as $user)
             <tr>
                 <td>{{$user['id']}}</td>
                 <td>{{$user['name']}}</td>
@@ -201,6 +204,9 @@
                 <td>{{$user['campus']}}</td>
                 <td>{{$user['email']}}</td>
                 <td>{{$user['telefono']}}</td>
+                <td>Roles</td>
+                <td>Permisos</td>
+                <td>Herramientas</td>
             </tr>
                 @endforeach
             </tbody>

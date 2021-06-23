@@ -44,6 +44,8 @@ Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth
 
 Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');
 
+Route::post('/empleados', [EmpleadoController::class, 'empleado']);
+
 Route::get('/tesis', [EgresadoController::class, 'tesis']);
 Route::get('/proyecto', [EgresadoController::class, 'proyecto']);
 Route::get('/prototipo', [EgresadoController::class, 'prototipo']);

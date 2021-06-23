@@ -15,18 +15,18 @@ class CreateTramitesTable extends Migration
     {
         Schema::create('tramites', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('requisitos_id');
-            $table->unsignedBigInteger('opciones_id');
-            $table->unsignedBigInteger('egresado_id');
-            $table->unsignedBigInteger('avales_id');
-            $table->unsignedBigInteger('jurado_id');
-            $table->string('opcion');
-            $table->string('estado');
-            $table->string('liberacion');
-            $table->string('fecha_recepcion');
-            $table->string('hora_recepcion');
-            $table->string('lugar_recepcion');
-            $table->string('Foto');
+            $table->unsignedBigInteger('requisitos_id')->nullable();
+            $table->unsignedBigInteger('opciones_id')->nullable();
+            $table->unsignedBigInteger('egresado_id')->nullable();
+            $table->unsignedBigInteger('avales_id')->nullable();
+            $table->unsignedBigInteger('jurado_id')->nullable();
+            $table->string('opcion')->nullable();
+            $table->string('estado')->nullable();
+            $table->string('liberacion')->nullable();
+            $table->string('fecha_recepcion')->nullable();
+            $table->string('hora_recepcion')->nullable();
+            $table->string('lugar_recepcion')->nullable();
+            $table->string('Foto')->nullable();
           
             $table->foreign('requisitos_id')->references('id')->on('requisitos');
             $table->foreign('opciones_id')->references('id')->on('opciones');

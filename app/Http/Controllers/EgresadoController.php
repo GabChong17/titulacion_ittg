@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tramite;
 use Illuminate\Http\Request;
 
 class EgresadoController extends Controller
@@ -36,6 +37,18 @@ class EgresadoController extends Controller
         //le cambio al tramite el estado a "CITA AGENDADA"
         Tramite::insert($cita);
         
-        return redirect('/dashboard')->with('message', 'Cita guardada');  
+        return redirect('/crearCita/confirm')->with('message', 'Cita guardada');  
     }
+
+    public function crearCita (Request $request, $id) {
+        //aqui debes agregar el tramite
+        
+        $tramite = new Tramite();
+        $tramite->opcion_id= $id;
+        $tramite->egresado_id=$request->session()->get('LoggedUser');
+        $tramite->save();
+ 
+         $opcion = Opcion::find($id);
+         return view('egresado.tesis')->with('opcion',$opcion);;
+     }
 }

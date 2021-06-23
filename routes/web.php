@@ -44,3 +44,14 @@ Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('au
 Route::get('/tesis', [EgresadoController::class, 'tesis']);
 Route::get('/proyecto', [EgresadoController::class, 'proyecto']);
 Route::get('/prototipo', [EgresadoController::class, 'prototipo']);
+
+Route::POST('/documento',[EgresadoController::class, 'store' ]);
+
+
+Route::POST('/crearCita',[EgresadoController::class, 'cita' ]);
+
+Route::get('/crearCita/confirm',function () {
+    return view('egresados.confirmar');
+});
+
+Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);

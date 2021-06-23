@@ -1,0 +1,60 @@
+.font-sans.text-gray-900.antialiased {
+    float: left;
+    height: max-content;
+}
+
+.columna2-login{
+    background-image: url( "/Imagenes/artificial-intelligence-4478109.jpg");
+    background-size: cover;
+    background-position: left;
+}
+
+.logos.max-w-7xl.mx-auto.py-6.px-4.sm\:px-6.lg\:px-8 {
+    display: flex;
+    padding-bottom: 0rem;
+}
+
+.libro-img {
+    padding: 20px 20px;
+    margin: auto;
+}
+
+.globo-img {
+    padding: 20px 20px;
+    margin: auto;
+}
+
+.examen-img {
+    padding: 20px 20px;
+    margin: auto;
+}
+
+.text-content{
+    text-align: center;
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.footer.mx-auto.px-4.sm\:px-6.lg\:px-8{
+    background-color: #D0D2F2;
+    position: absolute;
+    bottom: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.footer2.mx-auto.px-4.sm\:px-6.lg\:px-8{
+    background-color: #D0D2F2;
+    position: absolute;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    font-size: 0.9rem;
+}

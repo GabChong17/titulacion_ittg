@@ -5,6 +5,7 @@ use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AcademiaController;
+use App\Http\Controllers\UsersController;
 
 
 
@@ -59,3 +60,5 @@ Route::get('/crearCita/confirm',function () {
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
 
 Route::get('/liberacionAcademia', [AcademiaController::class, 'egresado']);
+
+Route::resource('users',UsersController::class);

@@ -51,7 +51,8 @@ Route::POST('/documento',[EgresadoController::class, 'store' ]);
 Route::POST('/crearCita',[EgresadoController::class, 'cita' ]);
 
 Route::get('/crearCita/confirm',function () {
-    return view('egresados.confirmar');
+    return view('egresado.confirmar');
 });
+
 
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);

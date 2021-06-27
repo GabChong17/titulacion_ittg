@@ -17,26 +17,21 @@
     
     
     <script>
-        var documentos_subidos=false;
-
         function validar() {
     console.log( !document.getElementById('cita_d').value.length); 
-    document.getElementById("subir").disabled = !((document.getElementById('documento1').value.length)&&(document.getElementById('documento2').value.length)&&(document.getElementById('documento3').value.length));
-    if( !document.getElementById("subir").disabled)
-    {
-        documentos_subidos=true;
-        console.log("documentos_subidos"); 
-
-    }
+    document.getElementById("boton_enviar").disabled = !(( document.getElementById('cita_d').value.length  )&& (document.getElementById('fecha').value.length)&& (document.getElementById('document_1').value.length)&& (document.getElementById('document_2').value.length)&& (document.getElementById('document_3').value.length));
+    
     }
     function validar2() {
-    console.log( "va= "+documentos_subidos); 
-    if(documentos_subidos)
-    {
-    document.getElementById("boton_enviar").disabled = !((document.getElementById('cita_d').value.length)&& (document.getElementById('fecha').value.length) &&(document.getElementById('subir').disabled));
+    console.log( !document.getElementById('cita_d').value.length); 
+    document.getElementById("boton_enviar").disabled = !(( document.getElementById('cita_d').value.length  )&& (document.getElementById('fecha').value.length)&& (document.getElementById('document_8').value.length));
+    
     }
+    function validar3() {
+    console.log( !document.getElementById('cita_d').value.length); 
+    document.getElementById("boton_enviar").disabled = !(( document.getElementById('cita_d').value.length  )&& (document.getElementById('fecha').value.length)&& (document.getElementById('document_9').value.length)&& (document.getElementById('document_10').value.length)&& (document.getElementById('document_11').value.length));
+    
     }
-
 </script>
 
 @if(session()->has('message'))
@@ -77,18 +72,14 @@
         <p style="text-align:center; color: #fff;">
         <label for="documento">Agrega documento PDF para </label>
         <br>
-
-        
-        <input type="file" id="documento1" onInput="validar()" class="form-control document" name="documento" multiple>
+        <input type="file" id="" onInput="validar()" class="form-control document" name="documento" multiple>
         <br>
-        <input type="file" id="documento2" onInput="validar()" class="form-control document" name="documento" multiple>
+        <input type="file" id="" onInput="validar2()" class="form-control document" name="documento" multiple>
         <br>
-        <input type="file" id="documento3" onInput="validar()" class="form-control document" name="documento" multiple>
+        <input type="file" id="" onInput="validar3()" class="form-control document" name="documento" multiple>
      
       </p>
-        
-       <input type="submit" id="subir" disabled value="Subir" >
-       {{-- style="color:#000; border: 1px solid #fff; padding: 5px 5px; background: #fff;" --}}
+       <button type="submit" class="btn btn-primary my-4" style="color:#000; border: 1px solid #fff; padding: 5px 5px; background: #fff;">SUBIR</button> 
         </form>
 
 
@@ -103,15 +94,15 @@
                 @csrf
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='date' id="cita_d"  onInput="validar2()" class="form-control validarInput" name ="cita"/>
-                        <input type="datetime-local" id="fecha" onInput="validar2()" name="fecha_recepcion">
+                        <input type='date' id="cita_d"   class="form-control validarInput" name ="cita"/>
+                        <input type="datetime-local" id="fecha"  name="fecha_recepcion">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                 </div>         
                 <br>
-                <input type="submit" id="boton_enviar"  value="Enviar">
+                <input type="submit" id="boton_enviar" disabled value="Enviar">
                 
             </form>   
             <br>

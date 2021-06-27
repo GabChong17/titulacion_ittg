@@ -14,7 +14,7 @@ class EgresadosSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('egresados')->insert([
+        DB::table('users')->insert([
             [
                 'NoControl'=>'16270821',
                 'name'=>'Luis Gabriel',

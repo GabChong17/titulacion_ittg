@@ -10,6 +10,7 @@
 
         <form method="POST" action="{{ route('empleado') }}">
             @csrf
+
             <!-- Nombre -->
             <div>
                 <x-label for="name" :value="__('Nombre')" />

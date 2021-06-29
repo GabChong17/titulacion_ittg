@@ -9,5 +9,5 @@ class Academia extends Model
 {
     use HasFactory;
 
-    
+    protected $table='requisitos';
 }

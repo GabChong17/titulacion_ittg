@@ -10,28 +10,13 @@
             $('#table_id').DataTable();
         } );
         </script>
-        
-        <div class="container">        
-            <div class="card-body">
-            <div class="card-body">
-        
-                <table  id="academia" class="table table-striped table-bordered" style="width:80%"> 
-                    <thead class="thead-light">
-        
-                <tr>
-                    <th>Estado</th>
-                    <th>NC</th>
-                    <th>Nombre</th>
-                    <th>Carrera</th>
-                    <th>Opción</th>
-                    <th>Cita</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-        
-            <tbody>
-            
-                <tr>
+
+
+       <br><br>
+       <p style="text-align:center; color: #fff;">
+
+            <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #fff;">
+                <tr style="color: #fff;">
                     <td>Estado</td>
                     <td>NoControl</td>
                     <td>Nombre</td>
@@ -40,16 +25,27 @@
                     <td>Cita</td>
                     <td>Acciones</td>
                 </tr>
-                
-                
-            </tbody>
-        </table>
-        </div>
-        </div>
-       
-        <br><br><br><br><br><br><br><br><br><br>
+                <tr style="color: #fff;">
+                    <td data-th="Estado">Estado </td>
+                    <td data-th="NoControl">{{ Auth::user()->NoControl }}</td>
+                    <td data-th="Nombre">{{ Auth::user()->name }}</td>
+                    <td data-th="Carrera">{{ Auth::user()->carrera }}</td>
+                    <td data-th="Opción">{{ Auth::user()->planDeestudios }}</td>
+                    <td data-th="Cita">Cita</td>
+                    <td data-th="Acciones">
+                        <form method="POST" action="/protocolo" enctype="multipart/form-data"> 
+                            @csrf
+
+                            <input type="file" id="protocolo" onInput="validar()" class="form-control document" name="protocolo" multiple>
         
-        </div>
+                    </td>
+                    
+                </tr>
+            </table>
+            <input type="submit" id="subir"  value="Subir" style="width:80%; text-align:center;">
+            
+            
+    </p>
         
 
     <div class="footer2 mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,4 +53,11 @@
         <p style="text-align:center;">Tels. (961)61 5 04 61, (961)61 5 01 38, (961) 61 5 48 08</P>
     </div>
 
+    
+
 </x-app-layout>
+
+
+
+
+

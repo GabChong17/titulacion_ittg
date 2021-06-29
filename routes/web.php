@@ -59,3 +59,5 @@ Route::get('/crearCita/confirm',function () {
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
 
 Route::get('/liberacionAcademia', [AcademiaController::class, 'egresado']);
+
+Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);

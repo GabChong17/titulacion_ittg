@@ -17,6 +17,12 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <a class="enlace-23" href="{{ url('liberacion') }}">
+                        {{ __('Liberación') }}
+                    </a>
+                </div>
                 
             </div>
 

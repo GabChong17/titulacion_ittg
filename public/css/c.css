@@ -39,6 +39,10 @@
   border-radius: 9px;
 }
 
+.enlace-23{
+  padding: 0vh;
+}
+
 @media (min-width: 480px) {
   .rwd-table td:before {
     display: none;

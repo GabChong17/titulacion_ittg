@@ -9,13 +9,15 @@
         $(document).ready( function () {
             $('#table_id').DataTable();
         } );
+
         </script>
 
+        <link href="{{ asset('css/c.css') }}">
 
        <br><br>
        <p style="text-align:center; color: #fff;">
 
-            <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #fff;">
+            <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #fff;" >
                 <tr style="color: #fff;">
                     <td>Estado</td>
                     <td>NoControl</td>
@@ -47,7 +49,7 @@
             
     </p>
         
-
+<br><br>
     <div class="footer2 mx-auto px-4 sm:px-6 lg:px-8">
         <p style="text-align:center;">Carretera Panamericana Km. 1080, C.P. 29050, Apartado Postal: 599,</p>
         <p style="text-align:center;">Tels. (961)61 5 04 61, (961)61 5 01 38, (961) 61 5 48 08</P>

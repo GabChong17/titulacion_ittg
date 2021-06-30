@@ -5,7 +5,7 @@ use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AcademiaController;
-
+use App\Http\Controllers\DocumentosController;
 
 
 

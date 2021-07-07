@@ -20,7 +20,7 @@
                 <h4 class="text-center text-danger font-weight-normal">Imprime tu solicitud de Autorización y la entregara en el momento de tu cita junto con tus requistos en la división de estudios.</h4>
             </div>
     
-            
+            {{--
             <div class="container col-4">
                 <h4 class="text-center text-danger font-weight-normal">Si deseas modificar la fecha y hora de tu cita puedes hacerlo.</h4>
                 <form method="POST" class="text-center" action="/crearCita" enctype="multipart/form-data"> 
@@ -40,7 +40,7 @@
                         $('#datetimepicker1').datetimepicker({ format: 'YYYY/MM/DD HH:mm' });
                     });
                 </script>
-            </div>
+            </div>  --}}
     
         
            

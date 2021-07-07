@@ -28,10 +28,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
+
+
+
 require __DIR__.'/auth.php';
 
 
 //supongamos la ruta agregar "crear tramite" --> 'crear-tramite'
+
+//no funciona la ruta 
+Route::get('/entrada', function () {
+    return view('egresado.entrada');
+});
 
 Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 

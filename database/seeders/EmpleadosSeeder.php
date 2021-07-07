@@ -29,8 +29,8 @@ class EmpleadosSeeder extends Seeder
             ],
             [
                 'name'=>'',
-                'a_paterno'=>'',
-                'a_materno'=>'',
+                'a_paterno'=>'Gustavo',
+                'a_materno'=>'Solis',
                 'departamento'=>'',
                 'carrera'=>'',
                 'campus'=>'',

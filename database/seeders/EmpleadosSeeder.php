@@ -16,9 +16,9 @@ class EmpleadosSeeder extends Seeder
     {
         DB::table('empleados')->insert([
             [
-                'name'=>'',
-                'a_paterno'=>'',
-                'a_materno'=>'',
+                'name'=>'Manuel',
+                'a_paterno'=>'Sanchez',
+                'a_materno'=>'Rios',
                 'departamento'=>'',
                 'carrera'=>'',
                 'campus'=>'',

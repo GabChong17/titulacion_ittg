@@ -22,7 +22,7 @@ class EmpleadosSeeder extends Seeder
                 'departamento'=>'',
                 'carrera'=>'',
                 'campus'=>'',
-                'email'=>'sanchez_RiosManuel@gmail.com',
+                'email'=>'',
                 'email_verified_at'=>'',
                 'telefono'=>'',
                 'password'=> bcrypt('prueba321'), 

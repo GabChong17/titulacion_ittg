@@ -131,9 +131,9 @@ class EmpleadosSeeder extends Seeder
                 'password'=> bcrypt('prueba321'),
             ],
             [
-                'name'=>'',
-                'a_paterno'=>'',
-                'a_materno'=>'',
+                'name'=>'Manuel',
+                'a_paterno'=>'Sanchez',
+                'a_materno'=>'Rios',
                 'departamento'=>'',
                 'carrera'=>'',
                 'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
@@ -144,8 +144,8 @@ class EmpleadosSeeder extends Seeder
             ],
             [
                 'name'=>'',
-                'a_paterno'=>'',
-                'a_materno'=>'',
+                'a_paterno'=>'Gustavo',
+                'a_materno'=>'Solis',
                 'departamento'=>'',
                 'carrera'=>'',
                 'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
@@ -218,3 +218,4 @@ class EmpleadosSeeder extends Seeder
         ]);
     }
 }
+

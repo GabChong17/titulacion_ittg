@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class EgresadoController extends Controller
 {
+
+
     public function tesis()
     {
         return view('egresado.tesis');

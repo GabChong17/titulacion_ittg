@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>S.Administrador - Escritorio</title>
+    <title>División de Estudios Profesionales - Escritorio</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-users-cog"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Administrador de Sistema</div>
+                <div class="sidebar-brand-text mx-3">División de Estudios Profesionales</div>
             </a>
 
             <!-- Divider -->
@@ -48,56 +48,47 @@
                     <span>Escritorio</span></a>
             </li>
 
-            <!-- Divider -->
+            <!-- Divisor -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
+            <!-- Encabezado -->
             <div class="sidebar-heading">
-                Interface
+                Opciones de Sistema
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Petición de Aval al sistema -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Componentes</span>
+                    <span>Aval</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <h6 class="collapse-header">Solicitud de Aval</h6>
+                        <a class="collapse-item" href="buttons.html">Petición de Aval</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Petición de pase de liberación -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Pase de Liberación </span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Liberación Academica</h6>
+                        <a class="collapse-item" href="utilities-color.html">Pase de liberación</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Divider -->
+            <!-- Divisor -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">

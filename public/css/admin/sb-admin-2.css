@@ -10116,7 +10116,7 @@ a:focus {
 
 .bg-gradient-primary {
   background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-image: linear-gradient(180deg, #4e73df 10%, #3a3b45 100%);
   background-size: cover;
 }
 
@@ -11073,6 +11073,21 @@ form.user .btn-user {
   line-height: 1;
   width: 12.5rem;
 }
+
+/* CSS Adicional de Proyecto */
+
+.contenedor-titulo{
+  text-align: center;
+  display: flex;
+  box-sizing: content-box;    
+  padding: 0px 15px;
+}
+
+a.sidebar-brand.d-flex.align-items-center.justify-content-center {
+  margin: 5px 5px;
+}
+
+/* Fin CSS Adicional de Proyecto */
 
 @-webkit-keyframes noise-anim {
   0% {

@@ -219,3 +219,9 @@ class EmpleadosSeeder extends Seeder
     }
 }
 
+// División Escolar
+//Jefatura Académica
+//Academia
+//Servicios Escolares
+//Asesor
+//Supervisor

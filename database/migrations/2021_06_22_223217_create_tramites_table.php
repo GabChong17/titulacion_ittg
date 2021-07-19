@@ -30,11 +30,11 @@ class CreateTramitesTable extends Migration
           
             $table->foreign('requisitos_id')->references('id')->on('requisitos');
             $table->foreign('opciones_id')->references('id')->on('opciones');
-            $table->foreign('egresado_id')->references('id')->on('egresados');
+            $table->foreign('egresado_id')->references('id')->on('users');
             $table->foreign('avales_id')->references('id')->on('aval');
             $table->foreign('jurado_id')->references('id')->on('jurado');
            
-            $table->datetime('cita');
+            $table->datetime('cita')->nullable();
             $table->timestamps();
         });
     }

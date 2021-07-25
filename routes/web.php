@@ -40,7 +40,9 @@ Route::get('/entrada', function () {
     return view('egresado.entrada');
 });
 
-Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
+Route::resource('admin', UsersController::class);
+
+//Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
 Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');
 
@@ -69,4 +71,4 @@ Route::get('/liberacion',[AcademiaController::class, 'liberacion']);
 
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);
 
-Route::resource('users', UsersController::class);
+

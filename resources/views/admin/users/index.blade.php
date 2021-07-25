@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -206,7 +206,10 @@
                 <td>{{$user['telefono']}}</td>
                 <td>Roles</td>
                 <td>Permisos</td>
-                <td>Herramientas</td>
+                <td>
+                    <a href="/users/{{ $user['id'] }}"><i class="fa fa-eye"></i></a>
+                    <a href="/users/{{ $user['id'] }}/edit"><i class="fa fa-edit"></i></a>
+                </td>
             </tr>
                 @endforeach
             </tbody>

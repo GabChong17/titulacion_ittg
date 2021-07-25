@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AcademiaController;
 use App\Http\Controllers\DocumentosController;
+use App\Http\Controllers\UsersController;
 
 
 
@@ -27,10 +28,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-
-
-
 
 
 require __DIR__.'/auth.php';
@@ -71,3 +68,5 @@ Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
 Route::get('/liberacion',[AcademiaController::class, 'liberacion']);
 
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);
+
+Route::resource('users', UsersController::class);

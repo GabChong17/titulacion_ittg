@@ -53,16 +53,22 @@
                     <td>Nombre</td>
                     <td>Carrera</td>
                     <td>Opción</td>
+                    <td></td>
+                    <td></td>
                     <td>Cita</td>
+                    <td></td>
                     <td>Acciones</td>
                 </tr>
+                
                 <tr style="color: #fff;">
                     <td data-th="Estado">Estado </td>
                     <td data-th="NoControl">{{ Auth::user()->NoControl }}</td>
                     <td data-th="Nombre">{{ Auth::user()->name }}</td>
                     <td data-th="Carrera">{{ Auth::user()->carrera }}</td>
                     <td data-th="Opción">{{ Auth::user()->planDeestudios }}</td>
-                    <td data-th="Cita">Cita</td>
+                    @foreach ($tramites as $tramite)
+                        <td data-th="Cita">{{$tramite->cita}}</td>
+                    @endforeach
                     <td data-th="Acciones">
                         <form method="POST" action="/protocolo" enctype="multipart/form-data"> 
                             @csrf
@@ -72,6 +78,7 @@
                     </td>
                     
                 </tr>
+                
             </table>   
     </p>
     <div class="button-25">

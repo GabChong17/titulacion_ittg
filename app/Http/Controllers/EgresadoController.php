@@ -66,8 +66,9 @@ class EgresadoController extends Controller
         //actualizar el tramite para ponerle la fecha y hora       
         //detalle
         //le cambio al tramite el estado a "CITA AGENDADA"
+        $cita['egresado_id'] = Auth::id();
         Tramite::insert($cita);
-        
+
         return redirect('/crearCita/confirm')->with('message', 'Cita guardada');  
     }
 
@@ -76,7 +77,7 @@ class EgresadoController extends Controller
         
         $tramite = new Tramite();
         $tramite->opciones_id= $id;
-        $tramite->egresado_id=$request->session()->get('user');//nombre de la variable de autentificacion "user"
+        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
         $tramite->save();
  
          $opcion = Opcion::find($id);

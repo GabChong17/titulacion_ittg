@@ -20,6 +20,29 @@
                 <h4 class="text-center text-danger font-weight-normal">Imprime tu solicitud de Autorización y la entregara en el momento de tu cita junto con tus requistos en la división de estudios.</h4>
             </div>
     
+           
+                <a href="{{ url('entrada') }}" class="button" ><p>Volver al inicio</p></a>
+
+            
+            <style>
+                .button {
+                background-color: #0D2697; 
+                border: none;
+                color: white;
+                padding: 5px 22px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 15px;
+                }
+
+                .button:hover{
+                    background-color: white;   
+                    color: black;
+                }
+            </style>
+
             {{--
             <div class="container col-4">
                 <h4 class="text-center text-danger font-weight-normal">Si deseas modificar la fecha y hora de tu cita puedes hacerlo.</h4>

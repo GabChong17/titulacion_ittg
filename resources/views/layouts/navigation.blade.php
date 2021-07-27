@@ -11,25 +11,25 @@
                     </a>
                 </div>
 
+                <style>
+                    .enlace-23{
+                        padding-top: 18px;
+                    }
+                </style>
+
                 <!-- Navigation Links -->
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+                <!-- Gate para que desaparezca el botón de Dashboard -->
+                @can('cancelar-boton-dashboard', App\Models\Tramite::class)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <a class="enlace-23" href="{{ url('liberacion') }}">
-                        {{ __('Liberación') }}
-                    </a>
-                </div>
+                    @yield('breadcum')
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <a class="enlace-23" href="{{ url('entrada') }}">
-                        {{ __('Entrada') }}
-                    </a>
-                </div>
                 
             </div>
 

@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Tramite;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +27,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+    
+        //Gate para que desaparezca el botón de Dashboard
+        Gate::define('cancelar-boton-dashboard', function ($opcion) {
+            return $opcion->proceso_exitoso != NULL ;
+        });
     }
 }

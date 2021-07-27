@@ -87,7 +87,7 @@
      
       </p>
         
-       <input type="submit" id="subir" disabled value="Subir" >
+      <button  style="background-color: grey;" type="submit" id="subir" disabled >Subir</button>
        {{-- style="color:#000; border: 1px solid #fff; padding: 5px 5px; background: #fff;" --}}
         </form>
 

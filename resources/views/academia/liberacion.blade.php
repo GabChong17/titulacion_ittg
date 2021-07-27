@@ -5,6 +5,36 @@
         </h2>
     </x-slot>
 
+    @section('breadcum')
+
+        <style>
+            .ca{
+                background-color: black;
+                text-align:center;
+            }
+
+            .estado{
+                background-color: #E2E2E5;
+                width: 100px;
+            }
+
+            .estado:hover{
+                background-color: #BABABF;
+            }
+        </style>
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <a class="enlace-23" href="{{ url('entrada') }}">
+                {{ __('Inicio') }}
+            </a>
+        </div>
+
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ca">
+            <a class="enlace-23 estado" href="{{ url('liberacion') }}">
+                {{ __('Liberación') }}
+            </a>
+        </div>
+    @endsection
+
     <script>
         $(document).ready( function () {
             $('#table_id').DataTable();

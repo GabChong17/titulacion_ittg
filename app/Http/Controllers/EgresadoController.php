@@ -18,10 +18,15 @@ class EgresadoController extends Controller
         $tramite = new Tramite();
         $tramite->opciones_id=1;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+        
+        //"proceso_exisoto" es parte para hacer uso del GATE
+        $tramite->proceso_exitoso=1;
+
         $tramite->save();
  
          $opcion = Opcion::find(1);
-         return view('egresado.tesis')->with('opcion',$opcion);;
+
+         return view('egresado.tesis')->with('opcion',$opcion);
     }
 
     public function proyecto()

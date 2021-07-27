@@ -27,6 +27,7 @@ class CreateTramitesTable extends Migration
             $table->string('hora_recepcion')->nullable();
             $table->string('lugar_recepcion')->nullable();
             $table->string('Foto')->nullable();
+            $table->string('proceso_exitoso')->nullable();
           
             $table->foreign('requisitos_id')->references('id')->on('requisitos');
             $table->foreign('opciones_id')->references('id')->on('opciones');

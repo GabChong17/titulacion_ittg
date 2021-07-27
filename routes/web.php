@@ -35,7 +35,6 @@ require __DIR__.'/auth.php';
 
 //supongamos la ruta agregar "crear tramite" --> 'crear-tramite'
 
-//no funciona la ruta 
 Route::get('/entrada', function () {
     return view('egresado.entrada');
 });

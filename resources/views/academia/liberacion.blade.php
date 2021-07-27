@@ -13,7 +13,7 @@
         </script>
 
        <br><br>
-
+        <center>
        <p style="text-align:center; color: #fff;" >
 
             <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #fff;" >

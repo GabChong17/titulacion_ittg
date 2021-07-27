@@ -47,7 +47,7 @@
                     <select class="form-select" aria-label="Default select example" name="carrera" :value="{{ old('carrera') }}">
                         <option selected>Selecciona una Carrera</option>
                         <option >Sistemas Computacionales</option>
-                         <option >Logistica</option>
+                        <option >Logistica</option>
                         <option >Gestion Empresarial</option>
                         <option >Industrial</option>
                         <option >Mecanica</option>

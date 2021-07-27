@@ -157,7 +157,34 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9671060982',
                 'password'=> bcrypt('prueba123'),
+            ],        
+            [
+                'NoControl'=>'16270804',
+                'name'=>'Keyla Esmeralda',
+                'a_paterno'=>'Montejo',
+                'a_materno'=>'Vázquez',
+                'carrera'=>'Sistemas Computacionales',
+                'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
+                'planDeestudios'=>'2',
+                'email'=>'esmeraldaxdd@gmail.com',
+                'email_verified_at'=>null,
+                'telefono'=>'9613201756',
+                'password'=> bcrypt('prueba123'),
+            ],          
+            [
+                'NoControl'=>'16270784',
+                'name'=>'Rodolfo de Jesus',
+                'a_paterno'=>'Hernandez',
+                'a_materno'=>'Dominguez',
+                'carrera'=>'Sistemas Computacionales',
+                'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
+                'planDeestudios'=>'2',
+                'email'=>'rodolfodejesushernandezdomingu@gmail.com',
+                'email_verified_at'=>null,
+                'telefono'=>'9612024719',
+                'password'=> bcrypt('prueba123'),
             ],                         
+                 
 
             
               

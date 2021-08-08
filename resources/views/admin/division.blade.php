@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/division">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-chalkboard-teacher"></i>
                 </div>
@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/division">
                     <i class="fas fa-fw fa-cubes"></i>
                     <span>Escritorio</span></a>
             </li>
@@ -83,7 +83,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tramites</h6>
-                        <a class="collapse-item" href="buttons.html">Pase de liberación</a>
+                        <a class="collapse-item" href="/PaseLiberacion">Pase de liberación</a>
                         <a class="collapse-item" href="buttons.html">Pase de No inconvenencia</a>
                         <a class="collapse-item" href="buttons.html">Prog. Acto Recepcional</a>
                     </div>

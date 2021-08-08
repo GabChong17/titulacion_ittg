@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Servicios Escolares</title>
+    <title>División de Estudios Profesionales - Escritorio</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -31,19 +31,18 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/escolares">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/division">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-chalkboard-teacher"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Servicios Escolares</div>
-            </a>
-
+                <div class="sidebar-brand-text mx-3">División de Estudios Profesionales</div>
+            </a> 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/escolares">
+                <a class="nav-link" href="/division">
                     <i class="fas fa-fw fa-cubes"></i>
                     <span>Escritorio</span></a>
             </li>
@@ -53,69 +52,94 @@
 
             <!-- Encabezado -->
             <div class="sidebar-heading">
-                Tramites
+                Opciones de Sistema
             </div>
 
-            <!-- Tramites para Egresados -->
+            <!-- Peticiones al sistema -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-user-graduate"></i>
-                    <span>Egresados</span>
+                    <i class="fas fa-fw fa-paper-plane"></i>
+                    <span>Peticiones a otras Áreas</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Solicitudes</h6>
-                        <a class="collapse-item" href="/ServiciosCita">Citas</a>
-                        <a class="collapse-item" href="/NoIncoveniencia">Oficio No inconveniencia</a>
+                        <h6 class="collapse-header">Tramites</h6>
+                        <a class="collapse-item" href="buttons.html">Solicitud de Aval</a>
+                        
+                        
                     </div>
                 </div>
             </li>
 
-            <!-- Formatos -->
+            <!-- Peticiones durante proceso -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-sticky-note"></i>
-                    <span>Formatos</span>
+                    <i class="fas fa-fw fa-user-graduate"></i>
+                    <span>Proceso Egresados </span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Egresados</h6>
-                        <a class="collapse-item" href="/NotificacionJurado">Notificaciones Jurado</a>
-                        <a class="collapse-item" href="/ImprimirProtocolo">Imprimir Protocolo</a>
-                        <a class="collapse-item" href="/ImprimirJuramento">Imprimir Juramento</a>
+                        <h6 class="collapse-header">Tramites</h6>
+                        <a class="collapse-item" href="/PaseLiberacion">Pase de liberación</a>
+                        <a class="collapse-item" href="buttons.html">Pase de No inconvenencia</a>
+                        <a class="collapse-item" href="buttons.html">Prog. Acto Recepcional</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+             <!-- Encabezado -->
+             <div class="sidebar-heading">
+                Proceso de Titulación
+            </div>
+
+            <!-- Integración de Jurado -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Formatos</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Integración de Jurado</h6>
+                        <a class="collapse-item" href="login.html">Formato Egresado/Jurado</a>
                     </div>
                 </div>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-             <!-- Sidebar Message -->
-             <div class="sidebar-card d-none d-lg-flex">
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>ITTG Pro</strong> Este sistema fue creado por el Instituto Tecnologico de Tuxtla Gutierrez - TecNM</p>
-                </div>
+            </div>
 
         </ul>
         <!-- End of Sidebar -->
 
-@extends('admin.layouts.dashboard')
+    @extends('admin.layouts.dashboard')
 
-    @section('content')
+     @section('content')
 
-    <div class="contenedor-titulo">
-       <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px;">    
-       <h2 style="padding: 50px 30px;">Servicios Escolares</h2></div>
 
-    @endsection
+       <div class="contenedor-titulo">
+       {{-- <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px;"> --}}
+       <h2 style="padding: 50px 30px;">Pase de liberacion</h2></div>
+
+     @endsection
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -136,7 +160,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="route('logout')">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>

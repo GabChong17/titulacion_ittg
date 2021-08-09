@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->enum('rol', ['admin','egresado','division','jefatura','academia','escolares','asesor'])->default('egresado');
            
         });
     }

@@ -28,7 +28,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/inicio', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
@@ -42,6 +42,8 @@ Route::get('/entrada', function () {
 Route::resource('admin', UsersController::class);
 //Route::resource('indexAdmin' ,[AdminController::class, 'administrador']);
 Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
+Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
+Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
 Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');

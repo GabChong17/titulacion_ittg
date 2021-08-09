@@ -42,9 +42,9 @@ Route::get('/entrada', function () {
 Route::resource('admin', UsersController::class);
 //Route::resource('indexAdmin' ,[AdminController::class, 'administrador']);
 Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
-Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
+Route::POST('/SubProto',[AdminController::class, 'subproto']);
 Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
-Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
+Route::POST('/SubJura',[AdminController::class, 'subjura']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 

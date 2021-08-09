@@ -45,7 +45,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tabla de Empleados</span></a>
+                    <span>Escritorio</span></a>
             </li>
 
             <!-- Divider -->
@@ -163,62 +163,49 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Administrador</h1>
+    <h1 class="h3 mb-0 text-gray-800"></h1>
+
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">Nuevo Juramento de Etica</div>
+    
+              @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+              @endif
+   
+              <div class="card-body">
+                <form action="{{-- {{ route('books.st') }}  --}}" method="post" enctype="multipart/form-data">
+                @csrf
+                Titulo:
+                <br>
+                <input type="text" name="titulo" class="form-control">
+    
+                <br>
+    
+                Protocolo:
+                <br>
+                <input type="file" name="protocolo" id="">
+                <br><br>
+    
+                <input type="submit" value="Guardar " class="btn btn-success">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
 </div>
 
-<!-- Data Table  -->
 
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-table"></i>
-            Tabla Usuarios </div>
-    <div class="card body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Departamento</th>
-                    <th>Carrera</th>
-                    <th>Campus</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Roles</th>
-                    <th>Permisos</th>
-                    <th>Herramientas</th>
-                </tr>
-                </thead>
-                <tfood>
-                </tfood>
-            <tbody>
-                @foreach($users as $user)
-            <tr>
-                <td>{{$user['id']}}</td>
-                <td>{{$user['name']}}</td>
-                <td>{{$user['a_paterno']}}</td>
-                <td>{{$user['a_materno']}}</td>
-                <td>{{$user['departamento']}}</td>
-                <td>{{$user['carrera']}}</td>
-                <td>{{$user['campus']}}</td>
-                <td>{{$user['email']}}</td>
-                <td>{{$user['telefono']}}</td>
-                <td>Roles</td>
-                <td>Permisos</td>
-                <td>
-                    <a href="/users/{{ $user['id'] }}"><i class="fa fa-eye"></i></a>
-                    <a href="/users/{{ $user['id'] }}/edit"><i class="fa fa-edit"></i></a>
-                </td>
-            </tr>
-                @endforeach
-            </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 
 
 @endsection

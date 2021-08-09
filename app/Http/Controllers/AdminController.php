@@ -14,6 +14,16 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function protocolo()
+    {
+        return view('admin.subidaProtocolo');
+    }
+
+    public function juramento()
+    {
+        return view('admin.subidaJuramento');
+    }
+
     public function division()
     {
         return view('admin.division');

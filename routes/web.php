@@ -35,14 +35,14 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
-//supongamos la ruta agregar "crear tramite" --> 'crear-tramite'
-
 Route::get('/entrada', function () {
     return view('egresado.entrada');
 });
-
+//admin
 Route::resource('admin', UsersController::class);
+//Route::resource('indexAdmin' ,[AdminController::class, 'administrador']);
+Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
+Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 

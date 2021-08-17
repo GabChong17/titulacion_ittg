@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/jefatura">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-chalkboard-teacher"></i>
                 </div>
@@ -42,11 +42,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-cubes"></i>
-                    <span>Escritorio</span></a>
-            </li>
+          
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -66,7 +62,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tramites</h6>
-                        <a class="collapse-item" href="buttons.html">Solicitud de Aval</a>
+                        <a class="collapse-item" href="/jefaturaAval">Solicitud de Aval</a>
                     </div>
                 </div>
             </li>
@@ -82,9 +78,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Proceso</h6>
-                        <a class="collapse-item" href="utilities-color.html">Asesorias Finalizadas</a>
-                        <a class="collapse-item" href="utilities-border.html">Integración de Jurado</a>
-                        <a class="collapse-item" href="utilities-animation.html">Formato Integración Jurado</a>
+                        <a class="collapse-item" href="/asesoriaJefatura">Asesorias Finalizadas</a>
+                        <a class="collapse-item" href="/jefaturaIntegracion">Integración de Jurado</a>
+                        <a class="collapse-item" href="/jefaturaFormato">Formato Integración Jurado</a>
                     </div>
                 </div>
             </li>
@@ -135,8 +131,17 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                    
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();" class="btn btn-success">
+                            {{ __('Cerrar Sesión') }}
+                        </x-dropdown-link>
+                    </form>
+                    
                 </div>
             </div>
         </div>

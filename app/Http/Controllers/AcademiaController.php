@@ -16,4 +16,14 @@ class AcademiaController extends Controller
         
         return view('academia.liberacion', compact('tramites'));
     }
+
+    public function asesor()
+    {
+        return view('academia.solicitudAsesor');
+    }
+
+    public function revisor()
+    {
+        return view('academia.solicitudRevisor');
+    }
 }

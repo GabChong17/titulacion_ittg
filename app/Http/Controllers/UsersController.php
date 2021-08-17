@@ -15,9 +15,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = Empleado::orderBy('id', 'asc')->get();
+        
 
-        return view('admin.users.index',['users' => $users]);
+        return view('admin.users.index');
     }
 
     /**
@@ -86,4 +86,12 @@ class UsersController extends Controller
     {
         //
     }
+
+    public function users()
+    {
+        $users = Empleado::orderBy('id', 'asc')->get();
+
+        return view('admin.tablaUsers', ['users' => $users]);
+    }
+    
 }

@@ -15,6 +15,7 @@
                     </button>
 
                     <!-- Topbar Search -->
+                    {{--  
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -27,6 +28,7 @@
                             </div>
                         </div>
                     </form>
+                    --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -54,6 +56,26 @@
                                 </form>
                             </div>
                         </li>
+
+                        <!-- Administrador -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="retornoAdmi" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class=" fas fa-columns"></i>
+                                <!-- Contador - Alertas -->
+                                <span class="badge badge-danger badge-counter"></span>
+                            </a>
+
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header">
+                            Administrador
+                        </h6>
+                        
+                        
+                        <a class="dropdown-item text-center small text-gray-500" href="/admin">Retorno a Dashboard</a>
+                    </div>
+
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -184,11 +206,7 @@
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configuración
-                                </a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -207,13 +225,7 @@
 
 
                            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ITTG - TecNM 2021</span>
-                    </div>
-                </div>
-            </footer>
+            
             <!-- End of Footer -->
 
         </div>

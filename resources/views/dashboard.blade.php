@@ -12,7 +12,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" style="text-align:center;">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    ¡Bienvenido administrador {{ Auth::user()->name }}!
+                    ¡Bienvenido administrador, {{ Auth::user()->name }}!
                 </div>
                 <a href="admin" class="btn btn-warning">Panel de Control</a>
             </div>
@@ -65,12 +65,11 @@
     @case('division')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" style="text-align:center;">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    ¡Bienvenido division {{ Auth::user()->name }}!
+                    ¡Bienvenido Division, {{ Auth::user()->name }}!
                 </div>
-                <button>222222222</button>
-                <button>333333333</button>
+                <a href="/division" class="btn btn-warning">Division de Estudios</a>
             </div>
         </div>
     </div>
@@ -78,12 +77,11 @@
     @case('jefatura')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" style="text-align:center;">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    ¡Bienvenido jefatura {{ Auth::user()->name }}!
+                    ¡Bienvenido Jefatura, {{ Auth::user()->name }}!
                 </div>
-                <button>asdasdasdas</button>
-                <button>fasdfasdfasdfadfasdfadfasdf</button>
+                <a href="/jefatura" class="btn btn-warning">Jefatura de dpto. Academico</a>
             </div>
         </div>
     </div>

@@ -43,25 +43,27 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/admin">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tabla de Empleados</span></a>
+                <a class="nav-link" href="/TablaUsers">
+                    <i class="fas fa-address-card"></i>
+                    <span>Tabla de Usuarios</span></a>
             </li>
+            <hr class="sidebar-divider my-0">
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                ITTG
+                Administrador
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Servicios Escolares</span>
+                    <i class="fas fa-folder-plus"></i>
+                    <span>Documentos</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -72,68 +74,64 @@
                 </div>
             </li>
 
-            
-
-            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Division de Estudios</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-id-badge"></i>
+                    <span>Usuarios</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Departamento de division:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Subida de documentos:</h6>
+                        <a class="collapse-item" href="">Agregar Empleados</a>
+                        
+                       
                     </div>
                 </div>
             </li>
+
+            
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                ITTG
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            
+
+            <!-- Nav Item - Division -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="/division">
+                    <i class="fas fa-folder-minus"></i>
+                    <span>Division de Estudios</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Jefatura de departamento academico-->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link" href="/jefatura">
+                    <i class="fas fa-folder-minus"></i>
+                    <span>Jefatura de dpto. Academico</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Academia -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link" href="/academia">
+                    <i class="fas fa-folder-minus"></i>
+                    <span>Academia</span></a>
+            </li>
+
+            <!-- Nav Item - Servicios escolares -->
+            <li class="nav-item">
+                <a class="nav-link" href="/escolares">
+                    <i class="fas fa-folder-minus"></i>
+                    <span>Servicios Escolares</span></a>
             </li>
 
             <!-- Divider -->
@@ -158,70 +156,10 @@
 
     @section('content')
 
-                 <!-- Begin Page Content --> 
-                 <div class="container-fluid">
-
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Administrador</h1>
-    
-</div>
-
-<!-- Data Table  -->
-
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-table"></i>
-            Tabla Usuarios </div>
-    <div class="card body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Departamento</th>
-                    <th>Carrera</th>
-                    <th>Campus</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Roles</th>
-                    <th>Permisos</th>
-                    <th>Herramientas</th>
-                </tr>
-                </thead>
-                <tfood>
-                </tfood>
-            <tbody>
-                @foreach($users as $user)
-            <tr>
-                <td>{{$user['id']}}</td>
-                <td>{{$user['name']}}</td>
-                <td>{{$user['a_paterno']}}</td>
-                <td>{{$user['a_materno']}}</td>
-                <td>{{$user['departamento']}}</td>
-                <td>{{$user['carrera']}}</td>
-                <td>{{$user['campus']}}</td>
-                <td>{{$user['email']}}</td>
-                <td>{{$user['telefono']}}</td>
-                <td>Roles</td>
-                <td>Permisos</td>
-                <td>
-                    <a href="/users/{{ $user['id'] }}"><i class="fa fa-eye"></i></a>
-                    <a href="/users/{{ $user['id'] }}/edit"><i class="fa fa-edit"></i></a>
-                </td>
-            </tr>
-                @endforeach
-            </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-
-@endsection
+    <div class="contenedor-titulo">
+        <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px;">
+        <h2 style="padding: 50px 30px;">Administrador</h2></div>
+    @endsection
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
@@ -242,7 +180,15 @@ aria-hidden="true">
 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
 <div class="modal-footer">
 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-<a class="btn btn-primary" href="login.html">Logout</a>
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+
+    <x-dropdown-link :href="route('logout')"
+            onclick="event.preventDefault();
+                        this.closest('form').submit();" class="btn btn-success">
+        {{ __('Cerrar Sesión') }}
+    </x-dropdown-link>
+</form>
 </div>
 </div>
 </div>

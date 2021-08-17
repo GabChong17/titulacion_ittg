@@ -44,7 +44,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="/admin">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-cubes"></i>
                     <span>Escritorio</span></a>
             </li>
 
@@ -169,7 +169,7 @@
         <div class="row justify-content-center">
           <div class="col-md-8">
             <div class="card">
-              <div class="card-header">Nuevo Juramento de Etica</div>
+              <div class="card-header">Juramento de Etica</div>
     
               @if ($errors->any())
               <div class="alert alert-danger">
@@ -180,9 +180,9 @@
                 </ul>
               </div>
               @endif
-   
+    
               <div class="card-body">
-                <form action="{{-- {{ route('books.st') }}  --}}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('formatos.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 Titulo:
                 <br>
@@ -190,12 +190,12 @@
     
                 <br>
     
-                Protocolo:
+                Formato:
                 <br>
-                <input type="file" name="protocolo" id="">
+                <input type="file" name="formato" id="">
                 <br><br>
     
-                <input type="submit" value="Guardar " class="btn btn-success">
+                <input type="submit" value="Guardar" class="btn btn-success">
                 </form>
               </div>
             </div>
@@ -228,8 +228,16 @@ aria-hidden="true">
 </div>
 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
 <div class="modal-footer">
-<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-<a class="btn btn-primary" href="login.html">Logout</a>
+    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+    
+        <x-dropdown-link :href="route('logout')"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();" class="btn btn-success">
+            {{ __('Cerrar Sesión') }}
+        </x-dropdown-link>
+    </form>
 </div>
 </div>
 </div>

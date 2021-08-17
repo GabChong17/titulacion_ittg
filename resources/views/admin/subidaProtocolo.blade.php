@@ -44,7 +44,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="/admin">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-cubes"></i>
                     <span>Escritorio</span></a>
             </li>
 
@@ -232,8 +232,16 @@ aria-hidden="true">
 </div>
 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
 <div class="modal-footer">
-<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-<a class="btn btn-primary" href="login.html">Logout</a>
+    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+    
+        <x-dropdown-link :href="route('logout')"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();" class="btn btn-success">
+            {{ __('Cerrar Sesión') }}
+        </x-dropdown-link>
+    </form>
 </div>
 </div>
 </div>

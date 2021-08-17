@@ -9,6 +9,8 @@ use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ServiciosEscolaresController;
+use App\Http\Controllers\JefaturaController;
+
 
 
 
@@ -40,7 +42,7 @@ Route::get('/entrada', function () {
 });
 //admin
 Route::resource('admin', UsersController::class);
-//Route::resource('indexAdmin' ,[AdminController::class, 'administrador']);
+Route::get('/TablaUsers',[UsersController::class, 'users']);
 Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
 Route::POST('/SubProto',[AdminController::class, 'subproto']);
 Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
@@ -65,11 +67,27 @@ Route::get('/crearCita/confirm',function () {
 });
 
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
-Route::get('/liberacion',[AcademiaController::class, 'liberacion']);
+
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);
+
+//jefatura
+Route::get('/jefaturaAval',[JefaturaController::class, 'aval']);
+Route::get('/asesoriaJefatura',[JefaturaController::class, 'asesoria']);
+Route::get('/jefaturaIntegracion',[JefaturaController::class, 'integracion']);
+Route::get('/jefaturaFormato',[JefaturaController::class, 'formato']);
+
+//academia
+Route::get('/liberacion',[AcademiaController::class, 'liberacion']);
+Route::get('/academiaAsesor',[AcademiaController::class, 'asesor']);
+Route::get('/academiaRevisor',[AcademiaController::class, 'revisor']);
+
 
 //division
 Route::get('/PaseLiberacion',[DivisionController::class, 'pase']);
+Route::get('/divisionAval',[DivisionController::class, 'aval']);
+Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
+Route::get('/divisionFormato',[DivisionController::class, 'formato']);
+Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
 
 
 //servicios escolares

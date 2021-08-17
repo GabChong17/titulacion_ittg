@@ -42,11 +42,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/escolares">
-                    <i class="fas fa-fw fa-cubes"></i>
-                    <span>Escritorio</span></a>
-            </li>
+            
 
             <!-- Divisor -->
             <hr class="sidebar-divider">
@@ -111,10 +107,11 @@
 
     @section('content')
 
+    
     <div class="contenedor-titulo">
        <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px;">    
        <h2 style="padding: 50px 30px;">Servicios Escolares</h2></div>
-
+        
     @endsection
 
     <!-- Scroll to Top Button-->
@@ -135,12 +132,23 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="route('logout')">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                   
+                    <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                       onclick="event.preventDefault();
+                        this.closest('form').submit();" class="btn btn-success">
+                             {{ __('Cerrar Sesión') }}
+                             </x-dropdown-link>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    
 
     <!-- Bootstrap core JavaScript-->
     <script src="/vendor/jquery/jquery.min.js"></script>

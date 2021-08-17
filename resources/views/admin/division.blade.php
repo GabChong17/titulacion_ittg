@@ -41,12 +41,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/division">
-                    <i class="fas fa-fw fa-cubes"></i>
-                    <span>Escritorio</span></a>
-            </li>
-
+            
             <!-- Divisor -->
             <hr class="sidebar-divider">
 
@@ -65,7 +60,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tramites</h6>
-                        <a class="collapse-item" href="buttons.html">Solicitud de Aval</a>
+                        <a class="collapse-item" href="/divisionAval">Solicitud de Aval</a>
                         
                         
                     </div>
@@ -84,8 +79,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tramites</h6>
                         <a class="collapse-item" href="/PaseLiberacion">Pase de liberación</a>
-                        <a class="collapse-item" href="buttons.html">Pase de No inconvenencia</a>
-                        <a class="collapse-item" href="buttons.html">Prog. Acto Recepcional</a>
+                        <a class="collapse-item" href="/divicsionNoincoveniencia">Pase de No inconvenencia</a>
+                        <a class="collapse-item" href="/actoRecepcional">Prog. Acto Recepcional</a>
                     </div>
                 </div>
             </li>
@@ -108,7 +103,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Integración de Jurado</h6>
-                        <a class="collapse-item" href="login.html">Formato Egresado/Jurado</a>
+                        <a class="collapse-item" href="/divisionFormato">Formato Egresado/Jurado</a>
                     </div>
                 </div>
             </li>
@@ -159,8 +154,17 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
+                    
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                                     @csrf
+
+                                        <x-dropdown-link :href="route('logout')"
+                                       onclick="event.preventDefault();
+                                  this.closest('form').submit();" class="btn btn-success">
+                            {{ __('Cerrar Sesión') }}
+                            </x-dropdown-link>
+                        </form>
                 </div>
             </div>
         </div>

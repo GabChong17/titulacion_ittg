@@ -27,7 +27,7 @@ class AdminController extends Controller
 
     public function juramento()
     {
-        return view('admin.juramento');
+        return view('admin.subidaJuramento');
     }
 //prueba de subida para juramento
     public function subjura(Request $request)
@@ -46,7 +46,11 @@ class AdminController extends Controller
         return redirect()->route('admin.subidaJuramento');
 
     }
-
+   
+    public function agrega()
+    {
+        return view('admin.agregarUsers');
+    }
     public function division()
     {
         return view('admin.division');

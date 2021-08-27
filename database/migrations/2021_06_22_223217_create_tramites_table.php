@@ -36,6 +36,7 @@ class CreateTramitesTable extends Migration
             $table->foreign('jurado_id')->references('id')->on('jurado');
            
             $table->datetime('cita')->nullable();
+            $table->datetime('recepcion')->nullable();
             $table->datetime('cita_servicios')->nullable();
             $table->timestamps();
         });

@@ -16,6 +16,7 @@ class CreateDivisionsTable extends Migration
         Schema::create('divisions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->datetime('recepcion')->nullable();
         });
     }
 

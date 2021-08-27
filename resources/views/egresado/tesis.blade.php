@@ -103,8 +103,7 @@
                 @csrf
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                        {{-- <input type='date' id="cita_d"  onInput="validar2()" class="form-control validarInput" name ="cita"/> --}}
-                        <input type="datetime-local" id="cita_d" onInput="validar2()" name="cita">
+                         <input type="datetime-local" id="cita_d" onInput="validar2()" name="cita">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>

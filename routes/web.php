@@ -47,6 +47,7 @@ Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
 Route::POST('/SubProto',[AdminController::class, 'subproto']);
 Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
 Route::POST('/SubJura',[AdminController::class, 'subjura']);
+Route::get('/agregaUsers',[AdminController::class, 'agrega']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
@@ -88,6 +89,7 @@ Route::get('/divisionAval',[DivisionController::class, 'aval']);
 Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
 Route::get('/divisionFormato',[DivisionController::class, 'formato']);
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
+Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
 
 
 //servicios escolares

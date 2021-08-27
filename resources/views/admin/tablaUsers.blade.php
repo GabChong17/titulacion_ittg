@@ -32,7 +32,7 @@
                     <th>Email</th>
                     <th>Telefono</th>
                     <th>Roles</th>
-                    <th>Permisos</th>
+                    
                     <th>Herramientas</th>
                 </tr>
                 </thead>
@@ -51,7 +51,7 @@
                 <td>{{$user['email']}}</td>
                 <td>{{$user['telefono']}}</td>
                 <td>Roles</td>
-                <td>Permisos</td>
+                
                 <td>
                     <a href="/users/{{ $user['id'] }}"><i class="fa fa-eye"></i></a>
                     <a href="/users/{{ $user['id'] }}/edit"><i class="fa fa-edit"></i></a>

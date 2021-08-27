@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    @yield('css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     <title>Administrador</title>
 
     <!-- Custom fonts for this template-->
@@ -83,7 +85,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Subida de documentos:</h6>
-                        <a class="collapse-item" href="">Agregar Empleados</a>
+                        <a class="collapse-item" href="/agregaUsers">Agregar Empleados</a>
                         
                        
                     </div>
@@ -172,14 +174,14 @@ aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+<h5 class="modal-title" id="exampleModalLabel">¿Desea cerrar sesión?</h5>
 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">×</span>
 </button>
 </div>
-<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+<div class="modal-body"></div>
 <div class="modal-footer">
-<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 <form method="POST" action="{{ route('logout') }}">
     @csrf
 

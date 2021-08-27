@@ -93,5 +93,7 @@ class UsersController extends Controller
 
         return view('admin.tablaUsers', ['users' => $users]);
     }
+
+   
     
 }

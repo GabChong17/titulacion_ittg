@@ -12,6 +12,6 @@ class Tramite extends Model
     protected $table='tramites';
 
     protected $fillable = [
-        'opcion_id', 'egresado_id', 'estado', 'liberacion', 'fecha_recepcion', 'hora_recepcion', 'lugar_recepcion', 'Foto', 'cita','egresado_id'
+        'opcion_id', 'egresado_id', 'estado', 'liberacion', 'fecha_recepcion', 'hora_recepcion', 'lugar_recepcion', 'Foto', 'cita','recepcion','egresado_id'
     ];
 }

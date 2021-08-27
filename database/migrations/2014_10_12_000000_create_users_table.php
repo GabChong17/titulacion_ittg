@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->enum('rol', ['admin','egresado','division','jefatura','academia','escolares','asesor'])->default('egresado');
+            $table->enum('estado', ['Tramite_Iniciado','Cita_Agendada','Revison_Escolares','Solicitud_De_Asesores','Asesores_Asignados','Asesoria_Liberada','Docuementos_Revisados', 'No_Incoveniencia', 'Solicitud_Jurado', 'Jurado_Asignado','Acto_Agendado','Tramite_Finalizado'])->default('Tramite_Iniciado');
            
         });
     }

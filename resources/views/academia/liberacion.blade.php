@@ -35,7 +35,7 @@
         </div>
     @endsection
 
-    <script>
+        <script>
         $(document).ready( function () {
             $('#table_id').DataTable();
         } );
@@ -53,15 +53,12 @@
                     <td>Nombre</td>
                     <td>Carrera</td>
                     <td>Opción</td>
-                    <td></td>
-                    <td></td>
                     <td>Cita</td>
-                    <td></td>
                     <td>Acciones</td>
                 </tr>
                 
                 <tr style="color: #fff;">
-                    <td data-th="Estado">Estado </td>
+                    <td data-th="Estado">{{ Auth::user()->estado }} </td>
                     <td data-th="NoControl">{{ Auth::user()->NoControl }}</td>
                     <td data-th="Nombre">{{ Auth::user()->name }}</td>
                     <td data-th="Carrera">{{ Auth::user()->carrera }}</td>
@@ -69,6 +66,7 @@
                     @foreach ($tramites as $tramite)
                         <td data-th="Cita">{{$tramite->cita}}</td>
                     @endforeach
+                          
                     <td data-th="Acciones">
                         <form method="POST" action="/protocolo" enctype="multipart/form-data"> 
                             @csrf
@@ -76,6 +74,10 @@
                             <input type="file" id="protocolo" onInput="validar()" class="form-control document" name="protocolo" multiple>
         
                     </td>
+                    <td>
+                        <a href="recepcion">button<i class="fas fa-user-clock"></i></a>
+                      </td> 
+                    
                     
                 </tr>
                 

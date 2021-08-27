@@ -26,6 +26,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'gabo.pro3@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9612465121',
+                'rol' => 'admin',
+                'estado'=> 'Cita_Agendada',
                 'password'=> bcrypt('prueba123'),
             ],
             [
@@ -39,6 +41,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'L16270844@tuxtla.tecnm.mx',
                 'email_verified_at'=>null,
                 'telefono'=>'9611985948',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -52,6 +56,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'hectormartinez2v@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9671475452',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],   
             [
@@ -65,6 +71,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'gretchengalvezlaguna@hotmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9614553797',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -78,6 +86,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'victor_1996_darojo@hotmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9612284856',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -91,6 +101,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'josecastmarroquin@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9612086374',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],   
             [
@@ -104,6 +116,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'danielmontes652@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9611175328',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -117,6 +131,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'L14270782@tuxtla.tecnm.mx',
                 'email_verified_at'=>null,
                 'telefono'=>'9613138152',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -124,12 +140,14 @@ class EgresadosSeeder extends Seeder
                 'name'=>'Jeziel Adonai',
                 'a_paterno'=>'Penagos',
                 'a_materno'=>'Suarez',
-                'carrera'=>'Mecánica',
+                'carrera'=>'Mecanica',
                 'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
                 'planDeestudios'=>'1',
                 'email'=>'L17271050@tuxtla.tecnm.mx',
                 'email_verified_at'=>null,
                 'telefono'=>'9613649868',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ], 
             [
@@ -143,6 +161,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'eugeniaabelinaj@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9611010278',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -156,6 +176,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'anahi13t@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9671060982',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],        
             [
@@ -169,6 +191,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'esmeraldaxdd@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9613201756',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],          
             [
@@ -182,6 +206,8 @@ class EgresadosSeeder extends Seeder
                 'email'=>'rodolfodejesushernandezdomingu@gmail.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9612024719',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
             ],                         
                  

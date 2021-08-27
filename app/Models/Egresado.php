@@ -26,6 +26,8 @@ class Egresado extends Authenticatable
         'planDeestudios',
         'email',
         'telefono',
+        'rol',
+        'estado',
         'password',
     ];
 

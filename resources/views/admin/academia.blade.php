@@ -171,7 +171,7 @@
     <!-- Page level custom scripts -->
     <script src="/js/admin/demo/chart-area-demo.js"></script>
     <script src="/js/admin/demo/chart-pie-demo.js"></script>
-
+    @yield('js')
 </body>
 
 </html>

@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Egresado;
+use App\Models\User;
 use App\Models\Tramite;
+
 
 class AcademiaController extends Controller
 {
@@ -19,7 +22,9 @@ class AcademiaController extends Controller
 
     public function asesor()
     {
-        return view('academia.solicitudAsesor');
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('academia.solicitudAsesor', ['egresado' => $egresado]);   
     }
 
     public function revisor()

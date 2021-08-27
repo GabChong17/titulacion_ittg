@@ -6,17 +6,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Str;
+use App\Models\Egresado;
+use App\Models\User;
+use App\Models\Tramite;
 
 class JefaturaController extends Controller
 {
     public function aval()
     {
-        return view('jefatura.aval');
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('jefatura.aval', ['egresado' => $egresado]);
     }
 
     public function asesoria()
     {
-        return view('jefatura.asesoriaFinalizada');
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('jefatura.asesoriaFinalizada', ['egresado' => $egresado]);
+        
     }
 
     public function formato()
@@ -26,6 +34,8 @@ class JefaturaController extends Controller
 
     public function integracion()
     {
-        return view('jefatura.integracionjurado');
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('jefatura.integracionjurado', ['egresado' => $egresado]);   
     }
 }

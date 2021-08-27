@@ -40,7 +40,7 @@
                           {{-- header de la ventana --}}
                           <div class="modal-header">
                             <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;">IInformacion del egresado.</h4>
+                            <h4 class="modal-title" style="text-align:center; color: #8F362C;">Informacion del egresado.</h4>
                           </div>
                           {{-- contenido de la vetana --}}
                           <div class="modal-body">

@@ -944,7 +944,22 @@ class EgresadosSeeder extends Seeder
                 'rol' => 'egresado',
                 'estado'=> 'Tramite_Iniciado',
                 'password'=> bcrypt('prueba123'),
-            ],          
+            ],     
+            [
+                'NoControl'=>'18270731 ',
+                'name'=>'Nydia',
+                'a_paterno'=>'Ocaña',
+                'a_materno'=>'Cruz',
+                'carrera'=>'Logistica',
+                'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
+                'planDeestudios'=>'1',
+                'email'=>'nydia280800@gmail.com ',
+                'email_verified_at'=>null,
+                'telefono'=>'9612326405',
+                'rol' => 'egresado',
+                'estado'=> 'Tramite_Iniciado',
+                'password'=> bcrypt('prueba123'),
+            ],              
         ]);
     }
 }

@@ -41,7 +41,10 @@ Route::get('/entrada', function () {
     return view('egresado.entrada');
 });
 //admin
-Route::resource('admin', UsersController::class);
+Route::get('admin',[UsersController::class, 'index']); 
+// Route::resource('admin', UsersController::class)
+//     -middleware('AuthCheck')  
+//     -name('admi.index');
 Route::get('/TablaUsers',[UsersController::class, 'users']);
 Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
 Route::POST('/SubProto',[AdminController::class, 'subproto']);
@@ -89,6 +92,7 @@ Route::get('/divisionAval',[DivisionController::class, 'aval']);
 Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
 Route::get('/divisionFormato',[DivisionController::class, 'formato']);
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
+Route::get('/integracionJurado',[DivisionController::class, 'jurado']);
 Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
 
 

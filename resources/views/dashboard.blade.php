@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    @yield('css')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     
+    @section('css')
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+       
     <title>ITTG - TITULACION</title>
 
     <!-- Custom fonts for this template-->
@@ -89,9 +89,9 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+                
+                <p class="text-center mb-2"><strong>ITTG </strong>Proceso de titulacion</p>
+
             </div>
 
         </ul>
@@ -100,19 +100,51 @@
     @extends('admin.layouts.dashboard') <!-- Inicio Pagina de Administrador Gral.  -->
 
     @section('content')
-
-    <div class="contenedor-titulo">
-        <img src="/Imagenes/ITTG_Escudo.png" style="width: 300px; height: 300px ;">
-        <h2 style="padding: 50px 30px;"></h2>
-    </div>
+    
+    <center>
+        <p style="text-align:center; color: #190D47;" >
+    
+             <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
+                 <tr style="color: #190D47;">
+                     <td>Estado</td>
+                     <td>NoControl</td>
+                     <td>Nombre</td>
+                     <td>Carrera</td>
+                     <td>Tema</td>
+                     <td>Opción</td>
+                     
+                 </tr>
+                 
+                 <tr style="color: #190D47;">
+                     <td data-th="Estado">{{ Auth::user()->estado }} </td>
+                     <td data-th="NoControl">{{ Auth::user()->NoControl }}</td>
+                     <td data-th="Nombre">{{ Auth::user()->name }}</td>
+                     <td data-th="Carrera">{{ Auth::user()->carrera }}</td>
+                     <td data-th="Carrera">{{ Auth::user()->tema }}</td>
+                     <td data-th="Opción">{{ Auth::user()->planDeestudios }}</td>              
+                                          
+                 </tr>
+                 
+             </table>   
+     </p>
+     
     <br><br><br><br><br>
+    
+    <div class="contenedor-titulo">
+        <img src="/Imagenes/ITTG_Escudo.png" style="width: 100px; height: 100px ;">
+        <h2 style="padding: 50px 30px;">ITTG</h2>
+    </div><br>
     <div class="footer mx-auto px-4 sm:px-6 lg:px-8">
         <p style="text-align:center;">Carretera Panamericana Km. 1080, C.P. 29050, Apartado Postal: 599,</p>
         <p style="text-align:center;">Tels. (961)61 5 04 61, (961)61 5 01 38, (961) 61 5 48 08</P>
     </div>
-
-
-        
+    @endsection
+    @section('js')        
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>       
     @endsection
 
 <!-- Scroll to Top Button-->

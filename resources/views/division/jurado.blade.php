@@ -3,10 +3,12 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 
 @endsection
+
+
 @section('content')
 <div class="card">
   <div class="card-body">
-    <h2><p style="text-align:center; color: #140303;">Solicitud de Aval</p></h2>
+    <h2><p style="text-align:center; color: #140303;">Integracion Jurado</p></h2>
               <table id="usuarios" class="table table-striped ">
               <thead class= "bg-primary text-white">
               <tr>
@@ -30,65 +32,50 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    {{-- modal de recepcion --}}
-                    <a href="#aval" class="fas fa-address-card" data-toggle="modal" data-id="{{$egresado->id}}"></a>                          
-                    <div class="modal fade" id="aval">
+                    {{-- modal de vista de asesores --}}
+                    <a href="#asesores" class="fas fa-address-card" data-toggle="modal"></a>                          
+                    <div class="modal fade" id="asesores">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           {{-- header de la ventana --}}
                           <div class="modal-header">
                             <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{$egresado['NoControl']}}.</h4>
+                            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
                           </div>
                           {{-- contenido de la vetana --}}
                           <div class="modal-body">
-                            <p style="text-align:center; color: #140303;">                            
-                            <h4>Nombre:</h4>
-                            {{$egresado['name']}}<br>
-                            Requisitos entregados:
-                            <h4>Tema:</h4>
-                            {{$egresado['tema']}}<br>
-                            <h4>Docuementos:</h4>
-                            </p>                          
-                          {{-- footer de la ventana --}}
-                          <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">Solicitar asesores</button>
-                            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <p style="color: #140303;">
                             
-                          </div>
-                        </div>
-                      </div>                      
-                    </div>   
-                    
-                    {{-- modal de edit --}}
-                    <a href="#edit" class="fas fa-th-large" data-toggle="modal"></a>                          
-                    <div class="modal fade" id="edit">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {{-- header de la ventana --}}
-                          <div class="modal-header">
-                            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;">.</h4>
-                          </div>
-                          {{-- contenido de la vetana --}}
-                          <div class="modal-body">
-                            <p style="text-align:center; color: #140303;">
-                            
-                            modal
+                                <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
+                                
 
+                                <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
+                                    <tr style="color: #190D47;">
+                                        <td>Asesor</td>
+                                        <td>Revisor</td>
+                                        <td>Revisor</td>
+                                    </tr>
+                                    <tr style="color: #190D47;">
+                                        <td>Asesor</td>
+                                        <td>Revisor 1</td>
+                                        <td>Revisor 2</td>
+                                    </tr>
+                
+                                </table>  
 
                             </p>
-                           
+                          
                             
                           {{-- footer de la ventana --}}
                           <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">.</button>
+                            
                             <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             
                           </div>
                         </div>
                       </div>                      
                     </div>
+                  </td>    
                   </td>
                                          
                 </tr>
@@ -120,23 +107,5 @@ $('#usuarios').DataTable({
   
 @endsection
 
-<script >
-  var aval = document.getElementById('aval')
-  aval.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
-  var button = event.relatedTarget
-  // Extract info from data-bs-* attributes
-  var id = button.getAttribute('id')
-  // If necessary, you could initiate an AJAX request here
-  // and then do the updating in a callback.
-  //
-  // Update the modal's content.
-  var modalTitle = aval.querySelector('.modal-title')
-  var modalBodyInput = aval.querySelector('.modal-body input')
-
-  modalTitle.textContent = 'New message to ' + id
-  modalBodyInput.value = id
-})
-</script>
 
 

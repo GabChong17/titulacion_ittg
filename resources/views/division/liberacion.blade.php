@@ -18,7 +18,8 @@
                       <th>Carrera</th>
                       <th>Opcion</th>
                       <th>Recepcion</th>
-                      <th>Acciones</th>                  
+                      <th>Asesores</th>   
+                                    
                     </tr>
                     </thead>
 
@@ -29,11 +30,10 @@
                         <td>{{$egresado['NoControl']}}</td>
                         <td>{{$egresado['name']}}</td>
                         <td>{{$egresado['carrera']}}</td>
-                        <td>{{$egresado['planDeestudios']}}</td>                                                          
-                        <td></td>                                                               
+                        <td>{{$egresado['planDeestudios']}}</td>                                                                                                                       
                         <td>
                           {{-- modal de recepcion --}}
-                          <a href="#recepcion" class="fas fa-user-clock" data-toggle="modal"></a>                          
+                          <a href={{"#recepcion",$egresado->id}} class="fas fa-user-clock" data-toggle="modal"></a>                          
                           <div class="modal fade" id="recepcion">
                             <div class="modal-dialog">
                               <div class="modal-content">
@@ -44,7 +44,7 @@
                                 </div>
                                 {{-- contenido de la vetana --}}
                                 <div class="modal-body">
-                                  <h5><p style="text-align:center; color: #140303;">Primero seleccione una fecha, luego una hhora para agendar la cita.</p></h5>
+                                  <h5><p style="text-align:center; color: #140303;">Primero seleccione una fecha, luego una hora para agendar la cita.</p></h5>
                                   {{-- recepcion --}}
                                   <div class="col-md-4 text-center font-weight-bold">
                                     <div class="row text-center text-primary">
@@ -64,12 +64,12 @@
                                           </div>
                                       </div>         
                                       <br>
+                                      
                                       <input type="submit" id="boton_recepcion" class="btn btn-primary" value="Agregar">
                                       
                                   </form>   
                                    </div>
-
-                                </div>
+                                </div>                               
                                 {{-- footer de la ventana --}}
                                 <div class="modal-footer">
                                   <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -79,7 +79,51 @@
                             </div>                      
                           </div>
                         </td>
-                                               
+                        <td>
+                          {{-- modal de vista de asesores --}}
+                              <a href="#asesores" class="fas fa-address-card" data-toggle="modal"></a>                          
+                          <div class="modal fade" id="asesores">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                {{-- header de la ventana --}}
+                                <div class="modal-header">
+                                  <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
+                                </div>
+                                {{-- contenido de la vetana --}}
+                                <div class="modal-body">
+                                  <p style="color: #140303;">
+                                  
+                                      <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
+                                      
+
+                                      <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
+                                          <tr style="color: #190D47;">
+                                              <td>Asesor</td>
+                                              <td>Revisor</td>
+                                              <td>Revisor</td>
+                                          </tr>
+                                          <tr style="color: #190D47;">
+                                              <td>Asesor</td>
+                                              <td>Revisor 1</td>
+                                              <td>Revisor 2</td>
+                                          </tr>
+                      
+                                      </table>  
+
+                                  </p>
+                                
+                                  
+                                {{-- footer de la ventana --}}
+                                <div class="modal-footer">
+                                  
+                                  <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                  
+                                </div>
+                              </div>
+                            </div>                      
+                          </div>
+                        </td>                                               
                       </tr>
                       @endforeach
                     </tbody>

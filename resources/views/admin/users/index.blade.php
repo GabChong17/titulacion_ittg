@@ -77,12 +77,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoo"
+                    aria-expanded="true" aria-controls="collapseTwoo">
                     <i class="fas fa-id-badge"></i>
                     <span>Usuarios</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwoo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Subida de documentos:</h6>
                         <a class="collapse-item" href="/agregaUsers">Agregar Empleados</a>
@@ -212,6 +212,7 @@ aria-hidden="true">
 <!-- Page level custom scripts -->
 <script src="/js/admin/demo/chart-area-demo.js"></script>
 <script src="/js/admin/demo/chart-pie-demo.js"></script>
+@yield('js')
 
 </body>
 

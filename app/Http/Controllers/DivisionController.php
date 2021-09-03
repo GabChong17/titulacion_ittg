@@ -20,7 +20,7 @@ class DivisionController extends Controller
         return view('division.liberacion',compact('tramites'), ['egresado' => $egresado]);
 
     }
-    public function aval()
+    public function aval(Egresado $egresado)
     {
         $egresado = User::orderBy('id', 'asc')->get();
 
@@ -41,6 +41,12 @@ class DivisionController extends Controller
         $egresado = User::orderBy('id', 'asc')->get();
 
         return view('division.noincoveniencia', ['egresado' => $egresado]);
+    }
+    public function jurado()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('division.jurado', ['egresado' => $egresado]);
     }
     public function recepcion(Request $request)
     {

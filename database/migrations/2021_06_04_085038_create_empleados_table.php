@@ -25,6 +25,7 @@ class CreateEmpleadosTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('telefono')->unique();
             $table->string('password');
+            $table->string('roles');
             $table->rememberToken();
             $table->timestamps();
         });

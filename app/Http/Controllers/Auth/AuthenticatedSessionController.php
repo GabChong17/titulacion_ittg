@@ -36,6 +36,20 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
+    // public function store()
+    // {
+    //     if(auth()->attempt(request(['email', 'password'])) == false){
+    //         reutn back()->withErrors([
+    //             'message'=>'Valores incorrectos, porfavor intenta de nuevo'
+    //         ]);
+    //     } else{
+    //         if  (auth()->user()->rol == 'admi'){
+    //             return redirect()->route('admin');
+    //         }else {
+    //             return redirect()->to('/');
+    //         }
+    //     }       
+    // }
     /**
      * Destroy an authenticated session.
      *

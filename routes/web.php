@@ -30,16 +30,9 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/inicio', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-
 require __DIR__.'/auth.php';
 
-Route::get('/entrada', function () {
-    return view('egresado.entrada');
-});
+
 //admin
 Route::get('admin',[UsersController::class, 'index']); 
 // Route::resource('admin', UsersController::class)
@@ -54,12 +47,12 @@ Route::get('/agregaUsers',[AdminController::class, 'agrega']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
-Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');
-Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('auth');
-Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth');
-Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');
 
 //egresado
+Route::get('/inicio', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+Route::get('/liberacion',[AcademiaController::class, 'liberacion']);
 Route::get('/tesis', [EgresadoController::class, 'tesis']);
 Route::get('/proyecto', [EgresadoController::class, 'proyecto']);
 Route::get('/prototipo', [EgresadoController::class, 'prototipo']);
@@ -71,22 +64,23 @@ Route::get('/crearCita/confirm',function () {
 });
 
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
-
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);
 
 //jefatura
+Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('auth');
 Route::get('/jefaturaAval',[JefaturaController::class, 'aval']);
 Route::get('/asesoriaJefatura',[JefaturaController::class, 'asesoria']);
 Route::get('/jefaturaIntegracion',[JefaturaController::class, 'integracion']);
 Route::get('/jefaturaFormato',[JefaturaController::class, 'formato']);
 
 //academia
-Route::get('/liberacion',[AcademiaController::class, 'liberacion']);
+Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth');
 Route::get('/academiaAsesor',[AcademiaController::class, 'asesor']);
 Route::get('/academiaRevisor',[AcademiaController::class, 'revisor']);
 
 
 //division
+Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');
 Route::get('/PaseLiberacion',[DivisionController::class, 'pase']);
 Route::get('/divisionAval',[DivisionController::class, 'aval']);
 Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
@@ -97,6 +91,7 @@ Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
 
 
 //servicios escolares
+Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');
 Route::get('/ServiciosCita',[ServiciosEscolaresController::class, 'cita']);
 Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ]);
 Route::get('/NoIncoveniencia',[ServiciosEscolaresController::class, 'noincoveniencia']);

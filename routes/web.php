@@ -89,6 +89,7 @@ Route::get('/divisionFormato',[DivisionController::class, 'formato']);
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
 Route::get('/integracionJurado',[DivisionController::class, 'jurado']);
 Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
+Route::POST('/actoRecepcion',[DivisionController::class, 'actoRecepcion' ]);
 
 
 //servicios escolares

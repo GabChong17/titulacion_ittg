@@ -29,66 +29,18 @@
                   <td>{{$egresado['carrera']}}</td>
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
-                  <td>
-                    {{-- modal de recepcion --}}
-                    <a href="#aval" class="fas fa-address-card" data-toggle="modal" data-id="{{$egresado->id}}"></a>                          
-                    <div class="modal fade" id="aval">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {{-- header de la ventana --}}
-                          <div class="modal-header">
-                            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{$egresado['NoControl']}}.</h4>
-                          </div>
-                          {{-- contenido de la vetana --}}
-                          <div class="modal-body">
-                            <p style="text-align:center; color: #140303;">                            
-                            <h4>Nombre:</h4>
-                            {{$egresado['name']}}<br>
-                            Requisitos entregados:
-                            <h4>Tema:</h4>
-                            {{$egresado['tema']}}<br>
-                            <h4>Docuementos:</h4>
-                            </p>                          
-                          {{-- footer de la ventana --}}
-                          <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">Solicitar asesores</button>
-                            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            
-                          </div>
-                        </div>
-                      </div>                      
-                    </div>   
-                    
-                    {{-- modal de edit --}}
-                    <a href="#edit" class="fas fa-th-large" data-toggle="modal"></a>                          
-                    <div class="modal fade" id="edit">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {{-- header de la ventana --}}
-                          <div class="modal-header">
-                            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;">.</h4>
-                          </div>
-                          {{-- contenido de la vetana --}}
-                          <div class="modal-body">
-                            <p style="text-align:center; color: #140303;">
-                            
-                            modal
+                  <td>                  
+                    {{-- <a href="#aval" class="fas fa-address-card" data-toggle="modal" data-target="#aval-modal"></a>  --}}
 
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#aval-modal">
+                      <i class="fas fa-address-card"></I>
+                    </button>    
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                      <i class="fas fa-th-large"></I>
+                    </button>
+                               
 
-                            </p>
-                           
-                            
-                          {{-- footer de la ventana --}}
-                          <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">.</button>
-                            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            
-                          </div>
-                        </div>
-                      </div>                      
-                    </div>
+                    {{-- <a href="#edit" class="fas fa-th-large" data-toggle="modal"></a>   --}}
                   </td>
                                          
                 </tr>
@@ -101,7 +53,67 @@
           </div>
         </div>
 
+
+{{-- modal de aval --}}
+<div class="modal fade" id="aval-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{-- header de la ventana --}}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" align="center"><b>Informacion del egresado {{$egresado['name']}}.</b></h4>
+      </div>
+      {{-- contenido de la vetana --}}
+      <div class="modal-body">
+        <p style="text-align:center; color: #140303;">                            
+        <h4>Nombre:</h4>
+        {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
+        Requisitos entregados:
+        <h4>Tema:</h4>
+        {{$egresado['tema']}}<br>
+        <h4>Documentos:</h4>
+        </p> 
+          {{-- footer de la ventana --}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Solicitar asesores</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>                    
+{{-- modal de edit --}}         
+<div class="modal fade" id="edit-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{-- header de la ventana --}}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
+      </div>
+      {{-- contenido de la vetana --}}
+      
+          {{-- footer de la ventana --}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Solicitar asesores</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
+
+
+
+
+
 
 @section('js')        
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -120,7 +132,7 @@ $('#usuarios').DataTable({
   
 @endsection
 
-<script >
+{{-- <script >
   var aval = document.getElementById('aval')
   aval.addEventListener('show.bs.modal', function (event) {
   // Button that triggered the modal
@@ -137,6 +149,6 @@ $('#usuarios').DataTable({
   modalTitle.textContent = 'New message to ' + id
   modalBodyInput.value = id
 })
-</script>
+</script> --}}
 
 

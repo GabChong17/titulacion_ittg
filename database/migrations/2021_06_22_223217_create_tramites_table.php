@@ -37,6 +37,7 @@ class CreateTramitesTable extends Migration
            
             $table->datetime('cita')->nullable();
             $table->datetime('recepcion')->nullable();
+            $table->datetime('acto_recepcion')->nullable();
             $table->datetime('cita_servicios')->nullable();
             $table->timestamps();
         });

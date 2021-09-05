@@ -29,8 +29,9 @@ class DivisionController extends Controller
     public function acto()
     {
         $egresado = User::orderBy('id', 'asc')->get();
+        $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        return view('division.actorecepcional', ['egresado' => $egresado]);
+        return view('division.actorecepcional',compact('tramites'), ['egresado' => $egresado]);
     }
     public function formato()
     {
@@ -56,5 +57,14 @@ class DivisionController extends Controller
         Tramite::insert($recepcion);
 
         return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
+    }
+    public function  actoRecepcion(Request $request)
+    {
+
+        $recepcion = request()->except(['_token']);
+        $recepcion['egresado_id'] = Auth::id();
+        Tramite::insert($recepcion);
+
+        return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado');  
     }
 }

@@ -32,7 +32,9 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    modal
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#acto-modal">
+                      <i class="fas fa-user-clock"></I>
+                    </button>
                   </td>
                                          
                 </tr>
@@ -44,6 +46,63 @@
             </table>  
           </div>
         </div>
+
+        {{-- modal de acto recepcional --}}
+<div class="modal fade" id="acto-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{-- header de la ventana --}}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" align="center"><b>Agendar al egresado con Escolares..</b></h4>
+      </div>
+      {{-- contenido de la vetana --}}
+      <p style="text-align:center; color: #140303;">                            
+        <h4>Nombre:</h4>
+        {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
+        Requisitos entregados:
+        <h4>Tema:</h4>
+        {{$egresado['tema']}}<br>
+        <h4>Documentos:</h4>
+        </p> 
+      <div class="modal-body">
+          <h5><p style="text-align:center; color: #140303;">Seleccione una fecha.</p></h5>
+          {{-- recepcion --}}
+          <div class="col-md-4 text-center font-weight-bold">
+            <div class="row text-center text-primary">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    
+                    </div>
+            </div>  
+           <div class="row my-4">
+            <form method="POST" action="/actoRecepcion" enctype="multipart/form-data" > 
+              @csrf
+              <div class="form-group">
+                  <div class='input-group date' id='datetimepicker1'>
+                       <input type="datetime-local" id="acto_recepcion_d" onInput="validar2()" name="acto_recepcion">
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                  </div>
+              </div>         
+              <br>
+              
+              <input type="submit" id="boton_acto_recepcion" class="btn btn-primary" value="Solicitar Jurado">
+              
+          </form>   
+           </div>
+        </div>
+          {{-- footer de la ventana --}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection
 

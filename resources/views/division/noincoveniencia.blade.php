@@ -32,7 +32,9 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    modal
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#NoInconveniencia-modal">
+                      <i class=" fas fa-file-alt"></I>
+                    </button>
                   </td>
                                          
                 </tr>
@@ -45,6 +47,29 @@
           </div>
         </div>
 
+{{-- modal no incoveniencia --}}
+        <div class="modal fade" id="NoInconveniencia-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              {{-- header de la ventana --}}
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
+              </div>
+              {{-- contenido de la vetana --}}
+              
+                  {{-- footer de la ventana --}}
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Solicitar asesores</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 @endsection
 
 @section('js')        

@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
+
+
+
 
 class AdminController extends Controller
 {
@@ -36,9 +43,40 @@ class AdminController extends Controller
 
     }
    
-    public function agrega()
+    public function agrega2(Request $request)
     {
-        return view('admin.agregarUsers');
+        $request->validate([
+            
+            'name' => 'required|string|max:255',
+            'a_paterno' => 'required|string|max:255',
+            'a_materno' => 'required|string|max:255',
+            'rol'=>'required|string|max:255',
+            'carrera' => 'required|string|max:255',
+            'campus' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'telefono'=>'required|unique:users',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            
+        ]);
+
+        $user = User::create([
+            
+            'name' => $request->name,
+            'a_paterno'=>$request->a_paterno,
+            'a_materno'=>$request->a_materno,
+            'rol'=>$request->rol,
+            'carrera'=>$request->carrera,
+            'campus'=>$request->campus,
+            'email' => $request->email,
+            'telefono'=>$request->telefono,
+            'password' => Hash::make($request->password),
+        ]);
+        //return redirect()->back()->with('message', 'Empleado agregado.');
+        return view('admin.agregarUsers')->with('message', 'Empleado agregado.');  
+    }
+    public function agrega(Request $request)
+    {
+        return view('admin.agregarUsers');  
     }
     public function division()
     {

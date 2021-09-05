@@ -44,6 +44,7 @@ Route::POST('/SubProto',[AdminController::class, 'subproto']);
 Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
 Route::POST('/SubJura',[AdminController::class, 'subjura']);
 Route::get('/agregaUsers',[AdminController::class, 'agrega']);
+Route::POST('/agregaUsers2',[AdminController::class, 'agrega2']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 

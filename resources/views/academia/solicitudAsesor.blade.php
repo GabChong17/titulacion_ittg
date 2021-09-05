@@ -132,7 +132,8 @@
           <input type="file" id="subir" onInput="validar()" class="form-control document" name="firmas" multiple>
           <br>
           <h4>Imprimir:</h4>
-
+          <a href="#asesores">Aval de academia.</a><br>
+          <a href="#asesores">Formato de liberacion.</a>
 
           </p> 
           

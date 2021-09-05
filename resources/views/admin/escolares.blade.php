@@ -64,13 +64,13 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Solicitudes</h6>
-                        <a class="collapse-item" href="/ServiciosCita">Citas</a>
+                        {{-- <a class="collapse-item" href="/ServiciosCita">Citas</a> --}}
                         <a class="collapse-item" href="/NoIncoveniencia">Oficio No inconveniencia</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Formatos -->
+            {{-- <!-- Formatos -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -86,7 +86,7 @@
                         <a class="collapse-item" href="/ImprimirJuramento">Imprimir Juramento</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider">

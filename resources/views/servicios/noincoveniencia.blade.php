@@ -19,8 +19,8 @@
                 <th>Carrera</th>
                 <th>Opcion</th>
                 <th>Recepcion</th>
-                <th>Documentos Revisados</th>  
-                <th>No inconveniencia</th>                
+                <th>Acciones</th>  
+                              
               </tr>
               </thead>
 
@@ -34,82 +34,16 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    {{-- modal de documentos revisados --}}
-                    <a href="#documentos" class="fas fa-book" data-toggle="modal"></a>                          
-                    <div class="modal fade" id="documentos">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {{-- header de la ventana --}}
-                          <div class="modal-header">
-                            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
-                          </div>
-                          {{-- contenido de la vetana --}}
-                          <div class="modal-body">
-                            <p style="color: #140303;">
-
-                                <h4></h4>
-                                <h4>Nombre: </h4> {{$egresado['name']}}<br>
-
-                                Docuementos:<br>
-                                <a href="#asesores"> Hoja de no adeudo de material</a>
-
-                                
-
-                                
-
-                            </p>
-                          
-                            
-                          {{-- footer de la ventana --}}
-                          <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">Documentos revisados</button>
-                            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            
-                          </div>
-                        </div>
-                      </div>                      
-                    </div>
-                  </td>
-                  <td>
-                    {{-- modal de inconveniencia --}}
-                    <a href="#inconveniencia" class=" fas fa-exclamation-circle" data-toggle="modal"></a>                          
-                    <div class="modal fade" id="inconveniencia">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {{-- header de la ventana --}}
-                          <div class="modal-header">
-                            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
-                          </div>
-                          {{-- contenido de la vetana --}}
-                          <div class="modal-body">
-                            <p style="color: #140303;">
-
-                                <h4></h4>
-                                <h4>Nombre: </h4> {{$egresado['name']}}<br>
-
-                                Docuementos:<br>
-                                
-
-                                
-
-                                
-
-                            </p>
-                          
-                            
-                          {{-- footer de la ventana --}}
-                          <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">Liberar No inconveniencia</button>
-                            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            
-                          </div>
-                        </div>
-                      </div>                      
-                    </div>
-                  </td>
-                                         
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
+                      <i class="fas fa-book"></I>
+                    </button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#inconveniencia-modal">
+                      <i class="fas fa-exclamation-circle"></I>
+                    </button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#concluir-modal">
+                      <i class="fas fa-user-graduate"></I>
+                    </button>
+                  </td>                             
                 </tr>
                 @endforeach
               </tbody>
@@ -119,6 +53,99 @@
             </table>  
           </div>
         </div>
+
+        {{-- modal de documentos revisados --}} 
+<div class="modal fade" id="documentos-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{-- header de la ventana --}}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
+      </div>
+      {{-- contenido de la vetana --}}
+      <p style="text-align:center; color: #140303;">                            
+          <h4>Nombre:</h4>
+          {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
+          Requisitos entregados:
+          <h4>Tema:</h4>
+          {{$egresado['tema']}}<br>
+          <h4>Documentos:</h4>
+          </p> 
+          <a href="#asesores"> Hoja de no adeudo de material</a>
+          {{-- footer de la ventana --}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Documentos revisados</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        {{-- modal de inconveniencia --}}
+<div class="modal fade" id="inconveniencia-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{-- header de la ventana --}}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
+      </div>
+      {{-- contenido de la vetana --}}
+      <p style="text-align:center; color: #140303;">                            
+          <h4>Nombre:</h4>
+          {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
+          Requisitos entregados:
+          <h4>Tema:</h4>
+          {{$egresado['tema']}}<br>
+          <h4>Documentos:</h4>
+          </p> 
+      
+          {{-- footer de la ventana --}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Liberar No inconveniencia</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        {{-- modal de conculir --}}
+ <div class="modal fade" id="concluir-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{-- header de la ventana --}}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
+      </div>
+      {{-- contenido de la vetana --}}
+      <p style="text-align:center; color: #140303;">                            
+          <h4>Nombre:</h4>
+          {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
+          <h4>Tema:</h4>
+          {{$egresado['tema']}}<br>
+          </p> 
+          <a href="#asesores">Protocolo</a><br>
+          <a href="#asesores">Juramento</a>
+          {{-- footer de la ventana --}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Concluir</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection
 

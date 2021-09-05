@@ -78,6 +78,7 @@ Route::get('/jefaturaFormato',[JefaturaController::class, 'formato']);
 Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth');
 Route::get('/academiaAsesor',[AcademiaController::class, 'asesor']);
 Route::get('/academiaRevisor',[AcademiaController::class, 'revisor']);
+Route::POST('/firmasEscaneadas',[AcademiaController::class, 'firmas' ]);
 
 
 //division

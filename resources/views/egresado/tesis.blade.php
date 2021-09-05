@@ -72,11 +72,6 @@
                                     </div>
                                     <form method="POST" action="/documento" enctype="multipart/form-data"> 
                                         @csrf
-                                    
-                                       
-                                    
-                            
-                                    
                                     <input type="file" id="documento1" onInput="validar()" class="form-control document" name="documento" multiple>
                                     <br>
                                     <input type="file" id="documento2" onInput="validar()" class="form-control document" name="documento" multiple>

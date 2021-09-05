@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Egresado;
 use App\Models\User;
 use App\Models\Tramite;
+use App\Models\Opcion;
+
 
 
 class AcademiaController extends Controller
@@ -30,5 +32,10 @@ class AcademiaController extends Controller
     public function revisor()
     {
         return view('academia.solicitudRevisor');
+    }
+    public function firmas(Request $request)
+    {
+        $request->file('firmas')->store('firmas','public');
+        return redirect()->back()->with('message', 'Documento subido');  
     }
 }

@@ -13,7 +13,11 @@ use App\Models\Tramite;
 
 class ServiciosEscolaresController extends Controller
 {
-    
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('escolares',['only'=> ['index']]);
+    // }
     public function citaAgenda()
     {
         $cita = request()->except(['_token']);

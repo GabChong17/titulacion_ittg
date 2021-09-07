@@ -12,6 +12,11 @@ use App\Models\Tramite;
 
 class JefaturaController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('jefatura',['only'=> ['index']]);
+    // }
     public function aval()
     {
         $egresado = User::orderBy('id', 'asc')->get();

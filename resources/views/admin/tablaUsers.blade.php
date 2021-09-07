@@ -14,7 +14,7 @@
                         <th>Nombre</th>
                         {{-- <th>Apellido Paterno</th> --}}
                         {{-- <th>Apellido Materno</th> --}}
-                        <th>Departamento</th>
+                        
                         <th>Carrera</th>
                         {{-- <th>Campus</th> --}}
                         <th>Email</th>
@@ -25,52 +25,106 @@
                 </thead>
   
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($admins as $admin)
                     <tr>
-                        <td>{{$user['id']}}</td>
-                        <td>{{$user['name']}}</td>
+                        <td>{{$admin['id']}}</td>
+                        <td>{{$admin['name']}}</td>
                         {{-- <td>{{$user['a_paterno']}}</td> --}}
                         {{-- <td>{{$user['a_materno']}}</td> --}}
-                        <td>{{$user['departamento']}}</td>
-                        <td>{{$user['carrera']}}</td>
+                        
+                        <td>{{$admin['carrera']}}</td>
                         {{-- <td>{{$user['campus']}}</td> --}}
-                        <td>{{$user['email']}}</td>
-                        <td>{{$user['telefono']}}</td>
-                        <td>{{$user['roles']}}</td>
+                        <td>{{$admin['email']}}</td>
+                        <td>{{$admin['telefono']}}</td>
+                        <td>{{$admin['rol']}}</td>
                         
                         <td>
-                            {{-- modal de edit --}}
-                    <a href="#edit" class="fas fa-th-large" data-toggle="modal"></a>                          
-                    <div class="modal fade" id="edit">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {{-- header de la ventana --}}
-                          <div class="modal-header">
-                            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" style="text-align:center; color: #8F362C;">.</h4>
-                          </div>
-                          {{-- contenido de la vetana --}}
-                          <div class="modal-body">
-                            <p style="text-align:center; color: #140303;">
-                            
-                            modal
-
-
-                            </p>
-                           
-                            
-                          {{-- footer de la ventana --}}
-                          <div class="modal-footer">
-                            <button tyle="button" class="btn btn-primary">.</button>
-                            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            
-                          </div>
-                        </div>
-                      </div>                      
-                    </div>
+                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                            <i class="fas fa-th-large"></I>
+                          </button>
                         </td>
                     </tr>
                   @endforeach
+                  @foreach($divisiones as $divison)
+                  <tr>
+                      <td>{{$divison['id']}}</td>
+                      <td>{{$divison['name']}}</td>
+                      {{-- <td>{{$user['a_paterno']}}</td> --}}
+                      {{-- <td>{{$user['a_materno']}}</td> --}}
+                      
+                      <td>{{$divison['carrera']}}</td>
+                      {{-- <td>{{$user['campus']}}</td> --}}
+                      <td>{{$divison['email']}}</td>
+                      <td>{{$divison['telefono']}}</td>
+                      <td>{{$divison['rol']}}</td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                          <i class="fas fa-th-large"></I>
+                        </button>
+                      </td> 
+                  </tr>
+                @endforeach
+                @foreach($jefaturas as $jefatura)
+                  <tr>
+                      <td>{{$jefatura['id']}}</td>
+                      <td>{{$jefatura['name']}}</td>
+                      {{-- <td>{{$user['a_paterno']}}</td> --}}
+                      {{-- <td>{{$user['a_materno']}}</td> --}}
+                      
+                      <td>{{$jefatura['carrera']}}</td>
+                      {{-- <td>{{$user['campus']}}</td> --}}
+                      <td>{{$jefatura['email']}}</td>
+                      <td>{{$jefatura['telefono']}}</td>
+                      <td>{{$jefatura['rol']}}</td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                          <i class="fas fa-th-large"></I>
+                        </button>
+                      </td> 
+                  </tr>
+                @endforeach
+                @foreach($academias as $academia)
+                  <tr>
+                      <td>{{$academia['id']}}</td>
+                      <td>{{$academia['name']}}</td>
+                      {{-- <td>{{$user['a_paterno']}}</td> --}}
+                      {{-- <td>{{$user['a_materno']}}</td> --}}
+                      
+                      <td>{{$academia['carrera']}}</td>
+                      {{-- <td>{{$user['campus']}}</td> --}}
+                      <td>{{$academia['email']}}</td>
+                      <td>{{$academia['telefono']}}</td>
+                      <td>{{$academia['rol']}}</td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                          <i class="fas fa-th-large"></I>
+                        </button>
+                      </td> 
+                  </tr>
+                @endforeach
+                @foreach($escolaress as $escolares)
+                  <tr>
+                      <td>{{$escolares['id']}}</td>
+                      <td>{{$escolares['name']}}</td>
+                      {{-- <td>{{$user['a_paterno']}}</td> --}}
+                      {{-- <td>{{$user['a_materno']}}</td> --}}
+                      
+                      <td>{{$escolares['carrera']}}</td>
+                      {{-- <td>{{$user['campus']}}</td> --}}
+                      <td>{{$escolares['email']}}</td>
+                      <td>{{$escolares['telefono']}}</td>
+                      <td>{{$escolares['rol']}}</td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                          <i class="fas fa-th-large"></I>
+                        </button>
+                      </td> 
+                  </tr>
+                @endforeach
                 </tbody>
                   <tr>
                     <td colspan="2">Division de estudios</td>
@@ -78,6 +132,33 @@
               </table>  
             </div>
           </div>
+
+          {{-- modal de edit --}}
+
+          <div class="modal fade" id="edit-modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                {{-- header de la ventana --}}
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" align="center"><b>Informacion del empleado.</b></h4>
+                </div>
+                {{-- contenido de la vetana --}}
+                
+                
+                    {{-- footer de la ventana --}}
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                      <button type="submit" class="btn btn-primary">.</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        
   
   @endsection
   

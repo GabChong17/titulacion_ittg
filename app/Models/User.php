@@ -30,6 +30,9 @@ class User extends Authenticatable
         'email',
         'telefono',
         'password',
+        'tema',
+        'rol',
+        'estado',
     ];
 
     /**

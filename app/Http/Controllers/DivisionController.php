@@ -12,6 +12,11 @@ use App\Models\Tramite;
  
 class DivisionController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('division',['only'=> ['index']]);
+    // }
     public function pase()
     {
         $egresado = User::orderBy('id', 'asc')->get();
@@ -66,5 +71,12 @@ class DivisionController extends Controller
         Tramite::insert($recepcion);
 
         return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado');  
+    }
+    public function asesores()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('division.solicitarAsesor', ['egresado' => $egresado]);
+        
     }
 }

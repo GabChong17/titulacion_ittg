@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Empleado;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class AsesorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     // public function __construct()
     // {
     //     $this->middleware('auth');
-    //     $this->middleware('egresado',['only'=> ['index']]);
+    //     $this->middleware('asesor',['only'=> ['index']]);
     // }
     public function index()
     {
-        return view('admin.users.index');
+        //
     }
 
     /**
@@ -41,29 +40,27 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-       
-            
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
-        return('TEST');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
     }
@@ -72,10 +69,10 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -83,28 +80,11 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
     }
-
-    public function users()
-    {
-        // admin','egresado','division','jefatura','academia','escolares','asesor
-        $egresados = User::orderBy('id', 'asc')->get();
-        $admins = User::where('rol', 'admin')->get();
-        $divisiones = User::where('rol', 'division')->get();
-        $jefaturas = User::where('rol', 'jefatura')->get();
-        $academias = User::where('rol', 'academia')->get();
-        $escolaress = User::where('rol', 'escolares')->get();
-        $asesores = User::where('rol', 'asesor')->get();
-
-        return view('admin.tablaUsers', compact('egresados','admins','divisiones','jefaturas','academias','escolaress','asesores'));
-    }
-
-   
-    
 }

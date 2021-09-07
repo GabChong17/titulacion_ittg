@@ -15,6 +15,11 @@ use App\Models\Opcion;
 
 class AcademiaController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('academia',['only'=> ['index']]);
+    // }
     public function liberacion()
     {
         $tramites = Tramite::where('egresado_id',Auth::id())->get();

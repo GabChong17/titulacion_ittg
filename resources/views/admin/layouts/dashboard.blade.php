@@ -58,6 +58,7 @@
                         </li>
 
                         <!-- Administrador -->
+                        @can('admin', Auth::user())
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="retornoAdmi" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,13 +69,15 @@
 
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">
-                            Administrador
-                        </h6>
+                            <h6 class="dropdown-header">
+                                Administrador
+                            </h6>
+                            
+                            
+                            <a class="dropdown-item text-center small text-gray-500" href="/admin">Retorno a Dashboard</a>
                         
-                        
-                        <a class="dropdown-item text-center small text-gray-500" href="/admin">Retorno a Dashboard</a>
-                    </div>
+                        </div>
+                         @endcan
 
 
                         <!-- Nav Item - Alerts -->

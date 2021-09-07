@@ -61,6 +61,7 @@
                 <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
               </div>
               {{-- contenido de la vetana --}}
+            
               <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
                     
       

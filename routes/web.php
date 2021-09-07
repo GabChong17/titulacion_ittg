@@ -9,6 +9,7 @@ use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ServiciosEscolaresController;
+use App\Http\Controllers\InicioControler;
 use App\Http\Controllers\JefaturaController;
 
 
@@ -26,9 +27,7 @@ use App\Http\Controllers\JefaturaController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+Route::get('/' ,[InicioControler::class, 'inicio']);
 
 require __DIR__.'/auth.php';
 
@@ -85,10 +84,16 @@ Route::POST('/firmasEscaneadas',[AcademiaController::class, 'firmas' ]);
 Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');
 Route::get('/PaseLiberacion',[DivisionController::class, 'pase']);
 Route::get('/divisionAval',[DivisionController::class, 'aval']);
+
+
+Route::get('/divisionAsesores',[DivisionController::class, 'asesores']);
+
+
 Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
 Route::get('/divisionFormato',[DivisionController::class, 'formato']);
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
-Route::get('/integracionJurado',[DivisionController::class, 'jurado']);
+
+Route::get('/integracionJurado',[DivisionController::class, 'jurado']);///
 Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
 Route::POST('/actoRecepcion',[DivisionController::class, 'actoRecepcion' ]);
 

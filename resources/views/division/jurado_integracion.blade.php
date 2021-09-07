@@ -20,29 +20,36 @@
                     <br>
         
                     <table class="table">
+                      
+                      {{-- @forelse ($books as $book) --}}
                       <tr>
-                        <th>Nombre:</th>
-                        
-                        <th>Tema: </th>
+                        <th>Nombre</th>
+                        <th>Tema</th>
+                      </tr>
+                      <tr>
+                        <td>nombre</td>
+                        <td>tema</td>
+                      </tr>
+                      
+                      <tr>
+                        <th>Asesor</th>
+                        <th>Revisor</th>
+                        <th>Revisor</th>
                         
                       </tr>
-                      {{-- @forelse ($books as $book) --}}
+                      
                         <tr>
-                          <td>nombre</td>
-                          <td>tema</td>
+                            <td>Asesor</td>
+                            <td>Revisor 1</td>
+                            <td>Revisor 2</td>
                         </tr>
-                        <tr>
-                            <td>REQUISITOS ENTREGADOS:</td>
-                           
-                          </tr>
                       <tr>
-                        <td><a href="/divisionAval" class="btn btn-primary">Regresar</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Solicitar Asesores.</a></td>
+                        <td><a href="/integracionJurado" class="btn btn-primary">Regresar</a></td>
+                        
                       </tr>
                      
                         <tr>
                           <td colspan="2">Division de estudios</td>
-                          <td><a href="#" >Imprimir Solicitud de Asesores.</a></td>
                         </tr>
                       {{-- @endforelse --}}
                     </table>

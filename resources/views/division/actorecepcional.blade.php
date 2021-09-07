@@ -32,9 +32,7 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#acto-modal">
-                      <i class="fas fa-user-clock"></I>
-                    </button>
+                    <a href="/agendarActo" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
                   </td>
                                          
                 </tr>

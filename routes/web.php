@@ -87,13 +87,16 @@ Route::get('/divisionAval',[DivisionController::class, 'aval']);
 
 
 Route::get('/divisionAsesores',[DivisionController::class, 'asesores']);
-
+Route::get('/paseLiberacion',[DivisionController::class, 'pase_liberacion']);
+Route::get('/agendarActo',[DivisionController::class, 'recepcion_acto']);
 
 Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
-Route::get('/divisionFormato',[DivisionController::class, 'formato']);
+// Route::get('/divisionFormato',[DivisionController::class, 'formato']);
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
+Route::get('/integracionJurado',[DivisionController::class, 'jurado']);
+Route::get('/integracionJurado2',[DivisionController::class, 'jurado2']);
 
-Route::get('/integracionJurado',[DivisionController::class, 'jurado']);///
+
 Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
 Route::POST('/actoRecepcion',[DivisionController::class, 'actoRecepcion' ]);
 

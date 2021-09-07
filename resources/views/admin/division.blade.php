@@ -81,7 +81,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tramites</h6>
                         <a class="collapse-item" href="/PaseLiberacion">Pase de liberación</a>
-                        <a class="collapse-item" href="/divicsionNoincoveniencia">Pase de No inconvenencia</a>
+                        {{-- <a class="collapse-item" href="/divicsionNoincoveniencia">Pase de No inconvenencia</a> --}}
                         <a class="collapse-item" href="/actoRecepcional">Prog. Acto Recepcional</a>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <!-- Divisor -->
             <hr class="sidebar-divider">
 
-             <!-- Encabezado -->
+             {{-- <!-- Encabezado -->
              <div class="sidebar-heading">
                 Proceso de Titulación
             </div>
@@ -123,7 +123,7 @@
                         <a class="collapse-item" href="/divisionFormato">Formato Egresado/Jurado</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider">

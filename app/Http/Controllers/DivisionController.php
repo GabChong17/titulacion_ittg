@@ -79,4 +79,25 @@ class DivisionController extends Controller
         return view('division.solicitarAsesor', ['egresado' => $egresado]);
         
     }
+    public function pase_liberacion()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+        $tramites = Tramite::where('egresado_id',Auth::id())->get();
+
+        return view('division.paseLiberacion',compact('tramites'), ['egresado' => $egresado]);        
+    }
+    public function recepcion_acto()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('division.acto_recep', ['egresado' => $egresado]);  
+    }
+    public function jurado2()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('division.jurado_integracion', ['egresado' => $egresado]);  
+    }
+
+    
 }

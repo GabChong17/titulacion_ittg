@@ -30,11 +30,11 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>           
-                    <a href="/divisionAval" class="fas fa-address-card"></a>      
+                    <a href="/divisionAsesores" class="fas fa-address-card btn btn-info"></a>      
 
-                    <button href="/PaseLiberacion" type="button" class="btn btn-info" >
+                    {{-- <button href="/PaseLiberacion" type="button" class="btn btn-info" >
                       <i class="fas fa-address-card"></I>
-                    </button>    
+                    </button>     --}}
                     {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
                       <i class="fas fa-th-large"></I>
                     </button> --}}

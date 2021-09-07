@@ -34,7 +34,14 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
+
+                    <a href="/DocumentosRevisados" class=" btn btn-info"><i class="fas fa-book"></i></a> 
+                    <a href="/LiberarNoInconveniencia" class=" btn btn-info"><i class="fas fa-exclamation-circle"></i></a> 
+                    <a href="/Concluir" class=" btn btn-info"><i class="fas fa-user-graduate"></i></a> 
+
+
+
+                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
                       <i class="fas fa-book"></I>
                     </button>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#inconveniencia-modal">
@@ -42,7 +49,7 @@
                     </button>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#concluir-modal">
                       <i class="fas fa-user-graduate"></I>
-                    </button>
+                    </button> --}}
                   </td>                             
                 </tr>
                 @endforeach

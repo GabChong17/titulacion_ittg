@@ -45,13 +45,15 @@
                         </tr>
                       <tr>
                         <td><a href="/integracionJurado" class="btn btn-primary">Regresar</a></td>
-                        
+                        <td><a href="/integracionJurado" class="btn btn-primary">Agendar Acto</a></td>
                       </tr>
                      
                         <tr>
                           <td colspan="2">Division de estudios</td>
+                          <td><a href="/integracionJurado" >Aviso de Acto</a></td>
+                          <td><a href="/integracionJurado" >Aviso de hora y fecha</a></td>
                         </tr>
-                      {{-- @endforelse --}}
+                      
                     </table>
                     
                   </div>

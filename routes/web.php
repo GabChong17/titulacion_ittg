@@ -103,12 +103,13 @@ Route::POST('/actoRecepcion',[DivisionController::class, 'actoRecepcion' ]);
 
 //servicios escolares
 Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');
-Route::get('/ServiciosCita',[ServiciosEscolaresController::class, 'cita']);
-Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ]);
 Route::get('/NoIncoveniencia',[ServiciosEscolaresController::class, 'noincoveniencia']);
-Route::get('/NotificacionJurado',[ServiciosEscolaresController::class, 'notiJurado']);
-Route::get('/ImprimirProtocolo',[ServiciosEscolaresController::class, 'imprimirProtocolo']);
-Route::get('/ImprimirJuramento',[ServiciosEscolaresController::class, 'imprimirJuramento']);
 
+Route::get('/DocumentosRevisados',[ServiciosEscolaresController::class, 'documento']);//documento
+Route::get('/LiberarNoInconveniencia',[ServiciosEscolaresController::class, 'liberar']);//liberar
+Route::get('/Concluir',[ServiciosEscolaresController::class, 'concluir']);//concluir
+
+
+Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ]);
 
 

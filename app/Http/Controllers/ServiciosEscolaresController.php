@@ -25,13 +25,13 @@ class ServiciosEscolaresController extends Controller
         $cita['empleado_id'] = Auth::id();
         Tramite::insert($cita);
 
-        return redirect('/agendarCita')->with('message', 'Cita guardada');  
+        return redirect('/NoIncoveniencia')->with('message', 'Cita guardada');  
 
         
     }
-    public function cita()
+    public function documento()
     {
-        return view('servicios.cita');
+        return view('servicios.documento');
     }
 
     public function noincoveniencia()
@@ -42,18 +42,15 @@ class ServiciosEscolaresController extends Controller
       
     }
 
-    public function notiJurado()
+    public function liberar()
     {
-        return view('servicios.notijurado');
+        return view('servicios.liberar');
     }
     
-    public function imprimirProtocolo()
+    public function concluir()
     {
-        return view('servicios.protocolo');
+        return view('servicios.concluir');
     }
 
-    public function imprimirJuramento()
-    {
-        return view('servicios.juramento');
-    }
+    
 }

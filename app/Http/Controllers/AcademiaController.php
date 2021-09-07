@@ -34,13 +34,25 @@ class AcademiaController extends Controller
         return view('academia.solicitudAsesor', ['egresado' => $egresado]);   
     }
 
-    public function revisor()
-    {
-        return view('academia.solicitudRevisor');
-    }
     public function firmas(Request $request)
     {
         $request->file('firmas')->store('firmas','public');
-        return redirect()->back()->with('message', 'Documento subido');  
+        return redirect('/academiaAsesor')->with('message', 'Documento subido');
+        // return redirect()->back()->with('message', 'Documento subido');  
+        
+    }
+    public function asignar_asesor()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('academia.asignarAsesor', ['egresado' => $egresado]); 
+        
+    }
+    public function asesoria_liberada()
+    {
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('academia.asesorialiberada', ['egresado' => $egresado]); 
+       
     }
 }

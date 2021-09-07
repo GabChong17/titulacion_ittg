@@ -32,12 +32,17 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asignar-asesor-modal">
+                    <a href="/asesoriaLiberada" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
+                    <a href="/asignarAsesor" class=" btn btn-info"><i class="fas fa-users"></i></a> 
+                    
+
+
+                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asignar-asesor-modal">
                       <i class="fas fa-users"></I>
                     </button>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asesoria-liberada-modal">
                       <i class="fas fa-file-alt"></I>
-                    </button>
+                    </button> --}}
                   </td>
                                          
                 </tr>
@@ -134,7 +139,6 @@
           <h4>Imprimir:</h4>
           <a href="#asesores">Aval de academia.</a><br>
           <a href="#asesores">Formato de liberacion.</a>
-
           </p> 
           
       

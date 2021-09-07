@@ -76,7 +76,9 @@ Route::get('/jefaturaFormato',[JefaturaController::class, 'formato']);
 //academia
 Route::get('/academia', [AdminController::class, 'academia']) ->middleware('auth');
 Route::get('/academiaAsesor',[AcademiaController::class, 'asesor']);
-Route::get('/academiaRevisor',[AcademiaController::class, 'revisor']);
+Route::get('/asignarAsesor',[AcademiaController::class, 'asignar_asesor']);
+Route::get('/asesoriaLiberada',[AcademiaController::class, 'asesoria_liberada']);
+
 Route::POST('/firmasEscaneadas',[AcademiaController::class, 'firmas' ]);
 
 
@@ -84,18 +86,14 @@ Route::POST('/firmasEscaneadas',[AcademiaController::class, 'firmas' ]);
 Route::get('/division', [AdminController::class, 'division']) ->middleware('auth');
 Route::get('/PaseLiberacion',[DivisionController::class, 'pase']);
 Route::get('/divisionAval',[DivisionController::class, 'aval']);
-
-
 Route::get('/divisionAsesores',[DivisionController::class, 'asesores']);
 Route::get('/paseLiberacion',[DivisionController::class, 'pase_liberacion']);
 Route::get('/agendarActo',[DivisionController::class, 'recepcion_acto']);
-
 Route::get('/actoRecepcional',[DivisionController::class, 'acto']);
 // Route::get('/divisionFormato',[DivisionController::class, 'formato']);
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']);
 Route::get('/integracionJurado',[DivisionController::class, 'jurado']);
 Route::get('/integracionJurado2',[DivisionController::class, 'jurado2']);
-
 
 Route::POST('/recepcion',[DivisionController::class, 'recepcion' ]);
 Route::POST('/actoRecepcion',[DivisionController::class, 'actoRecepcion' ]);
@@ -104,11 +102,9 @@ Route::POST('/actoRecepcion',[DivisionController::class, 'actoRecepcion' ]);
 //servicios escolares
 Route::get('/escolares', [AdminController::class, 'escolares']) ->middleware('auth');
 Route::get('/NoIncoveniencia',[ServiciosEscolaresController::class, 'noincoveniencia']);
-
 Route::get('/DocumentosRevisados',[ServiciosEscolaresController::class, 'documento']);//documento
 Route::get('/LiberarNoInconveniencia',[ServiciosEscolaresController::class, 'liberar']);//liberar
 Route::get('/Concluir',[ServiciosEscolaresController::class, 'concluir']);//concluir
-
 
 Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ]);
 

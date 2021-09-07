@@ -44,12 +44,18 @@ class ServiciosEscolaresController extends Controller
 
     public function liberar()
     {
-        return view('servicios.liberar');
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('servicios.liberar', ['egresado' => $egresado]);
+        
     }
     
     public function concluir()
     {
-        return view('servicios.concluir');
+        $egresado = User::orderBy('id', 'asc')->get();
+
+        return view('servicios.concluir', ['egresado' => $egresado]);
+        
     }
 
     

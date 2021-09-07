@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Closure;
 use Illuminate\Http\Request;
 
-class InicioMidddleware
+class InicioMiddleware
 {
     /**
      * Handle an incoming request.

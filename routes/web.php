@@ -26,8 +26,8 @@ use App\Http\Controllers\JefaturaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/' ,[InicioControler::class, 'inicio']);
+Route::get('/' ,[InicioControler::class, 'inicio'])->middleware('home');
+// Route::get('/' ,[InicioControler::class, 'inicio']);
 
 require __DIR__.'/auth.php';
 

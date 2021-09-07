@@ -22,16 +22,17 @@ class AcademiaController extends Controller
     // }
     public function liberacion()
     {
+        $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
         
-        return view('academia.liberacion', compact('tramites'));
+        return view('academia.liberacion', compact('tramites', 'egresado'));
     }
 
     public function asesor()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('academia.solicitudAsesor', ['egresado' => $egresado]);   
+        return view('academia.solicitudAsesor', compact('egresado'));   
     }
 
     public function firmas(Request $request)
@@ -43,16 +44,16 @@ class AcademiaController extends Controller
     }
     public function asignar_asesor()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('academia.asignarAsesor', ['egresado' => $egresado]); 
+        return view('academia.asignarAsesor', compact('egresado'));
         
     }
     public function asesoria_liberada()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('academia.asesorialiberada', ['egresado' => $egresado]); 
+        return view('academia.asesorialiberada',compact('egresado'));
        
     }
 }

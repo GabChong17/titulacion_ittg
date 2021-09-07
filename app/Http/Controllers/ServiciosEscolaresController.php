@@ -36,25 +36,25 @@ class ServiciosEscolaresController extends Controller
 
     public function noincoveniencia()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('servicios.noincoveniencia', ['egresado' => $egresado]);
+        return view('servicios.noincoveniencia',compact('egresado'));
       
     }
 
     public function liberar()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+       $egresado = User::where('rol', 'egresado')->get();
 
-        return view('servicios.liberar', ['egresado' => $egresado]);
+        return view('servicios.liberar', compact('egresado'));
         
     }
     
     public function concluir()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('servicios.concluir', ['egresado' => $egresado]);
+        return view('servicios.concluir',compact('egresado'));
         
     }
 

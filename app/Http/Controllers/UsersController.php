@@ -105,6 +105,14 @@ class UsersController extends Controller
         return view('admin.tablaUsers', compact('egresados','admins','divisiones','jefaturas','academias','escolaress','asesores'));
     }
 
+    // public function users()
+    // {
+    //     $egresado = User::where('rol', 'egresado')->get();
+        
+
+    //     return view('admin.tablaUsers', compact('egresado'));
+    // }
+
    
     
 }

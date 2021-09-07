@@ -19,17 +19,15 @@ class JefaturaController extends Controller
     // }
     public function aval()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('jefatura.aval', ['egresado' => $egresado]);
+        return view('jefatura.aval', compact('egresado'));
     }
 
     public function asesoria()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
-
-        return view('jefatura.asesoriaFinalizada', ['egresado' => $egresado]);
-        
+        $egresado = User::where('rol', 'egresado')->get();
+        return view('jefatura.asesoriaFinalizada', compact('egresado'));
     }
 
     public function formato()
@@ -39,8 +37,8 @@ class JefaturaController extends Controller
 
     public function integracion()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('jefatura.integracionjurado', ['egresado' => $egresado]);   
+        return view('jefatura.integracionjurado', compact('egresado')); 
     }
 }

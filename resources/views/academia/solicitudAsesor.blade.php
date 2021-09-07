@@ -32,8 +32,9 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <a href="/asesoriaLiberada" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
+                    
                     <a href="/asignarAsesor" class=" btn btn-info"><i class="fas fa-users"></i></a> 
+                    <a href="/asesoriaLiberada" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
                     
 
 

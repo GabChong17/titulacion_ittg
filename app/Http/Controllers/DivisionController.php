@@ -19,24 +19,28 @@ class DivisionController extends Controller
     // }
     public function pase()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        return view('division.liberacion',compact('tramites'), ['egresado' => $egresado]);
+        return view('division.liberacion',compact('tramites', 'egresado'));
 
     }
-    public function aval(Egresado $egresado)
+
+    public function aval()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
+        
 
-        return view('division.aval', ['egresado' => $egresado]);
+        return view('division.aval', compact('egresado'));
     }
+
+
     public function acto()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        return view('division.actorecepcional',compact('tramites'), ['egresado' => $egresado]);
+        return view('division.actorecepcional',compact('tramites','egresado'));
     }
     public function formato()
     {
@@ -44,15 +48,15 @@ class DivisionController extends Controller
     }
     public function noincoveniencia()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('division.noincoveniencia', ['egresado' => $egresado]);
+        return view('division.noincoveniencia', compact('egresado'));
     }
     public function jurado()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('division.jurado', ['egresado' => $egresado]);
+        return view('division.jurado', compact('egresado'));
     }
     public function recepcion(Request $request)
     {
@@ -74,29 +78,29 @@ class DivisionController extends Controller
     }
     public function asesores()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('division.solicitarAsesor', ['egresado' => $egresado]);
+        return view('division.solicitarAsesor',  compact('egresado'));
         
     }
     public function pase_liberacion()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        return view('division.paseLiberacion',compact('tramites'), ['egresado' => $egresado]);        
+        return view('division.paseLiberacion',compact('tramites','egresado'));        
     }
     public function recepcion_acto()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('division.acto_recep', ['egresado' => $egresado]);  
+        return view('division.acto_recep', compact('egresado'));
     }
     public function jurado2()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('division.jurado_integracion', ['egresado' => $egresado]);  
+        return view('division.jurado_integracion', compact('egresado'));
     }
 
     

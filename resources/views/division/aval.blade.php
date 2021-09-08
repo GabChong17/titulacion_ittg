@@ -30,7 +30,8 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>           
-                    <a href="/divisionAsesores" class="fas fa-address-card btn btn-info"></a>      
+                    {{-- <a href="{{route('/divisionAsesores', $egresado->id)}}" class="fas fa-address-card btn btn-info"></a>       --}}
+                    <a href="/divisionAsesores/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>      
 
                     {{-- <button href="/PaseLiberacion" type="button" class="btn btn-info" >
                       <i class="fas fa-address-card"></I>

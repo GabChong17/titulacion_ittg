@@ -10,6 +10,7 @@ use App\Models\Egresado;
 use App\Models\User;
 use App\Models\Tramite;
 use App\Models\Opcion;
+use App\Models\Jurado;
 
 
 
@@ -42,17 +43,20 @@ class AcademiaController extends Controller
         // return redirect()->back()->with('message', 'Documento subido');  
         
     }
-    public function asignar_asesor()
+    public function asignar_asesor($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
+        $egresado = User::find($id);
+        $asesor = User::where('rol', 'asesor')->get();
+        $revisor = User::where('rol', 'asesor')->get();
+        $revisor2 = User::where('rol', 'asesor')->get();
+       
 
-        return view('academia.asignarAsesor', compact('egresado'));
+        return view('academia.asignarAsesor', compact('asesor','egresado','revisor','revisor2')); 
         
     }
-    public function asesoria_liberada()
+    public function asesoria_liberada($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
-
+        $egresado = User::find($id);
         return view('academia.asesorialiberada',compact('egresado'));
        
     }

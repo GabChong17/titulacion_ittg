@@ -33,8 +33,8 @@
                   <td></td>                                                               
                   <td>
                     
-                    <a href="/asignarAsesor" class=" btn btn-info"><i class="fas fa-users"></i></a> 
-                    <a href="/asesoriaLiberada" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
+                    <a href="/asignarAsesor/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-users"></i></a> 
+                    <a href="/asesoriaLiberada/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
                     
 
 

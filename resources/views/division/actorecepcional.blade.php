@@ -32,7 +32,7 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <a href="/agendarActo" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
+                    <a href="/agendarActo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
                   </td>
                                          
                 </tr>

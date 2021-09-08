@@ -56,6 +56,11 @@ class Kernel extends HttpKernel
 
         'AuthCheck'=> \App\Http\Middleware\AuthCheck::class,
         'home'=> \App\Http\Middleware\InicioMiddleware::class,
+        'egresado'=> \App\Http\Middleware\EgresadoMiddleware::class,
+        'academia'=> \App\Http\Middleware\AcademiaMiddleware::class,
+        'escolares'=> \App\Http\Middleware\EscolaresMiddleware::class,
+        'division'=> \App\Http\Middleware\DivisionMiddleware::class,
+        'jefatura'=> \App\Http\Middleware\JefaturaMiddleware::class,
       
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

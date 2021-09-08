@@ -21,6 +21,15 @@
                     
                     <table class="table">
                         <div class="modal-body">
+                          <tr>
+                            <th>Nombre</th>
+                          </tr>
+                          <tr>
+                            <td>{{$egresado->name}}</td>                            
+                          </tr>
+                          <tr>
+                            
+                            <td>
                             <h5><p style="text-align:center; color: #140303;">Primero seleccione una fecha, luego una hora para agendar la cita.</p></h5>
                             {{-- recepcion --}}
                             <div class="col-md-4 text-center font-weight-bold">
@@ -43,9 +52,9 @@
                                 <br>
                                 
                                 <input type="submit" id="boton_recepcion" class="btn btn-sm btn-danger" value="Revison Escolares">
-                                
-                                
                             </form>   
+                          </td>
+                          </tr>
                              </div>
                           </div>
                       <tr>

@@ -35,9 +35,9 @@
                   <td></td>                                                               
                   <td>
 
-                    <a href="/DocumentosRevisados" class=" btn btn-info"><i class="fas fa-book"></i></a> 
-                    <a href="/LiberarNoInconveniencia" class=" btn btn-info"><i class="fas fa-exclamation-circle"></i></a> 
-                    <a href="/Concluir" class=" btn btn-info"><i class="fas fa-user-graduate"></i></a> 
+                    <a href="/DocumentosRevisados/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-book"></i></a> 
+                    <a href="/LiberarNoInconveniencia/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-exclamation-circle"></i></a> 
+                    <a href="/Concluir/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-graduate"></i></a> 
 
 
 

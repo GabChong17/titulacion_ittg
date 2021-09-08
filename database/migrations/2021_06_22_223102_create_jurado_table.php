@@ -15,11 +15,9 @@ class CreateJuradoTable extends Migration
     {
         Schema::create('jurado', function (Blueprint $table) {
             $table->id();
-            $table->string('Presidente');
-            $table->string('Secretario');
-            $table->string('vocal');
-            $table->string('Suplente');
-            $table->string('Corroborado');
+            $table->foreignId('asesor_id')->references('id')->on('users');
+            $table->foreignId('revisor1_id')->references('id')->on('users');
+            $table->foreignId('revisor2_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

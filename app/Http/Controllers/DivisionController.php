@@ -76,16 +76,17 @@ class DivisionController extends Controller
 
         return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado');  
     }
-    public function asesores()
+    public function asesores($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
+        
+        $egresado = User::find($id);
 
         return view('division.solicitarAsesor',  compact('egresado'));
         
     }
-    public function pase_liberacion()
+    public function pase_liberacion($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
+        $egresado = User::find($id);
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
         return view('division.paseLiberacion',compact('tramites','egresado'));        
@@ -96,9 +97,9 @@ class DivisionController extends Controller
 
         return view('division.acto_recep', compact('egresado'));
     }
-    public function jurado2()
+    public function jurado2($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
+        $egresado = User::find($id);
 
         return view('division.jurado_integracion', compact('egresado'));
     }

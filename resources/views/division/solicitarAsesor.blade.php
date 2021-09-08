@@ -28,8 +28,9 @@
                       </tr>
                       {{-- @forelse ($books as $book) --}}
                         <tr>
-                          <td>nombre</td>
-                          <td>tema</td>
+                          <td>{{$egresado->name}}</td>
+                          <td>{{$egresado->tema}}</td>
+                         
                         </tr>
                         <tr>
                             <td>REQUISITOS ENTREGADOS:</td>

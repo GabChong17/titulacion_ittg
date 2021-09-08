@@ -22,8 +22,8 @@
                             <th>Tema</th>
                           </tr>
                           <tr>
-                            <td>nombre</td>
-                            <td>tema</td>
+                            <td>{{$egresado->name}}</td>
+                            <td>{{$egresado->tema}}</td>
                           </tr>
                           <tr>
                             <th>Asesor:</th>
@@ -33,25 +33,34 @@
                           <tr>
                             <td>
                             <div class="col-md-6">
-                              <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
-                                <option selected></option>
-                                <option >waza</option>                                  
+                              <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
+                                @forelse($asesor as $asesor)
+                                <option value="{{$asesor->id}}">{{$asesor->name}}</option>  
+                                    @empty
+                                    <option disable>Sin asesores disponibles</option>
+                                @endforelse                         
                              </select>
                             </div>
                             </td>
                             <td>
                             <div class="col-md-6">
                               <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
-                                <option selected></option>
-                                <option >waza</option>                                  
+                                @forelse($revisor as $revisor)
+                                <option value="{{$revisor->id}}">{{$revisor->name}}</option>  
+                                    @empty
+                                    <option disable>Sin revisores disponibles</option>
+                                @endforelse                                 
                              </select>
                             </div>
                             </td>
                             <td>
                             <div class="col-md-6">
                               <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
-                                <option selected></option>
-                                <option >waza</option>                                  
+                                @forelse($revisor2 as $revisor2)
+                                <option value="{{$revisor2->id}}">{{$revisor2->name}}</option>  
+                                    @empty
+                                    <option disable>Sin revisores disponibles</option>
+                                @endforelse                                 
                              </select>
                             </div>
                             </td>

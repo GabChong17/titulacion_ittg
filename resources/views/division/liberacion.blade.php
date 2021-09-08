@@ -35,7 +35,7 @@
                           
                         </td>
                         <td>
-                          <a href="/paseLiberacion" class="fas fa-address-card btn btn-info"></a>      
+                          <a href="/paseLiberacion/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>      
                          
                          
                         </td>                                               

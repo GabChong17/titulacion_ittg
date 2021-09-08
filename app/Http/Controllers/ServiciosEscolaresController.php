@@ -29,9 +29,10 @@ class ServiciosEscolaresController extends Controller
 
         
     }
-    public function documento()
+    public function documento($id)
     {
-        return view('servicios.documento');
+        $egresado = User::find($id);
+        return view('servicios.documento', compact('egresado'));
     }
 
     public function noincoveniencia()
@@ -42,17 +43,17 @@ class ServiciosEscolaresController extends Controller
       
     }
 
-    public function liberar()
+    public function liberar($id)
     {
-       $egresado = User::where('rol', 'egresado')->get();
+       $egresado = User::find($id);
 
         return view('servicios.liberar', compact('egresado'));
         
     }
     
-    public function concluir()
+    public function concluir($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
+        $egresado = User::find($id);
 
         return view('servicios.concluir',compact('egresado'));
         

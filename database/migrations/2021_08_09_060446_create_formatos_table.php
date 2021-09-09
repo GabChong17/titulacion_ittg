@@ -15,7 +15,7 @@ class CreateFormatosTable extends Migration
     {
         Schema::create('formatos',  function (Blueprint $table) {
             $table->id();
-            $table->uuid(column:'uuid');
+            //$table->uuid(column:'uuid');
             $table->string('titulo');
             $table->string('formato')->nullable();
             $table->timestamps();

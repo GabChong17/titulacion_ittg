@@ -55,4 +55,9 @@ class Egresado extends Authenticatable
         return $this->belongsTo('App\Models\Plan','planDeestudios','id');
 
     }
+    public function jurado()
+    {
+        return $this->hasMany('App\Models\Jurado');
+
+    }
 }

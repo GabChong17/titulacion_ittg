@@ -13,7 +13,11 @@ use App\Models\Tramite;
 
 class ServiciosEscolaresController extends Controller
 {
-    
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('escolares',['only'=> ['index']]);
+    // }
     public function citaAgenda()
     {
         $cita = request()->except(['_token']);
@@ -21,35 +25,39 @@ class ServiciosEscolaresController extends Controller
         $cita['empleado_id'] = Auth::id();
         Tramite::insert($cita);
 
-        return redirect('/agendarCita')->with('message', 'Cita guardada');  
+        return redirect('/NoIncoveniencia')->with('message', 'Cita guardada');  
 
         
     }
-    public function cita()
+    public function documento($id)
     {
-        return view('servicios.cita');
+        $egresado = User::find($id);
+        return view('servicios.documento', compact('egresado'));
     }
 
     public function noincoveniencia()
     {
-        $egresado = User::orderBy('id', 'asc')->get();
+        $egresado = User::where('rol', 'egresado')->get();
 
-        return view('servicios.noincoveniencia', ['egresado' => $egresado]);
+        return view('servicios.noincoveniencia',compact('egresado'));
       
     }
 
-    public function notiJurado()
+    public function liberar($id)
     {
-        return view('servicios.notijurado');
+       $egresado = User::find($id);
+
+        return view('servicios.liberar', compact('egresado'));
+        
     }
     
-    public function imprimirProtocolo()
+    public function concluir($id)
     {
-        return view('servicios.protocolo');
+        $egresado = User::find($id);
+
+        return view('servicios.concluir',compact('egresado'));
+        
     }
 
-    public function imprimirJuramento()
-    {
-        return view('servicios.juramento');
-    }
+    
 }

@@ -29,18 +29,17 @@
                   <td>{{$egresado['carrera']}}</td>
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
-                  <td>                  
-                    {{-- <a href="#aval" class="fas fa-address-card" data-toggle="modal" data-target="#aval-modal"></a>  --}}
+                  <td>           
+                    {{-- <a href="{{route('/divisionAsesores', $egresado->id)}}" class="fas fa-address-card btn btn-info"></a>       --}}
+                    <a href="/divisionAsesores/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>      
 
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#aval-modal">
+                    {{-- <button href="/PaseLiberacion" type="button" class="btn btn-info" >
                       <i class="fas fa-address-card"></I>
-                    </button>    
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                    </button>     --}}
+                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
                       <i class="fas fa-th-large"></I>
-                    </button>
+                    </button> --}}
                                
-
-                    {{-- <a href="#edit" class="fas fa-th-large" data-toggle="modal"></a>   --}}
                   </td>
                                          
                 </tr>
@@ -110,11 +109,6 @@
 </div>
 @endsection
 
-
-
-
-
-
 @section('js')        
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -128,27 +122,22 @@ $('#usuarios').DataTable({
   "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
 });
 });
+
+// $(document).ready(function() {
+//   Console.log('test');
+
+// });
+
+    $('.prueba').on('click',function(){
+      Console.log('test');
+
+    });
   </script>
+
+  
   
 @endsection
 
-{{-- <script >
-  var aval = document.getElementById('aval')
-  aval.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
-  var button = event.relatedTarget
-  // Extract info from data-bs-* attributes
-  var id = button.getAttribute('id')
-  // If necessary, you could initiate an AJAX request here
-  // and then do the updating in a callback.
-  //
-  // Update the modal's content.
-  var modalTitle = aval.querySelector('.modal-title')
-  var modalBodyInput = aval.querySelector('.modal-body input')
 
-  modalTitle.textContent = 'New message to ' + id
-  modalBodyInput.value = id
-})
-</script> --}}
 
 

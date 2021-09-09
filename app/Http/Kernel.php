@@ -52,8 +52,16 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $routeMiddleware = [
+    protected $routeMiddleware = [   
+
         'AuthCheck'=> \App\Http\Middleware\AuthCheck::class,
+        'home'=> \App\Http\Middleware\InicioMiddleware::class,
+        'egresado'=> \App\Http\Middleware\EgresadoMiddleware::class,
+        'academia'=> \App\Http\Middleware\AcademiaMiddleware::class,
+        'escolares'=> \App\Http\Middleware\EscolaresMiddleware::class,
+        'division'=> \App\Http\Middleware\DivisionMiddleware::class,
+        'jefatura'=> \App\Http\Middleware\JefaturaMiddleware::class,
+      
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -63,5 +71,13 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        // 'egresado' => \App\Http\Middleware\Egresado::class,//
+        // 'administrador' => \App\Http\Middleware\Administrador::class,//
+        // 'division' => \App\Http\Middleware\Division::class,//
+        // 'jefatura' => \App\Http\Middleware\Jefatura::class,//
+        // 'academia' => \App\Http\Middleware\Academia::class,//
+        // 'escolares' => \App\Http\Middleware\Escolares::class,//
+        // 'asesor' => \App\Http\Middleware\Asesor::class,
     ];
 }

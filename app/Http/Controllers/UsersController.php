@@ -13,6 +13,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('egresado',['only'=> ['index']]);
+    // }
     public function index()
     {
         return view('admin.users.index');
@@ -88,10 +93,25 @@ class UsersController extends Controller
 
     public function users()
     {
-        $users = Empleado::orderBy('id', 'asc')->get();
+        // admin','egresado','division','jefatura','academia','escolares','asesor
+        $egresados = User::orderBy('id', 'asc')->get();
+        $admins = User::where('rol', 'admin')->get();
+        $divisiones = User::where('rol', 'division')->get();
+        $jefaturas = User::where('rol', 'jefatura')->get();
+        $academias = User::where('rol', 'academia')->get();
+        $escolaress = User::where('rol', 'escolares')->get();
+        $asesores = User::where('rol', 'asesor')->get();
 
-        return view('admin.tablaUsers', ['users' => $users]);
+        return view('admin.tablaUsers', compact('egresados','admins','divisiones','jefaturas','academias','escolaress','asesores'));
     }
+
+    // public function users()
+    // {
+    //     $egresado = User::where('rol', 'egresado')->get();
+        
+
+    //     return view('admin.tablaUsers', compact('egresado'));
+    // }
 
    
     

@@ -13,6 +13,8 @@ class EgresadoController extends Controller
 {
 
 
+    
+
     public function tesis()
     {
         $tramite = new Tramite();

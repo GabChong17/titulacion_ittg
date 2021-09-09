@@ -32,9 +32,11 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asesores-modal">
+
+                    <a href="/integracionJurado2/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-address-card"></i></a>   
+                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asesores-modal">
                       <i class="fas fa-address-card"></I>
-                    </button>
+                    </button> --}}
                     
                   </td>    
                   </td>
@@ -61,6 +63,7 @@
                 <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
               </div>
               {{-- contenido de la vetana --}}
+            
               <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
                     
       

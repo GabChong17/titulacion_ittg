@@ -17,6 +17,11 @@ use Illuminate\Auth\Events\Registered;
 class AdminController extends Controller
 {
 
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('administrador',['only'=> ['index']]);
+    // }
     public function index()
     {
         return view('admin.index');

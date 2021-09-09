@@ -35,12 +35,8 @@
                           
                         </td>
                         <td>
-                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#recepcion-modal">
-                            <i class="fas fa-user-clock"></I>
-                          </button>
-                          {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asesores-modal">
-                            <i class="fas fa-address-card"></I>
-                          </button> --}}
+                          <a href="/paseLiberacion/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>      
+                         
                          
                         </td>                                               
                       </tr>

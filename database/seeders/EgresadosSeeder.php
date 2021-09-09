@@ -15,6 +15,23 @@ class EgresadosSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+
+            [
+                'NoControl'=>'16270844',
+                'name'=>'Mario ',
+                'a_paterno'=>'Vazquez',
+                'a_materno'=>'Garcia',
+                'carrera'=>'Sistemas Computacionales',
+                'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
+                'planDeestudios'=>'1',
+                'tema'=>'proyecto 2',
+                'email'=>'L16270844@tuxtla.tecnm.mx',
+                'email_verified_at'=>null,
+                'telefono'=>'9611985948',
+                'rol' => 'admin',
+                'estado'=> 'Tramite_Iniciado',
+                'password'=> bcrypt('prueba123'),
+            ],  
             
             [
                 'NoControl'=>'16270844',

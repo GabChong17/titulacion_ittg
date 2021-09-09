@@ -1,29 +1,29 @@
 @extends('dashboard')
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+@endsection
 @section('content')
-
-<script>
-    $(document).ready( function () {
-        $('#table_id').DataTable();
-    } );
-
-    </script>
 
    <br><br>
     <center>
    <p style="text-align:center; color: #190D47;" >
 
-        <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
-            <tr style="color: #190D47;">
-                <td>Estado</td>
-                <td>NoControl</td>
-                <td>Nombre</td>
-                <td>Carrera</td>
-                <td>Opción</td>
-                <td>Cita</td>
-                <td>Acciones</td>
+    <div class="card">
+      <div class="card-body">
+        <h2><p style="text-align:center; color: #140303;">Egresado</p></h2>
+                  <table id="usuarios" class="table table-striped ">
+                  <thead class= "bg-primary text-white">
+            <tr >
+                <th>Estado</th>
+                <th>NoControl</th>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Opción</th>
+                <th>Cita</th>
+                <th>Acciones</th>
             </tr>
-            
-            <tr style="color: #190D47;">
+          </thead>
+            <tr>
                 <td data-th="Estado">{{ Auth::user()->estado }} </td>
                 <td data-th="NoControl">{{ Auth::user()->NoControl }}</td>
                 <td data-th="Nombre">{{ Auth::user()->name }}</td>
@@ -83,7 +83,9 @@
                 
             </tr>
             
-        </table>   
+        </table>  
+      </div>
+    </div>  
 </p>
 <div class="button-25">
 <input type="submit" id="subir"  value="Subir"></div>
@@ -91,3 +93,19 @@
 
         
     @endsection
+    @section('js')        
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+  
+    <script>
+      $(document).ready(function() {
+  $('#usuarios').DataTable({
+    "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
+  });
+  });
+    </script>
+    
+  @endsection

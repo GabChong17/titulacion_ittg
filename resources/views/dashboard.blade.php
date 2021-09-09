@@ -113,7 +113,7 @@
             </div><br>
           </div>
           <div class="bottom">
-            <p><span>Estado:  </span>{{ Auth::user()->estado }}</p>
+            <p><span>Estado: </span>{{ Auth::user()->estado }}</p>
             <p><span>NoControl:  </span>{{ Auth::user()->NoControl }}</p>
             <p><span>Nombre:  </span>{{ Auth::user()->name }}</p>
             <p><span>Carrera:  </span>Ing. {{ Auth::user()->carrera }}</p>

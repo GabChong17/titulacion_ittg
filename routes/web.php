@@ -62,7 +62,7 @@ Route::get('/crearCita/confirm',function () {
     return view('egresado.confirmar');
 });
 
-Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
+Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita'])->middleware('egresado');
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);
 
 //jefatura

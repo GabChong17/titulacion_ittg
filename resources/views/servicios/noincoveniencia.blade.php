@@ -25,7 +25,7 @@
               </thead>
 
               <tbody>
-              @foreach($egresado as $egresado)
+              @foreach($users_revision_escolares as $egresado)
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
@@ -36,20 +36,7 @@
                   <td>
 
                     <a href="/DocumentosRevisados/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-book"></i></a> 
-                    <a href="/LiberarNoInconveniencia/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-exclamation-circle"></i></a> 
-                    <a href="/Concluir/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-graduate"></i></a> 
-
-
-
-                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
-                      <i class="fas fa-book"></I>
-                    </button>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#inconveniencia-modal">
-                      <i class="fas fa-exclamation-circle"></I>
-                    </button>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#concluir-modal">
-                      <i class="fas fa-user-graduate"></I>
-                    </button> --}}
+                    
                   </td>                             
                 </tr>
                 @endforeach

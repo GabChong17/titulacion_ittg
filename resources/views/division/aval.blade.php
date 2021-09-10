@@ -21,7 +21,7 @@
               </thead>
 
               <tbody>
-              @foreach($egresado as $egresado)
+              @foreach($users_tramite_iniciado as $egresado)
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
@@ -30,18 +30,8 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>           
-                    {{-- <a href="{{route('/divisionAsesores', $egresado->id)}}" class="fas fa-address-card btn btn-info"></a>       --}}
-                    <a href="/divisionAsesores/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>      
-
-                    {{-- <button href="/PaseLiberacion" type="button" class="btn btn-info" >
-                      <i class="fas fa-address-card"></I>
-                    </button>     --}}
-                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                      <i class="fas fa-th-large"></I>
-                    </button> --}}
-                               
-                  </td>
-                                         
+                    <a href="/divisionAsesores/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>              
+                  </td>                      
                 </tr>
                 @endforeach
               </tbody>
@@ -53,60 +43,7 @@
         </div>
 
 
-{{-- modal de aval --}}
-<div class="modal fade" id="aval-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      {{-- header de la ventana --}}
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" align="center"><b>Informacion del egresado {{$egresado['name']}}.</b></h4>
-      </div>
-      {{-- contenido de la vetana --}}
-      <div class="modal-body">
-        <p style="text-align:center; color: #140303;">                            
-        <h4>Nombre:</h4>
-        {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
-        Requisitos entregados:
-        <h4>Tema:</h4>
-        {{$egresado['tema']}}<br>
-        <h4>Documentos:</h4>
-        </p> 
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Solicitar asesores</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>                    
-{{-- modal de edit --}}         
-<div class="modal fade" id="edit-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      {{-- header de la ventana --}}
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
-      </div>
-      {{-- contenido de la vetana --}}
-      
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Solicitar asesores</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 @endsection
 
 @section('js')        

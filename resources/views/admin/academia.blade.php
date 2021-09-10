@@ -65,7 +65,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asesores</h6>
                         <a class="collapse-item" href="/academiaAsesor">Solicitud de Asesor</a>
-                        {{-- <a class="collapse-item" href="/academiaRevisor">Solicitud de Revisor</a> --}}
+                        <a class="collapse-item" href="/liberacionAsesoria">Liberacion Asesoria</a>
+                        <a class="collapse-item" href="/academiaJurado">Solicitud Jurado</a>
                     </div>
                 </div>
             </li>

@@ -57,7 +57,7 @@
                           
                           
                           <tr>
-                            <td><a href="/academiaAsesor" class="btn btn-primary">Regresar</a></td>
+                            <td><a href="/liberacionAsesoria" class="btn btn-primary">Regresar</a></td>
                             <td></td>
                             {{-- <td><a href="/#" class="btn btn-primary">Asesoria liberada</a></td> --}}
                           </tr>

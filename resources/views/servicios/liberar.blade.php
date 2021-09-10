@@ -28,7 +28,7 @@
                           
                           
                           <tr>
-                            <td><a href="/NoIncoveniencia" class="btn btn-primary">Regresar</a></td>
+                            <td><a href="/LiberarNoIncoveniencia" class="btn btn-primary">Regresar</a></td>
                             <td><a href="/#" class="btn btn-primary">Liberar No inconveniencia</a></td>
                           </tr>
                          

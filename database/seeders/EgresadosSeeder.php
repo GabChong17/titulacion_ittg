@@ -25,7 +25,7 @@ class EgresadosSeeder extends Seeder
                 'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
                 'planDeestudios'=>'1',
                 'tema'=>'proyecto 2',
-                'email'=>'L16270844@tuxtla.tecnm.mx',
+                'email'=>'mario@live.com',
                 'email_verified_at'=>null,
                 'telefono'=>'9611985948',
                 'rol' => 'admin',

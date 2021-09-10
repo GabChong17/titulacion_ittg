@@ -23,7 +23,7 @@
               </thead>
 
               <tbody>
-              @foreach($egresado as $egresado)
+              @foreach($users_jurado_asignado as $egresado)
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>

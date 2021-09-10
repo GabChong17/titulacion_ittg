@@ -24,7 +24,7 @@
                     </thead>
 
                     <tbody>
-                    @foreach($egresado as $egresado)
+                    @foreach($users_asesoria_liberada as $egresado)
                       <tr>
                         <td>{{$egresado['estado']}}</td>
                         <td>{{$egresado['NoControl']}}</td>

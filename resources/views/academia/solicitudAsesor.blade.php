@@ -23,7 +23,8 @@
               </thead>
 
               <tbody>
-              @foreach($egresado as $egresado)
+                @foreach($users_solicitud_de_asesores as $egresado)
+                
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
@@ -31,128 +32,25 @@
                   <td>{{$egresado['carrera']}}</td>
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
-                  <td>
-                    
+                  <td>                    
                     <a href="/asignarAsesor/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-users"></i></a> 
-                    <a href="/asesoriaLiberada/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
-                    
-
-
-                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asignar-asesor-modal">
-                      <i class="fas fa-users"></I>
-                    </button>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asesoria-liberada-modal">
-                      <i class="fas fa-file-alt"></I>
-                    </button> --}}
                   </td>
                                          
                 </tr>
+                
                 @endforeach
               </tbody>
                 <tr>
                   <td colspan="2">Division de estudios</td>
                 </tr>                      
             </table>  
+
+
+            
           </div>
         </div>
 
-        {{-- modal de solicitud de asesor --}} 
-<div class="modal fade" id="asignar-asesor-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      {{-- header de la ventana --}}
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
-      </div>
-      {{-- contenido de la vetana --}}
-      <div class="modal-body">
-        <p style="text-align:center; color: #140303;">                            
-          <h4>Nombre:</h4>
-          {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
-          Requisitos entregados:
-          <h4>Tema:</h4>
-          {{$egresado['tema']}}<br>
-          <h4>Documentos:</h4>
-          </p> 
-          <p style="text-align:; color: #140303;">
-            ASESOR:<br>
-            <div class="col-md-6">
-              <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
-                <option selected></option>
-                <option >waza</option>                                  
-             </select>
-            </div>
-            REVISOR:<br>
-            <div class="col-md-6">
-              <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
-                <option selected></option>
-                <option >waza</option>                                  
-             </select>
-            </div>
-            REVISOR:<br>
-            <div class="col-md-6">
-              <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
-                <option selected></option>
-                <option >waza</option>                                  
-             </select>
-            </div>
-          </p>
-      
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Asignar Asesores</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{-- modal de solicitud de asesor --}} 
-<div class="modal fade" id="asesoria-liberada-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      {{-- header de la ventana --}}
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" align="center"><b>Informacion del egresado.</b></h4>
-      </div>
-      {{-- contenido de la vetana --}}
-      <div class="modal-body">
-        <p style="text-align:center; color: #140303;">                            
-          <h4>Nombre:</h4>
-          {{$egresado['a_paterno']}} {{$egresado['a_materno']}} {{$egresado['name']}} <br>
-          Requisitos entregados:
-          <h4>Tema:</h4>
-          {{$egresado['tema']}}<br>
-          <h4>Documentos:</h4>
-          <h4>Formato de firmas escaneados:</h4>
-          <form method="POST" action="/firmasEscaneadas" enctype="multipart/form-data"> 
-            @csrf
-          <input type="file" id="subir" onInput="validar()" class="form-control document" name="firmas" multiple>
-          <br>
-          <h4>Imprimir:</h4>
-          <a href="#asesores">Aval de academia.</a><br>
-          <a href="#asesores">Formato de liberacion.</a>
-          </p> 
-          
-      
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Asesoria liberada</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+    
 
 @endsection
 

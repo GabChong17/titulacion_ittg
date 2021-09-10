@@ -1,4 +1,4 @@
-@extends('admin.division')     
+@extends('admin.academia') 
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 
@@ -8,7 +8,7 @@
 @section('content')
 <div class="card">
   <div class="card-body">
-    <h2><p style="text-align:center; color: #140303;">Acto Recepcional</p></h2>
+    <h2><p style="text-align:center; color: #140303;">Solicitud Jurado</p></h2>
               <table id="usuarios" class="table table-striped ">
               <thead class= "bg-primary text-white">
               <tr>
@@ -23,7 +23,8 @@
               </thead>
 
               <tbody>
-              @foreach($users_no_incoveniencia as $egresado)
+                @foreach($users_solicitud_jurado as $egresado)
+                
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
@@ -32,20 +33,26 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <a href="/agendarActo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
+
+                    <a href="/asignarJurado/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-users"></i></a>
+                    
                   </td>
                                          
                 </tr>
+                
                 @endforeach
               </tbody>
                 <tr>
                   <td colspan="2">Division de estudios</td>
                 </tr>                      
             </table>  
+
+
+            
           </div>
         </div>
 
-        
+    
 
 @endsection
 

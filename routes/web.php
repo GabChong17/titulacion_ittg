@@ -62,7 +62,7 @@ Route::get('/crearCita/confirm',function () {
     return view('egresado.confirmar');
 });
 
-Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita']);
+Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita'])->middleware('egresado');
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ]);
 
 //jefatura
@@ -77,6 +77,10 @@ Route::get('/academia', [AdminController::class, 'academia'])->middleware('acade
 Route::get('/academiaAsesor',[AcademiaController::class, 'asesor'])->middleware('academia');
 Route::get('/asignarAsesor/{Egresado}',[AcademiaController::class, 'asignar_asesor'])->middleware('academia');
 Route::get('/asesoriaLiberada/{Egresado}',[AcademiaController::class, 'asesoria_liberada'])->middleware('academia');
+Route::get('/liberacionAsesoria',[AcademiaController::class, 'liberacionAsesoria'])->middleware('academia');
+Route::get('/academiaJurado',[AcademiaController::class, 'academiaJurado'])->middleware('academia');
+Route::get('/asignarJurado/{Egresado}',[AcademiaController::class, 'asignar_jurado'])->middleware('academia');
+
 
 Route::POST('/firmasEscaneadas',[AcademiaController::class, 'firmas' ])->middleware('academia');
 
@@ -104,6 +108,13 @@ Route::get('/NoIncoveniencia',[ServiciosEscolaresController::class, 'noincovenie
 Route::get('/DocumentosRevisados/{Egresado}',[ServiciosEscolaresController::class, 'documento'])->middleware('escolares');//documento
 Route::get('/LiberarNoInconveniencia/{Egresado}',[ServiciosEscolaresController::class, 'liberar'])->middleware('escolares');//liberar
 Route::get('/Concluir/{Egresado}',[ServiciosEscolaresController::class, 'concluir']);//concluir
+
+Route::get('/LiberarNoIncoveniencia',[ServiciosEscolaresController::class, 'liberarNoincoveniencia'])->middleware('escolares');
+Route::get('/escolaresProtocolo',[ServiciosEscolaresController::class, 'escolaresProtocolo'])->middleware('escolares');
+
+
+
+
 
 Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ])->middleware('escolares');
 

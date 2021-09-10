@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Tramite;
 use App\Models\Opcion;
 use App\Models\Jurado;
+use DB;
 
 
 
@@ -32,8 +33,19 @@ class AcademiaController extends Controller
     public function asesor()
     {
         $egresado = User::where('rol', 'egresado')->get();
+        
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_Solicitud_De_Asesores = DB::select("SELECT estado from users where estado = 'Solicitud_De_Asesores'");
+        
+        // $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
+        $users_solicitud_de_asesores = User::where('estado', '=', 'Solicitud_De_Asesores')->get();
+        $users_asesores_asignados = User::where('estado', '=', 'Asesores_Asignados')->get();
 
-        return view('academia.solicitudAsesor', compact('egresado'));   
+
+        return view('academia.solicitudAsesor',compact('users_solicitud_de_asesores','users_asesores_asignados'));
+        
+         
     }
 
     public function firmas(Request $request)
@@ -60,4 +72,50 @@ class AcademiaController extends Controller
         return view('academia.asesorialiberada',compact('egresado'));
        
     }
+    public function liberacionAsesoria()
+    {
+        $egresado = User::where('rol', 'egresado')->get();
+        
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_Solicitud_De_Asesores = DB::select("SELECT estado from users where estado = 'Solicitud_De_Asesores'");
+        
+        // $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
+        $users_asesores_asignados = User::where('estado', '=', 'Asesores_Asignados')->get();
+
+
+        return view('academia.liberacionAsesoria',compact('users_asesores_asignados'));
+       
+    }
+    public function academiaJurado()
+    {
+        $egresado = User::where('rol', 'egresado')->get();
+        
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_Solicitud_De_Asesores = DB::select("SELECT estado from users where estado = 'Solicitud_De_Asesores'");
+        
+        // $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
+        $users_solicitud_jurado = User::where('estado', '=', 'Solicitud_Jurado')->get();
+
+
+        return view('academia.solicitudJurado',compact('users_solicitud_jurado'));
+       
+    }
+
+    public function asignar_jurado($id)
+    {
+        $egresado = User::find($id);
+        $presidente = User::where('rol', 'asesor')->get();
+        $secretario = User::where('rol', 'asesor')->get();
+        $vocal_propietario = User::where('rol', 'asesor')->get(); 
+        $vocal_suplente = User::where('rol', 'asesor')->get();
+       
+
+        return view('academia.asignarJurado', compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente')); 
+        
+    }
+
+
+   
 }

@@ -46,7 +46,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9611985948',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Solicitud_De_Asesores',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -62,7 +62,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9671475452',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Asesores_Asignados',
                 'password'=> bcrypt('prueba123'),
             ],   
             [
@@ -78,7 +78,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9614553797',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Asesoria_Liberada',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -94,7 +94,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9612284856',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Revision_Escolares',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -110,7 +110,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9612086374',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Documentos_Revisados',
                 'password'=> bcrypt('prueba123'),
             ],   
             [
@@ -126,7 +126,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9611175328',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'No_Incoveniencia',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -142,7 +142,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9613138152',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Solicitud_Jurado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -158,7 +158,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9613649868',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Jurado_Asignado',
                 'password'=> bcrypt('prueba123'),
             ], 
             [
@@ -174,7 +174,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9611010278',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Acto_Agendado',
                 'password'=> bcrypt('prueba123'),
             ],  
             [
@@ -190,7 +190,7 @@ class EgresadosSeeder extends Seeder
                 'email_verified_at'=>null,
                 'telefono'=>'9671060982',
                 'rol' => 'egresado',
-                'estado'=> 'Tramite_Iniciado',
+                'estado'=> 'Tramite_Finalizado',
                 'password'=> bcrypt('prueba123'),
             ],        
             [

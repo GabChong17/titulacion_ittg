@@ -28,7 +28,7 @@
                           
                           
                           <tr>
-                            <td><a href="/NoIncoveniencia" class="btn btn-primary">Regresar</a></td>
+                            <td><a href="/escolaresProtocolo" class="btn btn-primary">Regresar</a></td>
                             <td><a href="/#" class="btn btn-primary">Concluir</a></td>
                           </tr>
                          

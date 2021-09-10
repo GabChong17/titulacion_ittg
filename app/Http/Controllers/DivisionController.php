@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Egresado;
 use App\Models\User;
 use App\Models\Tramite;
+use DB;
  
 class DivisionController extends Controller
 {
@@ -21,8 +22,15 @@ class DivisionController extends Controller
     {
         $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
+        
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_asesoria_liberada = User::where('estado', '=', 'Asesoria_Liberada')->get();
 
-        return view('division.liberacion',compact('tramites', 'egresado'));
+
+        return view('division.liberacion',compact('tramites','users_asesoria_liberada'));
 
     }
 
@@ -30,8 +38,14 @@ class DivisionController extends Controller
     {
         $egresado = User::where('rol', 'egresado')->get();
         
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
 
-        return view('division.aval', compact('egresado'));
+
+        return view('division.aval',compact('users_tramite_iniciado'));
     }
 
 
@@ -39,8 +53,14 @@ class DivisionController extends Controller
     {
         $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_no_incoveniencia = User::where('estado', '=', 'No_Incoveniencia')->get();
 
-        return view('division.actorecepcional',compact('tramites','egresado'));
+        return view('division.actorecepcional',compact('egresado','users_no_incoveniencia'));
+
     }
     public function formato()
     {
@@ -54,9 +74,15 @@ class DivisionController extends Controller
     }
     public function jurado()
     {
+        
         $egresado = User::where('rol', 'egresado')->get();
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_jurado_asignado = User::where('estado', '=', 'Jurado_Asignado')->get();
 
-        return view('division.jurado', compact('egresado'));
+        return view('division.jurado',compact('egresado','users_jurado_asignado'));
     }
     public function recepcion(Request $request)
     {
@@ -102,6 +128,11 @@ class DivisionController extends Controller
         $egresado = User::find($id);
 
         return view('division.jurado_integracion', compact('egresado'));
+    }
+
+
+    public function consultas(){
+        return view('division.aval', compact('users'));
     }
 
     

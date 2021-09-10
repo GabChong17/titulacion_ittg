@@ -38,8 +38,42 @@ class ServiciosEscolaresController extends Controller
     public function noincoveniencia()
     {
         $egresado = User::where('rol', 'egresado')->get();
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_revision_escolares = User::where('estado', '=', 'Revision_Escolares')->get();
 
-        return view('servicios.noincoveniencia',compact('egresado'));
+        return view('servicios.noincoveniencia',compact('egresado','users_revision_escolares'));
+      
+    }
+
+    public function liberarNoincoveniencia()
+    {
+        $egresado = User::where('rol', 'egresado')->get();        
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_documentos_revisados = User::where('estado', '=', 'Documentos_Revisados')->get();
+
+
+        return view('servicios.liberarInconveniencia',compact('egresado','users_documentos_revisados'));
+      
+    }
+
+    public function escolaresProtocolo()
+    {
+        $egresado = User::where('rol', 'egresado')->get();
+        
+        //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
+        //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
+        //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
+        
+        $users_acto_agendado = User::where('estado', '=', 'Acto_Agendado')->get();
+
+
+        return view('servicios.protocolo',compact('egresado','users_acto_agendado'));
       
     }
 

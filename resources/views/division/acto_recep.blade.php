@@ -39,16 +39,13 @@
                               </div>
                           </div>         
                           <br>
-                          
-                          <input type="submit" id="boton_acto_recepcion" class="btn btn-sm btn-danger" value="Solicitar Jurado">
-                          
-                      </form>   
                        </div>
                     </div>
                     
                   <tr>
                     <td><a href="/PaseLiberacion" class="btn btn-primary">Regresar</a></td>
-                    <td></td>
+                    <td><input type="submit" id="boton_acto_recepcion" class="btn btn-sm btn-danger" value="Solicitar Jurado"></td>
+                  </form>
                   </tr>
                  
                     <tr>

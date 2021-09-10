@@ -66,6 +66,8 @@
                         <h6 class="collapse-header">Solicitudes</h6>
                         {{-- <a class="collapse-item" href="/ServiciosCita">Citas</a> --}}
                         <a class="collapse-item" href="/NoIncoveniencia">Oficio No inconveniencia</a>
+                        <a class="collapse-item" href="/LiberarNoIncoveniencia">Liberar No inconveniencia</a>
+                        <a class="collapse-item" href="/escolaresProtocolo">Protocolo</a>
                     </div>
                 </div>
             </li>

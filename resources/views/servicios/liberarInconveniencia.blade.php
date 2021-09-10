@@ -1,4 +1,5 @@
-@extends('admin.division')     
+@extends('admin.escolares')
+   
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 
@@ -8,7 +9,7 @@
 @section('content')
 <div class="card">
   <div class="card-body">
-    <h2><p style="text-align:center; color: #140303;">Acto Recepcional</p></h2>
+    <h2><p style="text-align:center; color: #140303;">Liberar No Inconveniencia</p></h2>
               <table id="usuarios" class="table table-striped ">
               <thead class= "bg-primary text-white">
               <tr>
@@ -18,12 +19,13 @@
                 <th>Carrera</th>
                 <th>Opcion</th>
                 <th>Recepcion</th>
-                <th>Acciones</th>                  
+                <th>Acciones</th>  
+                              
               </tr>
               </thead>
 
               <tbody>
-              @foreach($users_no_incoveniencia as $egresado)
+              @foreach($users_documentos_revisados as $egresado)
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
@@ -32,9 +34,11 @@
                   <td>{{$egresado['planDeestudios']}}</td>                                                          
                   <td></td>                                                               
                   <td>
-                    <a href="/agendarActo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
-                  </td>
-                                         
+
+                    
+                    <a href="/LiberarNoInconveniencia/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-exclamation-circle"></i></a> 
+                   
+                  </td>                             
                 </tr>
                 @endforeach
               </tbody>
@@ -44,8 +48,6 @@
             </table>  
           </div>
         </div>
-
-        
 
 @endsection
 

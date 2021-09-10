@@ -1,7 +1,6 @@
 @extends('admin.users.index')
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
-
 @endsection
 @section('content')
 <div class="card">

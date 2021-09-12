@@ -19,14 +19,25 @@
     
               <div class="card-body">
                 <br>
-                <h5><p style="text-align:center; color: #140303;">Seleccione una fecha.</p></h5>
+                
                 <table class="table">
                     <div class="col-md-4 text-center font-weight-bold">
                         <div class="row text-center text-primary">
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Tema</th>
+                          </tr>
+                          <tr>
+                            <td>{{$egresado->name}}</td>
+                            <td>{{$egresado->tema}}</td>
+                          </tr>
                                 
                                 </div>
-                        </div>  
+                        </div> 
+                         
+                        <tr><td>
+                          <h5><p style="text-align:center; color: #140303;">Seleccione una fecha.</p></h5>
                        <div class="row my-4">
                         <form method="POST" action="/actoRecepcion" enctype="multipart/form-data" > 
                           @csrf
@@ -41,16 +52,17 @@
                           <br>
                        </div>
                     </div>
-                    
+                  </td>
+                  </tr>
                   <tr>
-                    <td><a href="/PaseLiberacion" class="btn btn-primary">Regresar</a></td>
+                    <td><a href="/actoRecepcional" class="btn btn-primary">Regresar</a></td>
                     <td><input type="submit" id="boton_acto_recepcion" class="btn btn-sm btn-danger" value="Solicitar Jurado"></td>
                   </form>
                   </tr>
                  
                     <tr>
                       <td colspan="2">Division de estudios</td>
-                      <td><a href="#" >Ver liberacion de asesorias.</a></td>
+                      <td><a target="_tab" href="/imprimir_solicitud_integracion" >Ver liberacion de asesorias.</a></td>
                     </tr>
                   {{-- @endforelse --}}
                 </table>

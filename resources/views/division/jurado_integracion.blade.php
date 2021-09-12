@@ -32,26 +32,29 @@
                       </tr>
                       
                       <tr>
-                        <th>Asesor</th>
-                        <th>Revisor</th>
-                        <th>Revisor</th>
+                        <th>Presidente:</th>
+                        <th>Secretario:</th>
+                        <th>Vocal Propietario:</th>
+                        <th>Vocal Suplente:</th>
                         
                       </tr>
                       
                         <tr>
-                            <td>Asesor</td>
-                            <td>Revisor 1</td>
-                            <td>Revisor 2</td>
+                            <td>Presidente</td>
+                            <td>Secretario</td>
+                            <td>Vocal Propietario</td>
+                            <td>Vocal Suplente</td>                           
+                            
                         </tr>
                       <tr>
                         <td><a href="/integracionJurado" class="btn btn-primary">Regresar</a></td>
-                        <td><a href="/integracionJurado" class="btn btn-primary">Agendar Acto</a></td>
+                        <td><a href="#" class="btn btn-primary">Agendar Acto</a></td>
                       </tr>
                      
                         <tr>
                           <td colspan="2">Division de estudios</td>
-                          <td><a href="/integracionJurado" >Aviso de Acto</a></td>
-                          <td><a href="/integracionJurado" >Aviso de hora y fecha</a></td>
+                          <td><a target="_tab" href="/imprimir_aviso_de_acto">Aviso de Acto</a></td>
+                          <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep">Aviso de hora y fecha</a></td>
                         </tr>
                       
                     </table>

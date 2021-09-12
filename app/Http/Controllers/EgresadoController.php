@@ -63,7 +63,6 @@ class EgresadoController extends Controller
 
     public function cita(Request $request)
     {
-
         $cita = request()->except(['_token']);
         //actualizar el tramite para ponerle la fecha y hora       
         //detalle
@@ -74,7 +73,8 @@ class EgresadoController extends Controller
         return redirect('/crearCita/confirm')->with('message', 'Cita guardada');  
     }
 
-    public function crearCita (Request $request, $id) {
+    public function crearCita (Request $request, $id) 
+    {
         //aqui debes agregar el tramite
         
         $tramite = new Tramite();
@@ -85,4 +85,12 @@ class EgresadoController extends Controller
          $opcion = Opcion::find($id);
          return view('egresado.tesis')->with('opcion',$opcion);;
      }
+
+
+     public function imprimir_solicitud_autorizacion()
+    { 
+        $pdf = \PDF::loadView('pdf.solicitud_autorizacion')->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }
 }

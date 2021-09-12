@@ -47,8 +47,8 @@
                 <tr>
                     <th>1. Intrucciones</th>
                     <th>2. Sube tus requisitos</th>
-                    <th>3. Agenda tu cita</th>
                     <th>3. Tema</th>
+                    <th>4. Agenda tu cita</th>
                 </tr>
               </thead>
                 <tr>
@@ -64,16 +64,17 @@
                 </td>
                 <td>
                   <center>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#cita-modal">
-                    <i class="fas fa-user-clock"></I>
-                  </button>    
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#titulo-modal">
+                      <i class="fas fa-book"></I>
+                    </button>                   
                   </center>             
                 </td> 
                 <td>
                   <center>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#titulo-modal">
-                    <i class="fas fa-book"></I>
-                  </button> 
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#cita-modal">
+                      <i class="fas fa-user-clock"></I>
+                    </button>    
+                  
                   </center>
                 </td>                                            
                 </tr>
@@ -166,15 +167,31 @@
             <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
           </div>
           {{-- contenido de la vetana --}}
-          <p style="text-align:center; color: #190D47;">Ingresa el titulo que llevaria tu Tesis:</p>      
-          <form method="POST" action="{{ route('register') }}"> 
-            @csrf                               
-          <div>
-            <x-label for="NoControl" :value="__('Tema')" />
-
-            <x-input id="NoControl" class="block mt-1 w-full" type="text" name="tema" :value="old('tema')" required />
-          </div>
-
+          
+          <div class="card-header">Ingresa el titulo de tu tema:</div>
+            
+                      @if ($errors->any())
+                      <div class="alert alert-danger">
+                        <ul>
+                          @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                          @endforeach
+                        </ul>
+                      </div>
+                      @endif
+           
+                      <div class="card-body">
+                        <form action="{{-- {{ route('books.st') }}  --}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        Tema:
+                        <br>
+                        <input type="text" name="titulo" class="form-control">
+            
+                        <br>
+            
+                        
+            
+                        
             
           {{-- footer de la ventana --}}
           <div class="modal-footer">

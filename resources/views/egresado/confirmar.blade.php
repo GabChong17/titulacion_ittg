@@ -16,7 +16,7 @@
         </div>
 
         <div class="container">
-            <h4 class="text-center text-danger font-weight-normal">Imprime tu solicitud de Autorización y la entregara en el momento de tu cita junto con tus requistos en la división de estudios.</h4>
+            <h4 class="text-center text-danger font-weight-normal">Imprime tu <a target="_tab" href="/imprimir_solicitud_autorizacion" >solicitud de Autorización</a> y la entregara en el momento de tu cita junto con tus requistos en la división de estudios.</h4>
         </div>
 
        

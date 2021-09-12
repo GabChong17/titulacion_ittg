@@ -117,11 +117,12 @@ class DivisionController extends Controller
 
         return view('division.paseLiberacion',compact('tramites','egresado'));        
     }
-    public function recepcion_acto()
+    public function recepcion_acto($id)
     {
-        $egresado = User::where('rol', 'egresado')->get();
+        $egresado = User::find($id);
+        $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        return view('division.acto_recep', compact('egresado'));
+        return view('division.acto_recep', compact('tramites','egresado'));
     }
     public function jurado2($id)
     {
@@ -135,5 +136,46 @@ class DivisionController extends Controller
         return view('division.aval', compact('users'));
     }
 
+    public function imprimir_aval_asesores()
+    { 
+        $pdf = \PDF::loadView('pdf.aval_asesores')->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }
+   public function imprimir_solicitud_integracion()
+   { 
+       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado')->setOptions(['defaultFont' => 'sans-serif']);
+      //return view('pdf.aval_de_academia');
+       return $pdf->stream('ejemplo.pdf');
+  }
+  public function imprimir_aviso_de_acto()
+  { 
+      $pdf = \PDF::loadView('pdf.aviso_acto')->setOptions(['defaultFont' => 'sans-serif']);
+     //return view('pdf.aval_de_academia');
+      return $pdf->stream('ejemplo.pdf');
+ }
+ public function imprimir_aviso_de_hora_actoRecep()
+  { 
+      $pdf = \PDF::loadView('pdf.aviso_hora_acto')->setOptions(['defaultFont' => 'sans-serif']);
+     //return view('pdf.aval_de_academia');
+      return $pdf->stream('ejemplo.pdf');
+ }
+
+ public function imprimir_liberacion_asesorias()
+  { 
+      $pdf = \PDF::loadView('pdf.aviso_hora_acto')->setOptions(['defaultFont' => 'sans-serif']);
+     //return view('pdf.aval_de_academia');
+      return $pdf->stream('ejemplo.pdf');
+ }
+ public function imprimir_DGP()
+  { 
+      $pdf = \PDF::loadView('pdf.DGP-DR-01')->setOptions(['defaultFont' => 'sans-serif']);
+     //return view('pdf.aval_de_academia');
+      return $pdf->stream('ejemplo.pdf');
+ }
+ 
+ 
+
+  
     
 }

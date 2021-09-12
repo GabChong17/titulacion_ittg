@@ -32,7 +32,7 @@
                 <div>
                     <br>
                     <x-label for="campus" :value="__(' Rol ') " />
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                              <select class="form-select" aria-label="Default select example" name="rol" :value="{{ old('rol') }}">
                                <option selected>Selecciona un rol para el empleado.</option>
                                <option >admin</option>
@@ -49,7 +49,7 @@
                 <div>
                     <br>
                     <x-label for="carrera" :value="__(' Carrera ') " />
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <select class="form-select" aria-label="Default select example" name="carrera" :value="{{ old('carrera') }}">
                             <option selected>Selecciona una Carrera</option>
                             <option >Sistemas Computacionales</option>
@@ -68,7 +68,7 @@
                 <div>
                     <br>
                     <x-label for="campus" :value="__('Campus ') " />
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                              <select class="form-select" aria-label="Default select example" name="campus" :value="{{ old('campus') }}">
                                <option selected>Selecciona un Campus</option>
                                <option >Instituto Tecnologico de Tuxtla Gutierrez</option>

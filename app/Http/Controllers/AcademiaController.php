@@ -130,6 +130,26 @@ class AcademiaController extends Controller
         
     
     }
+    public function imprimir_aval()
+    { 
+        $pdf = \PDF::loadView('pdf.aval_de_academia')->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }
+
+   public function imprimir_liberacion()
+    { 
+        $pdf = \PDF::loadView('pdf.liberacion_academica')->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }
+
+   public function imprimir_respuesta_integracion_jurado()
+   { 
+       $pdf = \PDF::loadView('pdf.respuesta_de_integracion_jurado')->setOptions(['defaultFont' => 'sans-serif']);
+      //return view('pdf.aval_de_academia');
+       return $pdf->stream('ejemplo.pdf');
+  }
 
    
 }

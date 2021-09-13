@@ -17,7 +17,7 @@
                  <h2><div class="card-header">Informacion del egresado. </div></h2>
         
                   <div class="card-body">
-                    <br>
+                    
                     
                     <table class="table">
                         <div class="modal-body">
@@ -28,7 +28,6 @@
                             <td>{{$egresado->name}}</td>                            
                           </tr>
                           <tr>
-                            
                             <td>
                             <h5><p style="text-align:center; color: #140303;">Primero seleccione una fecha, luego una hora para agendar la cita.</p></h5>
                             {{-- recepcion --}}
@@ -48,23 +47,21 @@
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
                                     </div>
-                                </div>         
-                                <br>
-                                
-                                <input type="submit" id="boton_recepcion" class="btn btn-sm btn-danger" value="Revison Escolares">
-                            </form>   
+                                </div>                        
                           </td>
                           </tr>
                              </div>
                           </div>
                       <tr>
                         <td><a href="/PaseLiberacion" class="btn btn-primary">Regresar</a></td>
-                        <td></td>
+                        <td><input type="submit" id="boton_recepcion" class="btn btn-sm btn-danger" value="Revison Escolares"></td>
+                      </form>  
                       </tr>
                      
                         <tr>
                           <td colspan="2">Division de estudios</td>
-                          <td><a href="#" >Ver liberacion de asesorias.</a></td>
+                          <td><td><a target="_tab" href="/imprimir_liberacion_asesorias">Liberacion de Asesorias.</a></td></td>
+                        <td><a target="_tab" href="/imprimir_DGP">Imprimir DGP</a></td>
                         </tr>
                       {{-- @endforelse --}}
                     </table>

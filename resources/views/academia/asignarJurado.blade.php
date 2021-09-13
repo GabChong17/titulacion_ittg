@@ -34,7 +34,7 @@
                           <tr>
                               
                             <td>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
                                     @forelse($presidente as $presidente)
                                     <option value="{{$presidente->id}}">{{$presidente->name}}</option>  
@@ -45,7 +45,7 @@
                                 </div>
                             </td>
                             <td>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
                                     @forelse($secretario as $secretario)
                                     <option value="{{$secretario->id}}">{{$secretario->name}}</option>  
@@ -56,7 +56,7 @@
                                 </div>
                             </td>
                             <td>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
                                     @forelse($vocal_propietario as $vocal_propietario)
                                     <option value="{{$vocal_propietario->id}}">{{$vocal_propietario->name}}</option>  
@@ -67,7 +67,7 @@
                                 </div>
                             </td>
                             <td>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
                                     @forelse($vocal_suplente as $vocal_suplente)
                                     <option value="{{$vocal_suplente->id}}">{{$vocal_suplente->name}}</option>  
@@ -88,7 +88,7 @@
                           </tr>
                             <tr>
                               <td colspan="2">Academia</td>
-                              
+                              <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado">Respues de Integracion.</a></td>
                             </tr>
 
 

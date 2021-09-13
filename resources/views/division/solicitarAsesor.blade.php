@@ -32,19 +32,23 @@
                           <td>{{$egresado->tema}}</td>
                          
                         </tr>
-                        <tr>
-                            <td>REQUISITOS ENTREGADOS:</td>
-                           
-                          </tr>
                       <tr>
                         <td><a href="/divisionAval" class="btn btn-primary">Regresar</a></td>
                         <td><a href="#" class="btn btn-sm btn-danger">Solicitar Asesores.</a></td>
                       </tr>
-                     
-                        <tr>
-                          <td colspan="2">Division de estudios</td>
-                          <td><a href="#" >Imprimir Solicitud de Asesores.</a></td>
-                        </tr>
+                      
+                      <tr>
+                        <td><a href="#" >Descargar documentos.</a></td>
+                        
+                      </tr>
+                      <tr>
+                        <td><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}"">Imprimir Solicitud de Asesores</a></td>
+                        
+                      </tr>
+                      <tr>
+                        <td colspan="2">Servicios Escolares</td>
+                        
+                      </tr>
                       {{-- @endforelse --}}
                     </table>
                     

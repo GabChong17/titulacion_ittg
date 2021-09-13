@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Opcion;
 use App\Models\Egresado;
+use App\Models\User;
+use DB;
+ 
 
 
 class EgresadoController extends Controller
@@ -162,10 +165,18 @@ class EgresadoController extends Controller
             return redirect()->back()->with('message', 'Documento subido');   
     }
 
+    public function agendada(Request $request)
+    {
+        $cita = request()->except(['_token']);
+        //actualizar el tramite para ponerle la fecha y hora       
+        //detalle
+        //le cambio al tramite el estado a "CITA AGENDADA"
+        $cita['egresado_id'] = Auth::id();
+        Tramite::insert($cita);
 
-
-
-    public function crearCita (Request $request, $id) {
+    }
+    public function crearCita (Request $request, $id) 
+    {
         //aqui debes agregar el tramite
         
         $tramite = new Tramite();
@@ -176,4 +187,17 @@ class EgresadoController extends Controller
          $opcion = Opcion::find($id);
          return view('egresado.tesis')->with('opcion',$opcion);;
      }
+
+
+     public function imprimir_solicitud_autorizacion()
+    { 
+        $pdf = \PDF::loadView('pdf.autorizacion')->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }
+   
+
+   
+
+   
 }

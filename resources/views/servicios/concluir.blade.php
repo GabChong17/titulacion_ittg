@@ -1,5 +1,8 @@
-
 @extends('admin.escolares')
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+
+@endsection
 @section('content')
 
         <div class="contenedor-titulo">
@@ -34,11 +37,11 @@
                          
                             
                             <tr>
-                              <td><a href="#asesores">Protocolo</a></td>
+                              <td><a target="_tab" href="/imprimir_protocolo">Protocolo</a></td>
                               
                             </tr>
                             <tr>
-                              <td><a href="#asesores">Juramento</a></td>
+                              <td><a target="_tab" href="/imprimir_juramento">Juramento</a></td>
                               
                             </tr>
                             <tr>
@@ -65,4 +68,5 @@
         
         </div>
 @endsection
+
 

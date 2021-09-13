@@ -20,7 +20,7 @@
                 <th>Carrera</th>
                 <th>Opción</th>
                 <th>Cita</th>
-                <th>Acciones</th>
+                <th>Documentos</th>
             </tr>
           </thead>
             <tr>
@@ -34,53 +34,54 @@
                 @endforeach
                       
                 <td >
-                    {{-- modal de vista de asesores --}}
-                <a href="#asesores" class="fas fa-address-card" data-toggle="modal"></a>                          
-                <div class="modal fade" id="asesores">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      {{-- header de la ventana --}}
-                      <div class="modal-header">
-                        <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
-                      </div>
-                      {{-- contenido de la vetana --}}
-                      <div class="modal-body">
-                        <p style="color: #140303;">
-                        
-                            <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
+                        <i class="fas fa-cloud-download-alt"></I>
+                      </button>
+
+                      {{-- modal de documentos --}}
+                      <div class="modal fade" id="documentos-modal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            {{-- header de la ventana --}}
+                            <div class="modal-header">
+                              <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
+                            </div>
+                            {{-- contenido de la vetana --}}
+                            <div class="modal-body">
+                              <p style="color: #140303;">
+                              
+                                  <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
+                                  
+
+                                  <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
+                                      <tr style="color: #190D47;">
+                                          <td>PDF Autorizacion</td>
+                                          <td>Acto recepcional</td>
+                                          <td>Hora acto</td>
+                                      </tr>
+                                      <tr style="color: #190D47;">
+                                        <td><a target="_tab" href="/imprimir_solicitud_autorizacion">Autorizacion</a></td>
+                                        <td><a target="_tab" href="/imprimir_aviso_de_acto">Aviso de acto</a></td>
+                                        <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep">Aviso de hora y fecha</a></td>
+                                          <td></td>
+                                      </tr>
+                  
+                                  </table>  
+
+                              </p>
                             
-
-                            <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
-                                <tr style="color: #190D47;">
-                                    <td>Asesor</td>
-                                    <td>Revisor</td>
-                                    <td>Revisor</td>
-                                </tr>
-                                <tr style="color: #190D47;">
-                                    <td>Asesor</td>
-                                    <td>Revisor 1</td>
-                                    <td>Revisor 2</td>
-                                </tr>
-            
-                            </table>  
-
-                        </p>
-                       
-                        
-                      {{-- footer de la ventana --}}
-                      <div class="modal-footer">
-                        
-                        <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        
+                              
+                            {{-- footer de la ventana --}}
+                            <div class="modal-footer">
+                              
+                              <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                              
+                            </div>
+                          </div>
+                        </div>                      
                       </div>
-                    </div>
-                  </div>                      
-                </div>
-                </td>
-                
-                
-                
+                </td> 
             </tr>
             
         </table>  

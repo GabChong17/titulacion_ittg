@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Opcion;
 use App\Models\Egresado;
+use App\Models\User;
+use DB;
+ 
 
 
 class EgresadoController extends Controller
@@ -61,7 +64,7 @@ class EgresadoController extends Controller
             return redirect()->back()->with('message', 'Documento subido');  
     }
 
-    public function cita(Request $request)
+    public function agendada(Request $request)
     {
         $cita = request()->except(['_token']);
         //actualizar el tramite para ponerle la fecha y hora       
@@ -89,8 +92,13 @@ class EgresadoController extends Controller
 
      public function imprimir_solicitud_autorizacion()
     { 
-        $pdf = \PDF::loadView('pdf.solicitud_autorizacion')->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = \PDF::loadView('pdf.autorizacion')->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
+   
+
+   
+
+   
 }

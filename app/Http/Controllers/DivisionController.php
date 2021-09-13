@@ -102,14 +102,7 @@ class DivisionController extends Controller
 
         return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado');  
     }
-    public function asesores($id)
-    {
-        
-        $egresado = User::find($id);
-
-        return view('division.solicitarAsesor',  compact('egresado'));
-        
-    }
+    
     public function pase_liberacion($id)
     {
         $egresado = User::find($id);
@@ -135,13 +128,24 @@ class DivisionController extends Controller
     public function consultas(){
         return view('division.aval', compact('users'));
     }
+    
 
-    public function imprimir_aval_asesores()
+
+
+    public function imprimir_aval_asesores($id)
     { 
+        $egresado = User::find($id);
+
         $pdf = \PDF::loadView('pdf.aval_asesores')->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
-        return $pdf->stream('ejemplo.pdf');
-   }
+        return $pdf->stream('ejemplo.pdf', compact('egresado'));
+    }
+
+
+
+
+
+
    public function imprimir_solicitud_integracion()
    { 
        $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado')->setOptions(['defaultFont' => 'sans-serif']);

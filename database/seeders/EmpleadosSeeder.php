@@ -31,6 +31,20 @@ class EmpleadosSeeder extends Seeder
                 'telefono'=>'9612465121',
                 'password'=> bcrypt('prueba321'), 
             ],
+            [
+                
+                'name'=>'Mario ',
+                'a_paterno'=>'Vazquez',
+                'a_materno'=>'Garcia',
+                'rol' => 'admin',
+                'carrera'=>'Sistemas Computacionales',
+                'campus'=>'Instituto Tecnologico de Tuxtla Gutierrez',
+                'email'=>'mario@live.com',
+                'email_verified_at'=>null,
+                'estado'=>null,
+                'telefono'=>'9611985948',
+                'password'=> bcrypt('prueba123'),
+            ],  
     
             // division
             [

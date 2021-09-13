@@ -56,25 +56,74 @@
                     <p style="text-align:center;">A continuacion te solicitamos anexes los documentos que se te solicitan: </p>
                 </td>
                 <td>
-                  <center>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                    <i class="fas fa-upload"></I>
-                  </button>
+                  <center> 
+                    {{-- ingresar documentos PDF --}}
+                    <p style="text-align:center; color: #190D47;">Agrega documento PDF:</p>
+
+                    <br>
+                    <div class="col-md-4 text-center font-weight-bold">
+                        
+                        
+                        </div>
+                        <form method="POST" action="/documento" enctype="multipart/form-data"> 
+                            @csrf
+                        <p style="text-align:center;">Documento 1: </p>
+                        <input type="file" id="documento1" onInput="validar()" class="form-control document" name="documento" multiple>
+                        <br>
+                        <p style="text-align:center;">Documento 2: </p>
+                        <input type="file" id="documento2" onInput="validar()" class="form-control document" name="documento" multiple>
+                        <br>
+                        <p style="text-align:center;">Documento 3: </p>
+                        <input type="file" id="documento3" onInput="validar()" class="form-control document" name="documento" multiple>
+                     
+                      </p>
+                      <button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir"  >Subir</button>
+                        </form>
                   </center>
                 </td>
                 <td>
                   <center>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#titulo-modal">
-                      <i class="fas fa-book"></I>
-                    </button>                   
+                    {{-- inegresar valor para el titulo --}}
+                    <div class="card-header">Ingresa el titulo de tu tema:</div>
+                                
+                                          @if ($errors->any())
+                                          <div class="alert alert-danger">
+                                            <ul>
+                                              @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                              @endforeach
+                                            </ul>
+                                          </div>
+                                          @endif
+                              
+                                          <div class="card-body">
+                                            <form action="/titulo" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            Tema:
+                                            <br>
+                                            <input type="text" name="titulo" class="form-control"><br>
+                                            <input type="submit" style="background-color: #384085;" id="titulo" class="btn btn-primary" value="Asignar">
+                                            </form>
                   </center>             
                 </td> 
                 <td>
                   <center>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#cita-modal">
-                      <i class="fas fa-user-clock"></I>
-                    </button>    
-                  
+                    {{-- agendar la cita --}}
+                    <div class="card-header">Seleccione una fecha:</div><br><br>
+                      <form method="POST" action="/crearCita" enctype="multipart/form-data" > 
+                        @csrf
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type="datetime-local" id="cita" onInput="validar2()" name="cita">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>  
+                    
+                        <input type="submit" style="background-color: #384085;" id="cita"  class="btn btn-primary" value="Enviar">
+                                                    
+                    </form>
                   </center>
                 </td>                                            
                 </tr>
@@ -83,125 +132,11 @@
         </div>
     </div> 
 
-  {{-- modal de documentos del egresado --}}
-    <div class="modal fade" id="edit-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          {{-- header de la ventana --}}
-          <div class="modal-header">
-            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Sube tus requisitos.</h4>
-          </div>
-          {{-- contenido de la vetana --}}
-            <p style="text-align:center; color: #190D47;">Agrega documento PDF:</p>
+  
 
-            <br>
-            <div class="col-md-4 text-center font-weight-bold">
-                
-                
-                </div>
-                <form method="POST" action="/documento" enctype="multipart/form-data"> 
-                    @csrf
-                <p style="text-align:center;">Documento 1: </p>
-                <input type="file" id="documento1" onInput="validar()" class="form-control document" name="documento" multiple>
-                <br>
-                <p style="text-align:center;">Documento 2: </p>
-                <input type="file" id="documento2" onInput="validar()" class="form-control document" name="documento" multiple>
-                <br>
-                <p style="text-align:center;">Documento 3: </p>
-                <input type="file" id="documento3" onInput="validar()" class="form-control document" name="documento" multiple>
-             
-              </p>
-                
-              
-            
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">
-            <button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" disabled >Subir</button>
-            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            
-          </div>
-        </div>
-      </div>                      
-    </div>
+ 
 
-  {{-- modal de cita agendada --}}
-    <div class="modal fade" id="cita-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          {{-- header de la ventana --}}
-          <div class="modal-header">
-            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
-          </div>
-          {{-- contenido de la vetana --}}
-          
-                  <form method="POST" action="/crearCita" enctype="multipart/form-data" > 
-                      @csrf
-                      <div class="form-group">
-                          <div class='input-group date' id='datetimepicker1'>
-                               <input type="datetime-local" id="cita_d" onInput="validar2()" name="cita">
-                              <span class="input-group-addon">
-                                  <span class="glyphicon glyphicon-calendar"></span>
-                              </span>
-                          </div>
-                      </div>         
-                      <br>
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">                  
-            <input type="submit" id="boton_enviar"  class="btn btn-primary" value="Enviar">
-            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          </form>
-          </div>
-        </div>
-      </div>                      
-    </div>
-
-  {{-- modal de tema del proyecto --}}
-    <div class="modal fade" id="titulo-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          {{-- header de la ventana --}}
-          <div class="modal-header">
-            <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
-          </div>
-          {{-- contenido de la vetana --}}
-          
-          <div class="card-header">Ingresa el titulo de tu tema:</div>
-            
-                      @if ($errors->any())
-                      <div class="alert alert-danger">
-                        <ul>
-                          @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                          @endforeach
-                        </ul>
-                      </div>
-                      @endif
-           
-                      <div class="card-body">
-                        <form action="{{-- {{ route('books.st') }}  --}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        Tema:
-                        <br>
-                        <input type="text" name="titulo" class="form-control">
-            
-                        <br>
-            
-                        
-            
-                        
-            
-          {{-- footer de la ventana --}}
-          <div class="modal-footer">
-            <input type="submit" id="boton_enviar" class="btn btn-primary" value="Enviar">
-            <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          </form>
-          </div>
-        </div>
-      </div>                      
-    </div>
+     
 
         
     @endsection

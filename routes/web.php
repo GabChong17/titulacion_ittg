@@ -61,9 +61,16 @@ Route::get('/crearCita/confirm',function () {
 Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita'])->middleware('egresado');
 Route::get('/imprimir_solicitud_autorizacion',[EgresadoController::class, 'imprimir_solicitud_autorizacion']) ->middleware('egresado');//PDF
 
-Route::POST('/documento',[EgresadoController::class, 'store' ])->middleware('egresado');
-Route::POST('/crearCita',[EgresadoController::class, 'cita' ])->middleware('egresado');
+// Route::get('/cita',[EgresadoController::class, 'citaEgresado'])->middleware('egresado');
+// Route::get('/tema',[EgresadoController::class, 'tema'])->middleware('egresado');
+// Route::get('/documentos',[EgresadoController::class, 'documentos'])->middleware('egresado');
+
+
+
+Route::POST('/titulo',[EgresadoController::class, 'titulo' ])->middleware('egresado');
+Route::POST('/crearCita',[EgresadoController::class, 'agendada' ])->middleware('egresado');
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ])->middleware('egresado');
+Route::POST('/documento',[EgresadoController::class, 'store' ])->middleware('egresado');
 
 //jefatura
 Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('jefatura');
@@ -99,11 +106,11 @@ Route::get('/actoRecepcional',[DivisionController::class, 'acto']) ->middleware(
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']) ->middleware('division');
 Route::get('/integracionJurado',[DivisionController::class, 'jurado']) ->middleware('division');
 Route::get('/integracionJurado2/{Egresado}',[DivisionController::class, 'jurado2']) ->middleware('division');
-Route::get('/imprimir_aval_asesores',[DivisionController::class, 'imprimir_aval_asesores']) ->middleware('division');//PDF
+Route::get('/imprimir_aval_asesores/{Egresado}',[DivisionController::class, 'imprimir_aval_asesores']) ->middleware('division');//PDF
 Route::get('/imprimir_liberacion_asesorias',[DivisionController::class, 'imprimir_liberacion_asesorias']) ->middleware('division');//PDF
 Route::get('/imprimir_solicitud_integracion',[DivisionController::class, 'imprimir_solicitud_integracion']) ->middleware('division');//PDF
-Route::get('/imprimir_aviso_de_acto',[DivisionController::class, 'imprimir_aviso_de_acto']) ->middleware('division');//PDF
-Route::get('/imprimir_aviso_de_hora_actoRecep',[DivisionController::class, 'imprimir_aviso_de_hora_actoRecep']) ->middleware('division');//PDF
+Route::get('/imprimir_aviso_de_acto',[DivisionController::class, 'imprimir_aviso_de_acto']);//PDF
+Route::get('/imprimir_aviso_de_hora_actoRecep',[DivisionController::class, 'imprimir_aviso_de_hora_actoRecep']);//PDF
 Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']) ->middleware('division');//PDF
 
 

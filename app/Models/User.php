@@ -58,6 +58,9 @@ class User extends Authenticatable
     {
         return $this -> hasMany('App\Notificacion5');
     }
-
+    public function jurado()
+    {
+        return $this->hasMany('App\Models\Jurado');
+    }
     
 }

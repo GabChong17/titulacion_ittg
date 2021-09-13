@@ -116,6 +116,20 @@ class AcademiaController extends Controller
         
     }
 
+    public function guardarAsesor(Request $request, $id)
+    {
+        
+        $valores = $request->all();
+        $registro = new Jurado();
+        $user = User::find($id);
+        $valores['egresado_id']=$id;                
+        $registro->fill($valores);
+        $registro->save();
+
+        return redirect("/academiaAsesor")->with('mensaje','Jurado asignado correctamente');
+        
+    
+    }
 
    
 }

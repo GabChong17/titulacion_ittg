@@ -55,8 +55,9 @@ Route::get('/liberacion',[AcademiaController::class, 'liberacion'])->middleware(
 Route::get('/tesis', [EgresadoController::class, 'tesis'])->middleware('egresado');
 Route::get('/proyecto', [EgresadoController::class, 'proyecto'])->middleware('egresado');
 Route::get('/prototipo', [EgresadoController::class, 'prototipo'])->middleware('egresado');
-Route::POST('/documento',[EgresadoController::class, 'store' ])->middleware('egresado');
-Route::POST('/crearCita',[EgresadoController::class, 'cita' ])->middleware('egresado');
+Route::POST('/tramite-tesis',[EgresadoController::class, 'storeTesis' ])->middleware('egresado');
+Route::POST('/tramite-proyecto',[EgresadoController::class, 'storeProyecto' ])->middleware('egresado');
+Route::POST('/tramite-prototipo',[EgresadoController::class, 'storePrototipo' ])->middleware('egresado');
 
 Route::get('/crearCita/confirm',function () {
     return view('egresado.confirmar');
@@ -76,6 +77,10 @@ Route::get('/jefaturaFormato',[JefaturaController::class, 'formato'])->middlewar
 Route::get('/academia', [AdminController::class, 'academia'])->middleware('academia');
 Route::get('/academiaAsesor',[AcademiaController::class, 'asesor'])->middleware('academia');
 Route::get('/asignarAsesor/{Egresado}',[AcademiaController::class, 'asignar_asesor'])->middleware('academia');
+
+
+Route::POST('/Asesor/{egresado_id}',[AcademiaController::class, 'guardarAsesor'])->middleware('academia');
+
 Route::get('/asesoriaLiberada/{Egresado}',[AcademiaController::class, 'asesoria_liberada'])->middleware('academia');
 Route::get('/liberacionAsesoria',[AcademiaController::class, 'liberacionAsesoria'])->middleware('academia');
 Route::get('/academiaJurado',[AcademiaController::class, 'academiaJurado'])->middleware('academia');

@@ -36,6 +36,11 @@ class OpcionesSeeder extends Seeder
                 'Planes_id'=>'2',                    
             ], 
             [
+                'Nombre'=>'Texto o prototipo 2004',
+                'Descripcion'=>'prototipo',
+                'Planes_id'=>'2',                    
+            ], 
+            [
                 'Nombre'=>'Proyecto 2004',
                 'Descripcion'=>'...',
                 'Planes_id'=>'2',                    

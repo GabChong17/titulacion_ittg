@@ -28,10 +28,7 @@ class DivisionController extends Controller
         //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
         
         $users_asesoria_liberada = User::where('estado', '=', 'Asesoria_Liberada')->get();
-
-
         return view('division.liberacion',compact('tramites','users_asesoria_liberada'));
-
     }
 
     public function aval()
@@ -43,8 +40,6 @@ class DivisionController extends Controller
         //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
         
         $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
-
-
         return view('division.aval',compact('users_tramite_iniciado'));
     }
 
@@ -125,49 +120,53 @@ class DivisionController extends Controller
     }
 
 
-    public function consultas(){
+    public function consultas()
+    {
         return view('division.aval', compact('users'));
     }
+    public function asesores($id)
+    {
+        $egresado = User::find($id);
+        return view('division.solicitarAsesor', compact('egresado'));
     
-
-
+    }
 
     public function imprimir_aval_asesores($id)
     { 
         $egresado = User::find($id);
+        $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        $pdf = \PDF::loadView('pdf.aval_asesores')->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = \PDF::loadView('pdf.aval_asesores',compact('egresado','tramites'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
-        return $pdf->stream('ejemplo.pdf', compact('egresado'));
+        return $pdf->stream('ejemplo.pdf');
     }
 
-
-
-
-
-
-   public function imprimir_solicitud_integracion()
+   public function imprimir_solicitud_integracion($id)
    { 
-       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado')->setOptions(['defaultFont' => 'sans-serif']);
+       $egresado = User::find($id);
+       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
       //return view('pdf.aval_de_academia');
        return $pdf->stream('ejemplo.pdf');
   }
-  public function imprimir_aviso_de_acto()
+  public function imprimir_aviso_de_acto($id)
   { 
-      $pdf = \PDF::loadView('pdf.aviso_acto')->setOptions(['defaultFont' => 'sans-serif']);
+    $egresado = User::find($id);
+      $pdf = \PDF::loadView('pdf.aviso_acto',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
- public function imprimir_aviso_de_hora_actoRecep()
+ public function imprimir_aviso_de_hora_actoRecep($id)
   { 
-      $pdf = \PDF::loadView('pdf.aviso_hora_acto')->setOptions(['defaultFont' => 'sans-serif']);
+    $egresado = User::find($id);
+      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
 
- public function imprimir_liberacion_asesorias()
-  { 
-      $pdf = \PDF::loadView('pdf.aviso_hora_acto')->setOptions(['defaultFont' => 'sans-serif']);
+ public function imprimir_liberacion_asesorias($id)
+  {
+    $egresado = User::find($id); 
+      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }

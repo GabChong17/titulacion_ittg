@@ -80,8 +80,8 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
       <div class="row mx-5">
         <div style="position: relative; top:25% !important; text-align:justify; font-size:70%">
-        POR MEDIO LE INFORMO A USTED QUE EL ACTO RECEPCION PROFESIONAL, DEL (A) C. <b>{NOMBRE DEL EGRESADO}</b>, CON EL NO. DE CONTROL <b>{NO DE CONTROL}</b> EGERSADO(A) DEL INSTITUTO TECNOLOGICO DE <b>TUXTLA GUTIERREZ</b>.<br>
-        PASANTE DE LA CARRERA <b>ING. {CARRERA}</b>, se realiza el dia <b>{FECHA RECEPCION}</b> EN LA SALA DE TITULACION EDIFICIO DE ESTE INSTITUTO, POR LOQ UE LES PIDO SU PUNTUAL ASISTENCIA.
+        POR MEDIO LE INFORMO A USTED QUE EL ACTO RECEPCION PROFESIONAL, DEL (A) C. <b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b>, CON EL NO. DE CONTROL <b>{{$egresado->NoControl}}</b> EGERSADO(A) DEL INSTITUTO TECNOLOGICO DE <b>TUXTLA GUTIERREZ</b>.<br>
+        PASANTE DE LA CARRERA <b>ING. {{$egresado->carrera}}</b>, se realiza el dia <b>{FECHA RECEPCION}</b> EN LA SALA DE TITULACION EDIFICIO DE ESTE INSTITUTO, POR LO QUE LES PIDO SU PUNTUAL ASISTENCIA.
         </div>
       </div>
 

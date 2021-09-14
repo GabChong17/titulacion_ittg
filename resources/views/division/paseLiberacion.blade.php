@@ -60,7 +60,7 @@
                      
                         <tr>
                           <td colspan="2">Division de estudios</td>
-                          <td><td><a target="_tab" href="/imprimir_liberacion_asesorias">Liberacion de Asesorias.</a></td></td>
+                          <td><td><a target="_tab" href="/imprimir_liberacion_asesorias/{{$egresado->id}}"">Liberacion de Asesorias.</a></td></td>
                         <td><a target="_tab" href="/imprimir_DGP">Imprimir DGP</a></td>
                         </tr>
                       {{-- @endforelse --}}

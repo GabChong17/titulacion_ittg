@@ -62,7 +62,7 @@
                  
                     <tr>
                       <td colspan="2">Division de estudios</td>
-                      <td><a target="_tab" href="/imprimir_solicitud_integracion" >Ver liberacion de asesorias.</a></td>
+                      <td><a target="_tab" href="/imprimir_solicitud_integracion/{{$egresado->id}}"" >Ver liberacion de asesorias.</a></td>
                     </tr>
                   {{-- @endforelse --}}
                 </table>

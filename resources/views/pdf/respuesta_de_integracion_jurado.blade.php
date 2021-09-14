@@ -41,7 +41,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:5% !important; font-size:90% !important;">
-    <b> C.  ING. {AQUI VA EL NOMBRE DEL JEFE DE SISTEMAS}<br>
+    <b> C.  ING. {AQUI VA EL NOMBRE DEL JEFE DE DIVISION}<br>
        Jefe de la División De Estudios Profesionales<br>
        Edificio<br><b>
       </div>
@@ -60,13 +60,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
       <div class="row mx-5">
         <div style="position: relative; top:23% !important; text-align:center;">
-         <u><b>{nombre egresado}</b></u>
+         <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>
         </div>
       </div>
       <table class="default" style="position: relative; top:30% !important; text-align:justify;">  
         <tr >
             <td> Egresado de la Carrera de:</td>
-            <td><u><b>{Carrera}</b></u></td>
+            <td><u><b>{{$egresado->carrera}}</b></u></td>
         </tr>
         <tr >
             <td> Mediante la opción:</td>
@@ -74,7 +74,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         </tr>
         <tr >
             <td> Tema:</td>
-            <td><u><b>{Tema}</b></u></td>
+            <td><u><b>{{$egresado->tema}}</b></u></td>
         </tr>
         <tr >
             <td> Presidente:</td>

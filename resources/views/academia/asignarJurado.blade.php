@@ -88,7 +88,7 @@
                           </tr>
                             <tr>
                               <td colspan="2">Academia</td>
-                              <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado">Respues de Integracion.</a></td>
+                              <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{$egresado->id}}"">Respues de Integracion.</a></td>
                             </tr>
 
 

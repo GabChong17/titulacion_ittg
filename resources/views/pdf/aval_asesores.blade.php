@@ -36,14 +36,14 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:5% !important; font-size:90% !important;">
-    <b>   ING. {AQUI VA EL NOMBRE DEL JEFE DE SISTEMAS}<br>
-       Jefe del Depto. de Ingeniería {nombre del departamento}<br>
+    <b>  <br>
+       Jefe del Depto. de Ingeniería {{$egresado->carrera}}<br>
        P R E S E N T E.<br><b>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:7% !important;text-align:right !important;">
-        ATT'N ACADEMIA DE {nombre de la academia}
+        ATT'N Academia de {{$egresado->carrera}}
       </div>
     </div>
     <div class="row mx-5">
@@ -54,30 +54,30 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
       <div class="row mx-5">
         <div style="position: relative; top:23% !important; text-align:center;">
-         <u><b>{nombre egresado}</b></u>
+         <u><b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b></u>
         </div>
       </div>
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:left;">
-      Pasante de la carera de: <u><b>{Carrera}</b></u>
+      Pasante de la carera de: <u><b>{{$egresado->carrera}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:32% !important; text-align:left;">
-      Num. de control: <u><b>{numero de cotrol}</b></u>
+      Num. de control: <u><b>{{$egresado->NoControl}}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:34% !important; text-align:left;">
-        Egresado(a) del: <u><b>{campus}</b></u>
+        Egresado(a) del: <u><b>{{$egresado->campus}}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:36% !important; text-align:left;">
-       Para titularse por la opcion: <u><b>{planDeestudios}</b></u>
+       Para titularse por la opcion: <u><b>{opcion}</b></u>
       </div>
     </div>
     <div class="row mx-5">
         <div style="position: relative; top:43% !important; text-align:center;">
-         <u><b>{tema}</b></u>
+         <u><b>{{$egresado->tema}}</b></u>
         </div>
       </div>
 

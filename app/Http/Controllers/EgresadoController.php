@@ -189,9 +189,10 @@ class EgresadoController extends Controller
      }
 
 
-     public function imprimir_solicitud_autorizacion()
-    { 
-        $pdf = \PDF::loadView('pdf.autorizacion')->setOptions(['defaultFont' => 'sans-serif']);
+     public function imprimir_solicitud_autorizacion($id)
+    {
+        $egresado = User::find($id);
+        $pdf = \PDF::loadView('pdf.autorizacion',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }

@@ -37,11 +37,11 @@
                          
                             
                             <tr>
-                              <td><a target="_tab" href="/imprimir_protocolo">Protocolo</a></td>
+                              <td><a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}"">Protocolo</a></td>
                               
                             </tr>
                             <tr>
-                              <td><a target="_tab" href="/imprimir_juramento">Juramento</a></td>
+                              <td><a target="_tab" href="/imprimir_juramento/{{$egresado->id}}"">Juramento</a></td>
                               
                             </tr>
                             <tr>

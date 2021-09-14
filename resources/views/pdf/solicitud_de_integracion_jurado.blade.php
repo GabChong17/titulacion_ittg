@@ -37,13 +37,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row mx-5">
       <div style="position: relative; top:5% !important; font-size:90% !important;">
     <b>   ING. {AQUI VA EL NOMBRE DEL JEFE DE SISTEMAS}<br>
-       Jefe del Depto. de Ingeniería En Sistemas computacionales<br>
+       Jefe del Depto. de Ingeniería En {{$egresado->carrera}} <br>
        Edificio<br><b>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:7% !important;text-align:right !important;">
-        ATT'N ACADEMIA DE INGENIERÍA EN SISTEMAS COMPUTACIONALES
+        ATT'N ACADEMIA DE INGENIERÍA EN {{$egresado->carrera}}
       </div>
     </div>
     <div class="row mx-5">
@@ -54,12 +54,12 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
       <div class="row mx-5">
         <div style="position: relative; top:23% !important; text-align:center;">
-         <u><b>{nombre egresado}</b></u>
+         <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>
         </div>
       </div>
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:left;">
-      Egresado de la Carrera de <u><b>{Carrera}</b></u>
+      Egresado de la Carrera de <u><b>{{$egresado->carrera}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
@@ -68,11 +68,11 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:40% !important; text-align:left;">
-       Egresado de la Carrera de <u><b>{Carrera}</b></u>
+       Egresado de la Carrera de <u><b>{{$egresado->carrera}}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:45% !important; text-align:left;">
-       Tema <u><b>{tema}</b></u>
+       Tema <u><b>{{$egresado->tema}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
@@ -83,11 +83,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         <div style="position: relative; top:54% !important; text-align:left;">
         Hora <u><b>{hora}</b></u>
       </div>
-    </div><div class="row mx-5">
-      <div style="position: relative; top:58% !important; text-align:left;">
-         Lugar <u><b>{lugar}</b></u>
-      </div>
-    </div>
+    
 
 
     <div class="row mx-5">

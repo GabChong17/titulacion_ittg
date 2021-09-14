@@ -130,23 +130,26 @@ class AcademiaController extends Controller
         
     
     }
-    public function imprimir_aval()
+    public function imprimir_aval($id)
     { 
-        $pdf = \PDF::loadView('pdf.aval_de_academia')->setOptions(['defaultFont' => 'sans-serif']);
+        $egresado = User::find($id);
+        $pdf = \PDF::loadView('pdf.aval_de_academia',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
 
-   public function imprimir_liberacion()
+   public function imprimir_liberacion($id)
     { 
-        $pdf = \PDF::loadView('pdf.liberacion_academica')->setOptions(['defaultFont' => 'sans-serif']);
+        $egresado = User::find($id);
+        $pdf = \PDF::loadView('pdf.liberacion_academica',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
 
-   public function imprimir_respuesta_integracion_jurado()
+   public function imprimir_respuesta_integracion_jurado($id)
    { 
-       $pdf = \PDF::loadView('pdf.respuesta_de_integracion_jurado')->setOptions(['defaultFont' => 'sans-serif']);
+       $egresado = User::find($id);
+       $pdf = \PDF::loadView('pdf.respuesta_de_integracion_jurado',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
       //return view('pdf.aval_de_academia');
        return $pdf->stream('ejemplo.pdf');
   }

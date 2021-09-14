@@ -42,7 +42,7 @@
                         
                       </tr>
                       <tr>
-                        <td><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}"">Imprimir Solicitud de Asesores</a></td>
+                        <td><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}">Imprimir Solicitud de Asesores</a></td>
                         
                       </tr>
                       <tr>

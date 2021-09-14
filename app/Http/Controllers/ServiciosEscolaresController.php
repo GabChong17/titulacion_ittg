@@ -95,21 +95,24 @@ class ServiciosEscolaresController extends Controller
     }
     
 
-   public function imprimir_no_adeudo()
-    { 
-        $pdf = \PDF::loadView('pdf.constancia_no_inconveniencia')->setOptions(['defaultFont' => 'sans-serif']);
+   public function imprimir_no_adeudo($id)
+    {
+        $egresado = User::find($id); 
+        $pdf = \PDF::loadView('pdf.constancia_no_inconveniencia',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
-   public function imprimir_protocolo()
-    { 
-        $pdf = \PDF::loadView('pdf.protocolo')->setOptions(['defaultFont' => 'sans-serif']);
+   public function imprimir_protocolo($id)
+    {
+        $egresado = User::find($id); 
+        $pdf = \PDF::loadView('pdf.protocolo',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
-   public function imprimir_juramento()
-    { 
-        $pdf = \PDF::loadView('pdf.juramento')->setOptions(['defaultFont' => 'sans-serif']);
+   public function imprimir_juramento($id)
+    {
+        $egresado = User::find($id); 
+        $pdf = \PDF::loadView('pdf.juramento',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }

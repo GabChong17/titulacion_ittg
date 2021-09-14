@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Tramite;
 use App\Models\Opcion;
 use App\Models\Jurado;
+use App\Models\Asesor;
 use DB;
 
 
@@ -120,7 +121,7 @@ class AcademiaController extends Controller
     {
         
         $valores = $request->all();
-        $registro = new Jurado();
+        $registro = new Asesor();
         $user = User::find($id);
         $valores['egresado_id']=$id;                
         $registro->fill($valores);

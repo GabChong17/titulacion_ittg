@@ -54,6 +54,7 @@ class AcademiaController extends Controller
 
     public function firmas(Request $request)
     {
+        $valores = $request->all();
         $request->file('firmas')->store('firmas','public');
         return redirect('/academiaAsesor')->with('message', 'Documento subido');
         // return redirect()->back()->with('message', 'Documento subido');  

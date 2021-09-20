@@ -79,8 +79,11 @@ class DivisionController extends Controller
 
         return view('division.jurado',compact('egresado','users_jurado_asignado'));
     }
-    public function recepcion(Request $request)
+    public function recepcion(Request $request, $id)
     {
+        $egresado = User::find($id);
+        $egresado->estado = 'Revision_Escolares';
+        $egresado->save();
 
         $recepcion = request()->except(['_token']);
         $recepcion['egresado_id'] = Auth::id();
@@ -88,15 +91,28 @@ class DivisionController extends Controller
 
         return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
     }
-    public function  actoRecepcion(Request $request)
+    public function  actoRecepcion(Request $request, $id)
     {
+        $egresado = User::find($id);
+        $egresado->estado = 'Solicitud_Jurado';
+        $egresado->save();
 
         $recepcion = request()->except(['_token']);
         $recepcion['egresado_id'] = Auth::id();
         Tramite::insert($recepcion);
 
-        return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado');  
+        return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado!');  
     }
+    public function  asignacionActo(Request $request, $id)
+    {
+        $egresado = User::find($id);
+        $egresado->estado = 'Acto_Agendado';
+        $egresado->save();
+
+        return redirect('/integracionJurado')->with('message', 'Acto recepcional agendado!');  
+    }
+
+    
     
     public function pase_liberacion($id)
     {
@@ -131,6 +147,19 @@ class DivisionController extends Controller
         return view('division.solicitarAsesor', compact('egresado'));
     
     }
+    //
+    public function solicitudAsesor($id)
+    {
+       
+        $egresado = User::find($id);
+        $egresado->estado = 'Solicitud_De_Asesores';
+        $egresado->save();
+
+        return redirect("/divisionAval")->with('mensaje','Jurado asignado correctamente');
+    
+    }
+
+    
 
     public function imprimir_aval_asesores($id)
     { 

@@ -38,7 +38,7 @@
                                       </div>
                               </div>  
                              <div class="row my-4">
-                              <form method="POST" action="/recepcion" enctype="multipart/form-data" > 
+                              <form method="POST" action="/recepcion/{{$egresado->id}}" enctype="multipart/form-data" > 
                                 @csrf
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker1'>
@@ -54,7 +54,7 @@
                           </div>
                       <tr>
                         <td><a href="/PaseLiberacion" class="btn btn-primary">Regresar</a></td>
-                        <td><input type="submit" id="boton_recepcion" class="btn btn-sm btn-danger" value="Revison Escolares"></td>
+                        <td><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Revison Escolares"></td>
                       </form>  
                       </tr>
                      

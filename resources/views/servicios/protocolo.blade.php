@@ -40,6 +40,23 @@
                 </tr>
                 @endforeach
               </tbody>
+              <tbody>
+                @foreach($users_tramite_finalizado as $egresado)
+                  <tr>
+                    <td>{{$egresado['estado']}}</td>
+                    <td>{{$egresado['NoControl']}}</td>
+                    <td>{{$egresado['name']}}</td>
+                    <td>{{$egresado['carrera']}}</td>
+                    <td>{{$egresado['planDeestudios']}}</td>                                                          
+                    <td></td>                                                               
+                    <td>
+                       <a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-paste"></i></a> 
+                       <a target="_tab" href="/imprimir_juramento/{{$egresado->id}}" class=" btn btn-info"><i class=" fas fa-file-alt"></i></a> 
+  
+                    </td>                             
+                  </tr>
+                  @endforeach
+                </tbody>
                 <tr>
                   <td colspan="2">Division de estudios</td>
                 </tr>                      

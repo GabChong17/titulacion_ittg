@@ -52,19 +52,21 @@ class AcademiaController extends Controller
          
     }
 
-    public function firmas(Request $request)
+    public function firmas(Request $request, $id)
     {
-        $valores = $request->all();
+        $valores = $request-> all();
+        $egresado = User::find($id);
+        $egresado->estado = 'Asesoria_Liberada';
+        $egresado->save();
+
         $request->file('firmas')->store('firmas','public');
-        return redirect('/academiaAsesor')->with('message', 'Documento subido');
-        // return redirect()->back()->with('message', 'Documento subido');  
+        return redirect('/liberacionAsesoria')->with('message', 'Documento subido');
+       
         
     }
     public function asignar_asesor($id)
     {
         $egresado = User::find($id);
-
-        $egresado = User::find(1);
         $egresado->estado = 'Asesores_Asignados';
         $egresado->save();
 
@@ -80,7 +82,11 @@ class AcademiaController extends Controller
     
     public function asesoria_liberada($id)
     {
+
         $egresado = User::find($id);
+        // $egresado->estado = 'Asesoria_Liberada';
+        // $egresado->save();
+
         return view('academia.asesorialiberada',compact('egresado'));
        
     }

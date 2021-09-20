@@ -46,7 +46,7 @@
                             <th> Formato de firmas escaneadas:</th>
                             <td>
                                 
-                                <form method="POST" action="/firmasEscaneadas" enctype="multipart/form-data"> 
+                                <form method="POST" action="/firmasEscaneadas/{{$egresado->id}}" enctype="multipart/form-data"> 
                                     @csrf
                                 <input type="file" id="firmas" onInput="validar()" class="form-control document" name="firmas" multiple>
                                 <br>

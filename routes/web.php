@@ -96,7 +96,7 @@ Route::get('/imprimir_aval_academia/{Egresado}',[AcademiaController::class, 'imp
 Route::get('/imprimir_liberacion_academica/{Egresado}',[AcademiaController::class, 'imprimir_liberacion'])->middleware('academia');
 Route::get('/imprimir_respuesta_integracion_jurado/{Egresado}',[AcademiaController::class, 'imprimir_respuesta_integracion_jurado'])->middleware('academia');
 
-Route::POST('/firmasEscaneadas',[AcademiaController::class, 'firmas' ])->middleware('academia');
+Route::POST('/firmasEscaneadas/{Egresado}',[AcademiaController::class, 'firmas' ])->middleware('academia');
 Route::POST('/Asesor/{egresado_id}',[AcademiaController::class, 'guardarAsesor'])->middleware('academia');
 Route::POST('/Jurado/{egresado_id}',[AcademiaController::class, 'guardarJurado'])->middleware('academia');
 

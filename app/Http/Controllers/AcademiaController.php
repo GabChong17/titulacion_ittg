@@ -12,6 +12,9 @@ use App\Models\Tramite;
 use App\Models\Opcion;
 use App\Models\Jurado;
 use DB;
+use Illuminate\Http\Response;
+
+
 
 
 
@@ -58,6 +61,11 @@ class AcademiaController extends Controller
     public function asignar_asesor($id)
     {
         $egresado = User::find($id);
+
+        $egresado = User::find(1);
+        $egresado->estado = 'Asesores_Asignados';
+        $egresado->save();
+
         $asesor = User::where('rol', 'asesor')->get();
         $revisor = User::where('rol', 'asesor')->get();
         $revisor2 = User::where('rol', 'asesor')->get();
@@ -66,6 +74,8 @@ class AcademiaController extends Controller
         return view('academia.asignarAsesor', compact('asesor','egresado','revisor','revisor2')); 
         
     }
+ 
+    
     public function asesoria_liberada($id)
     {
         $egresado = User::find($id);

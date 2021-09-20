@@ -53,8 +53,8 @@
                      
                         <tr>
                           <td colspan="2">Division de estudios</td>
-                          <td><a target="_tab" href="/imprimir_aviso_de_acto">Aviso de Acto</a></td>
-                          <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep">Aviso de hora y fecha</a></td>
+                          <td><a target="_tab" href="/imprimir_aviso_de_acto/{{$egresado->id}}"">Aviso de Acto</a></td>
+                          <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{$egresado->id}}"">Aviso de hora y fecha</a></td>
                         </tr>
                       
                     </table>

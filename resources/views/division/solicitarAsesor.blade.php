@@ -18,15 +18,15 @@
         
                   <div class="card-body">
                     <br>
-        
+                    <form action="/solicitudAsesor/{{$egresado->id}}" method="post" enctype="multipart/form-data">
+                      @csrf
+                      
                     <table class="table">
                       <tr>
                         <th>Nombre:</th>
                         
-                        <th>Tema: </th>
-                        
+                        <th>Tema: </th>                        
                       </tr>
-                      {{-- @forelse ($books as $book) --}}
                         <tr>
                           <td>{{$egresado->name}}</td>
                           <td>{{$egresado->tema}}</td>
@@ -34,24 +34,25 @@
                         </tr>
                       <tr>
                         <td><a href="/divisionAval" class="btn btn-primary">Regresar</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Solicitar Asesores.</a></td>
-                      </tr>
+                        <td><button class="btn btn-primary" type='submit' value='Solicitud_De_Asesores'>Solicitar Asesores</button></td>
+                       
+                        </tr>
                       
                       <tr>
-                        <td><a href="#" >Descargar documentos.</a></td>
+                        <td><a href="#" >Descargar documentos</a></td>
                         
                       </tr>
                       <tr>
-                        <td><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}"">Imprimir Solicitud de Asesores</a></td>
+                        <td><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}">Imprimir Solicitud de Asesores</a></td>
                         
                       </tr>
                       <tr>
-                        <td colspan="2">Servicios Escolares</td>
+                        <td colspan="2">Division de estudios</td>
                         
                       </tr>
                       {{-- @endforelse --}}
                     </table>
-                    
+                  </form>
                   </div>
                 </div>
               </div>

@@ -67,12 +67,11 @@
                             </div>
                             </td>
                         </tr>
-                      
-                          
                           
                           <tr>
                             <td><a href="/academiaAsesor" class="btn btn-primary">Regresar</a></td>
-                            <td><input class='btn btn-primary'   type='submit' value='Asignar Asesor'></td>
+                            <td><button class="btn btn-primary" type='submit' value='Asesores_Asignados'>Asignar Asesores</button></td>
+                            
                           </tr>
                             <tr>
                               <td colspan="2">Academia</td>

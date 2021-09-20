@@ -42,7 +42,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;">
-        Por este medio, comunico a Usted, que se ha concluido con la ASESORIA del trabajo profesional del C. {AQUI VA EL NOMBRE DEL EGRESADO}, con número de control {AQUI VA EL NUMERO DE CONTROL}, egresado de la carrera {CARRERA}, del Instituto Tecnológico de Tuxtla Gutiérrez, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, con el tema {tema}.
+        Por este medio, comunico a Usted, que se ha concluido con la ASESORIA del trabajo profesional del C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}, con número de control {{$egresado->NoControl}}, egresado de la carrera {{$egresado->carrera}}, del Instituto Tecnológico de Tuxtla Gutiérrez, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, con el tema {{$egresado->tema}}.
       </div>
       <div style="position: relative; top:25% !important; text-align:justify;">
         Sin otro particular, quedo de usted.
@@ -58,7 +58,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row mx-5">
       <div style="position: relative; top:25% !important; text-align:center;">
         <u><b>{NOMBRE DEL JEFE}</b><br></u>
-        <b>JEFE DE DEPARTAMENTO DE {DEPARTAMENTO}</b>
+        <b>JEFE DE DEPARTAMENTO DE {{$egresado->carrera}}</b>
       </div>
     </div>
 

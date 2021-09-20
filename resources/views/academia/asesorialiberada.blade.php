@@ -62,10 +62,10 @@
                             {{-- <td><a href="/#" class="btn btn-primary">Asesoria liberada</a></td> --}}
                           </tr>
                             <tr>
-                              <td><a target="_tab" href="/imprimir_aval_academia">Aval de academia.</a></td>  
+                              <td><a target="_tab" href="/imprimir_aval_academia/{{$egresado->id}}"">Aval de academia.</a></td>  
                             </tr>
                             <tr>
-                              <td><a target="_tab" href="/imprimir_liberacion_academica">Formato de liberacion.</a></td> 
+                              <td><a target="_tab" href="/imprimir_liberacion_academica/{{$egresado->id}}"">Formato de liberacion.</a></td> 
                             </tr>
                             <tr>
                               <td colspan="2">Academia</td> 

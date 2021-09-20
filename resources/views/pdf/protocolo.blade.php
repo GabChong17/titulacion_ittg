@@ -54,11 +54,11 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
         <div style="position: relative; text-align:center;font-size:80%; top:14%!important;">
-          C:   <b>{NOMBRE DEL EGRESADO}</b><br>
-          PASANTE DE LA CARRERA DE:  <b> INGENIERIA {CARRERA}</b><br>
-          CON EL NÚMERO DE CONTROL: <b>{NOMBRE DEL EGRESADO}</b><br>
-          EGRESADO(A)  DEL: <b>{CAMPUS}</b><br>
-          QUIEN PRESENTA EL TEMA TITULADO: <b>{TEMA}</b><br>
+          C:   <b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b><br>
+          PASANTE DE LA CARRERA DE:  <b> Ing. {{$egresado->carrera}}</b><br>
+          CON EL NÚMERO DE CONTROL: <b>{{$egresado->NoControl}}</b><br>
+          EGRESADO(A)  DEL: <b>{{$egresado->campus}}</b><br>
+          QUIEN PRESENTA EL TEMA TITULADO: <b>{{$egresado->tema}}</b><br>
           MEDIANTE LA OPCIÓN: <b>{OPCION}</b><br>
         </div>
       </div>

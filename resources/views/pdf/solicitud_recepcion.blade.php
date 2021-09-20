@@ -39,7 +39,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row mx-5">
       <div style="position: relative;text-align:right;font-size:80%; top:12%!important;">
-        Fecha: <u>9 de enero de 2017</u>
+        Fecha: <u>{fecha}</u>
       </div>
     </div>
 
@@ -54,13 +54,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row mx-5">
       <div style="position: relative;top:20%!important;text-align:justify;font-size:90%;">
-        Me permito solicitar se autorice la sustentación del Acto de Recepción Profesional por la opción {opcion} para obtener mi Titulo Profesional de {carrera} en virtud de haber cubierto los requisitos indispensables para tal efecto.
+        Me permito solicitar se autorice la sustentación del Acto de Recepción Profesional por la opción {opcion} para obtener mi Titulo Profesional de {{$egresado->carrea}} en virtud de haber cubierto los requisitos indispensables para tal efecto.
       </div>
     </div>
 
     <div class="row mx-5">
       <div style="position: relative; top:25% !important; text-align:left;">
-       Nombre <u><b>{nombre}</b></u>
+       Nombre <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
@@ -70,11 +70,11 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:45% !important; text-align:left;">
-       No de control <u><b>{numero de control}</b></u>
+       No de control <u><b>{{$egresado->NoControl}}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:55% !important; text-align:left;">
-       Carrera <u><b>{Carrera}</b></u>
+       Carrera <u><b>{{$egresado->carrera}}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:65% !important; text-align:left;">

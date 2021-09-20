@@ -35,14 +35,14 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:5% !important;font-size:80%;">
-       <b>C. {NOMBRE DEL EGRESADO}<br>
-       PASANTE DE LA CARRERA DE {CARRERA}<br>
+       <b>C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}<br>
+       PASANTE DE LA CARRERA DE {{$egresado->carrera}}<br>
        PRESENTE.</b><br>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:7% !important; text-align:justify;font-size:80%;">
-        POR ESTE MEDIO LE INFORMO A USTED, QUE EL ACTO DE RECEPCION PROFESIONAL, PARA OBTENER EL TITULO DE: <b>INGENIERO {CARRERA}</b>, HA SIDO PROGRAMADO PARA EL DIA DE <b>{FECHA DE ACTO}</b> EN EL LUGAR QUE OCUPA LA SALA DE TITULACION <b>(SALA DE TITULACION EDIFICIO E-8)</b>, PARA LO QUE SE LE ASIGNA COMO JURADO A LO S CC. 
+        POR ESTE MEDIO LE INFORMO A USTED, QUE EL ACTO DE RECEPCION PROFESIONAL, PARA OBTENER EL TITULO DE: <b>INGENIERO {{$egresado->carrera}}</b>, HA SIDO PROGRAMADO PARA EL DIA DE <b>{FECHA DE ACTO}</b> EN EL LUGAR QUE OCUPA LA SALA DE TITULACION <b>(SALA DE TITULACION EDIFICIO E-8)</b>, PARA LO QUE SE LE ASIGNA COMO JURADO A LO S CC. 
         <br><br>
         <ul>
           <li>PRESIDENTE: <b>{NOMBRE PRESIDENTE}</b></li>

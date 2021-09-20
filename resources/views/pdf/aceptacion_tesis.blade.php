@@ -28,7 +28,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row">
         <div style="position: relative; text-align:right !important;" class="mx-5">
-            Tuxtla Gutiérrez, Chiapas 26/Abril/2016<br>
+            Tuxtla Gutiérrez, Chiapas {FECHA}<br>
             Oficio No. {NUMERO DE OFICIO}<br>
          <div style="font-size:80%;">ASUNTO: ACEPTACIÓN DE TEMA DE TESIS <br>Y DESIGNACIÓN DE ASESOR Y REVISOR.</div>
         </div>
@@ -42,7 +42,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;font-size:80%;">
-        Por este medio hacemos de su conocimiento que en reunión ordiaria, se acordó el AVAL y se acepta el Proyecto de Titulación del C. {AQUI VA EL NOMBRE DEL EGRESADO} de la carrera de {carrera}, con número de control {numero de control} egresado de este Instituto Tecnológico, para titularse por la opción {opción}, con el módulo {nombre de la de tesis}.<br>
+        Por este medio hacemos de su conocimiento que en reunión ordiaria, se acordó el AVAL y se acepta el Proyecto de Titulación del C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}} de la carrera de {{$egresado->carrera}}, con número de control {{$egresado->NoControl}}  egresado de este Instituto Tecnológico, para titularse por la opción {opción}, con el módulo {{$egresado->tema}}.<br>
         Asi tambien comunicamos, que para el desarrollo del proyecto antes mencionado, se ha designado a los CC:
         <br>
         <ul>
@@ -66,7 +66,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:justify;">
         <b>{NOMBRE DEL JEFE}</b><br>
-        <b>JEFE DE DEPARTAMENTO DE {DEPARTAMENTO}</b>
+        <b>JEFE DE DEPARTAMENTO DE {{$egresado->carrera}}</b>
       </div>
     </div>
 

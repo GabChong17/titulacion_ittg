@@ -54,25 +54,23 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
       <div class="row mx-5">
         <div style="position: relative; top:23% !important; text-align:center;">
-         <u><b>{nombre egresado}</b></u>
+         <u><b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b></u>
         </div>
       </div>
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:left;">
-      Egresado de la Carrera de <u><b>{Carrera}</b></u>
+      Egresado de la Carrera de <u><b>{{$egresado->carrera}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:35% !important; text-align:left;">
       Meidante la opción <u><b>{opción}</b></u>
       </div>
-    </div><div class="row mx-5">
-      <div style="position: relative; top:40% !important; text-align:left;">
-       Egresado de la Carrera de <u><b>{Carrera}</b></u>
-      </div>
-    </div><div class="row mx-5">
+    </div>
+    
+    <div class="row mx-5">
       <div style="position: relative; top:45% !important; text-align:left;">
-       Tema <u><b>{tema}</b></u>
+       Tema <u><b>{{$egresado->tema}}</b></u>
       </div>
     </div>
     <div class="row mx-5">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJuradosTable extends Migration
+class CreateAsesorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateJuradosTable extends Migration
      */
     public function up()
     {
-        Schema::create('jurados', function (Blueprint $table) {
+        Schema::create('asesors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('egresado_id')->references('id')->on('users');
-            //$table->foreignId('tema_id')->references('id')->on('users');
-            $table->string('presidente');
-            $table->string('secretario');
-            $table->string('vocalp');
-            $table->string('vocals');
+            $table->foreignId('asesor_id')->references('id')->on('users');
+            $table->foreignId('revisor1_id')->references('id')->on('users');
+            $table->foreignId('revisor2_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateJuradosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jurados');
+        Schema::dropIfExists('asesors');
     }
 }

@@ -15,6 +15,11 @@
                         <br>
             
                         <table class="table">
+                          <form action="/Jurado/{{$egresado->id}}" method="post" enctype="multipart/form-data">
+                            @csrf
+
+
+
                           
                           {{-- @forelse ($books as $book) --}}
                           <tr>
@@ -22,8 +27,13 @@
                             <th>Tema</th>
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}}</td>
-                            <td>{{$egresado->tema}}</td>
+                            <td>
+                              <input type="text" class="form-control" name="egresado_id" value="{{$egresado->name}}" disabled>
+                            </td>
+                              <td>
+                                <input type="text" class="form-control"  name="tema_id" value="{{$egresado->tema}}" disabled>
+                              </td>
+                              
                           </tr>
                           <tr>
                             <th>Presidente:</th>
@@ -35,7 +45,7 @@
                               
                             <td>
                                 <div class="col-md-12">
-                                  <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
+                                  <select class="form-select" aria-label="Default select example" name="presidente">
                                     @forelse($presidente as $presidente)
                                     <option value="{{$presidente->id}}">{{$presidente->name}}</option>  
                                         @empty
@@ -46,7 +56,7 @@
                             </td>
                             <td>
                                 <div class="col-md-12">
-                                  <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
+                                  <select class="form-select" aria-label="Default select example" name="secretario" >
                                     @forelse($secretario as $secretario)
                                     <option value="{{$secretario->id}}">{{$secretario->name}}</option>  
                                         @empty
@@ -57,7 +67,7 @@
                             </td>
                             <td>
                                 <div class="col-md-12">
-                                  <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
+                                  <select class="form-select" aria-label="Default select example" name="vocalp" >
                                     @forelse($vocal_propietario as $vocal_propietario)
                                     <option value="{{$vocal_propietario->id}}">{{$vocal_propietario->name}}</option>  
                                         @empty
@@ -68,7 +78,7 @@
                             </td>
                             <td>
                                 <div class="col-md-12">
-                                  <select class="form-select" aria-label="Default select example" name="asesor_id" :value="{{ old('campus') }}">
+                                  <select class="form-select" aria-label="Default select example" name="vocals" >
                                     @forelse($vocal_suplente as $vocal_suplente)
                                     <option value="{{$vocal_suplente->id}}">{{$vocal_suplente->name}}</option>  
                                         @empty
@@ -84,13 +94,13 @@
                           
                           <tr>
                             <td><a href="/academiaJurado" class="btn btn-primary">Regresar</a></td>
-                            <td><a href="/#" class="btn btn-primary">Asignar Jurado</a></td>
+                            <td><input class='btn btn-primary'   type='submit' value='Asignar Jurado'></td>
                           </tr>
                             <tr>
                               <td colspan="2">Academia</td>
                               <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado">Respues de Integracion.</a></td>
                             </tr>
-
+                          </form>
 
                            
                               

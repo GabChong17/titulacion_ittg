@@ -90,6 +90,7 @@ Route::get('/asignarAsesor/{Egresado}',[AcademiaController::class, 'asignar_ases
 
 
 Route::POST('/Asesor/{egresado_id}',[AcademiaController::class, 'guardarAsesor'])->middleware('academia');
+Route::POST('/Jurado/{egresado_id}',[AcademiaController::class, 'guardarJurado'])->middleware('academia');
 
 Route::get('/asesoriaLiberada/{Egresado}',[AcademiaController::class, 'asesoria_liberada'])->middleware('academia');
 Route::get('/liberacionAsesoria',[AcademiaController::class, 'liberacionAsesoria'])->middleware('academia');
@@ -116,7 +117,7 @@ Route::get('/integracionJurado',[DivisionController::class, 'jurado']) ->middlew
 Route::get('/integracionJurado2/{Egresado}',[DivisionController::class, 'jurado2']) ->middleware('division');
 Route::get('/imprimir_aval_asesores/{Egresado}',[DivisionController::class, 'imprimir_aval_asesores']) ->middleware('division');//PDF
 Route::get('/imprimir_liberacion_asesorias',[DivisionController::class, 'imprimir_liberacion_asesorias']) ->middleware('division');//PDF
-Route::get('/imprimir_solicitud_integracion',[DivisionController::class, 'imprimir_solicitud_integracion']) ->middleware('division');//PDF
+Route::get('/imprimir_solicitud_integracion/{Egresado}',[DivisionController::class, 'imprimir_solicitud_integracion']) ->middleware('division');//PDF
 Route::get('/imprimir_aviso_de_acto',[DivisionController::class, 'imprimir_aviso_de_acto']);//PDF
 Route::get('/imprimir_aviso_de_hora_actoRecep',[DivisionController::class, 'imprimir_aviso_de_hora_actoRecep']);//PDF
 Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']) ->middleware('division');//PDF

@@ -120,8 +120,9 @@ class DivisionController extends Controller
     public function jurado2($id)
     {
         $egresado = User::find($id);
-
-        return view('division.jurado_integracion', compact('egresado'));
+        $presidente = Tramite::where('presidente', 'egresado_id');
+       
+        return view('division.jurado_integracion', compact('egresado','presidente'));
     }
 
 
@@ -136,9 +137,9 @@ class DivisionController extends Controller
     { 
         $egresado = User::find($id);
 
-        $pdf = \PDF::loadView('pdf.aval_asesores')->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = \PDF::loadView('pdf.aval_asesores', compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
-        return $pdf->stream('ejemplo.pdf', compact('egresado'));
+        return $pdf->stream('ejemplo.pdf');
     }
 
 
@@ -146,9 +147,10 @@ class DivisionController extends Controller
 
 
 
-   public function imprimir_solicitud_integracion()
+   public function imprimir_solicitud_integracion($id)
    { 
-       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado')->setOptions(['defaultFont' => 'sans-serif']);
+       $egresado = User::find($id);
+       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado' , compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
       //return view('pdf.aval_de_academia');
        return $pdf->stream('ejemplo.pdf');
   }

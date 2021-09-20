@@ -40,7 +40,7 @@
                       </tr>
                       
                         <tr>
-                            <td>Presidente</td>
+                            <td></td>
                             <td>Secretario</td>
                             <td>Vocal Propietario</td>
                             <td>Vocal Suplente</td>                           

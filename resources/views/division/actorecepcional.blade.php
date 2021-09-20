@@ -33,6 +33,7 @@
                   <td></td>                                                               
                   <td>
                     <a href="/agendarActo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
+                    <a href="/imprimir_solicitud_integracion/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-file-download"></i></a>      
                   </td>
                                          
                 </tr>

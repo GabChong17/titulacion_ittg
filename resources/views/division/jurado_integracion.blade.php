@@ -20,7 +20,8 @@
                     <br>
         
                     <table class="table">
-                      
+                      <form method="POST" action="/acto/{{$egresado->id}}" enctype="multipart/form-data" > 
+                        @csrf
                       {{-- @forelse ($books as $book) --}}
                       <tr>
                         <th>Nombre</th>
@@ -48,7 +49,8 @@
                         </tr>
                       <tr>
                         <td><a href="/integracionJurado" class="btn btn-primary">Regresar</a></td>
-                        <td><a href="#" class="btn btn-primary">Agendar Acto</a></td>
+                        <td><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Agendar Acto"></td>
+                      </form>  
                       </tr>
                      
                         <tr>

@@ -60,7 +60,7 @@ class AcademiaController extends Controller
         $egresado->save();
 
         $request->file('firmas')->store('firmas','public');
-        return redirect('/liberacionAsesoria')->with('message', 'Documento subido');
+        return redirect('/academiaAsesor')->with('message', 'Documento subido');
        
         
     }
@@ -150,7 +150,11 @@ class AcademiaController extends Controller
     }
     public function guardarJurado(Request $request, $id)
     {
-        
+        //
+        $egresado = User::find($id);
+        $egresado->estado = 'Jurado_Asignado';
+        $egresado->save();
+
         $valores = $request->all();
         $registro = new Jurado();
         $user = User::find($id);

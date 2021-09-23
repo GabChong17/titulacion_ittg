@@ -15,7 +15,8 @@
                         <br>
             
                         <table class="table">
-                          
+                          <form method="POST" action="/liberarNo/{{$egresado->id}}" enctype="multipart/form-data" > 
+                            @csrf
                           {{-- @forelse ($books as $book) --}}
                           <tr>
                             <th>Nombre</th>
@@ -29,7 +30,10 @@
                           
                           <tr>
                             <td><a href="/LiberarNoIncoveniencia" class="btn btn-primary">Regresar</a></td>
-                            <td><a href="/#" class="btn btn-primary">Liberar No inconveniencia</a></td>
+                            {{-- No_Incoveniencia --}}
+                            <td><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Liberar No inconveniencia"></td>
+                            {{-- <td><a href="/#" class="btn btn-primary">Liberar No inconveniencia</a></td> --}}
+                          </form> 
                           </tr>
                          
                             <tr>

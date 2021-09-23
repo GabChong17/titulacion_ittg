@@ -18,8 +18,10 @@
                         <br>
             
                         <table class="table">
+                          <form action="/finalizar/{{$egresado->id}}" method="post" enctype="multipart/form-data">
+                            @csrf
                           
-                          {{-- @forelse ($books as $book) --}}
+                         
                           <tr>
                             <th>Nombre</th>
                             <th>Tema</th>
@@ -32,16 +34,16 @@
                           
                           <tr>
                             <td><a href="/escolaresProtocolo" class="btn btn-primary">Regresar</a></td>
-                            <td><a href="/#" class="btn btn-primary">Concluir</a></td>
+                            <td><input class='btn btn-primary'   type='submit' value='Concluir'></td>
                           </tr>
                          
                             
                             <tr>
-                              <td><a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}"">Protocolo</a></td>
+                              <td><a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}">Protocolo</a></td>
                               
                             </tr>
                             <tr>
-                              <td><a target="_tab" href="/imprimir_juramento/{{$egresado->id}}"">Juramento</a></td>
+                              <td><a target="_tab" href="/imprimir_juramento/{{$egresado->id}}">Juramento</a></td>
                               
                             </tr>
                             <tr>
@@ -55,7 +57,7 @@
                             
                           
                         </table>
-                        
+                      </form>
                       </div>
                     </div>
                   </div>

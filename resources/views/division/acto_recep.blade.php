@@ -39,7 +39,7 @@
                         <tr><td>
                           <h5><p style="text-align:center; color: #140303;">Seleccione una fecha.</p></h5>
                        <div class="row my-4">
-                        <form method="POST" action="/actoRecepcion" enctype="multipart/form-data" > 
+                        <form method="POST" action="/actoRecepcion/{{$egresado->id}}" enctype="multipart/form-data" > 
                           @csrf
                           <div class="form-group">
                               <div class='input-group date' id='datetimepicker1'>

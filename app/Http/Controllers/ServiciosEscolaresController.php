@@ -73,9 +73,10 @@ class ServiciosEscolaresController extends Controller
         //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
         
         $users_acto_agendado = User::where('estado', '=', 'Acto_Agendado')->get();
+        $users_tramite_finalizado = User::where('estado', '=', 'Tramite_Finalizado')->get();
 
 
-        return view('servicios.protocolo',compact('egresado','users_acto_agendado'));
+        return view('servicios.protocolo',compact('egresado','users_acto_agendado','users_tramite_finalizado'));
       
     }
 
@@ -93,7 +94,36 @@ class ServiciosEscolaresController extends Controller
 
         return view('servicios.concluir',compact('egresado'));
     }
+
+    public function  finalizar($id)
+    {
+        
+        $egresado = User::find($id);
+        $egresado->estado = 'Tramite_Finalizado';
+        $egresado->save();
+
+        return redirect("/escolaresProtocolo")->with('mensaje','Jurado asignado correctamente');
+    }
+    public function  documentosRevisados($id)
+    {
+        
+        $egresado = User::find($id);
+        $egresado->estado = 'Documentos_Revisados';
+        $egresado->save();
+
+        return redirect("/NoIncoveniencia")->with('mensaje','Jurado asignado correctamente');
+    }
+    public function  liberarNo($id)
+    {
+        
+        $egresado = User::find($id);
+        $egresado->estado = 'No_Incoveniencia';
+        $egresado->save();
+
+        return redirect("/LiberarNoIncoveniencia")->with('mensaje','Jurado asignado correctamente');
+    }
     
+   
 
    public function imprimir_no_adeudo($id)
     {

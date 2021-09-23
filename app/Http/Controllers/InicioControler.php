@@ -21,16 +21,16 @@ class InicioControler extends Controller
                 return view('admin.users.index');
                 break;
             case 'egresado':
-                return view('dashboard');
+                return redirect('/inicio');            
                 break;
             case 'division':
-                return view('admin.division');
+                return redirect('/division');            
                 break;
             case 'jefatura':
                 return view('admin.jefatura');
                 break;
             case 'academia':
-                return view('admin.academia');
+                return redirect('/academia');            
                 break;
             case 'escolares':
                 return view('admin.escolares');

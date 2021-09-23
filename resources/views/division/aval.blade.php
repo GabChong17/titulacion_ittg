@@ -21,7 +21,7 @@
               </thead>
 
               <tbody>
-              @foreach($users_tramite_iniciado as $egresado)
+              @foreach($users_cita_agendada as $egresado)
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>

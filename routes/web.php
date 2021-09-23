@@ -11,7 +11,8 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ServiciosEscolaresController;
 use App\Http\Controllers\InicioControler;
 use App\Http\Controllers\JefaturaController;
-
+use App\Mail\NotificacionMailable;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -58,6 +59,8 @@ Route::get('/prototipo', [EgresadoController::class, 'prototipo'])->middleware('
 Route::POST('/tramite-tesis',[EgresadoController::class, 'storeTesis' ])->middleware('egresado');
 Route::POST('/tramite-proyecto',[EgresadoController::class, 'storeProyecto' ])->middleware('egresado');
 Route::POST('/tramite-prototipo',[EgresadoController::class, 'storePrototipo' ])->middleware('egresado');
+
+Route::get('/confirmarEgresado/{Egresado}',[EgresadoController::class, 'confirmar' ])->middleware('egresado');
 
 Route::get('/crearCita/confirm',function () {
     return view('egresado.confirmar');
@@ -144,6 +147,16 @@ Route::POST('/finalizar/{egresado_id}',[ServiciosEscolaresController::class, 'fi
 Route::POST('/documentos/{egresado_id}',[ServiciosEscolaresController::class, 'documentosRevisados' ])->middleware('escolares');
 Route::POST('/liberarNo/{egresado_id}',[ServiciosEscolaresController::class, 'liberarNo' ])->middleware('escolares');
 
+
+//notificacion
+Route::get('notificacion', function () {
+
+    $correo = new NotificacionMailable;
+    Mail::to('gabo.chong.xr@gmail.com')->send($correo);
+
+    // return "mensaje enviado";
+    return redirect()->back()->with('message', 'Mensaje Enviado');  
+});
 //PDF
 // Route::get('/imprimir_aceptacion_tesis',[PDFController::class, 'imprimir_aceptacion_tesis']);
 // Route::get('/imprimir_constancia_no_inconveniencia',[PDFController::class, 'imprimir_constancia_no_inconveniencia']);

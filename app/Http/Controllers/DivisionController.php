@@ -39,8 +39,8 @@ class DivisionController extends Controller
         //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
         //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
         
-        $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
-        return view('division.aval',compact('users_tramite_iniciado'));
+        $users_cita_agendada = User::where('estado', '=', 'Cita_Agendada')->get();
+        return view('division.aval',compact('users_cita_agendada'));
     }
 
 

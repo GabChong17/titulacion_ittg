@@ -44,7 +44,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;">
-        Por este medio le informo a Usted, que la solicitud del análisis y dictamen del tema de titulación "{{$egresado->tema}}" presentado por el C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}, con número de control  {{$egresado->NoControl}}, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, se ha dictaminado como {AQUI VA EL STATUS}, teniendo como asesor(a) a: {AQUI VA EL ASESOR} y como revisores a los CC: {AQUI VA LOS REVISORES} y {EL SEGUNDO REVISOR}.
+        Por este medio le informo a Usted, que la solicitud del análisis y dictamen del tema de titulación "{{$egresado->tema}}" presentado por el C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}, con número de control  {{$egresado->NoControl}}, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, se ha dictaminado como {AQUI VA EL STATUS}, teniendo como asesor(a) a: {{$asesor->name}} y como revisores a los CC: {{$revisor1->name}} y {{$revisor2->name}}.
       </div>
       <div style="position: relative; top:32% !important; text-align:justify;">
         Sin otro particular, agradezco su atención.

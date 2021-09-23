@@ -60,7 +60,7 @@ class AcademiaController extends Controller
         $egresado->save();
 
         $request->file('firmas')->store('firmas','public');
-        return redirect('/academiaAsesor')->with('message', 'Documento subido');
+        return redirect('/liberacionAsesoria')->with('message', 'Documento subido');
        
         
     }
@@ -169,7 +169,17 @@ class AcademiaController extends Controller
     public function imprimir_aval($id)
     { 
         $egresado = User::find($id);
-        $pdf = \PDF::loadView('pdf.aval_de_academia',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+
+        $asesores = Asesor::where('egresado_id', $id)
+        ->first();
+        $asesor = User::find($asesores->asesor_id);
+        $revisor1 = User::find($asesores->revisor1_id);
+        $revisor2 = User::find($asesores->revisor2_id);
+
+
+        // dd($asesores);
+
+        $pdf = \PDF::loadView('pdf.aval_de_academia',compact('egresado','asesor','revisor1','revisor2'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }

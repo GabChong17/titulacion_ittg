@@ -38,12 +38,15 @@ class EgresadoController extends Controller
 
     public function storeTesis(Request $request)
     {
+
         $valores = $request->all();
        
         $tramite = new Tramite();
         $tramite->fill($valores);
         $tramite->opciones_id=1;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+
+        
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -75,7 +78,7 @@ class EgresadoController extends Controller
         $tramite->save();
         $opcion = Opcion::find(1);
         
-
+        // return redirect('/crearCita/confirm/{{$egresado->id}}')->with('message', 'Documento subido'); 
             return redirect()->back()->with('message', 'Documento subido');  
     }
 
@@ -87,6 +90,10 @@ class EgresadoController extends Controller
         $tramite->fill($valores);
         $tramite->opciones_id=2;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+
+        $egresado = User::find($id);
+        $egresado->estado = 'Cita_Agendada';
+        $egresado->save();
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -118,7 +125,7 @@ class EgresadoController extends Controller
         $tramite->save();
  
         
-
+        return redirect('/crearCita/confirm')->with('message', 'Documento subido'); 
             return redirect()->back()->with('message', 'Documento subido');   
     }
 
@@ -130,6 +137,10 @@ class EgresadoController extends Controller
         $tramite->fill($valores);
         $tramite->opciones_id=3;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+
+        $egresado = User::find($id);
+        $egresado->estado = 'Cita_Agendada';
+        $egresado->save();
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -161,8 +172,17 @@ class EgresadoController extends Controller
         $tramite->save();
  
         
-
+        // return redirect('/crearCita/confirm/{{$egresado->id}}')->with('message', 'Documento subido'); 
             return redirect()->back()->with('message', 'Documento subido');   
+    }
+    public function confirmar($id)
+    {
+        $egresado = User::find($id);
+        $egresado->estado = 'Cita_Agendada';
+        $egresado->save();
+
+        return redirect('/inicio')->with('message', 'Cita guardada.');  
+
     }
 
     public function agendada(Request $request)

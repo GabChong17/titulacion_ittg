@@ -54,10 +54,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Notificacion5()
-    {
-        return $this -> hasMany('App\Notificacion5');
-    }
+    
     public function jurado()
     {
         return $this->hasMany('App\Models\Jurado');

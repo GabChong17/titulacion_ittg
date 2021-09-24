@@ -65,6 +65,16 @@
           </td>
                                                     
           </tr>
+          <tr>
+            <td>
+            <br><br><br>
+              <button type="button" class="btn btn-info" >
+              <a href="/crearCita/confirm/" class="fas fa-angle-double-right">Continuar</a> 
+              </button>    
+  
+              
+            </td>
+            </tr>
           
       </table>  
     </div>

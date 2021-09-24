@@ -11,8 +11,9 @@ class Asesor extends Model
     protected $fillable = ['egresado_id','asesor_id','revisor1_id','revisor2_id'];
 
 
-public function egresado(){
-    return $this->hasOne('App\Models\User','id','egresado_id');
+public function egresado()
+{
+    return $this->hasMany('App\Models\User','id','egresado_id');
 
 }
 public function asesor(){

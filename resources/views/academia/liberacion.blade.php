@@ -61,10 +61,10 @@
                                           <td>Hora acto</td>
                                       </tr>
                                       <tr style="color: #190D47;">
-                                        <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{$egresado->id}}">Autorizacion</a></td>
+                                       {{-- <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{$egresado->id}}">Autorizacion</a></td>
                                         <td><a target="_tab" href="/imprimir_aviso_de_acto/{{$egresado->id}}">Aviso de acto</a></td>
                                         <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{$egresado->id}}">Aviso de hora y fecha</a></td>
-                                          <td></td>
+                                          <td></td>--}}
                                       </tr>
                   
                                   </table>  

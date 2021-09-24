@@ -31,7 +31,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         DIRECCIÓN<BR>
         SUBDIRECCION ACADÉMICA<BR>
         DIVISIÓN DE ESTUDIOS PROFESIONALES<BR>
-            Tuxtla Gutiérrez, Chiapas {fecha}<br>
+            Tuxtla Gutiérrez, Chiapas.<br>
         </div>
     </div>
     <div class="row mx-5">
@@ -72,12 +72,12 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:36% !important; text-align:left;">
-       Para titularse por la opcion: <u><b>{opcion}</b></u>
+       {{-- Para titularse por la opcion: <u><b>{{$opcion->Nombre}}</b></u> --}}
       </div>
     </div>
     <div class="row mx-5">
         <div style="position: relative; top:43% !important; text-align:center;">
-         <u><b>{{$egresado->tema}}</b></u>
+         <u>Tema: <b>{{$tramiteTabla->tema}}</b></u>
         </div>
       </div>
 

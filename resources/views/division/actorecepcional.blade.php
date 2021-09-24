@@ -16,8 +16,6 @@
                 <th>NC</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
-                <th>Opcion</th>
-                <th>Recepcion</th>
                 <th>Acciones</th>                  
               </tr>
               </thead>
@@ -28,9 +26,7 @@
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}}</td>
-                  <td>{{$egresado['carrera']}}</td>
-                  <td>{{$egresado['planDeestudios']}}</td>                                                          
-                  <td></td>                                                               
+                  <td>{{$egresado['carrera']}}</td>                                                             
                   <td>
                     <a href="/agendarActo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      
                     <a target="_tab" href="/imprimir_solicitud_integracion/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-file-download"></i></a>      

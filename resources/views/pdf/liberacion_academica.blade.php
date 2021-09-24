@@ -28,8 +28,8 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row">
         <div style="position: relative; text-align:right !important;" class="mx-5">
-            Tuxtla Gutiérrez, Chiapas 26/Abril/2016<br>
-            Oficio No. {NUMERO DE OFICIO}<br>
+            Tuxtla Gutiérrez, Chiapas<br>
+            Oficio No. {{$egresado->id}}<br>
            <u style="font-size:80%;"> Conclusión de asesoria de trabajo profesional</u>.
         </div>
     </div>
@@ -42,7 +42,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;">
-        Por este medio, comunico a Usted, que se ha concluido con la ASESORIA del trabajo profesional del C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}, con número de control {{$egresado->NoControl}}, egresado de la carrera {{$egresado->carrera}}, del Instituto Tecnológico de Tuxtla Gutiérrez, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, con el tema {{$egresado->tema}}.
+        Por este medio, comunico a Usted, que se ha concluido con la ASESORIA del trabajo profesional del C. <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>, con número de control <b>{{$egresado->NoControl}}</b>, egresado de la carrera {{$egresado->carrera}}, del Instituto Tecnológico de Tuxtla Gutiérrez, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, con el tema " <b>{{$tramite->tema}}</b> ".
       </div>
       <div style="position: relative; top:25% !important; text-align:justify;">
         Sin otro particular, quedo de usted.
@@ -57,7 +57,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row mx-5">
       <div style="position: relative; top:25% !important; text-align:center;">
-        <u><b>{NOMBRE DEL JEFE}</b><br></u>
+       
         <b>JEFE DE DEPARTAMENTO DE {{$egresado->carrera}}</b>
       </div>
     </div>
@@ -65,14 +65,14 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:center;">
         <b>ASESOR</b><br><br>
-       <u> <b>{asesor}</b></u>
+       <u> <b>{{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}}</b></u>
       </div>
     </div>
 
     <div class="row mx-5">
       <div style="position: relative; top:40% !important; text-align:center;">
         <b>Revisores</b><br><br>
-       <u> <b class="mx-5">{revisor1}</b> </u> <u> <b class="mx-5">{revisor2}</b></u>
+       <u> <b class="mx-5">{{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}</b> </u> <u> <b class="mx-5">{{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}}</b></u>
       </div>
     </div>
 

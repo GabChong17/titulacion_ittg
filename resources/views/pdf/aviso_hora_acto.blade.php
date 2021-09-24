@@ -42,7 +42,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:5% !important;text-align:right !important; font-size:70%">
-        <b>{FECHA}</b><BR>
+        <b></b><BR>
       </div>
     </div>
     <div class="row mx-5">
@@ -58,28 +58,28 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         </tr>
         <tr >
             <td>PRESIEDNTE:</td>
-            <td>{PROFESION}</td>
-            <td>{NOMBRE}</td>
+            <td>{{$presidente->profesion}}</td>
+            <td>{{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</td>
         </tr>
         <tr >
             <td>SECRETARIO:</td>
-            <td>{PROFESION}</td>
-            <td>{NOMBRE}</td>
+            <td>{{$secretario->profesion}}</td>
+            <td>{{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</td>
         </tr>
         <tr >
             <td>VOCAL PROPIETARIO:</td>
-            <td>{PROFESION}</td>
-            <td>{NOMBRE}</td>
+            <td>{{$vocal_propietario->profesion}}</td>
+            <td>{{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</td>
         </tr>
         <tr >
             <td>VOCAL SUPLENTE:</td>
-            <td>{PROFESION}</td>
-            <td>{NOMBRE}</td>
+            <td>{{$vocal_suplente->profesion}}</td>
+            <td>{{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</td>
         </tr>
       </table>
 
       <div class="row mx-5">
-        <div style="position: relative; top:25% !important; text-align:justify; font-size:70%">
+        <div style="position: relative; top:25% !important; text-align:justify; font-size:80%">
         POR MEDIO LE INFORMO A USTED QUE EL ACTO RECEPCION PROFESIONAL, DEL (A) C. <b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b>, CON EL NO. DE CONTROL <b>{{$egresado->NoControl}}</b> EGERSADO(A) DEL INSTITUTO TECNOLOGICO DE <b>TUXTLA GUTIERREZ</b>.<br>
         PASANTE DE LA CARRERA <b>ING. {{$egresado->carrera}}</b>, se realiza el dia <b>{FECHA RECEPCION}</b> EN LA SALA DE TITULACION EDIFICIO DE ESTE INSTITUTO, POR LO QUE LES PIDO SU PUNTUAL ASISTENCIA.
         </div>

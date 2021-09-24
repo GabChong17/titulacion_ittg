@@ -29,7 +29,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row">
         <div style="position: relative; text-align:right !important;" class="mx-5">
             Tuxtla Gutiérrez, Chiapas {FECHA}<br>
-            Oficio No. {NUMERO DE OFICIO}<br>
+            Oficio No. {{$egresado->id}}<br>
          <div style="font-size:80%;">ASUNTO: ACEPTACIÓN DE TEMA DE TESIS <br>Y DESIGNACIÓN DE ASESOR Y REVISOR.</div>
         </div>
     </div>

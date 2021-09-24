@@ -39,7 +39,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row mx-5">
       <div style="position: relative;text-align:right;font-size:80%; top:12%!important;">
-        Fecha: <u>{fecha}</u>
+       
       </div>
     </div>
 
@@ -54,31 +54,31 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row mx-5">
       <div style="position: relative;top:20%!important;text-align:justify;font-size:90%;">
-        Me permito solicitar se autorice la sustentación del Acto de Recepción Profesional por la opción {opcion} para obtener mi Titulo Profesional de {{$egresado->carrea}} en virtud de haber cubierto los requisitos indispensables para tal efecto.
+        Me permito solicitar se autorice la sustentación del Acto de Recepción Profesional por la opción {opcion} para obtener mi Titulo Profesional de <b>Ingeniero en {{$egresado->carrera}}</b> en virtud de haber cubierto los requisitos indispensables para tal efecto.
       </div>
     </div>
 
     <div class="row mx-5">
-      <div style="position: relative; top:25% !important; text-align:left;">
-       Nombre <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>
+      <div style="position: relative; top:32% !important; text-align:left;">
+       Nombre: <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>.
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:35% !important; text-align:left;">
-       Firma <u><b>{firma}</b></u>
+       Firma: ____________________________.
       </div>
     </div>
     <div class="row mx-5">
-      <div style="position: relative; top:45% !important; text-align:left;">
-       No de control <u><b>{{$egresado->NoControl}}</b></u>
+      <div style="position: relative; top:38% !important; text-align:left;">
+       No de control: <u><b>{{$egresado->NoControl}}</b></u>.
       </div>
     </div><div class="row mx-5">
-      <div style="position: relative; top:55% !important; text-align:left;">
-       Carrera <u><b>{{$egresado->carrera}}</b></u>
+      <div style="position: relative; top:41% !important; text-align:left;">
+       Carrera: <u><b>{{$egresado->carrera}}</b></u>.
       </div>
     </div><div class="row mx-5">
-      <div style="position: relative; top:65% !important; text-align:left;">
-       Nivel <u><b>{Nivel}</b></u>
+      <div style="position: relative; top:44% !important; text-align:left;">
+       Nivel: <u><b>Licenciatura</b></u>.
       </div>
     </div>
     

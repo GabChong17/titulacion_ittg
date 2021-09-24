@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Egresado;
 use App\Models\User;
 use App\Models\Tramite;
+use App\Models\Opcion;
+use App\Models\Jurado;
 use DB;
+use App\Models\Asesor;
+use Illuminate\Http\Response;
+
  
 class DivisionController extends Controller
 {
@@ -34,7 +39,6 @@ class DivisionController extends Controller
     public function aval()
     {
         $egresado = User::where('rol', 'egresado')->get();
-        
         //$users_cita_agendada = DB::select("SELECT estado from users where estado = 'Cita_Agendada'");
         //$users_tramite_iniciado = DB::select("SELECT estado from users where estado = 'Tramite_iniciado'");
         //$users_revision_escolares = DB::select("SELECT estado from users where estado = 'Revision_Escolares'");
@@ -124,16 +128,24 @@ class DivisionController extends Controller
     public function recepcion_acto($id)
     {
         $egresado = User::find($id);
-        $tramites = Tramite::where('egresado_id',Auth::id())->get();
-
-        return view('division.acto_recep', compact('tramites','egresado'));
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        return view('division.acto_recep', compact('tramite','egresado'));
     }
     public function jurado2($id)
     {
         $egresado = User::find($id);
-        $presidente = Tramite::where('presidente', 'egresado_id');
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        $jurado = Jurado::where('egresado_id', $id)
+       ->first();
+            $presidente = User::find($jurado->presidente);
+            $secretario = User::find($jurado->secretario);
+            $vocal_propietario = User::find($jurado->vocalp);
+            $vocal_suplente = User::find($jurado->vocals);
+        
        
-        return view('division.jurado_integracion', compact('egresado','presidente'));
+        return view('division.jurado_integracion', compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente'));
     }
 
 
@@ -144,7 +156,9 @@ class DivisionController extends Controller
     public function asesores($id)
     {
         $egresado = User::find($id);
-        return view('division.solicitarAsesor', compact('egresado'));
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        return view('division.solicitarAsesor', compact('egresado','tramite'));
     
     }
     //
@@ -164,9 +178,20 @@ class DivisionController extends Controller
     public function imprimir_aval_asesores($id)
     { 
         $egresado = User::find($id);
-        $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        $pdf = \PDF::loadView('pdf.aval_asesores', compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+        $tramiteTabla = Tramite::where('egresado_id', $id)
+        ->first();
+        
+        
+
+        // $asesores = Asesor::where('egresado_id', $id)
+        // ->first();
+        // $asesor = User::find($asesores->asesor_id);
+        // $revisor1 = User::find($asesores->revisor1_id);
+        // $revisor2 = User::find($asesores->revisor2_id);
+
+
+        $pdf = \PDF::loadView('pdf.aval_asesores', compact('egresado', 'tramiteTabla'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
     }
@@ -174,21 +199,39 @@ class DivisionController extends Controller
    public function imprimir_solicitud_integracion($id)
    { 
        $egresado = User::find($id);
-       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+       $tramite = Tramite::where('egresado_id', $id)
+       ->first();
+
+       $pdf = \PDF::loadView('pdf.solicitud_de_integracion_jurado',compact('egresado','tramite'))->setOptions(['defaultFont' => 'sans-serif']);
       //return view('pdf.aval_de_academia');
        return $pdf->stream('ejemplo.pdf');
   }
   public function imprimir_aviso_de_acto($id)
   { 
     $egresado = User::find($id);
-      $pdf = \PDF::loadView('pdf.aviso_acto',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+    $jurado = Jurado::where('egresado_id', $id)
+       ->first();
+       $presidente = User::find($jurado->presidente);
+       $secretario = User::find($jurado->secretario);
+       $vocal_propietario = User::find($jurado->vocalp);
+       $vocal_suplente = User::find($jurado->vocals);
+
+      $pdf = \PDF::loadView('pdf.aviso_acto',compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
  public function imprimir_aviso_de_hora_actoRecep($id)
   { 
     $egresado = User::find($id);
-      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+
+    $jurado = Jurado::where('egresado_id', $id)
+       ->first();
+       $presidente = User::find($jurado->presidente);
+       $secretario = User::find($jurado->secretario);
+       $vocal_propietario = User::find($jurado->vocalp);
+       $vocal_suplente = User::find($jurado->vocals);
+    
+      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
@@ -196,7 +239,13 @@ class DivisionController extends Controller
  public function imprimir_liberacion_asesorias($id)
   {
     $egresado = User::find($id); 
-      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+    $asesores = Asesor::where('egresado_id', $id)
+        ->first();
+        $asesor = User::find($asesores->asesor_id);
+        $revisor1 = User::find($asesores->revisor1_id);
+        $revisor2 = User::find($asesores->revisor2_id);
+        
+      $pdf = \PDF::loadView('pdf.liberacion_asesoria',compact('egresado','asesor','revisor1','revisor2'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }

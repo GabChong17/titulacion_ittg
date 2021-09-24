@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name',20);
             $table->string('a_paterno',20);
             $table->string('a_materno',20);
+            $table->string('profesion',50)->nullable();
             $table->string('carrera');
             $table->string('campus');
             $table->string('planDeestudios')->nullable();

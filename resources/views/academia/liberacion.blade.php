@@ -18,7 +18,6 @@
                 <th>NoControl</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
-                <th>Opción</th>
                 <th>Cita</th>
                 <th>Documentos</th>
             </tr>
@@ -28,7 +27,6 @@
                 <td data-th="NoControl">{{ Auth::user()->NoControl }}</td>
                 <td data-th="Nombre">{{ Auth::user()->name }}</td>
                 <td data-th="Carrera">{{ Auth::user()->carrera }}</td>
-                <td data-th="Opción">{{ Auth::user()->planDeestudios }}</td>
                 @foreach ($tramites as $tramite)
                     <td data-th="Cita">{{$tramite->cita}}</td>
                 @endforeach
@@ -57,14 +55,16 @@
                                   <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
                                       <tr style="color: #190D47;">
                                           <td>PDF Autorizacion</td>
+                                          <td>Respuesta Integracion Jurado</td>
                                           <td>Acto recepcional</td>
                                           <td>Hora acto</td>
                                       </tr>
                                       <tr style="color: #190D47;">
-                                       {{-- <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{$egresado->id}}">Autorizacion</a></td>
-                                        <td><a target="_tab" href="/imprimir_aviso_de_acto/{{$egresado->id}}">Aviso de acto</a></td>
-                                        <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{$egresado->id}}">Aviso de hora y fecha</a></td>
-                                          <td></td>--}}
+                                       <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{ Auth::user()->id }}">Autorizacion</a></td>
+                                       <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{ Auth::user()->id }}">Respues de Integracion.</a></td> 
+                                       <td><a target="_tab" href="/imprimir_aviso_de_acto/{{ Auth::user()->id }}">Aviso de acto</a></td>
+                                        <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{ Auth::user()->id }}">Aviso de hora y fecha</a></td>
+                                          <td></td>
                                       </tr>
                   
                                   </table>  

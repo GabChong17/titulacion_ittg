@@ -40,7 +40,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
       <div style="position: relative;
       top:16%!important;
       text-align:justify;font-size:90%;">
-       Tuxtla Gutiérrez, Chiapas, a <u><b>{fecha}</b></u>
+       Tuxtla Gutiérrez, Chiapas<u></u>
          
       </div>
     </div>

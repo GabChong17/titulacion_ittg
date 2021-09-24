@@ -31,13 +31,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         DIRECCIÓN<BR>
         SUBDIRECCION ACADÉMICA<BR>
         DIVISIÓN DE ESTUDIOS PROFESIONALES<BR>
-            Tuxtla Gutiérrez, Chiapas {fecha}<br>
+            Tuxtla Gutiérrez, Chiapas<br>
         </div>
     </div>
     <div class="row mx-5">
-      <div style="position: relative; top:5% !important; font-size:90% !important;">
-    <b>   ING. {AQUI VA EL NOMBRE DEL JEFE DE SISTEMAS}<br>
-       Jefe del Depto. de Ingeniería En {{$egresado->carrera}} <br>
+      <div style="position: relative; top:6% !important; font-size:90% !important;">
+    <b>   <br>
+       Depto. de Ingeniería En {{$egresado->carrera}} <br>
        Edificio<br><b>
       </div>
     </div>
@@ -54,35 +54,32 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
       <div class="row mx-5">
         <div style="position: relative; top:23% !important; text-align:center;">
-         <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>
+         <u><b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b></u>
         </div>
       </div>
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:left;">
-      Egresado de la Carrera de <u><b>{{$egresado->carrera}}</b></u>
+      Egresado de la Carrera de: <u><b>{{$egresado->carrera}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:35% !important; text-align:left;">
-      Meidante la opción <u><b>{opción}</b></u>
+      Meidante la opción: <u><b>{opción}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:40% !important; text-align:left;">
-       Egresado de la Carrera de <u><b>{{$egresado->carrera}}</b></u>
+       Egresado de la Carrera de: <u><b>Ingeniería {{$egresado->carrera}}</b></u>
       </div>
     </div><div class="row mx-5">
       <div style="position: relative; top:45% !important; text-align:left;">
-       Tema <u><b>{{$egresado->tema}}</b></u>
+       Tema: <u><b>{{$tramite->tema}}</b></u>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:50% !important; text-align:left;">
-        Fecha <u><b>{fecha}</b></u>
+        Hora y fecha: <u><b>{fecha}</b></u>
       </div>
-    </div><div class="row mx-5">
-        <div style="position: relative; top:54% !important; text-align:left;">
-        Hora <u><b>{hora}</b></u>
-      </div>
+    </div>
     
 
 

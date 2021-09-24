@@ -93,12 +93,13 @@ Route::get('/asignarAsesor/{Egresado}',[AcademiaController::class, 'asignar_ases
 Route::get('/asesoriaLiberada/{Egresado}',[AcademiaController::class, 'asesoria_liberada'])->middleware('academia');
 Route::get('/liberacionAsesoria',[AcademiaController::class, 'liberacionAsesoria'])->middleware('academia');
 Route::get('/academiaJurado',[AcademiaController::class, 'academiaJurado'])->middleware('academia');
+Route::post('/Asesor/{Egresado}',[AcademiaController::class, 'guardarAsesor'])->middleware('academia');
 Route::post('/Jurado/{Egresado}',[AcademiaController::class, 'guardarJurado'])->middleware('academia');
 Route::get('/asignarJurado/{Egresado}',[AcademiaController::class, 'asignar_jurado'])->middleware('academia');
-Route::get('/imprimir_aval_academia/{Egresado}',[AcademiaController::class, 'imprimir_aval'])->middleware('academia');
+Route::get('/imprimir_aval_academia/{Egresado}',[AcademiaController::class, 'imprimir_aval']);//PDF
 Route::POST('/firmasEscaneadas/{Egresado}',[AcademiaController::class, 'firmas'])->middleware('academia');
-Route::get('/imprimir_liberacion_academica/{Egresado}',[AcademiaController::class, 'imprimir_liberacion'])->middleware('academia');
-Route::get('/imprimir_respuesta_integracion_jurado/{Egresado}',[AcademiaController::class, 'imprimir_respuesta_integracion_jurado'])->middleware('academia');
+Route::get('/imprimir_liberacion_academica/{Egresado}',[AcademiaController::class, 'imprimir_liberacion']);//PDF
+Route::get('/imprimir_respuesta_integracion_jurado/{Egresado}',[AcademiaController::class, 'imprimir_respuesta_integracion_jurado']);//PDF
 
 //division
 Route::get('/division', [AdminController::class, 'division']) ->middleware('division');
@@ -111,12 +112,12 @@ Route::get('/actoRecepcional',[DivisionController::class, 'acto']) ->middleware(
 Route::get('/divicsionNoincoveniencia',[DivisionController::class, 'noincoveniencia']) ->middleware('division');
 Route::get('/integracionJurado',[DivisionController::class, 'jurado']) ->middleware('division');
 Route::get('/integracionJurado2/{Egresado}',[DivisionController::class, 'jurado2']) ->middleware('division');
-Route::get('/imprimir_aval_asesores/{Egresado}',[DivisionController::class, 'imprimir_aval_asesores']) ->middleware('division');//PDF
-Route::get('/imprimir_liberacion_asesorias/{Egresado}',[DivisionController::class, 'imprimir_liberacion_asesorias']) ->middleware('division');//PDF
-Route::get('/imprimir_solicitud_integracion/{Egresado}',[DivisionController::class, 'imprimir_solicitud_integracion']) ->middleware('division');//PDF
+Route::get('/imprimir_aval_asesores/{Egresado}',[DivisionController::class, 'imprimir_aval_asesores']);//PDF
+Route::get('/imprimir_liberacion_asesorias/{Egresado}',[DivisionController::class, 'imprimir_liberacion_asesorias']);//PDF
+Route::get('/imprimir_solicitud_integracion/{Egresado}',[DivisionController::class, 'imprimir_solicitud_integracion']);//PDF
 Route::get('/imprimir_aviso_de_acto/{Egresado}',[DivisionController::class, 'imprimir_aviso_de_acto']);//PDF
 Route::get('/imprimir_aviso_de_hora_actoRecep/{Egresado}',[DivisionController::class, 'imprimir_aviso_de_hora_actoRecep']);//PDF
-Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']) ->middleware('division');//PDF
+Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']);//PDF
 
 
 Route::POST('/recepcion/{egresado_id}',[DivisionController::class, 'recepcion' ]) ->middleware('division');
@@ -134,9 +135,11 @@ Route::get('/LiberarNoInconveniencia/{Egresado}',[ServiciosEscolaresController::
 Route::get('/Concluir/{Egresado}',[ServiciosEscolaresController::class, 'concluir']);//concluir
 Route::get('/LiberarNoIncoveniencia',[ServiciosEscolaresController::class, 'liberarNoincoveniencia'])->middleware('escolares');
 Route::get('/escolaresProtocolo',[ServiciosEscolaresController::class, 'escolaresProtocolo'])->middleware('escolares');
-Route::get('/imprimir_no_adeudo/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_no_adeudo']) ->middleware('escolares');//PDF
-Route::get('/imprimir_protocolo/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_protocolo']) ->middleware('escolares');//PDF
-Route::get('/imprimir_juramento/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_juramento']) ->middleware('escolares');//PDF
+Route::get('/imprimir_no_adeudo/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_no_adeudo']);//PDF
+Route::get('/imprimir_protocolo/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_protocolo']);//PDF
+Route::get('/imprimir_juramento/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_juramento']);//PDF
+Route::get('/imprimir_solicitud_acto/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_solicitud_acto']);//PDF
+
 
 Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ])->middleware('escolares');
 Route::POST('/finalizar/{egresado_id}',[ServiciosEscolaresController::class, 'finalizar' ])->middleware('escolares');

@@ -35,13 +35,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row">
         <div style="position: relative; text-align:right !important;font-size:90%" class="mx-5">
       
-            Tuxtla Gutiérrez, Chiapas {fecha}<br>
-            OFICIO NO. {numero oficio}<br>
+            Tuxtla Gutiérrez, Chiapas<br>
+            OFICIO NO. {{$egresado->id}}<br>
         </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:5% !important; font-size:90% !important;">
-    <b> C.  ING. {AQUI VA EL NOMBRE DEL JEFE DE DIVISION}<br>
+    <b> <br>
        Jefe de la División De Estudios Profesionales<br>
        Edificio<br><b>
       </div>
@@ -54,19 +54,19 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;">
-      Por medio de la presente le informo a usted, la programación de jurado para el examen profesional del área de sistemas, programado para el <b>{FECHA}</b>, a las {hora} en la sala de Titulación E-8
+      Por medio de la presente le informo a usted, la programación de jurado para el examen profesional del área de sistemas, programado para la fecha de <b>{FECHA}</b>, en la sala de Titulación E-8
       </div>
 
 
       <div class="row mx-5">
         <div style="position: relative; top:23% !important; text-align:center;">
-         <u><b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b></u>
+         <u><b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b></u>
         </div>
       </div>
       <table class="default" style="position: relative; top:30% !important; text-align:justify;">  
         <tr >
             <td> Egresado de la Carrera de:</td>
-            <td><u><b>{{$egresado->carrera}}</b></u></td>
+            <td><u><b> Ingenieria en {{$egresado->carrera}}</b></u></td>
         </tr>
         <tr >
             <td> Mediante la opción:</td>
@@ -74,23 +74,23 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         </tr>
         <tr >
             <td> Tema:</td>
-            <td><u><b>{{$egresado->tema}}</b></u></td>
+            <td><u><b>{{$tramite->tema}}</b></u></td>
         </tr>
         <tr >
             <td> Presidente:</td>
-            <td><u><b>{Presidente}</b></u></td>
+            <td><u><b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</b></u></td>
         </tr>
         <tr >
             <td> Secretario:</td>
-            <td><u><b>{secretario}</b></u></td>
+            <td><u><b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</b></u></td>
         </tr>
         <tr >
             <td> Vocal propietario:</td>
-            <td><u><b>{Vocal}</b></u></td>
+            <td><u><b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</b></u></td>
         </tr>
         <tr >
             <td> Vocal suplente:</td>
-            <td><u><b>{Vocal}</b></u></td>
+            <td><u><b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</b></u></td>
         </tr>
         
       </table>

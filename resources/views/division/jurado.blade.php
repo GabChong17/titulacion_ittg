@@ -16,8 +16,6 @@
                 <th>NC</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
-                <th>Opcion</th>
-                <th>Recepcion</th>
                 <th>Acciones</th>                  
               </tr>
               </thead>
@@ -29,8 +27,7 @@
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}}</td>
                   <td>{{$egresado['carrera']}}</td>
-                  <td>{{$egresado['planDeestudios']}}</td>                                                          
-                  <td></td>                                                               
+                                                                                
                   <td>
 
                     <a href="/integracionJurado2/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-address-card"></i></a>   

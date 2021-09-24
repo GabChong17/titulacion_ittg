@@ -67,15 +67,17 @@ class AcademiaController extends Controller
     public function asignar_asesor($id)
     {
         $egresado = User::find($id);
-        $egresado->estado = 'Asesores_Asignados';
-        $egresado->save();
+        // $egresado->estado = 'Asesores_Asignados';
+        // $egresado->save();
 
         $asesor = User::where('rol', 'asesor')->get();
         $revisor = User::where('rol', 'asesor')->get();
         $revisor2 = User::where('rol', 'asesor')->get();
+        $tramite = Tramite::where('egresado_id', $id)
+       ->first();
        
 
-        return view('academia.asignarAsesor', compact('asesor','egresado','revisor','revisor2')); 
+        return view('academia.asignarAsesor', compact('asesor','egresado','revisor','revisor2', 'tramite')); 
         
     }
  
@@ -84,10 +86,18 @@ class AcademiaController extends Controller
     {
 
         $egresado = User::find($id);
-        // $egresado->estado = 'Asesoria_Liberada';
-        // $egresado->save();
 
-        return view('academia.asesorialiberada',compact('egresado'));
+        $asesores = Asesor::where('egresado_id', $id)
+        ->first();
+        $asesor = User::find($asesores->asesor_id);
+        $revisor1 = User::find($asesores->revisor1_id);
+        $revisor2 = User::find($asesores->revisor2_id);
+
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+
+       
+        return view('academia.asesorialiberada',compact('egresado','asesor','revisor1','revisor2','tramite'));
        
     }
     public function liberacionAsesoria()
@@ -128,15 +138,21 @@ class AcademiaController extends Controller
         $secretario = User::where('rol', 'asesor')->get();
         $vocal_propietario = User::where('rol', 'asesor')->get(); 
         $vocal_suplente = User::where('rol', 'asesor')->get();
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
        
 
-        return view('academia.asignarJurado', compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente')); 
+        return view('academia.asignarJurado', compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente', 'tramite')); 
         
     }
 
     public function guardarAsesor(Request $request, $id)
     {
         
+        $egresado = User::find($id);
+        $egresado->estado = 'Asesores_Asignados';
+        $egresado->save();
+
         $valores = $request->all();
         $registro = new Asesor();
         $user = User::find($id);
@@ -176,10 +192,13 @@ class AcademiaController extends Controller
         $revisor1 = User::find($asesores->revisor1_id);
         $revisor2 = User::find($asesores->revisor2_id);
 
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        $opcion = Tramite::find($tramite->opciones_id);
 
         // dd($asesores);
 
-        $pdf = \PDF::loadView('pdf.aval_de_academia',compact('egresado','asesor','revisor1','revisor2'))->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = \PDF::loadView('pdf.aval_de_academia',compact('egresado','asesor','revisor1','revisor2', 'tramite','opcion'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
@@ -187,7 +206,15 @@ class AcademiaController extends Controller
    public function imprimir_liberacion($id)
     { 
         $egresado = User::find($id);
-        $pdf = \PDF::loadView('pdf.liberacion_academica',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+        $asesores = Asesor::where('egresado_id', $id)
+        ->first();
+        $asesor = User::find($asesores->asesor_id);
+        $revisor1 = User::find($asesores->revisor1_id);
+        $revisor2 = User::find($asesores->revisor2_id);
+
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        $pdf = \PDF::loadView('pdf.liberacion_academica',compact('egresado', 'tramite','asesor','revisor1','revisor2'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
@@ -195,7 +222,17 @@ class AcademiaController extends Controller
    public function imprimir_respuesta_integracion_jurado($id)
    { 
        $egresado = User::find($id);
-       $pdf = \PDF::loadView('pdf.respuesta_de_integracion_jurado',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+
+       $tramite = Tramite::where('egresado_id', $id)
+       ->first();
+       $jurado = Jurado::where('egresado_id', $id)
+       ->first();
+       $presidente = User::find($jurado->presidente);
+       $secretario = User::find($jurado->secretario);
+       $vocal_propietario = User::find($jurado->vocalp);
+       $vocal_suplente = User::find($jurado->vocals);
+
+       $pdf = \PDF::loadView('pdf.respuesta_de_integracion_jurado',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
       //return view('pdf.aval_de_academia');
        return $pdf->stream('ejemplo.pdf');
   }

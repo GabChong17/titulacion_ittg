@@ -28,7 +28,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row">
         <div style="position: relative; text-align:right !important;" class="mx-5">
-            Tuxtla Gutiérrez, Chiapas {fecha}<br>
+            Tuxtla Gutiérrez, Chiapas <br>
          <div style="font-size:80%;">
     </div>
     </div>
@@ -45,10 +45,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         POR ESTE MEDIO LE INFORMO A USTED, QUE EL ACTO DE RECEPCION PROFESIONAL, PARA OBTENER EL TITULO DE: <b>INGENIERO {{$egresado->carrera}}</b>, HA SIDO PROGRAMADO PARA EL DIA DE <b>{FECHA DE ACTO}</b> EN EL LUGAR QUE OCUPA LA SALA DE TITULACION <b>(SALA DE TITULACION EDIFICIO E-8)</b>, PARA LO QUE SE LE ASIGNA COMO JURADO A LO S CC. 
         <br><br>
         <ul>
-          <li>PRESIDENTE: <b>{NOMBRE PRESIDENTE}</b></li>
-          <li>SECRETARIO: <b>{NOMBRE SECRETARIO}</b></li>
-          <li>VOCAL PROPIETARIO(A): <b>{NOMBRE VOCAL PROPIETARIO}</b></li>
-          <li>VOCAL SUPLENTE(A): <b>{NOMBRE VOCAL SUPLENTE}</b></li>
+          <li>PRESIDENTE: <b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</b>.</li>
+          <li>SECRETARIO: <b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</b>.</li>
+          <li>VOCAL PROPIETARIO(A): <b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</b>.</li>
+          <li>VOCAL SUPLENTE(A): <b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</b>.</li>
         </ul>
     
       </div>

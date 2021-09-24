@@ -23,7 +23,8 @@
                           </tr>
                           <tr>
                             <td>{{$egresado->name}}</td>
-                            <td>{{$egresado->tema}}</td>
+                            <td>{{$tramite->tema}}</td>
+                            {{-- {{$tramiteTabla->tema}} --}}
                           </tr>
                           <tr>
                             <th>Asesor:</th>
@@ -32,13 +33,13 @@
                           </tr>
                           <tr>
                             <td>
-                                Asesor
+                              {{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}} 
                             </td>
                             <td>
-                                Revisor 1
+                              {{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}
                             </td>
                             <td>
-                                Revisor 2
+                              {{$revisor2->name}}  {{$revisor2->a_paterno}} {{$revisor2->a_materno}} 
                             </td>
 
                         </tr>

@@ -29,7 +29,8 @@
                       </tr>
                       <tr>
                         <td>{{$egresado->name}}</td>
-                        <td>{{$egresado->tema}}</td>
+                        
+                        <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>
                       </tr>
                       
                       <tr>
@@ -41,10 +42,10 @@
                       </tr>
                       
                         <tr>
-                            <td></td>
-                            <td>Secretario</td>
-                            <td>Vocal Propietario</td>
-                            <td>Vocal Suplente</td>                           
+                            <td>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</td>
+                            <td>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</td>
+                            <td>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</td>
+                            <td>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</td>                           
                             
                         </tr>
                       <tr>

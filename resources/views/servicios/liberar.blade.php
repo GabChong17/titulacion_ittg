@@ -24,7 +24,7 @@
                           </tr>
                           <tr>
                             <td>{{$egresado->name}}</td>
-                            <td>{{$egresado->tema}}</td>
+                            <td>{{$tramite->tema}}</td>
                           </tr>
                           
                           

@@ -17,8 +17,6 @@
                 <th>NC</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
-                <th>Opcion</th>
-                <th>Recepcion</th>
                 <th>Acciones</th>  
                               
               </tr>
@@ -30,9 +28,7 @@
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}}</td>
-                  <td>{{$egresado['carrera']}}</td>
-                  <td>{{$egresado['planDeestudios']}}</td>                                                          
-                  <td></td>                                                               
+                  <td>{{$egresado['carrera']}}</td>                                                          
                   <td>
 
                     <a href="/DocumentosRevisados/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-book"></i></a> 

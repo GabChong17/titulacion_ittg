@@ -16,8 +16,6 @@
                       <th>NC</th>
                       <th>Nombre</th>
                       <th>Carrera</th>
-                      <th>Opcion</th>
-                      <th>Recepcion</th>
                       <th>Asesores</th>   
                                     
                     </tr>
@@ -30,10 +28,6 @@
                         <td>{{$egresado['NoControl']}}</td>
                         <td>{{$egresado['name']}}</td>
                         <td>{{$egresado['carrera']}}</td>
-                        <td>{{$egresado['planDeestudios']}}</td>                                                                                                                       
-                        <td>
-                          
-                        </td>
                         <td>
                           <a href="/paseLiberacion/{{$egresado->id}}" class="fas fa-address-card btn btn-info"></a>      
                          

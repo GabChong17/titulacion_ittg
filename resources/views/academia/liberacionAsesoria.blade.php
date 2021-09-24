@@ -16,8 +16,7 @@
                 <th>NC</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
-                <th>Opcion</th>
-                <th>Recepcion</th>
+                
                 <th>Acciones</th>                  
               </tr>
               </thead>
@@ -30,8 +29,7 @@
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}}</td>
                   <td>{{$egresado['carrera']}}</td>
-                  <td>{{$egresado['planDeestudios']}}</td>                                                          
-                  <td></td>                                                               
+                                                                                 
                   <td>
                     <a href="/asesoriaLiberada/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
                   </td>

@@ -16,8 +16,6 @@
                 <th>NC</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
-                <th>Opcion</th>
-                <th>Recepcion</th>
                 <th>Acciones</th>                  
               </tr>
               </thead>
@@ -28,9 +26,7 @@
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}}</td>
-                  <td>{{$egresado['carrera']}}</td>
-                  <td>{{$egresado['planDeestudios']}}</td>                                                          
-                  <td></td>                                                               
+                  <td>{{$egresado['carrera']}}</td>                                                            
                   <td>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#NoInconveniencia-modal">
                       <i class=" fas fa-file-alt"></I>

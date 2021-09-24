@@ -28,7 +28,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row">
         <div style="position: relative; text-align:right !important;" class="mx-5">
-            Tuxtla Gutiérrez, Chiapas {fecha}<br>
+            Tuxtla Gutiérrez, Chiapas.<br>
         </div>
     </div>
     <div class="row mx-5">

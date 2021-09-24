@@ -31,20 +31,20 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row">
         <div style="position: relative; text-align:right !important;" class="mx-5">
             Tuxtla Gutiérrez, Chiapas 26/Abril/2016<br>
-            Oficio No. {NUMERO DE OFICIO}<br>
+            Oficio No. {{$egresado->id}}<br>
            <u> Asunto Aval de Academia</u>.
         </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:5% !important;">
-       ING. {AQUI VA EL NOMBRE DEL JEFE DE SISTEMAS}<br>
-       Jefe del Departamento de Sistemas y Computación<br>
+       
+       Departamento de {{$egresado->carrera}}<br>
        Presente<br>
       </div>
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;">
-        Por este medio le informo a Usted, que la solicitud del análisis y dictamen del tema de titulación "{{$egresado->tema}}" presentado por el C. {{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}, con número de control  {{$egresado->NoControl}}, para titularse mediante la opción {AQUI VA LA OPCION DE TITULACION}, se ha dictaminado como {AQUI VA EL STATUS}, teniendo como asesor(a) a: {{$asesor->name}} y como revisores a los CC: {{$revisor1->name}} y {{$revisor2->name}}.
+        Por este medio le informo a Usted, que la solicitud del análisis y dictamen del tema de titulación "<b>{{$tramite->tema}}</b>" presentado por el C. <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>, con número de control  <b>{{$egresado->NoControl}}</b>, para titularse mediante la opción {{$opcion->Nombre}}, teniendo como asesor(a) a: <b>{{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}}</b> y como revisores a los CC:  <b>{{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}</b> y <b>{{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}}</b>.
       </div>
       <div style="position: relative; top:32% !important; text-align:justify;">
         Sin otro particular, agradezco su atención.
@@ -52,15 +52,15 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
 
     <div class="row mx-5">
-      <div style="position: relative; top:18% !important; text-align:justify;">
+      <div style="position: relative; top:26% !important; text-align:justify;">
         <b>A T E N T A M E N T E</b>
       </div>
     </div>
 
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:justify;">
-        <b>C. MTRA. ALICIA GONZALEZ LAGUNA</b><br>
-        <b>PRESIDENTA DE ACADEMIA DE ISC</b>
+        <br>
+        <b>ACADEMIA DE {{$egresado->carrera}}  </b>
       </div>
     </div>
 

@@ -109,16 +109,15 @@
         <li>
           <div class="top">
             <div class="circle">
-                <img src="/Imagenes/ITTG_Escudo.png" style="width: 100px; height: 100px ;">    
+                <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px ;">    
             </div><br>
           </div>
           <div class="bottom">
-            <p><span>Estado: </span>{{ Auth::user()->estado }}</p>
-            <p><span>NoControl:  </span>{{ Auth::user()->NoControl }}</p>
-            <p><span>Nombre:  </span>{{ Auth::user()->name }}</p>
-            <p><span>Carrera:  </span>Ing. {{ Auth::user()->carrera }}</p>
-            <p><span>Tema:  </span>{{ Auth::user()->tema }}</p>
-            <p><span>Opción:  </span>{{ Auth::user()->planDeestudios }}</p>
+            <p><span>Estado: </span><b>{{ Auth::user()->estado }}</b></p>
+            <p><span>NoControl:  </span><b>{{ Auth::user()->NoControl }}</b></p>
+            <p><span>Nombre:  </span><b>{{ Auth::user()->name }} {{ Auth::user()->a_paterno }} {{ Auth::user()->a_materno }}</b> </p>
+            <p><span>Carrera:  </span><b>Ing. {{ Auth::user()->carrera }}</b></p>
+           
             <div class="sign">
             
             </div>
@@ -133,7 +132,7 @@
     
     <div class="contenedor-titulo">
         
-    </div><br><br><br><br><br>
+    </div><br><br><br><br><br><br><br><br><br>
 
 
     <div class="footer mx-auto px-4 sm:px-6 lg:px-8">

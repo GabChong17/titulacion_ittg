@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Egresado;
 use App\Models\User;
 use App\Models\Tramite;
+use App\Models\Jurado;
  
 
 class ServiciosEscolaresController extends Controller
@@ -32,7 +33,10 @@ class ServiciosEscolaresController extends Controller
     public function documento($id)
     {
         $egresado = User::find($id);
-        return view('servicios.documento', compact('egresado'));
+
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        return view('servicios.documento', compact('egresado', 'tramite'));
     }
 
     public function noincoveniencia()
@@ -83,16 +87,20 @@ class ServiciosEscolaresController extends Controller
     public function liberar($id)
     {
        $egresado = User::find($id);
+       $tramite = Tramite::where('egresado_id', $id)
+       ->first();
 
-        return view('servicios.liberar', compact('egresado'));
+        return view('servicios.liberar', compact('egresado','tramite'));
         
     }
     
     public function concluir($id)
     {
         $egresado = User::find($id);
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
 
-        return view('servicios.concluir',compact('egresado'));
+        return view('servicios.concluir',compact('egresado','tramite'));
     }
 
     public function  finalizar($id)
@@ -123,7 +131,14 @@ class ServiciosEscolaresController extends Controller
         return redirect("/LiberarNoIncoveniencia")->with('mensaje','Jurado asignado correctamente');
     }
     
-   
+    
+    public function imprimir_solicitud_acto($id)
+    {
+        $egresado = User::find($id); 
+        $pdf = \PDF::loadView('pdf.solicitud_recepcion',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }
 
    public function imprimir_no_adeudo($id)
     {
@@ -135,7 +150,15 @@ class ServiciosEscolaresController extends Controller
    public function imprimir_protocolo($id)
     {
         $egresado = User::find($id); 
-        $pdf = \PDF::loadView('pdf.protocolo',compact('egresado'))->setOptions(['defaultFont' => 'sans-serif']);
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        $jurado = Jurado::where('egresado_id', $id)
+       ->first();
+            $presidente = User::find($jurado->presidente);
+            $secretario = User::find($jurado->secretario);
+            $vocal_propietario = User::find($jurado->vocalp);
+            $vocal_suplente = User::find($jurado->vocals);
+        $pdf = \PDF::loadView('pdf.protocolo',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }

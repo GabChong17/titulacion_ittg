@@ -54,26 +54,26 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
         <div style="position: relative; text-align:center;font-size:80%; top:14%!important;">
-          C:   <b>{{$egresado->name}} {{$egresado->a_parterno}} {{$egresado->a_materno}}</b><br>
+          C:   <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b><br>
           PASANTE DE LA CARRERA DE:  <b> Ing. {{$egresado->carrera}}</b><br>
           CON EL NÚMERO DE CONTROL: <b>{{$egresado->NoControl}}</b><br>
           EGRESADO(A)  DEL: <b>{{$egresado->campus}}</b><br>
-          QUIEN PRESENTA EL TEMA TITULADO: <b>{{$egresado->tema}}</b><br>
+          QUIEN PRESENTA EL TEMA TITULADO: <b>{{$tramite->tema}}</b><br>
           MEDIANTE LA OPCIÓN: <b>{OPCION}</b><br>
         </div>
       </div>
       <div class="row mx-5"> 
-        <div style="position: relative; top:19% !important; text-align:justify; font-size:80%;">
+        <div style="position: relative; top:20% !important; text-align:justify; font-size:80%;">
         EL JURADO SE INTEGRA DE LA SIGUIENTE MANERA:<br><br>
-        PRESIDENTE:         <b>{PRESIDENTE}</b><br>
-        SECRETARIO:         <b>{SECRETARIO}</b><br>
-        VOCAL PROPIETARIO:         <b>{ VOCAL PROPIETARIO}</b><br>
-        VOCAL SUPLENTE:         <b>{VOCAL SUPLENTE}</b><br>
+        PRESIDENTE:         <b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</b><br>
+        SECRETARIO:         <b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</b><br>
+        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</b><br>
+        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</b><br>
         </div>
       </div>
       <div class="row mx-5"> 
         <div style="position: relative; top:27% !important; text-align:justify; font-size:80%;">
-        A QUIENES NOS CORRESPONDE EL HONOR DE INICIAR EL DIA DE HOY <b>{FECHA}</b>, A LAS <b>{HORA}</b>, EL ACTO DE RECEPCION PROFESIONAL, MUESTRA DE LA MADUREZ DEL INSTITUTO TECNOLOGICO DE TUXTLA GUTIERREZ.<br><br>
+        A QUIENES NOS CORRESPONDE EL HONOR DE INICIAR EL DIA DE HOY <b>{FECHA}</b>, EL ACTO DE RECEPCION PROFESIONAL, MUESTRA DE LA MADUREZ DEL INSTITUTO TECNOLOGICO DE TUXTLA GUTIERREZ.<br><br>
         AGRADECEMOS A LA CONCURRENCIA GUARDAR ABSOLUTO SILENCIO DURANTE EL DESARROLLO DEL MISMO.
         </div>
       </div>

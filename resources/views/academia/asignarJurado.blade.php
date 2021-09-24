@@ -31,7 +31,7 @@
                               <input type="text" class="form-control" name="egresado_id" value="{{$egresado->name}}" disabled>
                             </td>
                               <td>
-                                <input type="text" class="form-control"  name="tema_id" value="{{$egresado->tema}}" disabled>
+                                <input type="text" class="form-control"  name="tema_id" value="{{$tramite->tema}}" disabled>
                               </td>
                               
                           </tr>
@@ -98,7 +98,7 @@
                           </tr>
                             <tr>
                               <td colspan="2">Academia</td>
-                              <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{$egresado->id}}"">Respues de Integracion.</a></td>
+                              
                             </tr>
                           </form>
 

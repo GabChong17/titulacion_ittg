@@ -27,13 +27,13 @@ class InicioControler extends Controller
                 return redirect('/division');            
                 break;
             case 'jefatura':
-                return view('admin.jefatura');
+                return redirect('/jefatura');
                 break;
             case 'academia':
                 return redirect('/academia');            
                 break;
             case 'escolares':
-                return view('admin.escolares');
+                return redirect('/escolares');
                 break;
             case 'asesor':
                 return view ('admin.asesores');

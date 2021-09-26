@@ -7,11 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotificacionMailable extends Mailable
+class NotificacionEscolares extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $subject = "Infomacion del sistema";
 
     /**
      * Create a new message instance.
@@ -30,6 +28,6 @@ class NotificacionMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.notificacion');
+        return $this->view('emails.escolares');
     }
 }

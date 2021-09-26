@@ -7,6 +7,7 @@
 <div class="card">
   <div class="card-body">
     <h2><p style="text-align:center; color: #140303;">Solicitud de Aval</p></h2>
+    
               <table id="usuarios" class="table table-striped ">
               <thead class= "bg-primary text-white">
               <tr>
@@ -37,6 +38,7 @@
               </tbody>
                 <tr>
                   <td colspan="2">Division de estudios</td>
+                  <td><a href="/notificacionAcademia" class=" fas fa-envelope btn btn-info">  Notificacion</a> </td>
                 </tr>                      
             </table>  
           </div>

@@ -32,6 +32,7 @@
                                                                                  
                   <td>
                     <a href="/asesoriaLiberada/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-file-alt"></i></a>
+                    
                   </td>
                                          
                 </tr>
@@ -39,7 +40,8 @@
                 @endforeach
               </tbody>
                 <tr>
-                  <td colspan="2">Division de estudios</td>
+                  <td colspan="2">Academia</td>
+                  <td><a href="/notificacionDivision" class=" fas fa-envelope btn btn-info">  Notificacion</a> </td>
                 </tr>                      
             </table>  
 

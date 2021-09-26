@@ -55,6 +55,7 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'a_paterno' => 'required|string|max:255',
             'a_materno' => 'required|string|max:255',
+            'profesion' => 'required|string|max:255',
             'rol'=>'required|string|max:255',
             'carrera' => 'required|string|max:255',
             'campus' => 'required|string|max:255',
@@ -69,6 +70,7 @@ class AdminController extends Controller
             'name' => $request->name,
             'a_paterno'=>$request->a_paterno,
             'a_materno'=>$request->a_materno,
+            'profesion'=>$request->profesion,
             'rol'=>$request->rol,
             'carrera'=>$request->carrera,
             'campus'=>$request->campus,
@@ -77,7 +79,7 @@ class AdminController extends Controller
             'password' => Hash::make($request->password),
         ]);
         //return redirect()->back()->with('message', 'Empleado agregado.');
-        return view('admin.agregarUsers')->with('message', 'Empleado agregado.');  
+        return view('admin.users.index')->with('message', 'Empleado agregado.');  
     }
     public function agrega(Request $request)
     {

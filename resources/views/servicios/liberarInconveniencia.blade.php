@@ -39,7 +39,8 @@
                 @endforeach
               </tbody>
                 <tr>
-                  <td colspan="2">Division de estudios</td>
+                  <td colspan="2">Servicios Escolares</td>
+                  <td><a href="/notificacionDivision" class=" fas fa-envelope btn btn-info">  Notificacion</a> </td>
                 </tr>                      
             </table>  
           </div>

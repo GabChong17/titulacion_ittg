@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('carrera');
             $table->string('campus');
             $table->string('planDeestudios')->nullable();
-            $table->string('tema')->nullable();
             $table->string('email',50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('telefono');

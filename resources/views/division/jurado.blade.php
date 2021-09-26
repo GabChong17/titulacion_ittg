@@ -26,15 +26,9 @@
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}}</td>
-                  <td>{{$egresado['carrera']}}</td>
-                                                                                
+                  <td>{{$egresado['carrera']}}</td>                                                       
                   <td>
-
-                    <a href="/integracionJurado2/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-address-card"></i></a>   
-                    {{-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#asesores-modal">
-                      <i class="fas fa-address-card"></I>
-                    </button> --}}
-                    
+                    <a href="/integracionJurado2/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-address-card"></i></a>                      
                   </td>    
                   </td>
                                          
@@ -43,6 +37,7 @@
               </tbody>
                 <tr>
                   <td colspan="2">Division de estudios</td>
+                  <td><a href="/notificacionEscolares" class=" fas fa-envelope btn btn-info">  Notificacion</a> </td>
                 </tr>                      
             </table>  
           </div>

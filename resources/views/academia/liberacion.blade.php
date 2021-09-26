@@ -58,12 +58,15 @@
                                           <td>Respuesta Integracion Jurado</td>
                                           <td>Acto recepcional</td>
                                           <td>Hora acto</td>
+                                          <td>Certificado</td>
                                       </tr>
                                       <tr style="color: #190D47;">
-                                       <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{ Auth::user()->id }}">Autorizacion</a></td>
-                                       <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{ Auth::user()->id }}">Respues de Integracion.</a></td> 
-                                       <td><a target="_tab" href="/imprimir_aviso_de_acto/{{ Auth::user()->id }}">Aviso de acto</a></td>
-                                        <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{ Auth::user()->id }}">Aviso de hora y fecha</a></td>
+                                       <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                       <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                       <td><a target="_tab" href="/imprimir_aviso_de_acto/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                        <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                        <td><a target="_tab" href="/imprimir_certificado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></i></a> </td>
+                                        
                                           <td></td>
                                       </tr>
                   

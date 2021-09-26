@@ -11,8 +11,12 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ServiciosEscolaresController;
 use App\Http\Controllers\InicioControler;
 use App\Http\Controllers\JefaturaController;
-use App\Mail\NotificacionMailable;
+use App\Mail\NotificacionEgresado;
+use App\Mail\NotificacionDivision;
+use App\Mail\NotificacionAcademia;
+use App\Mail\NotificacionEscolares;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 
 
@@ -139,6 +143,7 @@ Route::get('/imprimir_no_adeudo/{Egresado}',[ServiciosEscolaresController::class
 Route::get('/imprimir_protocolo/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_protocolo']);//PDF
 Route::get('/imprimir_juramento/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_juramento']);//PDF
 Route::get('/imprimir_solicitud_acto/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_solicitud_acto']);//PDF
+Route::get('/imprimir_certificado/{Egresado}',[ServiciosEscolaresController::class, 'imprimir_certificado']);//PDF
 
 
 Route::POST('/agendarCita',[ServiciosEscolaresController::class, 'citaAgenda' ])->middleware('escolares');
@@ -148,14 +153,55 @@ Route::POST('/liberarNo/{egresado_id}',[ServiciosEscolaresController::class, 'li
 
 
 //notificacion
-Route::get('notificacion', function () {
+Route::get('notificacionEgresado/{egresado_id}', function () {
 
-    $correo = new NotificacionMailable;
+    $correo = new NotificacionEgresado;
     Mail::to('gabo.chong.xr@gmail.com')->send($correo);
 
     // return "mensaje enviado";
     return redirect()->back()->with('message', 'Mensaje Enviado');  
 });
+
+// Route::get('notificacionEgresado/{egresado_id}', function (Request $request, $id) {
+
+//     $correo = new NotificacionEgresado;
+//     $egresado = User::find($id);
+//     $egresado = User::where('egresado_id',Auth::id())->get();
+//     Mail::to($egresado)->send($correo);
+
+//     // return "mensaje enviado";
+//     return redirect()->back()->with('message', 'Mensaje Enviado');  
+// });
+
+Route::get('notificacionDivision', function () {
+
+    $correo = new NotificacionDivision;
+    $empleado = User::find('all');
+    $empleado = User::where('rol', '=', 'division')->get();
+    Mail::to($empleado)->send($correo);
+    return redirect()->back()->with('message', 'Mensaje Enviado');  
+});
+
+Route::get('notificacionAcademia', function () {
+
+    $correo = new NotificacionAcademia;
+    $empleado = User::find('all');
+    $empleado = User::where('rol', '=', 'academia')->get();
+    Mail::to($empleado)->send($correo);
+    return redirect()->back()->with('message', 'Mensaje Enviado');  
+});
+
+Route::get('notificacionEscolares', function () {
+
+    $correo = new NotificacionEscolares;
+    $empleado = User::find('all');
+    $empleado = User::where('rol', '=', 'escolares')->get();
+    Mail::to($empleado)->send($correo);
+
+    return redirect()->back()->with('message', 'Mensaje Enviado');  
+});
+
+
 //PDF
 // Route::get('/imprimir_aceptacion_tesis',[PDFController::class, 'imprimir_aceptacion_tesis']);
 // Route::get('/imprimir_constancia_no_inconveniencia',[PDFController::class, 'imprimir_constancia_no_inconveniencia']);

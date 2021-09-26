@@ -28,6 +28,12 @@
     
                     <x-input id="a_materno" class="block mt-1 w-full" type="text" name="a_materno" :value="old('a_materno')" />
                 </div>
+                <!-- Profesion -->
+                <div>
+                    <x-label for="a_materno" :value="__('Profesion')" />
+    
+                    <x-input id="profesion" class="block mt-1 w-full" type="text" name="profesion" :value="old('profesion')" />
+                </div>
                 <!-- Rol -->
                 <div>
                     <br>

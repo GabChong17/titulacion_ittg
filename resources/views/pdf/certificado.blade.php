@@ -1,10 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Example 2</title>
+    <title>
+      Certificado
+    </title>
     <link href="{{ public_path('bootstrap-3.1.1/css/bootstrap.min.css') }}" rel="stylesheet">
   </head>
   <body>
@@ -26,61 +26,94 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     /*# sourceMappingURL=bootstrap.min.css.map */
 </style>
 
-    <div class="row mx-5">
-      <div style="position: relative;text-align:center;font-size:90%;">
-        <b>INSTITUTO TECNOLÓGICO DE TUXTLA GUTIÉRREZ</b>
-      </div>
+    <div class="row">
+        <div style="position: relative; text-align:right !important;" class="mx-5">
+            TECNOLÓGICO NACIONAL DE MÉXICO<br>
+            Instituto Tecnologico de Tuxtla Gutierrez<br>
+        </div>
     </div>
-    <div class="row mx-5">
-      <div style="position: relative;text-align:center;font-size:80%; top:10%!important;">
-        <b>SOLICITUD DE ACTO DE RECEPCIÓN PROFESIONAL</b>
-      </div>
-    </div>
+ 
+    {{-- <div class="row mx-5">
+        <div style="position: relative; top:8% !important; text-align:justify;">
+          <b>JURAMENTO DE ETICA PROFESIONAL</b>
+        </div>
+      </div> --}}
 
-    <div class="row mx-5">
-      <div style="position: relative;text-align:right;font-size:80%; top:12%!important;">
-       
+      <div class="row mx-5">
+        <div style="position: relative;text-align:center;font-size:80%; top:6%!important;">
+          <b>CERTIFICACION DE ACTA DE EXAMEN PROFESIONAL</b>
+        </div>
       </div>
-    </div>
-
-    <div class="row mx-5">
-      <div style="position: relative; top:15% !important;font-size:80%;">
-       C. ING. SALOMÓN VELASCO BERMÚDEZ<br>
-       JEFE DEL DEPARTAMENTO DE SERVICIOS ESCOLARES<br>
-       <b>PRESENTE</b><br>
-      </div>
-    </div>
 
 
-    <div class="row mx-5">
-      <div style="position: relative;top:20%!important;text-align:justify;font-size:90%;">
-        Me permito solicitar se autorice la sustentación del Acto de Recepción Profesional por la opción {opcion} para obtener mi Titulo Profesional de <b>Ingeniero en {{$egresado->carrera}}</b> en virtud de haber cubierto los requisitos indispensables para tal efecto.
+    <div class="row mx-5"> 
+      <div style="position: relative; top:9% !important; text-align:justify; font-size:80%;">
+      El (la) suscrito (a) Director (a) del {{$egresado->campus}}, ceertifica que en el Libro par Actas de Examen Profesional {fecha de acto} por la direccion de asuntos 
+      Escolares y Apoyo a Estudiantes de la Direccion General del Tecnológico Nacional de México, se encuentra asentada en la hoja número <b>{{$egresado->id}}</b> el acta 
+      que a la letra dice:<br>
+      En la ciudad de Tuxtla Gutierrez, Chiapas; a <b>{fecha actual}</b>, se reunieron en la <b>Sala de Titulación E-8 de {{$egresado->campus}}</b>, clave 07DIT0029Z, el 
+      jurado esta integrado por:
       </div>
     </div>
+    <div class="row mx-5"> 
+        <div style="position: relative; top:11% !important; text-align:justify; font-size:80%;">
+        PRESIDENTE:         <b>{{$presidente->profesion}}, {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, {cedula}</b><br>
+        SECRETARIO:         <b>{{$secretario->profesion}}, {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, {cedula}</b><br>
+        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}}, {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, {cedula}</b><br>
+        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}}, {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, {cedula}</b><br>
+        </div>
+      </div>
+      <div class="row mx-5"> 
+        <div style="position: relative; top:13% !important; text-align:justify; font-size:80%;">
+        Y deacuerdo a con las dispoiciones reglamentarias en vigor y la opción seleccionada: <b>X (memoria de residencia profesional)</b>; se procedio a efectuar el Acto de Recepción
+        Profesional a el (la):<br>
+        </div>
+      </div>
+      <div class="row mx-5"> 
+      <div style="position: relative; text-align:center;font-size:80%; top:14%!important;">
+        C: <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>    número de control: <b>{{$egresado->NoControl}}</b><br>
+        </div>
+      </div>
+      <div class="row mx-5"> 
+        <div style="position: relative; top:15% !important; text-align:justify; font-size:80%;">
+        Egresado(a) del {{$egresado->campus}}, pasante de la carrera de <b>Ingenieria {{$egresado->carrera}}. </b><br>
+        El jurado tomando en cuenta el contenido del Trabajo Profesional cuyo tema es: "<b>{{$tramite->tema}}</b>" y la replica del mismo, dictaminó que fuera <b>Aprobado(a)</b>.<br>
+        El (la) Presiendete (a) del Jurado le hizo saber  a el (la) sustentante el resultado obtenido. El código de Ética Profesional y el tomó la Protesta de Ley. Dandose por 
+        terminado el acto <b>{hora de termino}</b>, y una vez escrita, leida y aprobada, fue firmada para constancia por las personas que en el acto intervinieron, para 
+        los efectos legales a que haya lugar se asiente la presente.<br><br>
+        Rubrican.<br><br>
+        Se extiende esta certificacion a <b>{fecha actual}</b>.<br><br>
+        <b>COTEJÓ</b><br><br>
+        <b>Jefe (a) del Departamento<br>
+        de Servicios Escolares<br>
+        Ing. Salomón Velasco Bermúdez</b> 
 
-    <div class="row mx-5">
-      <div style="position: relative; top:32% !important; text-align:left;">
-       Nombre: <u><b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b></u>.
+        </div>
       </div>
-    </div>
-    <div class="row mx-5">
-      <div style="position: relative; top:35% !important; text-align:left;">
-       Firma: ____________________________.
-      </div>
-    </div>
-    <div class="row mx-5">
-      <div style="position: relative; top:38% !important; text-align:left;">
-       No de control: <u><b>{{$egresado->NoControl}}</b></u>.
-      </div>
-    </div><div class="row mx-5">
-      <div style="position: relative; top:41% !important; text-align:left;">
-       Carrera: <u><b>{{$egresado->carrera}}</b></u>.
-      </div>
-    </div><div class="row mx-5">
-      <div style="position: relative; top:44% !important; text-align:left;">
-       Nivel: <u><b>Licenciatura</b></u>.
-      </div>
-    </div>
+      <div class="row mx-5"> 
+        <div style="position: relative; text-align:center;font-size:80%; top:47%!important;">
+        <b>DIRECTOR (A) <br><br>
+        {NOMBRE DEL DIRECTO}</b><br>
+          </div>
+        </div>
+     
+    {{-- <div class="row mx-5">
+        <div style="position: relative; text-align:center;font-size:80%; top:14%!important;">
+          C:   <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b><br>
+          PASANTE DE LA CARRERA DE:  <b> Ing. {{$egresado->carrera}}</b><br>
+          CON EL NÚMERO DE CONTROL: <b>{{$egresado->NoControl}}</b><br>
+          EGRESADO(A)  DEL: <b>{{$egresado->campus}}</b><br>
+          QUIEN PRESENTA EL TEMA TITULADO: <b>{{$tramite->tema}}</b><br>
+          MEDIANTE LA OPCIÓN: <b>{OPCION}</b><br>
+        </div>
+      </div> --}}
+      
+     
+   
+
+
+
+      
     
 
   </body>

@@ -11,11 +11,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        {{-- <th>Apellido Paterno</th> --}}
-                        {{-- <th>Apellido Materno</th> --}}
-                        
+                        <th>Profesion</th>
                         <th>Carrera</th>
-                        {{-- <th>Campus</th> --}}
                         <th>Email</th>
                         <th>Telefono</th>
                         <th>Roles</th>
@@ -28,11 +25,8 @@
                     <tr>
                         <td>{{$admin['id']}}</td>
                         <td>{{$admin['name']}}</td>
-                        {{-- <td>{{$user['a_paterno']}}</td> --}}
-                        {{-- <td>{{$user['a_materno']}}</td> --}}
-                        
+                        <td>{{$admin['profesion']}}</td> 
                         <td>{{$admin['carrera']}}</td>
-                        {{-- <td>{{$user['campus']}}</td> --}}
                         <td>{{$admin['email']}}</td>
                         <td>{{$admin['telefono']}}</td>
                         <td>{{$admin['rol']}}</td>
@@ -48,11 +42,8 @@
                   <tr>
                       <td>{{$divison['id']}}</td>
                       <td>{{$divison['name']}}</td>
-                      {{-- <td>{{$user['a_paterno']}}</td> --}}
-                      {{-- <td>{{$user['a_materno']}}</td> --}}
-                      
+                      <td>{{$divison['profesion']}}</td>
                       <td>{{$divison['carrera']}}</td>
-                      {{-- <td>{{$user['campus']}}</td> --}}
                       <td>{{$divison['email']}}</td>
                       <td>{{$divison['telefono']}}</td>
                       <td>{{$divison['rol']}}</td>
@@ -68,11 +59,8 @@
                   <tr>
                       <td>{{$jefatura['id']}}</td>
                       <td>{{$jefatura['name']}}</td>
-                      {{-- <td>{{$user['a_paterno']}}</td> --}}
-                      {{-- <td>{{$user['a_materno']}}</td> --}}
-                      
+                      <td>{{$jefatura['profesion']}}</td>
                       <td>{{$jefatura['carrera']}}</td>
-                      {{-- <td>{{$user['campus']}}</td> --}}
                       <td>{{$jefatura['email']}}</td>
                       <td>{{$jefatura['telefono']}}</td>
                       <td>{{$jefatura['rol']}}</td>
@@ -88,11 +76,8 @@
                   <tr>
                       <td>{{$academia['id']}}</td>
                       <td>{{$academia['name']}}</td>
-                      {{-- <td>{{$user['a_paterno']}}</td> --}}
-                      {{-- <td>{{$user['a_materno']}}</td> --}}
-                      
+                      <td>{{$academia['profesion']}}</td>
                       <td>{{$academia['carrera']}}</td>
-                      {{-- <td>{{$user['campus']}}</td> --}}
                       <td>{{$academia['email']}}</td>
                       <td>{{$academia['telefono']}}</td>
                       <td>{{$academia['rol']}}</td>
@@ -108,11 +93,8 @@
                   <tr>
                       <td>{{$escolares['id']}}</td>
                       <td>{{$escolares['name']}}</td>
-                      {{-- <td>{{$user['a_paterno']}}</td> --}}
-                      {{-- <td>{{$user['a_materno']}}</td> --}}
-                      
+                      <td>{{$escolares['profesion']}}</td>
                       <td>{{$escolares['carrera']}}</td>
-                      {{-- <td>{{$user['campus']}}</td> --}}
                       <td>{{$escolares['email']}}</td>
                       <td>{{$escolares['telefono']}}</td>
                       <td>{{$escolares['rol']}}</td>

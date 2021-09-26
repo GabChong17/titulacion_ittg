@@ -37,6 +37,7 @@
               </tbody>
                 <tr>
                   <td colspan="2">Division de estudios</td>
+                  <td><a href="/notificacionAcademia" class=" fas fa-envelope btn btn-info">  Notificacion</a> </td>
                 </tr>                      
             </table>  
           </div>

@@ -37,7 +37,8 @@
                 @endforeach
               </tbody>
                 <tr>
-                  <td colspan="2">Division de estudios</td>
+                  <td colspan="2">Academia</td>
+                  
                 </tr>                      
             </table>  
 

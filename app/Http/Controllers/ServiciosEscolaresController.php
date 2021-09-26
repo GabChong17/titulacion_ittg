@@ -169,6 +169,19 @@ class ServiciosEscolaresController extends Controller
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
-
-    
+   public function imprimir_certificado($id)
+    {
+        $egresado = User::find($id); 
+        $tramite = Tramite::where('egresado_id', $id)
+        ->first();
+        $jurado = Jurado::where('egresado_id', $id)
+       ->first();
+            $presidente = User::find($jurado->presidente);
+            $secretario = User::find($jurado->secretario);
+            $vocal_propietario = User::find($jurado->vocalp);
+            $vocal_suplente = User::find($jurado->vocals);
+        $pdf = \PDF::loadView('pdf.certificado',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
+       //return view('pdf.aval_de_academia');
+        return $pdf->stream('ejemplo.pdf');
+   }    
 }

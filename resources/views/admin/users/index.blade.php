@@ -61,7 +61,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-folder-plus"></i>
@@ -74,7 +74,7 @@
                         <a class="collapse-item" href="/SubidaJuramento">Juramento de Etica</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoo"

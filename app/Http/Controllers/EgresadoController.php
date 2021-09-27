@@ -46,10 +46,6 @@ class EgresadoController extends Controller
         $tramite->opciones_id=1;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-<<<<<<< HEAD
-=======
- 
->>>>>>> 945642e661e65e4d661aa69784b47eb266709123
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -94,10 +90,6 @@ class EgresadoController extends Controller
         $tramite->opciones_id=2;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-<<<<<<< HEAD
-=======
-       
->>>>>>> 945642e661e65e4d661aa69784b47eb266709123
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -142,11 +134,7 @@ class EgresadoController extends Controller
         $tramite->opciones_id=3;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-<<<<<<< HEAD
         
-=======
-      
->>>>>>> 945642e661e65e4d661aa69784b47eb266709123
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
 

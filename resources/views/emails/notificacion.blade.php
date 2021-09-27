@@ -111,7 +111,7 @@
 
                 <!-- headline -->
                 <h1 style="margin: 16px 0; font-weight: normal; color: #0051a4;">
-                    <span>NOTIFICACION DEL SISTEMA</span>
+                    <span>NOTIFICACION DEL SISTEMA EGRESADO</span>
                 </h1>
 
                 <div style="margin-bottom: 30px;">

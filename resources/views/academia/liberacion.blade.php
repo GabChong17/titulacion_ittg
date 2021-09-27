@@ -19,7 +19,8 @@
                 <th>Nombre</th>
                 <th>Carrera</th>
                 <th>Cita</th>
-                <th>Documentos</th>
+                <th>Sube Protocolo</th>
+                <th>Descarga documentos</th>
             </tr>
           </thead>
             <tr>
@@ -31,13 +32,12 @@
                     <td data-th="Cita">{{$tramite->cita}}</td>
                 @endforeach
                       
-                <td >
-                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
-                        <i class="fas fa-cloud-download-alt"></I>
+                <td>
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#protocolo-modal">
+                        <i class="fas fa-upload"></I>
                       </button>
-
                       {{-- modal de documentos --}}
-                      <div class="modal fade" id="documentos-modal">
+                      <div class="modal fade" id="protocolo-modal">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             {{-- header de la ventana --}}
@@ -50,41 +50,105 @@
                               <p style="color: #140303;">
                               
                                   <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
+                                  Sube el documento de tu protocolo
                                   
 
-                                  <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
-                                      <tr style="color: #190D47;">
-                                          <td>PDF Autorizacion</td>
-                                          <td>Respuesta Integracion Jurado</td>
-                                          <td>Acto recepcional</td>
-                                          <td>Hora acto</td>
-                                          <td>Certificado</td>
-                                      </tr>
-                                      <tr style="color: #190D47;">
-                                       <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
-                                       <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
-                                       <td><a target="_tab" href="/imprimir_aviso_de_acto/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
-                                        <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
-                                        <td><a target="_tab" href="/imprimir_certificado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></i></a> </td>
-                                        
-                                          <td></td>
-                                      </tr>
-                  
-                                  </table>  
+                                  <div class="container">
+                                    <div class="row justify-content-center">
+                                      <div class="col-md-12">
+                                        <div class="card">
+                                          <div class="card-header"></div>
+                                
+                                          @if ($errors->any())
+                                          <div class="alert alert-danger">
+                                            <ul>
+                                              @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                              @endforeach
+                                            </ul>
+                                          </div>
+                                          @endif
+                               
+                                          <div class="card-body">
+                                            <form action="{{-- {{ route('books.st') }}  --}}" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            
+                                            Protocolo:
+                                            <br>
+                                            <input type="file" name="protocolo" id="">
+
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
 
                               </p>
                             
                               
                             {{-- footer de la ventana --}}
                             <div class="modal-footer">
-                              
+                              <input type="submit" value="Guardar" class="btn btn-success">
                               <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                              
+                            </form>
                             </div>
                           </div>
                         </div>                      
                       </div>
                 </td> 
+                <td>
+                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentos-modal">
+                    <i class="fas fa-cloud-download-alt"></I>
+                  </button>
+                  {{-- modal de documentos --}}
+                  <div class="modal fade" id="documentos-modal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        {{-- header de la ventana --}}
+                        <div class="modal-header">
+                          <button tyle="button" class="clase" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" style="text-align:center; color: #8F362C;"> Informacion del egresado {{ Auth::user()->NoControl }} .</h4>
+                        </div>
+                        {{-- contenido de la vetana --}}
+                        <div class="modal-body">
+                          <p style="color: #140303;">
+                          
+                              <h4>Nombre: </h4> {{ Auth::user()->name }}<br>
+                              
+
+                              <table class="rwd-table" id="academia" style="width:80%; text-align:center; color: #190D47;" >
+                                  <tr style="color: #190D47;">
+                                      <td>PDF Autorizacion</td>
+                                      <td>Respuesta Integracion Jurado</td>
+                                      <td>Acto recepcional</td>
+                                      <td>Hora acto</td>
+                                      <td>Certificado</td>
+                                  </tr>
+                                  <tr style="color: #190D47;">
+                                   <td><a target="_tab" href="/imprimir_solicitud_autorizacion/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                   <td><a target="_tab" href="/imprimir_respuesta_integracion_jurado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                   <td><a target="_tab" href="/imprimir_aviso_de_acto/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                    <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
+                                    <td><a target="_tab" href="/imprimir_certificado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></i></a> </td>
+                                    
+                                      <td></td>
+                                  </tr>
+              
+                              </table>  
+
+                          </p>
+                        
+                          
+                        {{-- footer de la ventana --}}
+                        <div class="modal-footer">
+                          
+                          <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>                      
+                  </div>
+            </td> 
             </tr>
             
         </table>  

@@ -46,9 +46,6 @@ class EgresadoController extends Controller
         $tramite->opciones_id=1;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-        $egresado = User::find($id);
-        $egresado->estado = 'Cita_Agendada';
-        $egresado->save();
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -93,9 +90,6 @@ class EgresadoController extends Controller
         $tramite->opciones_id=2;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-        $egresado = User::find($id);
-        $egresado->estado = 'Cita_Agendada';
-        $egresado->save();
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
@@ -140,9 +134,6 @@ class EgresadoController extends Controller
         $tramite->opciones_id=3;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-        $egresado = User::find($id);
-        $egresado->estado = 'Cita_Agendada';
-        $egresado->save();
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;

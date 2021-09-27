@@ -153,11 +153,11 @@ Route::POST('/liberarNo/{egresado_id}',[ServiciosEscolaresController::class, 'li
 
 
 //notificacion
-Route::get('notificacionEgresado/{egresado_id}', function () {
+Route::get('notificacionEgresado/{egresado_id}', function ($id) {
 
     $correo = new NotificacionEgresado;
-    Mail::to('gabo.chong.xr@gmail.com')->send($correo);
-
+    $egresado = User::find($id);
+    Mail::to($egresado)->send($correo);
     // return "mensaje enviado";
     return redirect()->back()->with('message', 'Mensaje Enviado');  
 });

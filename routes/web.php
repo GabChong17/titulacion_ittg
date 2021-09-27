@@ -158,11 +158,15 @@ Route::get('notificacionEgresado/{egresado_id}', function ($id) {
     $correo = new NotificacionEgresado;
     $egresado = User::find($id);
     Mail::to($egresado)->send($correo);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 945642e661e65e4d661aa69784b47eb266709123
     // return "mensaje enviado";
     return redirect()->back()->with('message', 'Mensaje Enviado');  
 });
 
-// Route::get('notificacionEgresado/{egresado_id}', function (Request $request, $id) {
+// Route::get('notificacionEgresado/{egresado_id}', function (Request $request, c) {
 
 //     $correo = new NotificacionEgresado;
 //     $egresado = User::find($id);

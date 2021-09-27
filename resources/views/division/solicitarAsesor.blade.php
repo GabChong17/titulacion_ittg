@@ -30,6 +30,7 @@
                         <tr>
                           <td>{{$egresado->name}}</td>
                           <td>{{$tramite->tema}}</td>
+                          <td>{{$tramite->requisito1}}</td>
                          
                         </tr>
                       <tr>

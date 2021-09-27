@@ -49,7 +49,7 @@
                                 
                                 <form method="POST" action="/firmasEscaneadas/{{$egresado->id}}" enctype="multipart/form-data"> 
                                     @csrf
-                                <input type="file" id="firmas" onInput="validar()" class="form-control document" name="firmas" multiple>
+                                <input type="file" id="firmas" onInput="validar()" class="form-control document" name="firmas" multiple required>
                                 <br>
                                 <button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Asesoria liberada</button>
                                 

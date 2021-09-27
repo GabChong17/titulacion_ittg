@@ -83,12 +83,12 @@ Route::POST('/crearCita',[EgresadoController::class, 'agendada' ])->middleware('
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ])->middleware('egresado');
 Route::POST('/documento',[EgresadoController::class, 'store' ])->middleware('egresado');
 
-//jefatura
-Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('jefatura');
-Route::get('/jefaturaAval',[JefaturaController::class, 'aval'])->middleware('jefatura');
-Route::get('/asesoriaJefatura',[JefaturaController::class, 'asesoria'])->middleware('jefatura');
-Route::get('/jefaturaIntegracion',[JefaturaController::class, 'integracion'])->middleware('jefatura');
-Route::get('/jefaturaFormato',[JefaturaController::class, 'formato'])->middleware('jefatura');
+// //jefatura
+// Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('jefatura');
+// Route::get('/jefaturaAval',[JefaturaController::class, 'aval'])->middleware('jefatura');
+// Route::get('/asesoriaJefatura',[JefaturaController::class, 'asesoria'])->middleware('jefatura');
+// Route::get('/jefaturaIntegracion',[JefaturaController::class, 'integracion'])->middleware('jefatura');
+// Route::get('/jefaturaFormato',[JefaturaController::class, 'formato'])->middleware('jefatura');
 
 //academia
 Route::get('/academia', [AdminController::class, 'academia'])->middleware('academia');

@@ -115,12 +115,12 @@
                     <span>Division de Estudios</span></a>
             </li>
 
-            <!-- Nav Item - Jefatura de departamento academico-->
+            {{-- <!-- Nav Item - Jefatura de departamento academico-->
             <li class="nav-item">
                 <a class="nav-link" href="/jefatura">
                     <i class="fas fa-folder-minus"></i>
                     <span>Jefatura de dpto. Academico</span></a>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Academia -->
             <li class="nav-item">

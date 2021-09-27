@@ -198,7 +198,6 @@ Route::get('notificacionEscolares', function () {
     $empleado = User::find('all');
     $empleado = User::where('rol', '=', 'escolares')->get();
     Mail::to($empleado)->send($correo);
-
     return redirect()->back()->with('message', 'Mensaje Enviado');  
 });
 

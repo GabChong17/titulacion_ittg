@@ -180,18 +180,6 @@ class DivisionController extends Controller
     
     }
 
-    public function imprimir_DGP($id)
-    { 
-        $public_path = public_path();
-        $url = $public_path.'/storerage/app/public/DGP.pdf'.$id;// depende de root en el archivo filesystems.php.
-        //verificamos si el archivo existe y lo retornamos
-        if (\Storage::exists($id))
-        {
-            return response()->download($url);
-        }
-            //si no se encuentra lanzamos un error 404.
-        abort(404);
-    }
     
 
     public function imprimir_aval_asesores($id)
@@ -268,10 +256,34 @@ class DivisionController extends Controller
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
+
+ public function requisito1Download($id)
+ {
+     $tramite = Tramite::where('id',$id)->first();
+     $pathToFile = storage_path('app/public/tramites/' . $tramite->requisito1);
+     return response()->download($pathToFile);
+ }
  
+ public function requisito2Download($id)
+ {
+     $tramite = Tramite::where('id',$id)->first();
+     $pathToFile = storage_path('app/public/tramites/' . $tramite->requisito2);
+     return response()->download($pathToFile);
+ }
  
+ public function requisito3Download($id)
+ {
+     $tramite = Tramite::where('id',$id)->first();
+     $pathToFile = storage_path('app/public/tramites/' . $tramite->requisito3);
+     return response()->download($pathToFile);
+ }
  
 
+ public function imprimir_DGP()
+ { 
+    $pathToFile = storage_path('app/public/DGP/DGP.pdf');
+    return response()->download($pathToFile);
+ }
   
-    
+     
 }

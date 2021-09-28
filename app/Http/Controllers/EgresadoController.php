@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tramite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\Opcion;
 use App\Models\Egresado;
 use App\Models\User;
@@ -49,36 +50,26 @@ class EgresadoController extends Controller
         
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
+        //$fileName = Str::slug(getClientOriginalName());
 
-        $requisito1 = $request->file('requisito1');
-        if(!is_null($requisito1)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito1->getClientOriginalName();
-            $requisito1->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito1']=$nombre_de_archivo;
-        }
+        //Almacena Requisito 1
+        $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
+        $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
 
-        $requisito2 = $request->file('requisito2');
-        if(!is_null($requisito2)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito2->getClientOriginalName();
-            $requisito2->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito2']=$nombre_de_archivo;
-        }
 
-        $requisito3 = $request->file('requisito3');
-        if(!is_null($requisito3)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito3->getClientOriginalName();
-            $requisito3->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito3']=$nombre_de_archivo;
-        }
+        //Almacena Requisito 2
+        $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
+        $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
+
+         //Almacena Requisito 3
+         $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
+         $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
 
         $tramite->save();
         $opcion = Opcion::find(1);
         
         // return redirect('/crearCita/confirm/{{$egresado->id}}')->with('message', 'Documento subido'); 
-            return redirect()->back()->with('message', 'Documento subido');  
+            return redirect('/crearCita/confirm');  
     }
 
     public function storeProyecto(Request $request)
@@ -94,29 +85,19 @@ class EgresadoController extends Controller
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
 
-        $requisito1 = $request->file('requisito1');
-        if(!is_null($requisito1)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito1->getClientOriginalName();
-            $requisito1->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito1']=$nombre_de_archivo;
-        }
+      //Almacena Requisito 1
+      $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
+      $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
 
-        $requisito2 = $request->file('requisito2');
-        if(!is_null($requisito2)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito2->getClientOriginalName();
-            $requisito2->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito2']=$nombre_de_archivo;
-        }
 
-        $requisito3 = $request->file('requisito3');
-        if(!is_null($requisito3)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito3->getClientOriginalName();
-            $requisito3->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito3']=$nombre_de_archivo;
-        }
+      //Almacena Requisito 2
+      $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
+      $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
+
+       //Almacena Requisito 3
+       $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
+       $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
+
         $opcion = Opcion::find(2); //no lo borres si sirve al final :v
         $tramite->save();
  
@@ -138,29 +119,19 @@ class EgresadoController extends Controller
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
 
-        $requisito1 = $request->file('requisito1');
-        if(!is_null($requisito1)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito1->getClientOriginalName();
-            $requisito1->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito1']=$nombre_de_archivo;
-        }
+        //Almacena Requisito 1
+        $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
+        $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
 
-        $requisito2 = $request->file('requisito2');
-        if(!is_null($requisito2)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito2->getClientOriginalName();
-            $requisito2->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito2']=$nombre_de_archivo;
-        }
 
-        $requisito3 = $request->file('requisito3');
-        if(!is_null($requisito3)){
-            $ruta_destino = public_path('/storage/requisitos/');
-            $nombre_de_archivo = $requisito3->getClientOriginalName();
-            $requisito3->move($ruta_destino, $nombre_de_archivo);
-            $valores['requisito3']=$nombre_de_archivo;
-        }
+        //Almacena Requisito 2
+        $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
+        $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
+
+         //Almacena Requisito 3
+         $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
+         $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
+
         $opcion = Opcion::find(3); //no lo borres si sirve al final :v
         $tramite->save();
  

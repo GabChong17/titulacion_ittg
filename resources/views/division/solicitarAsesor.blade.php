@@ -30,7 +30,7 @@
                         <tr>
                           <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
                           <td>{{$tramite->tema}}</td>
-                          {{-- <td>{{$tramite->requisito1}}</td> --}}
+                          {{--  --}}
                          
                         </tr>
                       <tr>
@@ -40,7 +40,15 @@
                         </tr>
                       
                       <tr>
-                        <td><a href="#" >Descargar documentos</a></td>
+                      
+                        <td>
+                          Requisitos
+                          <ul>
+                            <li> <a href="{{ route('requisito1.download', $tramite->id) }}">{{$tramite->requisito1}}</a></li>
+                            <li> <a href="{{ route('requisito2.download', $tramite->id) }}">{{$tramite->requisito2}}</a></li>
+                            <li> <a href="{{ route('requisito3.download', $tramite->id) }}">{{$tramite->requisito3}}</a></li>
+                          </ul>
+                         </td>
                         
                       </tr>
                       <tr>

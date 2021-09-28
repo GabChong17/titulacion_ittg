@@ -123,7 +123,7 @@ Route::get('/imprimir_liberacion_asesorias/{Egresado}',[DivisionController::clas
 Route::get('/imprimir_solicitud_integracion/{Egresado}',[DivisionController::class, 'imprimir_solicitud_integracion']);//PDF
 Route::get('/imprimir_aviso_de_acto/{Egresado}',[DivisionController::class, 'imprimir_aviso_de_acto']);//PDF
 Route::get('/imprimir_aviso_de_hora_actoRecep/{Egresado}',[DivisionController::class, 'imprimir_aviso_de_hora_actoRecep']);//PDF
-Route::get('/imprimir_DGP/{Egresado}',[DivisionController::class, 'imprimir_DGP']);//PDF
+Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']);//PDF
 
 
 Route::POST('/recepcion/{egresado_id}',[DivisionController::class, 'recepcion' ]) ->middleware('division');
@@ -131,6 +131,10 @@ Route::POST('/actoRecepcion/{egresado_id}',[DivisionController::class, 'actoRece
 Route::POST('/solicitudAsesor/{egresado_id}',[DivisionController::class, 'solicitudAsesor'])->middleware('division');
 Route::POST('/acto/{egresado_id}',[DivisionController::class, 'asignacionActo' ]) ->middleware('division');
 
+//descargar requisitos
+Route::get('Requisito1/{id}/download', [DivisionController::class, 'requisito1Download'])->name('requisito1.download');
+Route::get('Requisito2/{id}/download', [DivisionController::class, 'requisito2Download'])->name('requisito2.download');
+Route::get('Requisito3/{id}/download', [DivisionController::class, 'requisito3Download'])->name('requisito3.download');
 
 
 //servicios escolares

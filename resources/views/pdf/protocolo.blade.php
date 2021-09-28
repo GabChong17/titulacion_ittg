@@ -65,10 +65,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
       <div class="row mx-5"> 
         <div style="position: relative; top:20% !important; text-align:justify; font-size:80%;">
         EL JURADO SE INTEGRA DE LA SIGUIENTE MANERA:<br><br>
-        PRESIDENTE:         <b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</b><br>
-        SECRETARIO:         <b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</b><br>
-        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</b><br>
-        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</b><br>
+        PRESIDENTE:         <b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, {{$presidente->cedula}}</b><br>
+
+        SECRETARIO:         <b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, {{$secretario->cedula}}</b><br>
+
+        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, {{$vocal_propietario->cedula}}</b><br>
+
+        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, {{$vocal_suplente->cedula}}</b><br>
         </div>
       </div>
       <div class="row mx-5"> 

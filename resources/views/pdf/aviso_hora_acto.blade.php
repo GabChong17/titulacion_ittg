@@ -54,26 +54,31 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         <tr >
             <td></td>
             <td><b>PROFESION</b></td>
+            <td><b>CEDULA</b></td>
             <td><b>NOMBRE COMPLETO</b></td>
         </tr>
         <tr >
             <td>PRESIEDNTE:</td>
             <td>{{$presidente->profesion}}</td>
+            <td>{{$presidente->cedula}}</td>
             <td>{{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</td>
         </tr>
         <tr >
             <td>SECRETARIO:</td>
             <td>{{$secretario->profesion}}</td>
+            <td>{{$secretario->cedula}}</td>
             <td>{{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</td>
         </tr>
         <tr >
             <td>VOCAL PROPIETARIO:</td>
             <td>{{$vocal_propietario->profesion}}</td>
+            <td>{{$vocal_propietario->cedula}}</td>
             <td>{{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</td>
         </tr>
         <tr >
             <td>VOCAL SUPLENTE:</td>
             <td>{{$vocal_suplente->profesion}}</td>
+            <td>{{$vocal_suplente->cedula}}</td>
             <td>{{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</td>
         </tr>
       </table>

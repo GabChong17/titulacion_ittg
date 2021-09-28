@@ -78,19 +78,19 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         </tr>
         <tr >
             <td> Presidente:</td>
-            <td><u><b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</b></u></td>
+            <td><u><b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, {{$presidente->cedula}}</b></u></td>
         </tr>
         <tr >
             <td> Secretario:</td>
-            <td><u><b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</b></u></td>
+            <td><u><b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, {{$secretario->cedula}}</b></u></td>
         </tr>
         <tr >
             <td> Vocal propietario:</td>
-            <td><u><b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</b></u></td>
+            <td><u><b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, {{$vocal_propietario->cedula}}</b></u></td>
         </tr>
         <tr >
             <td> Vocal suplente:</td>
-            <td><u><b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</b></u></td>
+            <td><u><b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, {{$vocal_suplente->cedula}}</b></u></td>
         </tr>
         
       </table>

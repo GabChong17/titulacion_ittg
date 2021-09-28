@@ -12,6 +12,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Profesion</th>
+                        <th>Cedula</th>
                         <th>Carrera</th>
                         <th>Email</th>
                         <th>Telefono</th>
@@ -26,6 +27,7 @@
                         <td>{{$admin['id']}}</td>
                         <td>{{$admin['name']}}</td>
                         <td>{{$admin['profesion']}}</td> 
+                        <td>{{$admin['cedula']}}</td> 
                         <td>{{$admin['carrera']}}</td>
                         <td>{{$admin['email']}}</td>
                         <td>{{$admin['telefono']}}</td>
@@ -43,6 +45,7 @@
                       <td>{{$divison['id']}}</td>
                       <td>{{$divison['name']}}</td>
                       <td>{{$divison['profesion']}}</td>
+                      <td>{{$divison['cedula']}}</td>
                       <td>{{$divison['carrera']}}</td>
                       <td>{{$divison['email']}}</td>
                       <td>{{$divison['telefono']}}</td>
@@ -60,6 +63,7 @@
                       <td>{{$jefatura['id']}}</td>
                       <td>{{$jefatura['name']}}</td>
                       <td>{{$jefatura['profesion']}}</td>
+                      <td>{{$jefatura['cedula']}}</td>
                       <td>{{$jefatura['carrera']}}</td>
                       <td>{{$jefatura['email']}}</td>
                       <td>{{$jefatura['telefono']}}</td>
@@ -77,6 +81,7 @@
                       <td>{{$academia['id']}}</td>
                       <td>{{$academia['name']}}</td>
                       <td>{{$academia['profesion']}}</td>
+                      <td>{{$academia['cedula']}}</td>
                       <td>{{$academia['carrera']}}</td>
                       <td>{{$academia['email']}}</td>
                       <td>{{$academia['telefono']}}</td>
@@ -94,6 +99,7 @@
                       <td>{{$escolares['id']}}</td>
                       <td>{{$escolares['name']}}</td>
                       <td>{{$escolares['profesion']}}</td>
+                      <td>{{$escolares['cedula']}}</td>
                       <td>{{$escolares['carrera']}}</td>
                       <td>{{$escolares['email']}}</td>
                       <td>{{$escolares['telefono']}}</td>

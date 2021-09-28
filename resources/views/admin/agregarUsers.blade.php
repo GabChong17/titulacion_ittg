@@ -34,6 +34,12 @@
     
                     <x-input id="profesion" class="block mt-1 w-full" type="text" name="profesion" :value="old('profesion')" />
                 </div>
+                <!-- cedula -->
+                <div>
+                    <x-label for="a_materno" :value="__('Cedula')" />
+    
+                    <x-input id="cedula" class="block mt-1 w-full" type="text" name="cedula" :value="old('cedula')" />
+                </div>
                 <!-- Rol -->
                 <div>
                     <br>

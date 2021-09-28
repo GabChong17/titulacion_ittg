@@ -25,6 +25,7 @@ class User extends Authenticatable
         'a_paterno',
         'a_materno',
         'profesion',
+        'cedula',
         'carrera',
         'campus',
         'planDeestudios',

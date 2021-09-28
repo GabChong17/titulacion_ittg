@@ -180,6 +180,18 @@ class DivisionController extends Controller
     
     }
 
+    public function imprimir_DGP($id)
+    { 
+        $public_path = public_path();
+        $url = $public_path.'/storerage/app/public/DGP.pdf'.$id;// depende de root en el archivo filesystems.php.
+        //verificamos si el archivo existe y lo retornamos
+        if (\Storage::exists($id))
+        {
+            return response()->download($url);
+        }
+            //si no se encuentra lanzamos un error 404.
+        abort(404);
+    }
     
 
     public function imprimir_aval_asesores($id)
@@ -256,12 +268,7 @@ class DivisionController extends Controller
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
- public function imprimir_DGP()
-  { 
-      $pdf = \PDF::loadView('pdf.DGP-DR-01')->setOptions(['defaultFont' => 'sans-serif']);
-     //return view('pdf.aval_de_academia');
-      return $pdf->stream('ejemplo.pdf');
- }
+ 
  
  
 

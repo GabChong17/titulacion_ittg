@@ -123,7 +123,7 @@ Route::get('/imprimir_liberacion_asesorias/{Egresado}',[DivisionController::clas
 Route::get('/imprimir_solicitud_integracion/{Egresado}',[DivisionController::class, 'imprimir_solicitud_integracion']);//PDF
 Route::get('/imprimir_aviso_de_acto/{Egresado}',[DivisionController::class, 'imprimir_aviso_de_acto']);//PDF
 Route::get('/imprimir_aviso_de_hora_actoRecep/{Egresado}',[DivisionController::class, 'imprimir_aviso_de_hora_actoRecep']);//PDF
-Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']);//PDF
+Route::get('/imprimir_DGP/{Egresado}',[DivisionController::class, 'imprimir_DGP']);//PDF
 
 
 Route::POST('/recepcion/{egresado_id}',[DivisionController::class, 'recepcion' ]) ->middleware('division');

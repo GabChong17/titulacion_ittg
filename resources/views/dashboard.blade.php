@@ -51,6 +51,8 @@
                 ITTG
             </div>
 
+            {{-- @can('Tramite_Iniciado', Auth::user())  --}}
+            {{-- con est hacemos que el botton solo sea vicible por un administrador, necesitamos modificarlo para que sea visible para todo user con estado "tramite iniciado" --}}
             <!-- Nav Item - Menu inicio de tramite -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -67,7 +69,7 @@
                     </div>
                 </div>
             </li>
-
+            {{-- @endcan --}}
             
 
             <!-- Nav Item - Liberacion-->

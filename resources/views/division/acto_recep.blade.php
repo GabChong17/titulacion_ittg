@@ -29,7 +29,7 @@
                             <th>Tema</th>
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}}</td>
+                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
                             <td>{{$tramite->tema}}</td>
                           </tr>
                                 

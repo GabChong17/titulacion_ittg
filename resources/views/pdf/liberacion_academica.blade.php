@@ -65,14 +65,14 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     <div class="row mx-5">
       <div style="position: relative; top:30% !important; text-align:center;">
         <b>ASESOR</b><br><br>
-       <u> <b>{{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}}</b></u>
+       <u> <b>{{$asesor->profesion}} {{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}}</b></u>
       </div>
     </div>
 
     <div class="row mx-5">
       <div style="position: relative; top:40% !important; text-align:center;">
         <b>Revisores</b><br><br>
-       <u> <b class="mx-5">{{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}</b> </u> <u> <b class="mx-5">{{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}}</b></u>
+       <u> <b class="mx-5">{{$revisor1->profesion}} {{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}</b> </u> <u> <b class="mx-5">{{$revisor2->profesion}} {{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}}</b></u>
       </div>
     </div>
 

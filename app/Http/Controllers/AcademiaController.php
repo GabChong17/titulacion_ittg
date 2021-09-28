@@ -14,6 +14,8 @@ use App\Models\Jurado;
 use App\Models\Asesor;
 use DB;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificacionEgresado;
 
 
 
@@ -61,8 +63,23 @@ class AcademiaController extends Controller
 
         $request->file('firmas')->store('firmas','public');
         return redirect('/liberacionAsesoria')->with('message', 'Documento subido');
+    
+    }
+//fucicon para subir el protocolo desde la vista del egresado
+    public function protocolo(Request $request, $id)
+    {
+        // $valores = $request-> all();
        
-        
+        $request->file('documentoProtocolo')->store('documentoProtocolo','public');
+        return redirect()->back()->with('message', 'Documento protocolo subido');  
+    }
+//fucicon para subir el boucher desde la vista del egresado
+    public function boucher(Request $request, $id)
+    {
+        // $valores = $request-> all();
+       
+        $request->file('boucher')->store('boucher','public');
+        return redirect()->back()->with('message', 'Documento boucher subido');  
     }
     public function asignar_asesor($id)
     {
@@ -76,6 +93,10 @@ class AcademiaController extends Controller
         $tramite = Tramite::where('egresado_id', $id)
        ->first();
        
+
+        $correo = new NotificacionEgresado;
+        $egresado = User::find($id);
+        Mail::to($egresado)->send($correo);
 
         return view('academia.asignarAsesor', compact('asesor','egresado','revisor','revisor2', 'tramite')); 
         
@@ -177,6 +198,10 @@ class AcademiaController extends Controller
         $valores['egresado_id']=$id;                               
         $registro->fill($valores);
         $registro->save();
+        
+        $correo = new NotificacionEgresado;
+        $egresado = User::find($id);
+        Mail::to($egresado)->send($correo);
 
         return redirect("/academiaJurado")->with('mensaje','Jurado asignado correctamente');
         

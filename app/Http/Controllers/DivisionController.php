@@ -14,6 +14,9 @@ use App\Models\Jurado;
 use DB;
 use App\Models\Asesor;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificacionEgresado;
+
 
  
 class DivisionController extends Controller
@@ -92,6 +95,10 @@ class DivisionController extends Controller
         $recepcion = request()->except(['_token']);
         $recepcion['egresado_id'] = Auth::id();
         Tramite::insert($recepcion);
+
+        $correo = new NotificacionEgresado;
+        $egresado = User::find($id);
+        Mail::to($egresado)->send($correo);
 
         return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
     }

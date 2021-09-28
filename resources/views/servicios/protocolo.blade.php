@@ -28,7 +28,7 @@
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
-                  <td>{{$egresado['name']}}</td>
+                  <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                   <td>{{$egresado['carrera']}}</td>                                      
                   <td>
                      <a href="/Concluir/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-graduate"></i></a> 
@@ -42,7 +42,7 @@
                   <tr>
                     <td>{{$egresado['estado']}}</td>
                     <td>{{$egresado['NoControl']}}</td>
-                    <td>{{$egresado['name']}}</td>
+                    <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                     <td>{{$egresado['carrera']}}</td>                                                            
                     <td>
                        <a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-paste"></i></a> 

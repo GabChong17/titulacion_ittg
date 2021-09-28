@@ -27,7 +27,7 @@
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
-                  <td>{{$egresado['name']}}</td>
+                  <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                   <td>{{$egresado['carrera']}}</td>                                                           
                   <td>
 
@@ -41,6 +41,7 @@
                 <tr>
                   <td colspan="2">Servicios Escolares</td>
                   <td><a href="/notificacionDivision" class=" fas fa-envelope btn btn-info">  Notificacion</a> </td>
+                
                 </tr>                      
             </table>  
           </div>

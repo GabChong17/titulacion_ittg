@@ -25,7 +25,7 @@
                 <tr>
                   <td>{{$egresado['estado']}}</td>
                   <td>{{$egresado['NoControl']}}</td>
-                  <td>{{$egresado['name']}}</td>
+                  <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                   <td>{{$egresado['carrera']}}</td>                                                             
                   <td>
                     <a href="/agendarActo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-user-clock"></i></a>      

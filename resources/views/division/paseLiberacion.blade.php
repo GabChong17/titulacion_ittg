@@ -25,7 +25,7 @@
                             <th>Nombre</th>
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}}</td>                            
+                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>                            
                           </tr>
                           <tr>
                             <td>

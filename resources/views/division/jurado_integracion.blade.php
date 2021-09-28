@@ -28,8 +28,8 @@
                         <th>Tema</th>
                       </tr>
                       <tr>
-                        <td>{{$egresado->name}}</td>
                         
+                        <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
                         <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>
                       </tr>
                       

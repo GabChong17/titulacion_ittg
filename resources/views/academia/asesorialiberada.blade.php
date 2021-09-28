@@ -22,7 +22,7 @@
                             <th>Tema</th>
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}}</td>
+                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
                             <td>{{$tramite->tema}}</td>
                             {{-- {{$tramiteTabla->tema}} --}}
                           </tr>
@@ -33,13 +33,13 @@
                           </tr>
                           <tr>
                             <td>
-                              {{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}} 
+                              {{$asesor->profesion}} {{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}} 
                             </td>
                             <td>
-                              {{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}
+                              {{$revisor1->profesion}} {{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}
                             </td>
                             <td>
-                              {{$revisor2->name}}  {{$revisor2->a_paterno}} {{$revisor2->a_materno}} 
+                              {{$revisor2->profesion}} {{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}} 
                             </td>
 
                         </tr>
@@ -51,7 +51,7 @@
                                     @csrf
                                 <input type="file" id="firmas" onInput="validar()" class="form-control document" name="firmas" multiple required>
                                 <br>
-                                <button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Asesoria liberada</button>
+                                
                                 
                         
                         </tr>
@@ -59,7 +59,7 @@
                           
                           <tr>
                             <td><a href="/liberacionAsesoria" class="btn btn-primary">Regresar</a></td>
-                            <td></td>
+                            <td><button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Asesoria liberada</button></td>
                             {{-- <td><a href="/#" class="btn btn-primary">Asesoria liberada</a></td> --}}
                           </tr>
                             <tr>

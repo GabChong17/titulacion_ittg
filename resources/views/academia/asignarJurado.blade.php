@@ -28,7 +28,7 @@
                           </tr>
                           <tr>
                             <td>
-                              <input type="text" class="form-control" name="egresado_id" value="{{$egresado->name}}" disabled>
+                              <input type="text" class="form-control" name="egresado_id" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled>
                             </td>
                               <td>
                                 <input type="text" class="form-control"  name="tema_id" value="{{$tramite->tema}}" disabled>

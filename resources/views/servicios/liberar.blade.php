@@ -23,7 +23,7 @@
                             <th>Tema</th>
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}}</td>
+                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
                             <td>{{$tramite->tema}}</td>
                           </tr>
                           
@@ -38,6 +38,7 @@
                          
                             <tr>
                               <td colspan="2">Servicios Escolares</td>
+                              <td><a target="_tab" href="/boucher_de_pago/{{$egresado->id}}">Boucher de pago</a></td>
                               
                               
                             </tr>

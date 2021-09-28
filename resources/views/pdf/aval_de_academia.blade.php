@@ -44,7 +44,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
     </div>
     <div class="row mx-5">
       <div style="position: relative; top:10% !important; text-align:justify;">
-        Por este medio le informo a Usted, que la solicitud del análisis y dictamen del tema de titulación "<b>{{$tramite->tema}}</b>" presentado por el C. <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>, con número de control  <b>{{$egresado->NoControl}}</b>, para titularse mediante la opción {{$opcion->Nombre}}, teniendo como asesor(a) a: <b>{{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}}</b> y como revisores a los CC:  <b>{{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}</b> y <b>{{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}}</b>.
+        Por este medio le informo a Usted, que la solicitud del análisis y dictamen del tema de titulación "<b>{{$tramite->tema}}</b>" presentado por el C. <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>, con número de control  <b>{{$egresado->NoControl}}</b>, para titularse mediante la opción {{$opcion->Nombre}}, teniendo como asesor(a) a: <b>{{$asesor->profesion}} {{$asesor->name}} {{$asesor->a_paterno}} {{$asesor->a_materno}}, {{$asesor->cedula}}</b> y como revisores a los CC:  <b>{{$revisor1->profesion}} {{$revisor1->name}} {{$revisor1->a_paterno}} {{$revisor1->a_materno}}, {{$revisor1->cedula}}</b> y <b>{{$revisor2->profesion}} {{$revisor2->name}} {{$revisor2->a_paterno}} {{$revisor2->a_materno}}, {{$revisor2->cedula}}</b>.
       </div>
       <div style="position: relative; top:32% !important; text-align:justify;">
         Sin otro particular, agradezco su atención.

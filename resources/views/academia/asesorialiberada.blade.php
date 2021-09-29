@@ -20,6 +20,7 @@
                           <tr>
                             <th>Nombre</th>
                             <th>Tema</th>
+                            <th></th>
                           </tr>
                           <tr>
                             <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
@@ -61,15 +62,19 @@
                             <td><a href="/liberacionAsesoria" class="btn btn-primary">Regresar</a></td>
                             <td><button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Asesoria liberada</button></td>
                             {{-- <td><a href="/#" class="btn btn-primary">Asesoria liberada</a></td> --}}
+                            <td colspan="2"></td> 
                           </tr>
+                          
                             <tr>
                               <td><a target="_tab" href="/imprimir_aval_academia/{{$egresado->id}}"">Aval de academia.</a></td>  
-                            </tr>
-                            <tr>
                               <td><a target="_tab" href="/imprimir_liberacion_academica/{{$egresado->id}}"">Formato de liberacion.</a></td> 
+                              <td colspan="2"></td> 
                             </tr>
+                            
                             <tr>
                               <td colspan="2">Academia</td> 
+                              <td colspan="2"></td> 
+                              <td colspan="2"></td> 
                             </tr>
                         </table>
                       </div>

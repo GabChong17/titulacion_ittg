@@ -35,15 +35,14 @@
                                 
                                 </div>
                         </div> 
-                         
-                        <tr><td>
+                      <tr><td colspan="2">
                           <h5><p style="text-align:center; color: #140303;">Seleccione una fecha.</p></h5>
                        <div class="row my-4">
                         <form method="POST" action="/actoRecepcion/{{$egresado->id}}" enctype="multipart/form-data" > 
                           @csrf
                           <div class="form-group">
                               <div class='input-group date' id='datetimepicker1'>
-                                   <input type="datetime-local" id="acto_recepcion_d" onInput="validar2()" name="acto_recepcion">
+                                   <input  type="datetime-local" id="acto_recepcion_d" onInput="validar2()" name="acto_recepcion">
                                   <span class="input-group-addon">
                                       <span class="glyphicon glyphicon-calendar"></span>
                                   </span>
@@ -54,15 +53,22 @@
                     </div>
                   </td>
                   </tr>
+
+                  </td>
+                  </tr>
                   <tr>
                     <td><a href="/actoRecepcional" class="btn btn-primary">Regresar</a></td>
-                    <td><input type="submit" id="boton_acto_recepcion" class="btn btn-sm btn-danger" value="Solicitar Jurado"></td>
+                    <td><input type="submit" id="boton_acto_recepcion" class="btn btn-primary" value="Solicitar Jurado"></td>
+                    
                   </form>
                   </tr>
                  
                     <tr>
+                      
+                      <td colspan="2"><a target="_tab" href="/imprimir_solicitud_integracion/{{$egresado->id}}"" >Ver liberacion de asesorias.</a></td>
+                    </tr>
+                    <tr>
                       <td colspan="2">Division de estudios</td>
-                      <td><a target="_tab" href="/imprimir_solicitud_integracion/{{$egresado->id}}"" >Ver liberacion de asesorias.</a></td>
                     </tr>
                   {{-- @endforelse --}}
                 </table>

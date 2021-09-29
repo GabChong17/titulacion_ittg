@@ -35,9 +35,12 @@
                               </tr>
                              
                                 <tr>
-                                  <td colspan="2">Servicios Escolares</td>
+                                  
                                   <td><a target="_tab" href="/imprimir_no_adeudo/{{$egresado->id}}"">Hoja de no adeudo de material</a></td>
                                   <td><a target="_tab" href="/imprimir_solicitud_acto/{{$egresado->id}}"">Solicitud Acto Recepcion</a></td>
+                                </tr>
+                                <tr>
+                                <td colspan="2">Servicios Escolares</td>
                                 </tr>
                               
                             </table>

@@ -132,9 +132,9 @@ Route::POST('/solicitudAsesor/{egresado_id}',[DivisionController::class, 'solici
 Route::POST('/acto/{egresado_id}',[DivisionController::class, 'asignacionActo' ]) ->middleware('division');
 
 //descargar requisitos
-Route::get('Requisito1/{id}/download', [DivisionController::class, 'requisito1Download'])->name('requisito1.download');
-Route::get('Requisito2/{id}/download', [DivisionController::class, 'requisito2Download'])->name('requisito2.download');
-Route::get('Requisito3/{id}/download', [DivisionController::class, 'requisito3Download'])->name('requisito3.download');
+Route::get('requisito1/{id}/download', [DivisionController::class, 'requisito1Download'])->name('requisito1.download');
+Route::get('requisito2/{id}/download', [DivisionController::class, 'requisito2Download'])->name('requisito2.download');
+Route::get('requisito3/{id}/download', [DivisionController::class, 'requisito3Download'])->name('requisito3.download');
 
 
 //servicios escolares

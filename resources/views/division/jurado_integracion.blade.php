@@ -24,13 +24,13 @@
                         @csrf
                       {{-- @forelse ($books as $book) --}}
                       <tr>
-                        <th>Nombre</th>
-                        <th>Tema</th>
+                        <th colspan="2">Nombre</th>
+                        <th colspan="2">Tema</th>
                       </tr>
                       <tr>
                         
-                        <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
-                        <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>
+                        <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
+                        <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>
                       </tr>
                       
                       <tr>
@@ -49,15 +49,18 @@
                             
                         </tr>
                       <tr>
-                        <td><a href="/integracionJurado" class="btn btn-primary">Regresar</a></td>
-                        <td><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Agendar Acto"></td>
+                        <td colspan="2" ><a href="/integracionJurado" class="btn btn-primary">Regresar</a></td>
+                        <td colspan="2"><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Agendar Acto"></td>
                       </form>  
                       </tr>
                      
                         <tr>
-                          <td colspan="2">Division de estudios</td>
-                          <td><a target="_tab" href="/imprimir_aviso_de_acto/{{$egresado->id}}"">Aviso de Acto</a></td>
-                          <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{$egresado->id}}"">Aviso de hora y fecha</a></td>
+                          <td  colspan="2"><a target="_tab" href="/imprimir_aviso_de_acto/{{$egresado->id}}"">Aviso de Acto</a></td>
+                          <td  colspan="2"><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{$egresado->id}}"">Aviso de hora y fecha</a></td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Division de estudios</td>
+                        
                         </tr>
                       
                     </table>

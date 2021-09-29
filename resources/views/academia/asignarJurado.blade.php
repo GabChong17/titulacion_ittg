@@ -23,14 +23,14 @@
                           
                           {{-- @forelse ($books as $book) --}}
                           <tr>
-                            <th>Nombre</th>
-                            <th>Tema</th>
+                            <th colspan="2">Nombre</th>
+                            <th colspan="2">Tema</th>
                           </tr>
                           <tr>
-                            <td>
+                            <td colspan="2">
                               <input type="text" class="form-control" name="egresado_id" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled>
                             </td>
-                              <td>
+                              <td colspan="2">
                                 <input type="text" class="form-control"  name="tema_id" value="{{$tramite->tema}}" disabled>
                               </td>
                               
@@ -93,11 +93,12 @@
                           
                           
                           <tr>
-                            <td><a href="/academiaJurado" class="btn btn-primary">Regresar</a></td>
-                            <td><input class='btn btn-primary'   type='submit' value='Asignar Jurado'></td>
+                            <td colspan="2"><a href="/academiaJurado" class="btn btn-primary">Regresar</a></td>
+                            <td colspan="2"><input class='btn btn-primary'   type='submit' value='Asignar Jurado'></td>
                           </tr>
                             <tr>
-                              <td colspan="2">Academia</td>
+                              <td colspan="4">Academia</td>
+                              
                               
                             </tr>
                           </form>

@@ -23,31 +23,29 @@
                           
                          
                           <tr>
-                            <th>Nombre</th>
-                            <th>Tema</th>
+                            <th colspan="2">Nombre</th>
+                            <th colspan="2">Tema</th>
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
-                            <td>{{$tramite->tema}}</td>
+                            <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
+                            <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>
+                      
                           </tr>
                           
                           
                           <tr>
-                            <td><a href="/escolaresProtocolo" class="btn btn-primary">Regresar</a></td>
-                            <td><input class='btn btn-primary'   type='submit' value='Concluir'></td>
+                            <td colspan="2"><a href="/escolaresProtocolo" class="btn btn-primary">Regresar</a></td>
+                            <td colspan="2"><input class='btn btn-primary'   type='submit' value='Concluir'></td>
                           </tr>
                          
                             
                             <tr>
-                              <td><a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}">Protocolo</a></td>
-                              
+                              <td colspan="2"><a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}">Protocolo</a></td>
+                              <td colspan="2"><a target="_tab" href="/imprimir_juramento/{{$egresado->id}}">Juramento</a></td>
                             </tr>
+
                             <tr>
-                              <td><a target="_tab" href="/imprimir_juramento/{{$egresado->id}}">Juramento</a></td>
-                              
-                            </tr>
-                            <tr>
-                              <td colspan="2">Servicios Escolares</td>
+                              <td colspan="4">Servicios Escolares</td>
                               
                             </tr>
 

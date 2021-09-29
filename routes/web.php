@@ -17,6 +17,8 @@ use App\Mail\NotificacionAcademia;
 use App\Mail\NotificacionEscolares;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 
 

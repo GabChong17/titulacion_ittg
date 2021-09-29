@@ -99,6 +99,7 @@ class DivisionController extends Controller
         $correo = new NotificacionEgresado;
         $egresado = User::find($id);
         Mail::to($egresado)->send($correo);
+        
 
         return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
     }

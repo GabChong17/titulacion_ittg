@@ -102,8 +102,7 @@ class EgresadoController extends Controller
         $tramite->save();
  
         
-        return redirect('/crearCita/confirm')->with('message', 'Documento subido'); 
-            return redirect()->back()->with('message', 'Documento subido');   
+        return redirect('/crearCita/confirm');  
     }
 
     public function storePrototipo(Request $request)
@@ -136,8 +135,7 @@ class EgresadoController extends Controller
         $tramite->save();
  
         
-        // return redirect('/crearCita/confirm/{{$egresado->id}}')->with('message', 'Documento subido'); 
-            return redirect()->back()->with('message', 'Documento subido');   
+        return redirect('/crearCita/confirm');  
     }
     public function confirmar($id)
     {

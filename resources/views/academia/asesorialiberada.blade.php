@@ -18,14 +18,15 @@
                           
                           {{-- @forelse ($books as $book) --}}
                           <tr>
-                            <th>Nombre</th>
-                            <th>Tema</th>
-                            <th></th>
+                            <th  colspan="2">Nombre</th>
+                            <th  colspan="2"> Tema</th>
+                            
+                            
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
-                            <td>{{$tramite->tema}}</td>
-                            {{-- {{$tramiteTabla->tema}} --}}
+                            <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
+                            <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>
+                            <td></td>
                           </tr>
                           <tr>
                             <th>Asesor:</th>
@@ -59,22 +60,21 @@
                           
                           
                           <tr>
-                            <td><a href="/liberacionAsesoria" class="btn btn-primary">Regresar</a></td>
-                            <td><button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Asesoria liberada</button></td>
+                            <td colspan="2" ><a href="/liberacionAsesoria" class="btn btn-primary">Regresar</a></td>
+                            <td colspan="2"><button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Asesoria liberada</button></td>
                             {{-- <td><a href="/#" class="btn btn-primary">Asesoria liberada</a></td> --}}
                             <td colspan="2"></td> 
                           </tr>
                           
                             <tr>
-                              <td><a target="_tab" href="/imprimir_aval_academia/{{$egresado->id}}"">Aval de academia.</a></td>  
-                              <td><a target="_tab" href="/imprimir_liberacion_academica/{{$egresado->id}}"">Formato de liberacion.</a></td> 
-                              <td colspan="2"></td> 
+                              <td colspan="2"><a target="_tab" href="/imprimir_aval_academia/{{$egresado->id}}"">Aval de academia.</a></td>  
+                              <td colspan="2"><a target="_tab" href="/imprimir_liberacion_academica/{{$egresado->id}}"">Formato de liberacion.</a></td> 
+                              
                             </tr>
                             
                             <tr>
-                              <td colspan="2">Academia</td> 
-                              <td colspan="2"></td> 
-                              <td colspan="2"></td> 
+                              <td colspan="4">Academia</td> 
+                              
                             </tr>
                         </table>
                       </div>

@@ -28,10 +28,8 @@
                         <th>Tema: </th>                        
                       </tr>
                         <tr>
-                          <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>
-                          <td>{{$tramite->tema}}</td>
-                          {{--  --}}
-                         
+                          <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
+                          <td> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$tramite->tema}}" disabled> </td>     
                         </tr>
                       <tr>
                         <td><a href="/divisionAval" class="btn btn-primary">Regresar</a></td>
@@ -41,7 +39,7 @@
                       
                       <tr>
                       
-                        <td>
+                        <td colspan="2">
                           Requisitos
                           <ul>
                             <li> <a href="{{ route('requisito1.download', $tramite->id) }}">{{$tramite->requisito1}}</a></li>
@@ -52,7 +50,7 @@
                         
                       </tr>
                       <tr>
-                        <td><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}">Imprimir Solicitud de Asesores</a></td>
+                        <td colspan="2"><a target="_tab" href="/imprimir_aval_asesores/{{$egresado->id}}">Imprimir Solicitud de Asesores</a></td>
                         
                       </tr>
                       <tr>

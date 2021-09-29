@@ -22,10 +22,13 @@
                     <table class="table">
                         <div class="modal-body">
                           <tr>
-                            <th>Nombre</th>
+                            <th  colspan="2">Nombre</th>
+                           
                           </tr>
                           <tr>
-                            <td>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</td>                            
+                            <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
+                           
+                            
                           </tr>
                           <tr>
                             <td>
@@ -54,7 +57,7 @@
                           </div>
                       <tr>
                         <td><a href="/PaseLiberacion" class="btn btn-primary">Regresar</a></td>
-                        <td><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Revison Escolares"></td>
+                        <td><input type="submit" id="boton_recepcion" class="btn btn-primary" value="Revison Escolares" multiple required></td>
                       </form>  
                       </tr>
                      
@@ -66,7 +69,7 @@
                         <tr>
                           <td colspan="2">Division de estudios</td>
                         </tr>
-                        <td>
+                        
                       {{-- @endforelse --}}
                     </table>
                     

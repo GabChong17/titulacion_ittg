@@ -47,7 +47,7 @@
                                 <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="presidente">
                                     @forelse($presidente as $presidente)
-                                    <option value="{{$presidente->id}}">{{$presidente->name}}</option>  
+                                    <option value="{{$presidente->id}}">{{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}</option>  
                                         @empty
                                         <option disable>Sin asesores disponibles</option>
                                     @endforelse                         
@@ -58,7 +58,7 @@
                                 <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="secretario" >
                                     @forelse($secretario as $secretario)
-                                    <option value="{{$secretario->id}}">{{$secretario->name}}</option>  
+                                    <option value="{{$secretario->id}}">{{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}</option>  
                                         @empty
                                         <option disable>Sin asesores disponibles</option>
                                     @endforelse                         
@@ -69,7 +69,7 @@
                                 <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="vocalp" >
                                     @forelse($vocal_propietario as $vocal_propietario)
-                                    <option value="{{$vocal_propietario->id}}">{{$vocal_propietario->name}}</option>  
+                                    <option value="{{$vocal_propietario->id}}">{{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}</option>  
                                         @empty
                                         <option disable>Sin asesores disponibles</option>
                                     @endforelse                         
@@ -80,7 +80,7 @@
                                 <div class="col-md-12">
                                   <select class="form-select" aria-label="Default select example" name="vocals" >
                                     @forelse($vocal_suplente as $vocal_suplente)
-                                    <option value="{{$vocal_suplente->id}}">{{$vocal_suplente->name}}</option>  
+                                    <option value="{{$vocal_suplente->id}}">{{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}</option>  
                                         @empty
                                         <option disable>Sin asesores disponibles</option>
                                     @endforelse                         

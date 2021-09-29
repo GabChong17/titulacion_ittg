@@ -43,6 +43,8 @@ class CreateTramitesTable extends Migration
             $table->string('requisito1')->nullable();
             $table->string('requisito2')->nullable();
             $table->string('requisito3')->nullable();
+            $table->string('boucher')->nullable();
+            $table->string('protocolo')->nullable();
             $table->timestamps();
         });
     }

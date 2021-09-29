@@ -68,9 +68,14 @@ class AcademiaController extends Controller
 //fucicon para subir el protocolo desde la vista del egresado
     public function protocolo(Request $request, $id)
     {
-        // $valores = $request-> all();
+        $valores = $request->all();
        
-        $request->file('documentoProtocolo')->store('documentoProtocolo','public');
+        $tramite = new Tramite();
+        $tramite->fill($valores);
+
+         //Almacena Requisito 1
+         $tramite['protocolo'] = $request->file('protocolo')->getClientOriginalName();
+         $request->file('protocolo')->storeAs('public/protocolo', $tramite['protocolo']);
         return redirect()->back()->with('message', 'Documento protocolo subido');  
     }
 //fucicon para subir el boucher desde la vista del egresado

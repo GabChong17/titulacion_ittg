@@ -54,6 +54,7 @@
             {{-- @foreach ({{ Auth::user()->id }} ->plan->opciones as $opcion) --}}
             {{-- con est hacemos que el botton solo sea vicible por un administrador, necesitamos modificarlo para que sea visible para todo user con estado "tramite iniciado" --}}
             <!-- Nav Item - Menu inicio de tramite -->
+            @if (Auth::user()->estado === 'Tramite_Iniciado' or Auth::user()->estado === null )
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -69,6 +70,10 @@
                     </div>
                 </div>
             </li>
+            @else
+
+            @endif
+           
             {{-- @endforeach --}}
             
 

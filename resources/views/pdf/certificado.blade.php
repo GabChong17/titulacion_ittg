@@ -48,19 +48,19 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
     <div class="row mx-5"> 
       <div style="position: relative; top:9% !important; text-align:justify; font-size:80%;">
-      El (la) suscrito (a) Director (a) del {{$egresado->campus}}, ceertifica que en el Libro par Actas de Examen Profesional {fecha de acto} por la direccion de asuntos 
+      El (la) suscrito (a) Director (a) del {{$egresado->campus}}, certifica que en el Libro par Actas de Examen Profesional {{$tramite->acto_recepcion}} por la direccion de asuntos 
       Escolares y Apoyo a Estudiantes de la Direccion General del Tecnológico Nacional de México, se encuentra asentada en la hoja número <b>{{$egresado->id}}</b> el acta 
       que a la letra dice:<br>
-      En la ciudad de Tuxtla Gutierrez, Chiapas; a <b>{fecha actual}</b>, se reunieron en la <b>Sala de Titulación E-8 de {{$egresado->campus}}</b>, clave 07DIT0029Z, el 
+      En la ciudad de Tuxtla Gutierrez, Chiapas; a <b>{{$fechaActual}}</b>, se reunieron en la <b>Sala de Titulación E-8 de {{$egresado->campus}}</b>, clave 07DIT0029Z, el 
       jurado esta integrado por:
       </div>
     </div>
     <div class="row mx-5"> 
         <div style="position: relative; top:11% !important; text-align:justify; font-size:80%;">
-        PRESIDENTE:         <b>{{$presidente->profesion}}, {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, {{$presidente->cedula}}</b><br>
-        SECRETARIO:         <b>{{$secretario->profesion}}, {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, {{$secretario->cedula}}</b><br>
-        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}}, {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, {{$vocal_propietario->cedula}}</b><br>
-        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}}, {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, {{$vocal_suplente->cedula}}</b><br>
+        PRESIDENTE:         <b>{{$presidente->profesion}}, {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, cedula: {{$presidente->cedula}}.</b><br>
+        SECRETARIO:         <b>{{$secretario->profesion}}, {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, cedula: {{$secretario->cedula}}.</b><br>
+        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}}, {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, cedula: {{$vocal_propietario->cedula}}.</b><br>
+        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}}, {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, cedula: {{$vocal_suplente->cedula}}.</b><br>
         </div>
       </div>
       <div class="row mx-5"> 
@@ -71,7 +71,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
       </div>
       <div class="row mx-5"> 
       <div style="position: relative; text-align:center;font-size:80%; top:14%!important;">
-        C: <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>    número de control: <b>{{$egresado->NoControl}}</b><br>
+        C: <b>{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}</b>    número de control: <b>{{$egresado->NoControl}}.</b><br>
         </div>
       </div>
       <div class="row mx-5"> 
@@ -79,10 +79,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         Egresado(a) del {{$egresado->campus}}, pasante de la carrera de <b>Ingenieria {{$egresado->carrera}}. </b><br>
         El jurado tomando en cuenta el contenido del Trabajo Profesional cuyo tema es: "<b>{{$tramite->tema}}</b>" y la replica del mismo, dictaminó que fuera <b>Aprobado(a)</b>.<br>
         El (la) Presiendete (a) del Jurado le hizo saber  a el (la) sustentante el resultado obtenido. El código de Ética Profesional y el tomó la Protesta de Ley. Dandose por 
-        terminado el acto <b>{hora de termino}</b>, y una vez escrita, leida y aprobada, fue firmada para constancia por las personas que en el acto intervinieron, para 
+        terminado el acto <b>{{$horaActual}}</b>, y una vez escrita, leida y aprobada, fue firmada para constancia por las personas que en el acto intervinieron, para 
         los efectos legales a que haya lugar se asiente la presente.<br><br>
         Rubrican.<br><br>
-        Se extiende esta certificacion a <b>{fecha actual}</b>.<br><br>
+        Se extiende esta certificacion a <b>{{$fechaActual}}</b>.<br><br>
         <b>COTEJÓ</b><br><br>
         <b>Jefe (a) del Departamento<br>
         de Servicios Escolares<br>
@@ -92,10 +92,15 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
       </div>
       <div class="row mx-5"> 
         <div style="position: relative; text-align:center;font-size:80%; top:47%!important;">
-        <b>DIRECTOR (A) <br><br>
-        {NOMBRE DEL DIRECTO}</b><br>
+        <b>DIRECTOR (A) </b><br><br>
           </div>
         </div>
+        <div class="row mx-5"> 
+          <div style="position: relative; text-align:center;font-size:90%; top:48%!important;">
+          
+            <b><u>José Manuel Rosado Pérez.</u></b><br>
+            </div>
+          </div>
      
     {{-- <div class="row mx-5">
         <div style="position: relative; text-align:center;font-size:80%; top:14%!important;">

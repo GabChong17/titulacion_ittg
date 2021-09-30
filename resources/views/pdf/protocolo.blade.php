@@ -63,20 +63,20 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         </div>
       </div>
       <div class="row mx-5"> 
-        <div style="position: relative; top:20% !important; text-align:justify; font-size:80%;">
+        <div style="position: relative; top:22% !important; text-align:justify; font-size:80%;">
         EL JURADO SE INTEGRA DE LA SIGUIENTE MANERA:<br><br>
-        PRESIDENTE:         <b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, {{$presidente->cedula}}</b><br>
+        PRESIDENTE:         <b>{{$presidente->profesion}} {{$presidente->name}} {{$presidente->a_paterno}} {{$presidente->a_materno}}, cedula: {{$presidente->cedula}}.</b><br>
 
-        SECRETARIO:         <b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, {{$secretario->cedula}}</b><br>
+        SECRETARIO:         <b>{{$secretario->profesion}} {{$secretario->name}} {{$secretario->a_paterno}} {{$secretario->a_materno}}, cedula: {{$secretario->cedula}}.</b><br>
 
-        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, {{$vocal_propietario->cedula}}</b><br>
+        VOCAL PROPIETARIO:         <b>{{$vocal_propietario->profesion}} {{$vocal_propietario->name}} {{$vocal_propietario->a_paterno}} {{$vocal_propietario->a_materno}}, cedula: {{$vocal_propietario->cedula}}.</b><br>
 
-        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, {{$vocal_suplente->cedula}}</b><br>
+        VOCAL SUPLENTE:         <b>{{$vocal_suplente->profesion}} {{$vocal_suplente->name}} {{$vocal_suplente->a_paterno}} {{$vocal_suplente->a_materno}}, cedula: {{$vocal_suplente->cedula}}.</b><br>
         </div>
       </div>
       <div class="row mx-5"> 
         <div style="position: relative; top:27% !important; text-align:justify; font-size:80%;">
-        A QUIENES NOS CORRESPONDE EL HONOR DE INICIAR EL DIA DE HOY <b>{FECHA}</b>, EL ACTO DE RECEPCION PROFESIONAL, MUESTRA DE LA MADUREZ DEL INSTITUTO TECNOLOGICO DE TUXTLA GUTIERREZ.<br><br>
+        A QUIENES NOS CORRESPONDE EL HONOR DE INICIAR EL DIA DE HOY <b>{{$fechaActual}}</b>, EL ACTO DE RECEPCION PROFESIONAL, MUESTRA DE LA MADUREZ DEL INSTITUTO TECNOLOGICO DE TUXTLA GUTIERREZ.<br><br>
         AGRADECEMOS A LA CONCURRENCIA GUARDAR ABSOLUTO SILENCIO DURANTE EL DESARROLLO DEL MISMO.
         </div>
       </div>

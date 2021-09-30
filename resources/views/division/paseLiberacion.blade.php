@@ -22,13 +22,12 @@
                     <table class="table">
                         <div class="modal-body">
                           <tr>
-                            <th  colspan="2">Nombre</th>
+                            <th  >Nombre</th>
+                            
                            
                           </tr>
                           <tr>
-                            <td colspan="2"> <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>
-                           
-                            
+                            <td > <input type="text"  id="egresado_id" name="egresado_id" class="form-control" value="{{$egresado->name}} {{$egresado->a_paterno}} {{$egresado->a_materno}}" disabled> </td>                           
                           </tr>
                           <tr>
                             <td>

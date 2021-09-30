@@ -75,11 +75,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
        Tema: <u><b>{{$tramite->tema}}</b></u>
       </div>
     </div>
-    <div class="row mx-5">
-      <div style="position: relative; top:50% !important; text-align:left;">
-        Hora y fecha: <u><b>{fecha}</b></u>
-      </div>
-    </div>
+    
     
 
 

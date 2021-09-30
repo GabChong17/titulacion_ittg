@@ -128,7 +128,7 @@ Route::get('/imprimir_aviso_de_hora_actoRecep/{Egresado}',[DivisionController::c
 Route::get('/imprimir_DGP',[DivisionController::class, 'imprimir_DGP']);//PDF
 
 
-Route::POST('/recepcion/{egresado_id}',[DivisionController::class, 'recepcion' ]) ->middleware('division');
+Route::POST('/recepcion/{egresado_id}',[DivisionController::class, 'agregarIdestudianteaRecepcion' ]) ->middleware('division');
 Route::POST('/actoRecepcion/{egresado_id}',[DivisionController::class, 'actoRecepcion' ]) ->middleware('division');
 Route::POST('/solicitudAsesor/{egresado_id}',[DivisionController::class, 'solicitudAsesor'])->middleware('division');
 Route::POST('/acto/{egresado_id}',[DivisionController::class, 'asignacionActo' ]) ->middleware('division');

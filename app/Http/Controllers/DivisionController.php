@@ -86,6 +86,19 @@ class DivisionController extends Controller
 
         return view('division.jurado',compact('egresado','users_jurado_asignado'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function recepcion(Request $request, $id)
     {
         $egresado = User::find($id);
@@ -94,12 +107,55 @@ class DivisionController extends Controller
 
         $recepcion = request()->except(['_token']);
         $recepcion['egresado_id'] = Auth::id();
-        Tramite::insert($recepcion);
+
+        //Inicias como alumno => Auth::id();
+        //Inicias como docente = Auth::id();
+
+       /*  dd($egresado); */
+        //LA linea 96 guarda el id del usuario en la columna de la tabla "User" llamada "egresado_id
+
+        //$recepcion es un arreglo, es una colección = usuario que está haciendo la recepcion
+
+       // $tramite_asignacion_id = new Tramite;
+        
+    
+
+       Tramite::insert($recepcion);
 
         $correo = new NotificacionEgresado;
         $egresado = User::find($id);
         Mail::to($egresado)->send($correo);
-        
+
+        return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
+    }
+
+
+
+
+
+
+
+    public function agregarIdestudianteaRecepcion(Request $request, $id)
+    {
+        //cambia el estado 
+        $egresado = User::find($id);
+        $egresado->estado = 'Revision_Escolares';
+        $egresado->save(); 
+        //asigna valor en "recepcion" en la tabla tramites
+        $egresado = User::find($id);
+        $recepcion = request()->except(['_token']);
+        $recepcion['recepcion'] = $egresado->id;
+
+        //Se obtiene del input con valor "recepcion" los valores del "calendario"
+        //Y se almacena en la variable fecha_recepcion
+        $fecha_recepcion = $request->input('recepcion');
+
+        //Una vez obtenida la variable se hace la consulta
+        //En el modelo tramite, donde el campo del egresado_id es IGUAL AL EGRESADO que se busca al inicio de la funcion
+        //Va a actualizar el campo recepcion con la "fecha_recepcion" que se obtuvo del input
+        //listo
+        Tramite::where('egresado_id', $egresado->id)
+                ->update(['recepcion' => $fecha_recepcion]);
 
         return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
     }
@@ -111,8 +167,12 @@ class DivisionController extends Controller
 
         $recepcion = request()->except(['_token']);
         $recepcion['egresado_id'] = Auth::id();
-        Tramite::insert($recepcion);
 
+        $fecha_recepcionActo = $request->input('acto_recepcion');
+        Tramite::where('egresado_id', $egresado->id)
+                ->update(['acto_recepcion' => $fecha_recepcionActo]);
+        
+       
         return redirect('/actoRecepcional')->with('message', 'Acto recepcional agendado!');  
     }
     public function  asignacionActo(Request $request, $id)
@@ -223,8 +283,10 @@ class DivisionController extends Controller
        $secretario = User::find($jurado->secretario);
        $vocal_propietario = User::find($jurado->vocalp);
        $vocal_suplente = User::find($jurado->vocals);
+       $tramite = Tramite::where('egresado_id', $id)
+       ->first();
 
-      $pdf = \PDF::loadView('pdf.aviso_acto',compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
+      $pdf = \PDF::loadView('pdf.aviso_acto',compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente','tramite'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }
@@ -238,8 +300,10 @@ class DivisionController extends Controller
        $secretario = User::find($jurado->secretario);
        $vocal_propietario = User::find($jurado->vocalp);
        $vocal_suplente = User::find($jurado->vocals);
+       $tramite = Tramite::where('egresado_id', $id)
+       ->first();
     
-      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
+      $pdf = \PDF::loadView('pdf.aviso_hora_acto',compact('egresado','presidente','secretario','vocal_propietario','vocal_suplente','tramite'))->setOptions(['defaultFont' => 'sans-serif']);
      //return view('pdf.aval_de_academia');
       return $pdf->stream('ejemplo.pdf');
  }

@@ -10,6 +10,7 @@ use App\Models\Egresado;
 use App\Models\User;
 use App\Models\Tramite;
 use App\Models\Jurado;
+use Illuminate\Support\Carbon;
  
 
 class ServiciosEscolaresController extends Controller
@@ -158,7 +159,11 @@ class ServiciosEscolaresController extends Controller
             $secretario = User::find($jurado->secretario);
             $vocal_propietario = User::find($jurado->vocalp);
             $vocal_suplente = User::find($jurado->vocals);
-        $pdf = \PDF::loadView('pdf.protocolo',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
+
+            $now  = Carbon::now();
+            $fechaActual = $now = Carbon::now()->format('d-m-Y');
+
+        $pdf = \PDF::loadView('pdf.protocolo',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente', 'fechaActual'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }
@@ -180,7 +185,11 @@ class ServiciosEscolaresController extends Controller
             $secretario = User::find($jurado->secretario);
             $vocal_propietario = User::find($jurado->vocalp);
             $vocal_suplente = User::find($jurado->vocals);
-        $pdf = \PDF::loadView('pdf.certificado',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente'))->setOptions(['defaultFont' => 'sans-serif']);
+
+            $now  = Carbon::now();
+            $fechaActual = $now = Carbon::now()->format('d-m-Y');
+            $horaActual = $now = Carbon::now()->format('H:i');
+        $pdf = \PDF::loadView('pdf.certificado',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente','fechaActual','horaActual'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');
    }    

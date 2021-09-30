@@ -217,4 +217,23 @@ Route::get('notificacionEscolares', function () {
 // Route::get('/imprimir_solicitud_de_integracion_jurado',[PDFController::class, 'imprimir_solicitud_de_integracion_jurado']);
 // Route::get('/imprimir_solicitud_recepcion',[PDFController::class, 'imprimir_solicitud_recepcion']);
 
+Route::get('hora',function(){
 
+    $Object = new DateTime();
+    
+    $DateAndTime = $Object->format("d-m-Y h:i:s a");
+    
+    echo "The current date and time are $DateAndTime.";
+    
+    $Object2 = new DateTime();
+    
+    $Object2->setTimezone(new DateTimeZone('America/Mexico_city'));
+    
+    $DateAndTime2 = $Object2->format("d-m-Y h:i:s a");
+    
+    echo "The current date and time are $DateAndTime2.";
+    
+    
+    
+    
+    });

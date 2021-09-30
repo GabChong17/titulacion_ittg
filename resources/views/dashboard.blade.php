@@ -81,7 +81,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/liberacion">
                     <i class="fas fa-folder-minus"></i>
-                    <span>Liberacion</span></a>
+                    <span>Proceso</span></a>
             </li>
 
            

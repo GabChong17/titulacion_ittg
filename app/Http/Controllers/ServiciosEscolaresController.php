@@ -187,8 +187,9 @@ class ServiciosEscolaresController extends Controller
             $vocal_suplente = User::find($jurado->vocals);
 
             $now  = Carbon::now();
-            $fechaActual = $now = Carbon::now()->format('d-m-Y');
-            $horaActual = $now = Carbon::now()->format('H:i');
+            $fechaActual = $now = Carbon::now(new \DateTimeZone('America/Mexico_city'))->format('d-m-Y');
+            $horaActual = $now = Carbon::now(new \DateTimeZone('America/Mexico_city'))->format('H:i');
+
         $pdf = \PDF::loadView('pdf.certificado',compact('egresado','tramite','presidente','secretario','vocal_propietario','vocal_suplente','fechaActual','horaActual'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');
         return $pdf->stream('ejemplo.pdf');

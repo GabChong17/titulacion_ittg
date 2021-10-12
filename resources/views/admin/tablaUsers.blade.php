@@ -6,17 +6,17 @@
 <div class="card">
     <div class="card-body">
       <h2><p style="text-align:center; color: #140303;">Empleados</p></h2>
+      <a href="/agregaUsers" class="btn btn-info"> Agregar Empleados</a>
                 <table id="usuarios" class="table table-striped ">
                 <thead class= "bg-primary text-white">
                     <tr>
-                        <th>ID</th>
+                        
                         <th>Nombre</th>
-                        <th>Profesion</th>
-                        <th>Cedula</th>
+                        {{-- <th>Profesion</th> --}}
                         <th>Carrera</th>
                         <th>Email</th>
                         <th>Telefono</th>
-                        <th>Roles</th>
+                        <th>Departamento</th>
                         <th>Herramientas</th>
                     </tr>
                 </thead>
@@ -24,10 +24,9 @@
                 <tbody>
                     @foreach($admins as $admin)
                     <tr>
-                        <td>{{$admin['id']}}</td>
-                        <td>{{$admin['name']}}</td>
-                        <td>{{$admin['profesion']}}</td> 
-                        <td>{{$admin['cedula']}}</td> 
+                        
+                        <td>{{$admin['name']}} {{$admin['a_paterno']}} {{$admin['a_materno']}}</td>
+                        {{-- <td>{{$admin['profesion']}}</td>  --}}
                         <td>{{$admin['carrera']}}</td>
                         <td>{{$admin['email']}}</td>
                         <td>{{$admin['telefono']}}</td>
@@ -42,10 +41,9 @@
                   @endforeach
                   @foreach($divisiones as $divison)
                   <tr>
-                      <td>{{$divison['id']}}</td>
-                      <td>{{$divison['name']}}</td>
-                      <td>{{$divison['profesion']}}</td>
-                      <td>{{$divison['cedula']}}</td>
+                      
+                      <td>{{$divison['name']}} {{$divison['a_paterno']}} {{$divison['a_materno']}}</td>
+                      {{-- <td>{{$divison['profesion']}}</td> --}}
                       <td>{{$divison['carrera']}}</td>
                       <td>{{$divison['email']}}</td>
                       <td>{{$divison['telefono']}}</td>
@@ -60,10 +58,9 @@
                 @endforeach
                 @foreach($jefaturas as $jefatura)
                   <tr>
-                      <td>{{$jefatura['id']}}</td>
-                      <td>{{$jefatura['name']}}</td>
-                      <td>{{$jefatura['profesion']}}</td>
-                      <td>{{$jefatura['cedula']}}</td>
+                      
+                      <td>{{$jefatura['name']}} {{$jefatura['a_paterno']}} {{$jefatura['a_materno']}}</td>
+                      {{-- <td>{{$jefatura['profesion']}}</td> --}}
                       <td>{{$jefatura['carrera']}}</td>
                       <td>{{$jefatura['email']}}</td>
                       <td>{{$jefatura['telefono']}}</td>
@@ -78,10 +75,9 @@
                 @endforeach
                 @foreach($academias as $academia)
                   <tr>
-                      <td>{{$academia['id']}}</td>
-                      <td>{{$academia['name']}}</td>
-                      <td>{{$academia['profesion']}}</td>
-                      <td>{{$academia['cedula']}}</td>
+                     
+                      <td>{{$academia['name']}} {{$academia['a_paterno']}} {{$academia['a_materno']}}</td>
+                      {{-- <td>{{$academia['profesion']}}</td> --}}
                       <td>{{$academia['carrera']}}</td>
                       <td>{{$academia['email']}}</td>
                       <td>{{$academia['telefono']}}</td>
@@ -96,10 +92,9 @@
                 @endforeach
                 @foreach($escolaress as $escolares)
                   <tr>
-                      <td>{{$escolares['id']}}</td>
-                      <td>{{$escolares['name']}}</td>
-                      <td>{{$escolares['profesion']}}</td>
-                      <td>{{$escolares['cedula']}}</td>
+                      
+                      <td>{{$escolares['name']}} {{$escolares['a_paterno']}} {{$escolares['a_materno']}}</td>
+                      {{-- <td>{{$escolares['profesion']}}</td> --}}
                       <td>{{$escolares['carrera']}}</td>
                       <td>{{$escolares['email']}}</td>
                       <td>{{$escolares['telefono']}}</td>
@@ -113,9 +108,7 @@
                   </tr>
                 @endforeach
                 </tbody>
-                  <tr>
-                    <td colspan="2">Division de estudios</td>
-                  </tr>                      
+                                     
               </table>  
             </div>
           </div>
@@ -155,13 +148,25 @@
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
-  
     <script>
       $(document).ready(function() {
-  $('#usuarios').DataTable({
-    "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
-  });
-  });
+    $('#usuarios').DataTable( {
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "Registro no encontrado",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate': {
+              'next':'Siguiente',
+              'previous': 'Anterior'
+            }
+            
+        }
+        
+    } );
+} );
     </script>
     
   @endsection

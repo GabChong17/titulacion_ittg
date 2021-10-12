@@ -76,7 +76,7 @@
                 </div>
             </li> --}}
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoo"
                     aria-expanded="true" aria-controls="collapseTwoo">
                     <i class="fas fa-id-badge"></i>
@@ -90,7 +90,7 @@
                        
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             
 

@@ -35,15 +35,15 @@
                     <x-input id="profesion" class="block mt-1 w-full" type="text" name="profesion" :value="old('profesion')" />
                 </div>
                 <!-- cedula -->
-                <div>
+                {{-- <div>
                     <x-label for="a_materno" :value="__('Cedula')" />
     
                     <x-input id="cedula" class="block mt-1 w-full" type="text" name="cedula" :value="old('cedula')" />
-                </div>
+                </div> --}}
                 <!-- Rol -->
                 <div>
                     <br>
-                    <x-label for="campus" :value="__(' Rol ') " />
+                    <x-label for="campus" :value="__(' Departamento ') " />
                         <div class="col-md-12">
                              <select class="form-select" aria-label="Default select example" name="rol" :value="{{ old('rol') }}">
                                <option selected>Selecciona un rol para el empleado.</option>

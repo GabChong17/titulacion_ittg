@@ -166,8 +166,8 @@
                     <i class="fas fa-cloud-download-alt"></I>
                   </button>
                   {{-- modal de documentos --}}
-                  <div class="modal fade" id="documentos-modal">
-                    <div class="modal-dialog">
+                  <div class="modal fade" id="documentos-modal" size="xl">
+                    <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         {{-- header de la ventana --}}
                         <div class="modal-header">
@@ -195,15 +195,9 @@
                                    <td><a target="_tab" href="/imprimir_aviso_de_acto/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
                                     <td><a target="_tab" href="/imprimir_aviso_de_hora_actoRecep/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></a></td>
                                     <td><a target="_tab" href="/imprimir_certificado/{{ Auth::user()->id }}" class=" btn btn-info"><i class=" fas fa-scroll"></i></a> </td>
-                                    
-                                      <td></td>
                                   </tr>
-              
                               </table>  
-
-                          </p>
-                        
-                          
+                          </p> 
                         {{-- footer de la ventana --}}
                         <div class="modal-footer">
                           
@@ -212,7 +206,7 @@
                         </div>
                       </div>
                     </div>                      
-                  </div>
+                  </div>     
             </td> 
             </tr>
             
@@ -225,7 +219,7 @@
 
         
     @endsection
-    @section('js')        
+    {{-- @section('js')        
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
@@ -240,4 +234,4 @@
   });
     </script>
     
-  @endsection
+  @endsection --}}

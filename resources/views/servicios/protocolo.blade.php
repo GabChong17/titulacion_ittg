@@ -13,11 +13,10 @@
               <table id="usuarios" class="table table-striped ">
               <thead class= "bg-primary text-white">
               <tr>
-                <th>Estado</th>
+                {{-- <th>Estado</th> --}}
                 <th>NC</th>
                 <th>Nombre</th>
-                <th>Carrera</th>
-                
+                <th>Carrera</th>                
                 <th>Acciones</th>  
                               
               </tr>
@@ -26,7 +25,7 @@
               <tbody>
               @foreach($users_acto_agendado as $egresado)
                 <tr>
-                  <td>{{$egresado['estado']}}</td>
+                  {{-- <td>{{$egresado['estado']}}</td> --}}
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                   <td>{{$egresado['carrera']}}</td>                                      
@@ -40,7 +39,7 @@
               <tbody>
                 @foreach($users_tramite_finalizado as $egresado)
                   <tr>
-                    <td>{{$egresado['estado']}}</td>
+                    {{-- <td>{{$egresado['estado']}}</td> --}}
                     <td>{{$egresado['NoControl']}}</td>
                     <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                     <td>{{$egresado['carrera']}}</td>                                                            
@@ -48,15 +47,12 @@
                        <a target="_tab" href="/imprimir_protocolo/{{$egresado->id}}" class=" btn btn-info"><i class="fas fa-paste"></i></a> 
                        <a target="_tab" href="/imprimir_juramento/{{$egresado->id}}" class=" btn btn-info"><i class=" fas fa-file-alt"></i></a> 
                        <a target="_tab" href="/imprimir_certificado/{{$egresado->id}}" class=" btn btn-info"><i class=" fas fa-scroll"></i></a> 
-                       <a href="/notificacionEgresado/{{$egresado->id}}" class=" fas fa-envelope btn btn-info"</a>
+                       <a href="/notificacionEgresado/{{$egresado->id}}" class=" fas fa-envelope btn btn-info"></a>
                     </td>                             
                   </tr>
                   @endforeach
                 </tbody>
-                <tr>
-                  <td colspan="2">Servicios Escolares</td>
-                  
-                </tr>                      
+                                    
             </table>  
           </div>
         </div>
@@ -73,12 +69,24 @@
 
   <script>
     $(document).ready(function() {
-$('#usuarios').DataTable({
-  "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
-});
-});
+  $('#usuarios').DataTable( {
+      "language": {
+          "lengthMenu": "Mostrar _MENU_ registros por pagina",
+          "zeroRecords": "Registro no encontrado",
+          "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+          "infoEmpty": "No hay registros disponibles",
+          "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+          'search': 'Buscar:',
+          'paginate': {
+            'next':'Siguiente',
+            'previous': 'Anterior'
+          }
+          
+      }
+      
+  } );
+} );
   </script>
-  
 @endsection
 
 

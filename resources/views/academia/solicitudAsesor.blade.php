@@ -12,7 +12,7 @@
               <table id="usuarios" class="table table-striped ">
               <thead class= "bg-primary text-white">
               <tr>
-                <th>Estado</th>
+                {{-- <th>Estado</th> --}}
                 <th>NC</th>
                 <th>Nombre</th>
                 <th>Carrera</th>
@@ -24,7 +24,7 @@
                 @foreach($users_solicitud_de_asesores as $egresado)
                 
                 <tr>
-                  <td>{{$egresado['estado']}}</td>
+                  {{-- <td>{{$egresado['estado']}}</td> --}}
                   <td>{{$egresado['NoControl']}}</td>
                   <td>{{$egresado['name']}} {{$egresado['a_paterno']}} {{$egresado['a_materno']}}</td>
                   <td>{{$egresado['carrera']}}</td>                                                          
@@ -36,10 +36,7 @@
                 
                 @endforeach
               </tbody>
-                <tr>
-                  <td colspan="2">Academia</td>
-                  
-                </tr>                      
+                               
             </table>  
 
 
@@ -60,10 +57,23 @@
 
   <script>
     $(document).ready(function() {
-$('#usuarios').DataTable({
-  "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
-});
-});
+  $('#usuarios').DataTable( {
+      "language": {
+          "lengthMenu": "Mostrar _MENU_ registros por pagina",
+          "zeroRecords": "Registro no encontrado",
+          "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+          "infoEmpty": "No hay registros disponibles",
+          "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+          'search': 'Buscar:',
+          'paginate': {
+            'next':'Siguiente',
+            'previous': 'Anterior'
+          }
+          
+      }
+      
+  } );
+} );
   </script>
   
 @endsection

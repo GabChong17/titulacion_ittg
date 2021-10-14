@@ -44,12 +44,15 @@ Route::get('admin',[UsersController::class, 'index']);
 // Route::resource('admin', UsersController::class)
 //     -middleware('AuthCheck')  
 //     -name('admi.index');
-Route::get('/TablaUsers',[UsersController::class, 'users']);
+Route::get('/TablaUsers',[UsersController::class, 'users'])->name(name: 'TablaUsers');
 Route::get('/SubidaProtocolo',[AdminController::class, 'protocolo']);
 Route::POST('/SubProto',[AdminController::class, 'subproto']);
 Route::get('/SubidaJuramento',[AdminController::class, 'juramento']);
 Route::POST('/SubJura',[AdminController::class, 'subjura']);
 Route::get('/agregaUsers',[AdminController::class, 'agrega']);
+Route::get('/editarEmpleado/{empelado}',[AdminController::class, 'edit']);
+Route::put('/actualizarEmpleado/{empelado}',[AdminController::class, 'update'])->name(name: 'actualizarEmpleado');
+Route::delete('/eliminarEmpleado/{empelado}',[AdminController::class, 'destroy'])->name(name: 'eliminarEmpleado');
 Route::POST('/agregaUsers2',[AdminController::class, 'agrega2']);
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');

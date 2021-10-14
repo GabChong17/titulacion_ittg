@@ -10,6 +10,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
+use App\Http\Requests\UserEditRequest;
 
 
 
@@ -105,5 +106,53 @@ class AdminController extends Controller
     public function escolares()
     {
         return view('admin.escolares');
+    }
+
+    public function edit($id)
+    {
+
+        $empelado = User::find($id);
+        // abort_if(Gate::denies('user_edit'), 403);
+        // $roles = Role::all()->pluck('name', 'id');
+        // $empelado->load('roles');
+        return view('admin.edit', compact('empelado'));
+    }
+    public function update(Request $request,  $id)
+    {
+        // $user=User::findOrFail($id);
+        $empelado = User::find($id);
+        $data = $request->only('name', 'a_paterno', 'a_materno', 'profesion', 'rol', 'carrera', 'campus', 'email','telefono','cedula');
+        // $password=$request->input('password');
+        // if($password)
+        //     $data['password'] = bcrypt($password);
+        if(trim($request->password)=='')
+        {
+            $data=$request->except('password');
+        }
+        else{
+            $data=$request->all();
+            $data['password']=bcrypt($request->password);
+        }
+        
+
+        $empelado->update($data);
+        return redirect()->route('TablaUsers', $empelado->id)->with('success', 'Usuario actualizado correctamente');
+    }
+    public function destroy(User $empelado)
+    {
+        // abort_if(Gate::denies('user_destroy'), 403);
+
+        // if (auth()->user()->id == $empelado->id) {
+        //     return redirect()->route('users.index');
+        // }
+
+        
+        // $admin->delete();
+        $empelado->delete();
+        // $divison->delete();
+        // $jefatura->delete();
+        // $academia->delete();
+        
+        return back()->with('succes', 'Usuario eliminado correctamente');
     }
 }

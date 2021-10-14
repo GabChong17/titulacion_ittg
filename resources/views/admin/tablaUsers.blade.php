@@ -6,7 +6,7 @@
 <div class="card">
     <div class="card-body">
       <h2><p style="text-align:center; color: #140303;">Empleados</p></h2>
-      <a href="/agregaUsers" class="btn btn-info"> Agregar Empleados</a>
+      <a href="/agregaUsers" class="btn btn-info"> Agregar Empleados</a><br>
                 <table id="usuarios" class="table table-striped ">
                 <thead class= "bg-primary text-white">
                     <tr>
@@ -33,10 +33,15 @@
                         <td>{{$admin['rol']}}</td>
                         
                         <td>
-                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                            <i class="fas fa-th-large"></I>
-                          </button>
-                        </td>
+                          <a href="/editarEmpleado/{{$admin->id}}" class=" btn btn-info"><i class="fas fa-user-edit"></i></a>      
+                          <form action="{{ route('eliminarEmpleado', $admin->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar al usuario?')">
+                            @csrf
+                            @method('DELETE')
+                                <button class="btn btn-danger" type="submit" rel="tooltip">
+                                <i class="fas fa-user-times "></i>
+                                </button>
+                            </form>
+                        </td> 
                     </tr>
                   @endforeach
                   @foreach($divisiones as $divison)
@@ -50,9 +55,14 @@
                       <td>{{$divison['rol']}}</td>
                       
                       <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                          <i class="fas fa-th-large"></I>
-                        </button>
+                        <a href="/editarEmpleado/{{$divison->id}}" class=" btn btn-info"><i class="fas fa-user-edit"></i></a>      
+                        <form action="{{ route('eliminarEmpleado', $divison->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar al usuario?')">
+                          @csrf
+                          @method('DELETE')
+                              <button class="btn btn-danger" type="submit" rel="tooltip">
+                              <i class="fas fa-user-times "></i>
+                              </button>
+                          </form>
                       </td> 
                   </tr>
                 @endforeach
@@ -67,9 +77,14 @@
                       <td>{{$jefatura['rol']}}</td>
                       
                       <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                          <i class="fas fa-th-large"></I>
-                        </button>
+                        <a href="/editarEmpleado/{{$jefatura->id}}" class=" btn btn-info"><i class="fas fa-user-edit"></i></a>      
+                        <form action="{{ route('eliminarEmpleado', $jefatura->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar al usuario?')">
+                          @csrf
+                          @method('DELETE')
+                              <button class="btn btn-danger" type="submit" rel="tooltip">
+                              <i class="fas fa-user-times "></i>
+                              </button>
+                          </form>
                       </td> 
                   </tr>
                 @endforeach
@@ -84,9 +99,14 @@
                       <td>{{$academia['rol']}}</td>
                       
                       <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                          <i class="fas fa-th-large"></I>
-                        </button>
+                        <a href="/editarEmpleado/{{$academia->id}}" class=" btn btn-info"><i class="fas fa-user-edit"></i></a>      
+                        <form action="{{ route('eliminarEmpleado', $academia->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar al usuario?')">
+                          @csrf
+                          @method('DELETE')
+                              <button class="btn btn-danger" type="submit" rel="tooltip">
+                              <i class="fas fa-user-times "></i>
+                              </button>
+                          </form>
                       </td> 
                   </tr>
                 @endforeach
@@ -101,9 +121,14 @@
                       <td>{{$escolares['rol']}}</td>
                       
                       <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
-                          <i class="fas fa-th-large"></I>
-                        </button>
+                        <a href="/editarEmpleado/{{$escolares->id}}" class=" btn btn-info"><i class="fas fa-user-edit"></i></a>      
+                        <form action="{{ route('eliminarEmpleado', $escolares->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar al usuario?')">
+                          @csrf
+                          @method('DELETE')
+                              <button class="btn btn-danger" type="submit" rel="tooltip">
+                              <i class="fas fa-user-times "></i>
+                              </button>
+                          </form>
                       </td> 
                   </tr>
                 @endforeach
@@ -113,31 +138,7 @@
             </div>
           </div>
 
-          {{-- modal de edit --}}
-
-          <div class="modal fade" id="edit-modal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                {{-- header de la ventana --}}
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h4 class="modal-title" align="center"><b>Informacion del empleado.</b></h4>
-                </div>
-                {{-- contenido de la vetana --}}
-                
-                
-                    {{-- footer de la ventana --}}
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-primary">.</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         
   
   @endsection

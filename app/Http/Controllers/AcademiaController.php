@@ -108,7 +108,7 @@ public function protocolo(Request $request){
     //   Tramite::where('egresado_id', $egresado->id)
     //     ->update(['recepcion' => $fecha_recepcion]);
       $tramite->save();
-      return redirect()->back()->with('message', 'Documento protocolo subido');
+      return redirect('/liberacion');
       
 }
 //fucicon para subir el boucher desde la vista del egresado

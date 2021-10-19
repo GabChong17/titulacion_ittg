@@ -77,7 +77,7 @@
                                             Protocolo:
                                             <br>
                                             
-                                            <input type="file" id="documentoProtocolo" onInput="validar()" class="form-control document" name="documentoProtocolo" multiple required>
+                                            <input type="file" id="protocolo" onInput="validar()" class="form-control document" name="protocolo" multiple required>
 
                                           </div>
                                         </div>

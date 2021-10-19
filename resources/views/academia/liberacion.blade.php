@@ -71,11 +71,12 @@
                                           @endif
                                
                                           <div class="card-body">
-                                            <form action="/protocolo_egresado/{{ Auth::user()->id }}" method="post" enctype="multipart/form-data">
+                                            <form action="/protocolo_egresado" method="post" enctype="multipart/form-data">
                                             @csrf
                                             
                                             Protocolo:
                                             <br>
+                                            
                                             <input type="file" id="documentoProtocolo" onInput="validar()" class="form-control document" name="documentoProtocolo" multiple required>
 
                                           </div>

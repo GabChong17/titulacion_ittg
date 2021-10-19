@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tramite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\Egresado;
 use App\Models\User;
-use App\Models\Tramite;
 use App\Models\Opcion;
 use App\Models\Jurado;
 use App\Models\Asesor;
@@ -16,6 +17,10 @@ use DB;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificacionEgresado;
+
+
+
+
 
 
 
@@ -66,18 +71,46 @@ class AcademiaController extends Controller
     
     }
 //fucicon para subir el protocolo desde la vista del egresado
-    public function protocolo(Request $request, $id)
-    {
+
+
+public function protocolo(Request $request){
+//     if($request->hasFile("urlpdf")){
+//         $file=$request->file("documentoProtocolo");
+        
+//         $nombre = "pdf_".time().".".$file->guessExtension();
+
+//         $ruta = public_path("protocolo/".$nombre);
+
+//         if($file->guessExtension()=="pdf"){
+//             copy($file, $ruta);
+//         }else{
+//             dd("NO ES UN PDF");
+//         }
+
+
+
+//     }
+// }
+        
+    //     ////
         $valores = $request->all();
        
         $tramite = new Tramite();
         $tramite->fill($valores);
+        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
 
-         //Almacena Requisito 1
-         $tramite['protocolo'] = $request->file('protocolo')->getClientOriginalName();
-         $request->file('protocolo')->storeAs('public/protocolo', $tramite['protocolo']);
-        return redirect()->back()->with('message', 'Documento protocolo subido');  
-    }
+        
+      //Almacena protocolo     
+
+      $tramite['protocolo'] = $request->file('protocolo')->getClientOriginalName();
+      $request->file('protocolo')->storeAs('public/protocolo', $tramite['protocolo']);
+
+    //   Tramite::where('egresado_id', $egresado->id)
+    //     ->update(['recepcion' => $fecha_recepcion]);
+      $tramite->save();
+      return redirect()->back()->with('message', 'Documento protocolo subido');
+      
+}
 //fucicon para subir el boucher desde la vista del egresado
     public function boucher(Request $request, $id)
     {

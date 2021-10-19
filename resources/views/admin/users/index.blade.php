@@ -47,7 +47,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/TablaUsers">
                     <i class="fas fa-address-card"></i>
-                    <span>Tabla de Usuarios</span></a>
+                    <span>Tabla de Empleados</span></a>
             </li>
             <hr class="sidebar-divider my-0">
 

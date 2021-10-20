@@ -114,10 +114,22 @@ public function protocolo(Request $request){
 //fucicon para subir el boucher desde la vista del egresado
     public function boucher(Request $request, $id)
     {
-        // $valores = $request-> all();
+        $valores = $request->all();
        
-        $request->file('boucher')->store('boucher','public');
-        return redirect()->back()->with('message', 'Documento boucher subido');  
+        $tramite = new Tramite();
+        $tramite->fill($valores);
+        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+
+        
+      //Almacena protocolo     
+
+      $tramite['boucher'] = $request->file('boucher')->getClientOriginalName();
+      $request->file('boucher')->storeAs('public/boucher', $tramite['boucher']);
+
+    //   Tramite::where('egresado_id', $egresado->id)
+    //     ->update(['recepcion' => $fecha_recepcion]);
+      $tramite->save();
+      return redirect('/liberacion');
     }
     public function asignar_asesor($id)
     {

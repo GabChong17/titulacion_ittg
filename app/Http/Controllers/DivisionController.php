@@ -343,6 +343,21 @@ class DivisionController extends Controller
      return response()->download($pathToFile);
  }
  
+ public function boucherDownload($id)
+ {
+     $tramite = Tramite::where('id',$id)->first();
+     $pathToFile = storage_path('app/public/boucher/' . $tramite->boucher);
+     return response()->download($pathToFile);
+ }
+  
+ public function protocoloDownload($id)
+ {
+     $tramite = Tramite::where('id',$id)->first();
+     $pathToFile = storage_path('app/public/protocolo/' . $tramite->protocolo);
+     return response()->download($pathToFile);
+ }
+ 
+
 
  public function imprimir_DGP()
  { 

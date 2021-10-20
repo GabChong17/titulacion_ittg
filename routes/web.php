@@ -109,6 +109,7 @@ Route::get('/imprimir_aval_academia/{Egresado}',[AcademiaController::class, 'imp
 Route::POST('/firmasEscaneadas/{Egresado}',[AcademiaController::class, 'firmas'])->middleware('academia');
 Route::POST('/protocolo_egresado',[AcademiaController::class, 'protocolo']);
 Route::POST('/baucher_pago/{Egresado}',[AcademiaController::class, 'boucher']);
+
 Route::get('/imprimir_liberacion_academica/{Egresado}',[AcademiaController::class, 'imprimir_liberacion']);//PDF
 Route::get('/imprimir_respuesta_integracion_jurado/{Egresado}',[AcademiaController::class, 'imprimir_respuesta_integracion_jurado']);//PDF
 
@@ -140,6 +141,10 @@ Route::POST('/acto/{egresado_id}',[DivisionController::class, 'asignacionActo' ]
 Route::get('requisito1/{id}/download', [DivisionController::class, 'requisito1Download'])->name('requisito1.download');
 Route::get('requisito2/{id}/download', [DivisionController::class, 'requisito2Download'])->name('requisito2.download');
 Route::get('requisito3/{id}/download', [DivisionController::class, 'requisito3Download'])->name('requisito3.download');
+//descarga boucher
+Route::get('boucher/{id}/download', [DivisionController::class, 'boucherDownload'])->name('boucher.download');
+//descarga protocolo
+Route::get('protocolo/{id}/download', [DivisionController::class, 'protocoloDownload'])->name('protocolo.download');
 
 
 //servicios escolares

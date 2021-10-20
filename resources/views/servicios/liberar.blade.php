@@ -39,7 +39,8 @@
                          
                             <tr>
                            
-                              <td colspan="2"><a target="_tab" href="/boucher_de_pago/{{$egresado->id}}">Boucher de pago</a></td>
+                              {{-- <td colspan="2"><a target="_tab" href="/boucher_de_pago/{{$egresado->id}}">Boucher de pago</a></td> --}}
+                              <td colspan="2"><li> <a target="_tab" href="{{ route('boucher.download', $tramite->id) }}">Boucher de pago</a></li></td>
                             </tr>
                             <tr>
                               <td colspan="2">Servicios Escolares</td>

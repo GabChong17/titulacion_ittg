@@ -6,6 +6,9 @@
 
 
 @section('content')
+{{-- @can('admin', Auth::user()) --}}
+
+{{-- sistemas --}}//sistemas
 <div class="card">
   <div class="card-body">
     <h2><p style="text-align:center; color: #140303;">Solicitud de Asesor</p></h2>
@@ -22,6 +25,7 @@
 
               <tbody>
                 @foreach($users_solicitud_de_asesores as $egresado)
+               
                 
                 <tr>
                   {{-- <td>{{$egresado['estado']}}</td> --}}
@@ -43,10 +47,15 @@
             
           </div>
         </div>
+        {{-- @endcan --}}
 
     
 
 @endsection
+
+
+
+
 
 @section('js')        
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

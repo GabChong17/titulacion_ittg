@@ -346,7 +346,7 @@ class DivisionController extends Controller
  public function boucherDownload($id)
  {
      $tramite = Tramite::where('id',$id)->first();
-     $pathToFile = storage_path('app/public/boucher/' . $tramite->boucher);
+     $pathToFile = storage_path('app/public/boucher/'. $tramite->boucher);
      return response()->download($pathToFile);
  }
   

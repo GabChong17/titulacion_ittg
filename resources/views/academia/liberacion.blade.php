@@ -83,6 +83,7 @@
             
         </table>  
 {{-- subida protocolo --}}
+@foreach($sube_protocolo as $alumno)
         <table id="usuarios" class="table table-striped ">
           <thead class= "bg-primary text-white">
     <tr >
@@ -128,7 +129,7 @@
                                   @endif
                        
                                   <div class="card-body">
-                                    <form action="/protocolo_egresado" method="post" enctype="multipart/form-data">
+                                    <form action="/protocolo_egresado/{{ Auth::user()->id }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     
                                     Protocolo:
@@ -158,7 +159,9 @@
     </tr>
     
 </table>  
+@endforeach
 {{-- sube boucher --}}
+@foreach($sube_boucher as $alumno)
 <table id="usuarios" class="table table-striped ">
   <thead class= "bg-primary text-white">
   <tr >
@@ -233,6 +236,7 @@
 
   </tr>
 </table>  
+@endforeach
       </div>
     </div>  
 </p>

@@ -37,8 +37,16 @@ class AcademiaController extends Controller
     {
         $egresado = User::where('rol', 'egresado')->get();
         $tramites = Tramite::where('egresado_id',Auth::id())->get();
+
         
-        return view('academia.liberacion', compact('tramites', 'egresado'));
+        $sube_protocolo = User::where('estado', '=', 'Asesores_Asignados')->get();
+        $sube_boucher = User::where('estado', '=', 'Revision_Escolares')->get();
+
+
+        // return view('academia.liberacionAsesoria',compact('users_asesores_asignados'));
+       
+        
+        return view('academia.liberacion', compact('tramites', 'egresado','sube_protocolo','sube_boucher'));
     }
 
     public function asesor()
@@ -51,10 +59,20 @@ class AcademiaController extends Controller
         
         // $users_tramite_iniciado = User::where('estado', '=', 'Tramite_iniciado')->get();
         $users_solicitud_de_asesores = User::where('estado', '=', 'Solicitud_De_Asesores')->get();
-        $users_asesores_asignados = User::where('estado', '=', 'Asesores_Asignados')->get();
+       
+            //carreras
+        $sistemas = User::where('carrera', '=', 'Sistemas Computacionales')->get();
+        $logistica = User::where('carrera', '=', 'Logistica')->get();
+        $gestion = User::where('carrera', '=', 'Gestion Empresarial')->get();
+        $industrial = User::where('carrera', '=', 'Industrial')->get();
+        $mecanica = User::where('carrera', '=', 'Mecanica')->get();
+        $electrica = User::where('carrera', '=', 'Electrica')->get();
+        $electronica = User::where('carrera', '=', 'Electronica')->get();
+        $quimica = User::where('carrera', '=', 'Quimica')->get();
+        $bioquimica = User::where('carrera', '=', 'Bioquimica')->get();
 
 
-        return view('academia.solicitudAsesor',compact('users_solicitud_de_asesores','users_asesores_asignados'));
+        return view('academia.solicitudAsesor',compact('users_solicitud_de_asesores','sistemas','logistica','gestion','industrial','mecanica','electrica','electronica','quimica','bioquimica'));
         
          
     }
@@ -70,67 +88,41 @@ class AcademiaController extends Controller
         return redirect('/liberacionAsesoria')->with('message', 'Documento subido');
     
     }
-//fucicon para subir el protocolo desde la vista del egresado
-
-
-public function protocolo(Request $request){
-//     if($request->hasFile("urlpdf")){
-//         $file=$request->file("documentoProtocolo");
-        
-//         $nombre = "pdf_".time().".".$file->guessExtension();
-
-//         $ruta = public_path("protocolo/".$nombre);
-
-//         if($file->guessExtension()=="pdf"){
-//             copy($file, $ruta);
-//         }else{
-//             dd("NO ES UN PDF");
-//         }
-
-
-
-//     }
-// }
-        
-    //     ////
-        $valores = $request->all();
-       
-        $tramite = new Tramite();
-        $tramite->fill($valores);
-        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
-
-        
-      //Almacena protocolo     
-
-      $tramite['protocolo'] = $request->file('protocolo')->getClientOriginalName();
-      $request->file('protocolo')->storeAs('public/protocolo', $tramite['protocolo']);
-
-    //   Tramite::where('egresado_id', $egresado->id)
-    //     ->update(['recepcion' => $fecha_recepcion]);
-      $tramite->save();
-      return redirect('/liberacion');
-      
-}
-//fucicon para subir el boucher desde la vista del egresado
+  
+    //fucicon para subir el boucher desde la vista del egresado
     public function boucher(Request $request, $id)
     {
-        $valores = $request->all();
-       
-        $tramite = new Tramite();
-        $tramite->fill($valores);
-        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+  
+      $egresado = User::find($id);
 
-        
-      //Almacena protocolo     
+      $recepcion = request()->except(['_token']);
+      $recepcion['egresado_id'] = Auth::id();
 
       $tramite['boucher'] = $request->file('boucher')->getClientOriginalName();
       $request->file('boucher')->storeAs('public/boucher', $tramite['boucher']);
 
-    //   Tramite::where('egresado_id', $egresado->id)
-    //     ->update(['recepcion' => $fecha_recepcion]);
-      $tramite->save();
+      Tramite::where('egresado_id', $egresado->id)
+              ->update(['boucher' => $tramite]);
+      
       return redirect('/liberacion');
     }
+      //funcion para subir el protocolo desde la vista del egresado
+      public function protocolo(Request $request, $id)
+      {
+    
+        $egresado = User::find($id);
+  
+        $recepcion = request()->except(['_token']);
+        $recepcion['egresado_id'] = Auth::id();
+  
+        $tramite['protocolo'] = $request->file('protocolo')->getClientOriginalName();
+        $request->file('protocolo')->storeAs('public/protocolo', $tramite['protocolo']);
+  
+        Tramite::where('egresado_id', $egresado->id)
+                ->update(['protocolo' => $tramite]);
+        
+        return redirect('/liberacion');
+      }
     public function asignar_asesor($id)
     {
         $egresado = User::find($id);

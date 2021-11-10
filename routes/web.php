@@ -58,16 +58,47 @@ Route::POST('/agregaUsers2',[AdminController::class, 'agrega2']);
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
 //egresado
-Route::get('/inicio', function () {
-    return view('dashboard');
-})->middleware('egresado');
+
+Route::get('/inicio', [EgresadoController::class, 'inicio'])->middleware('egresado');
 Route::get('/liberacion',[AcademiaController::class, 'liberacion'])->middleware('egresado');
-Route::get('/tesis', [EgresadoController::class, 'tesis'])->middleware('egresado');
-Route::get('/proyecto', [EgresadoController::class, 'proyecto'])->middleware('egresado');
-Route::get('/prototipo', [EgresadoController::class, 'prototipo'])->middleware('egresado');
-Route::POST('/tramite-tesis',[EgresadoController::class, 'storeTesis' ])->middleware('egresado');
-Route::POST('/tramite-proyecto',[EgresadoController::class, 'storeProyecto' ])->middleware('egresado');
-Route::POST('/tramite-prototipo',[EgresadoController::class, 'storePrototipo' ])->middleware('egresado');
+    //plan93
+Route::get('/tramite1', [EgresadoController::class, 'tramite1'])->middleware('egresado');
+Route::get('/tramite2', [EgresadoController::class, 'tramite2'])->middleware('egresado');
+Route::get('/tramite3', [EgresadoController::class, 'tramite3'])->middleware('egresado');
+Route::get('/tramite4', [EgresadoController::class, 'tramite4'])->middleware('egresado');
+Route::get('/tramite5', [EgresadoController::class, 'tramite5'])->middleware('egresado');
+Route::get('/tramite6', [EgresadoController::class, 'tramite6'])->middleware('egresado');
+Route::get('/tramite7', [EgresadoController::class, 'tramite7'])->middleware('egresado');
+Route::get('/tramite8', [EgresadoController::class, 'tramite8'])->middleware('egresado');
+Route::get('/tramite9', [EgresadoController::class, 'tramite9'])->middleware('egresado');
+Route::get('/tramite10', [EgresadoController::class, 'tramite10'])->middleware('egresado');
+    //plan2004
+Route::get('/tramite11', [EgresadoController::class, 'tramite11'])->middleware('egresado');
+Route::get('/tramite12', [EgresadoController::class, 'tramite12'])->middleware('egresado');
+Route::get('/tramite13', [EgresadoController::class, 'tramite13'])->middleware('egresado');
+Route::get('/tramite14', [EgresadoController::class, 'tramite14'])->middleware('egresado');
+Route::get('/tramite15', [EgresadoController::class, 'tramite15'])->middleware('egresado');
+
+
+
+//guarda docuementos 93
+Route::POST('/tramite1',[EgresadoController::class, 'store1' ])->middleware('egresado');
+Route::POST('/tramite2',[EgresadoController::class, 'store2' ])->middleware('egresado');
+Route::POST('/tramite3',[EgresadoController::class, 'store3' ])->middleware('egresado');
+Route::POST('/tramite4',[EgresadoController::class, 'store4' ])->middleware('egresado');
+Route::POST('/tramite5',[EgresadoController::class, 'store5' ])->middleware('egresado');
+Route::POST('/tramite6',[EgresadoController::class, 'store6' ])->middleware('egresado');
+Route::POST('/tramite7',[EgresadoController::class, 'store7' ])->middleware('egresado');
+Route::POST('/tramite8',[EgresadoController::class, 'store8' ])->middleware('egresado');
+Route::POST('/tramite9',[EgresadoController::class, 'store9' ])->middleware('egresado');
+Route::POST('/tramite10',[EgresadoController::class, 'store10' ])->middleware('egresado');
+
+//guarda docuementos 93
+Route::POST('/tramite11',[EgresadoController::class, 'store11' ])->middleware('egresado');
+Route::POST('/tramite12',[EgresadoController::class, 'store12' ])->middleware('egresado');
+Route::POST('/tramite13',[EgresadoController::class, 'store13' ])->middleware('egresado');
+Route::POST('/tramite14',[EgresadoController::class, 'store14' ])->middleware('egresado');
+Route::POST('/tramite15',[EgresadoController::class, 'store15' ])->middleware('egresado');
 
 Route::get('/confirmarEgresado/{Egresado}',[EgresadoController::class, 'confirmar' ])->middleware('egresado');
 

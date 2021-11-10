@@ -27,6 +27,7 @@ class CreateTramitesTable extends Migration
             $table->string('hora_recepcion')->nullable();
             $table->string('lugar_recepcion')->nullable();
             $table->string('Foto')->nullable();
+            $table->string('InicioTramite')->nullable();
             $table->string('proceso_exitoso')->nullable();
           
             $table->foreign('requisitos_id')->references('id')->on('requisitos');
@@ -43,6 +44,9 @@ class CreateTramitesTable extends Migration
             $table->string('requisito1')->nullable();
             $table->string('requisito2')->nullable();
             $table->string('requisito3')->nullable();
+            $table->string('requisito4')->nullable();
+            $table->string('requisito5')->nullable();
+            $table->string('requisito6')->nullable();
             $table->string('boucher')->nullable();
             $table->string('protocolo')->nullable();
             $table->timestamps();

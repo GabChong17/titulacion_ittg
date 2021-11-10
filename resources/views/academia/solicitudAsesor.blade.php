@@ -7,8 +7,6 @@
 
 @section('content')
 {{-- @can('admin', Auth::user()) --}}
-
-{{-- sistemas --}}//sistemas
 <div class="card">
   <div class="card-body">
     <h2><p style="text-align:center; color: #140303;">Solicitud de Asesor</p></h2>

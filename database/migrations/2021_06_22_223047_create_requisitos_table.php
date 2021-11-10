@@ -15,8 +15,10 @@ class CreateRequisitosTable extends Migration
     {
         Schema::create('requisitos', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->string('Archivo');
+            $table->unsignedBigInteger('egresado_id')->nullable();
+            $table->string('Nombre')->nullable();
+            $table->string('Archivo')->nullable();
+            $table->string('opcion') ->nullable();
             $table->timestamps();
         });
     }

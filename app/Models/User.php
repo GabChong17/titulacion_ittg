@@ -65,5 +65,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Asesor');
     }
-    
+    public function plan(){
+        return $this->belongsTo('App\Models\Plan','planDeestudios','id');
+    }    
 }

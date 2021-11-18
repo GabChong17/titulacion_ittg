@@ -56,56 +56,24 @@
             <!-- Nav Item - Menu inicio de tramite -->
           
             @if (Auth::user()->estado === 'Tramite_Iniciado' or Auth::user()->estado === null )
-                @if (Auth::user()->planDeestudios === '1' )
-                    
-                    {{-- plan 93 --}}
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fas fa-folder-plus"></i>
-                            <span>Inicio de Tramite</span>
-                        </a>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Plan de estudios 93:</h6>
-                                <a class="collapse-item" href="/tramite1">Tesis profesional.</a>
-                                <a class="collapse-item" href="/tramite2">Elaboracón de texto o <br> prototipo didactico.</a>
-                                <a class="collapse-item" href="/tramite3">Proyecto de investigacion.</a>
-                                <a class="collapse-item" href="/tramite4">Diseño o rediseño de <br> equipo, aparato o <br> maquinaria.</a>
-                                {{-- <a class="collapse-item" href="/tramite5">Curso especial de titulación.</a> --}}
-                                <a class="collapse-item" href="/tramite6">Examen global por areas <br> del conocimiento.</a>
-                                <a class="collapse-item" href="/tramite7">Memoria de experiencia <br> profesional.</a>
-                                <a class="collapse-item" href="/tramite8">Escolaridad por promedio.</a>
-                                <a class="collapse-item" href="/tramite9">Escolaridad por estudios <br> de posgrado.</a>
-                                <a class="collapse-item" href="/tramite10">Memoria de residencia <br> profesional.</a>
-                            </div>
+               
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-folder-plus"></i>
+                        <span>Inicio de Tramite</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">{{Auth::user()->plan->Nombre}}:</h6>
+                            @foreach (Auth::user()->plan->opciones as $opcion)
+                            <a class="collapse-item" href="/tramite/{{$opcion->id}}">{{$opcion->Nombre}}</a>
+                            
+                            @endforeach
                         </div>
-                    </li>
-                    @elseif (Auth::user()->planDeestudios === '2' )
-                    {{-- plan 2004--}}
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTw"
-                            aria-expanded="true" aria-controls="collapseTw">
-                            <i class="fas fa-folder-plus"></i>
-                            <span>Inicio de Tramite</span>
-                        </a>
-                        <div id="collapseTw" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Plan de estudios 2004:</h6>
-                                <a class="collapse-item" href="/tramite11">Tesis profesional.</a>
-                                <a class="collapse-item" href="/tramite12">Proyecto de investigacion.</a>
-                                <a class="collapse-item" href="/tramite13">Examen global por areas <br> del conocimiento.</a>
-                                <a class="collapse-item" href="/tramite14">Escolaridad por promedio.</a>
-                                <a class="collapse-item" href="/tramite15">Memoria de residencia <br> profesional.</a>
-                            </div>
-                        </div>
-                    </li>
-                
-                    
-                    @else
-                    @endif
-                
-            
+                    </div>
+                </li>
+
             @else
             @endif
             

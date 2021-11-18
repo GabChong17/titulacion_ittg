@@ -61,24 +61,8 @@ Route::POST('/agregaUsers2',[AdminController::class, 'agrega2']);
 
 Route::get('/inicio', [EgresadoController::class, 'inicio'])->middleware('egresado');
 Route::get('/liberacion',[AcademiaController::class, 'liberacion'])->middleware('egresado');
-    //plan93
-Route::get('/tramite1', [EgresadoController::class, 'tramite1'])->middleware('egresado');
-Route::get('/tramite2', [EgresadoController::class, 'tramite2'])->middleware('egresado');
-Route::get('/tramite3', [EgresadoController::class, 'tramite3'])->middleware('egresado');
-Route::get('/tramite4', [EgresadoController::class, 'tramite4'])->middleware('egresado');
-Route::get('/tramite5', [EgresadoController::class, 'tramite5'])->middleware('egresado');
-Route::get('/tramite6', [EgresadoController::class, 'tramite6'])->middleware('egresado');
-Route::get('/tramite7', [EgresadoController::class, 'tramite7'])->middleware('egresado');
-Route::get('/tramite8', [EgresadoController::class, 'tramite8'])->middleware('egresado');
-Route::get('/tramite9', [EgresadoController::class, 'tramite9'])->middleware('egresado');
-Route::get('/tramite10', [EgresadoController::class, 'tramite10'])->middleware('egresado');
-    //plan2004
-Route::get('/tramite11', [EgresadoController::class, 'tramite11'])->middleware('egresado');
-Route::get('/tramite12', [EgresadoController::class, 'tramite12'])->middleware('egresado');
-Route::get('/tramite13', [EgresadoController::class, 'tramite13'])->middleware('egresado');
-Route::get('/tramite14', [EgresadoController::class, 'tramite14'])->middleware('egresado');
-Route::get('/tramite15', [EgresadoController::class, 'tramite15'])->middleware('egresado');
 
+Route::get('/tramite/{id}', [EgresadoController::class, 'tramite'])->middleware('egresado');
 
 
 //guarda docuementos 93

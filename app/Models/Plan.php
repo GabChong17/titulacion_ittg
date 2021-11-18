@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
-    public function opciones(){
+protected $table='planes';  
+        public function opciones(){
         return $this->hasMany('App\Models\Opcion','Planes_id','id');
 
         return $this->belongsTo('App\Models\Egresado');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tramite;
 use App\Models\Requisito;
+use App\Models\Formato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -27,6 +28,13 @@ class EgresadoController extends Controller
 
          return view('dashboard',compact('plan93','plan2004'));
     }
+    public function inicioProceso()
+    {
+        $egresado = User::where('rol', 'egresado')->get();      
+
+        return view('egresado.inicioProceso');       
+    }
+
     public function tramite($id)
     {
         // $requisito = new Requisito();
@@ -37,14 +45,15 @@ class EgresadoController extends Controller
         //  return view('egresado.tramite',  compact('isAdmin'));
          $opcion = Opcion::find($id);
          $tramite = Plan::find($id);
+         $egresado = User::find($id);
          $isAdmin = 1;
         //  $tramites = Tramite::where('egresado_id',Auth::id())->get();
 
-        return view('egresado.tramite',compact('tramite', 'isAdmin','opcion'));        
+        return view('egresado.tramite',compact('tramite', 'isAdmin','opcion','egresado'));        
     }
    
     
-    public function store1(Request $request)
+    public function store(Request $request)
     {
         $valores = $request->all();
        
@@ -97,6 +106,36 @@ class EgresadoController extends Controller
 
         return redirect('/crearCita/confirm');  
     }
+    public function documentoInicio(Request $request, $id)
+    {
+        
+        $egresado = User::find($id);
+  
+        $recepcion = request()->except(['_token']);
+        $recepcion['egresado_id'] = Auth::id();
+  
+        //Almacena Requisito 1
+        $formatos['documentoInicio1'] = $request->file('documentoInicio1')->getClientOriginalName();
+        $request->file('documentoInicio1')->storeAs('public/documentoInicio/', $formatos['documentoInicio1']);
+
+        //Almacena Requisito 2
+        $formatos['documentoInicio2'] = $request->file('documentoInicio2')->getClientOriginalName();
+        $request->file('documentoInicio2')->storeAs('public/documentoInicio/', $formatos['documentoInicio2']);
+
+        //Almacena Requisito 3
+        $formatos['documentoInicio3'] = $request->file('documentoInicio3')->getClientOriginalName();
+        $request->file('documentoInicio3')->storeAs('public/documentoInicio/', $formatos['documentoInicio3']);
+
+        //Almacena Requisito 4
+        $formatos['documentoInicio4'] = $request->file('documentoInicio4')->getClientOriginalName();
+        $request->file('documentoInicio4')->storeAs('public/documentoInicio/', $formatos['documentoInicio4']);
+
+        $egresado->estado = 'Documento_subido';
+        $egresado->save();
+        
+        return redirect('/inicio');          
+    }
+    
     
     
 

@@ -107,7 +107,7 @@ class AcademiaController extends Controller
       return redirect('/liberacion');
     }
       //funcion para subir el protocolo desde la vista del egresado
-      public function protocolo(Request $request, $id)
+    public function protocolo(Request $request, $id)
       {
     
         $egresado = User::find($id);

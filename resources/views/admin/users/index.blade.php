@@ -49,6 +49,11 @@
                     <i class="fas fa-address-card"></i>
                     <span>Tabla de Empleados</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/TablaPlanes">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Tabla de Planes</span></a>
+            </li>
             <hr class="sidebar-divider my-0">
 
             <!-- Divider -->

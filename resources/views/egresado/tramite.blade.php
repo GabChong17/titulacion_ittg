@@ -74,7 +74,7 @@
                     
                     
                     </div>
-                    <form method="POST" action="/tramite1" enctype="multipart/form-data"> 
+                    <form method="POST" action="/documento" enctype="multipart/form-data"> 
                         @csrf
 
                         <div class="row">
@@ -87,32 +87,32 @@
                               @if ($opcion->id ==  Request::route('id') )
                                           <input type="text" id="id" name="id" value= "{{Request::route('id')}}" style="display: none; ">
                                           @if ($opcion->requisito1 !=  NULL )
-                                          <p style="text-align:center;">{{$opcion->requisito1}}</p>
+                                          <h3 <p style="text-align:center;">{{$opcion->requisito1}}</p></h3>
                                           <input type="file" id="documento1" onInput="validar()"  name="requisito1" multiple>
                                           <br><br>
                                           @endif
                                           @if ($opcion->requisito2 !=  NULL )
-                                          <p style="text-align:center;">{{$opcion->requisito2}}</p>
+                                          <h3 <p style="text-align:center;">{{$opcion->requisito2}}</p></h3>
                                           <input type="file" id="documento2" onInput="validar()"  name="requisito2" multiple>
                                           <br><br>
                                           @endif
                                           @if ($opcion->requisito3 !=  NULL )
-                                          <p style="text-align:center;">{{$opcion->requisito3}}</p>
+                                          <h3 <p style="text-align:center;">{{$opcion->requisito3}}</p></h3>
                                           <input type="file" id="documento3" onInput="validar()"  name="requisito3" multiple>
                                           <br><br>
                                           @endif
                                           @if ($opcion->requisito4 !=  NULL )
-                                          <p style="text-align:center;">{{$opcion->requisito4}}</p>
+                                          <h3 <p style="text-align:center;">{{$opcion->requisito4}}</p></h3>
                                           <input type="file" id="documento4" onInput="validar()"  name="requisito4" multiple>
                                           <br><br>
                                           @endif
                                           @if ($opcion->requisito5 !=  NULL )
-                                          <p style="text-align:center;">{{$opcion->requisito5}}</p>
+                                          <h3 <p style="text-align:center;">{{$opcion->requisito5}}</p></h3>
                                           <input type="file" id="documento5" onInput="validar()"  name="requisito5" multiple>
                                           <br><br>
                                           @endif
                                           @if ($opcion->requisito6 !=  NULL )
-                                          <p style="text-align:center;">{{$opcion->requisito6}}</p>
+                                          <h3 <p style="text-align:center;">{{$opcion->requisito6}}</p></h3>
                                           <input type="file" id="documento6" onInput="validar()"  name="requisito6" multiple>
                                           @endif
                                   

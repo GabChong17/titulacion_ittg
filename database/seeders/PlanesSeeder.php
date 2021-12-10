@@ -18,12 +18,10 @@ class PlanesSeeder extends Seeder
             [
                 'id'=>'1',
                 'Nombre'=>'Plan 93',
-                
             ],
             [
                 'id'=>'2',
                 'Nombre'=>'Plan 2004',
-                
             ],
         ]);
     }

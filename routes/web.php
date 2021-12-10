@@ -55,34 +55,33 @@ Route::put('/actualizarEmpleado/{empelado}',[AdminController::class, 'update'])-
 Route::delete('/eliminarEmpleado/{empelado}',[AdminController::class, 'destroy'])->name('eliminarEmpleado');
 Route::POST('/agregaUsers2',[AdminController::class, 'agrega2']);
 
+Route::get('/TablaPlanes',[UsersController::class, 'planes'])->name('TablaPlanes');
+Route::get('/agregaPlan',[AdminController::class, 'agregaPlan']);
+Route::get('/editarPlan/{plan}',[AdminController::class, 'editPlan']);
+Route::put('/actualizarPlan/{plan}',[AdminController::class, 'update2'])->name('actualizarPlan');
+Route::POST('/agregaPlan',[AdminController::class, 'agregaPlan2']);
+Route::delete('/eliminarPlan/{plan}',[AdminController::class, 'destroy'])->name('eliminarPlan');
+
+Route::get('/opcionesPlan',[UsersController::class, 'opciones'])->name('TablaOpciones');
+Route::delete('/eliminarOpcion/{opcion}',[AdminController::class, 'destroy'])->name('eliminarOpcion');
+Route::get('/editarOpcion/{opcion}',[AdminController::class, 'editarOpcion']);
+Route::put('/editarOpcion/{opcion}',[AdminController::class, 'update3'])->name('editarOpcion');
+Route::get('/agregaOpcion',[AdminController::class, 'agregaOpcion']);
+Route::POST('/agregaOpcion',[AdminController::class, 'agregaOpcion2']);
+Route::get('/agregaRequisitos/{opcion}',[AdminController::class, 'agregaRequisitos']);
+Route::put('/agregaRequisitos/{opcion}',[AdminController::class, 'agregaRequisitos2'])->name('agregaRequisitos2');
+
+
+
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
 //egresado
 
 Route::get('/inicio', [EgresadoController::class, 'inicio'])->middleware('egresado');
+Route::get('/inicioProceso', [EgresadoController::class, 'inicioProceso'])->middleware('egresado');
 Route::get('/liberacion',[AcademiaController::class, 'liberacion'])->middleware('egresado');
 
 Route::get('/tramite/{id}', [EgresadoController::class, 'tramite'])->middleware('egresado');
-
-
-//guarda docuementos 93
-Route::POST('/tramite1',[EgresadoController::class, 'store1' ])->middleware('egresado');
-Route::POST('/tramite2',[EgresadoController::class, 'store2' ])->middleware('egresado');
-Route::POST('/tramite3',[EgresadoController::class, 'store3' ])->middleware('egresado');
-Route::POST('/tramite4',[EgresadoController::class, 'store4' ])->middleware('egresado');
-Route::POST('/tramite5',[EgresadoController::class, 'store5' ])->middleware('egresado');
-Route::POST('/tramite6',[EgresadoController::class, 'store6' ])->middleware('egresado');
-Route::POST('/tramite7',[EgresadoController::class, 'store7' ])->middleware('egresado');
-Route::POST('/tramite8',[EgresadoController::class, 'store8' ])->middleware('egresado');
-Route::POST('/tramite9',[EgresadoController::class, 'store9' ])->middleware('egresado');
-Route::POST('/tramite10',[EgresadoController::class, 'store10' ])->middleware('egresado');
-
-//guarda docuementos 93
-Route::POST('/tramite11',[EgresadoController::class, 'store11' ])->middleware('egresado');
-Route::POST('/tramite12',[EgresadoController::class, 'store12' ])->middleware('egresado');
-Route::POST('/tramite13',[EgresadoController::class, 'store13' ])->middleware('egresado');
-Route::POST('/tramite14',[EgresadoController::class, 'store14' ])->middleware('egresado');
-Route::POST('/tramite15',[EgresadoController::class, 'store15' ])->middleware('egresado');
 
 Route::get('/confirmarEgresado/{Egresado}',[EgresadoController::class, 'confirmar' ])->middleware('egresado');
 
@@ -93,7 +92,7 @@ Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita'])->middl
 Route::get('/imprimir_solicitud_autorizacion/{Egresado}',[EgresadoController::class, 'imprimir_solicitud_autorizacion']) ->middleware('egresado');//PDF
 
 // Route::get('/cita',[EgresadoController::class, 'citaEgresado'])->middleware('egresado');
-// Route::get('/tema',[EgresadoController::class, 'tema'])->middleware('egresado');
+// Route::get('/tema',[EgresadoController::class, 'tema'])->middleware('egrÑesado');
 // Route::get('/documentos',[EgresadoController::class, 'documentos'])->middleware('egresado');
 
 
@@ -102,6 +101,8 @@ Route::POST('/titulo',[EgresadoController::class, 'titulo' ])->middleware('egres
 Route::POST('/crearCita',[EgresadoController::class, 'agendada' ])->middleware('egresado');
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ])->middleware('egresado');
 Route::POST('/documento',[EgresadoController::class, 'store' ])->middleware('egresado');
+Route::POST('/documentoInicio/{Egresado}',[EgresadoController::class, 'documentoInicio' ])->middleware('egresado');
+
 
 // //jefatura
 // Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('jefatura');

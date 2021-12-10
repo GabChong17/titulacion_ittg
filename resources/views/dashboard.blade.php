@@ -57,6 +57,18 @@
           
             @if (Auth::user()->estado === 'Tramite_Iniciado' or Auth::user()->estado === null )
                
+                <!-- Nav Item - Inicio-->
+            <li class="nav-item">
+                <a class="nav-link" href="/inicioProceso">
+                    <i class="fas fa-scroll"></i>
+                    <span>Inicio</span></a>
+            </li>
+
+            @else
+            @endif
+
+            @if (Auth::user()->estado === 'Documento_subido' or Auth::user()->estado === null )
+               
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                         aria-expanded="true" aria-controls="collapseTwo">
@@ -100,7 +112,7 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="/img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>ITTG Pro</strong> Este sistema fue creado por el Instituto Tecnologico de Tuxtla Gutierrez - TecNM</p>
             </div>
 

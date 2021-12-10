@@ -78,11 +78,21 @@
                 <br>
                 <x-label for="planDeestudios" :value="__(' ') " />
                     <div class="col-md-6">
-                         <select class="form-select" aria-label="Default select example" name="planDeestudios" :value="{{ old('planDeestudios') }}">
+                         {{-- <select class="form-select" aria-label="Default select example" name="planDeestudios" :value="{{ old('planDeestudios') }}">
                            <option selected>Selecciona un Plan de Estudios</option>
-                           <option >Plan 93</option>
-                           <option >Plan 2004</option>
-                        </select>
+                           <option value="1">Plan 93</option>
+                           <option value="2">Plan 2004</option>
+                           <option value="3">Plan 2022</option>
+                        </select> --}}
+                        
+                              <select class="form-select" aria-label="Default select example" name="planDeestudios" :value="{{ old('planDeestudios') }}">
+                                <option selected>Selecciona un Plan de Estudios</option>
+                                @forelse($planes as $plan)
+                                <option value="{{$plan->id}}">{{$plan->Nombre}} </option>  
+                                    @empty
+                                    <option disable>Sin planes disponibles</option>
+                                @endforelse                         
+                             </select>                          
                     </div>
             </div>
 

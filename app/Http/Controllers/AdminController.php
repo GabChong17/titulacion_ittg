@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Plan;
 use App\Models\Opcion;
+use App\Models\Requisitoso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -140,17 +141,27 @@ class AdminController extends Controller
         ]);
         return redirect('/opcionesPlan')->with('success', 'Actualizado correctamente');
     }
-    public function agregaRequisitos(Request $request, $id)
+    public function agregaRequisitos()
     {
-         $opcion = Opcion::find($id);
-        return view('admin.agregarRequisitos', compact('opcion'));
+        $planes = Plan::all();
+        $Opciones = Opcion::all();
+
+        return view('admin.agregarRequisitos', compact('planes','Opciones'));
     }
-    public function agregaRequisitos2(Request $request, $id)
+
+    public function agregaRequisitos2(Request $request)
     {
-        $opcion = Opcion::find($id);
-        $data = $request->only('requisito1', 'requisito2', 'requisito3', 'requisito4', 'requisito5', 'requisito6',);
-        $opcion->update($data);
-        return redirect('/opcionesPlan')->with('success', 'Actualizado correctamente');
+
+        $request->validate([
+            'Nombre' => 'required|string|max:255',           
+        ]);
+
+        $Requisitoso = Requisitoso::create([
+            'Planes_id'=>$request->Planes_id,
+            'Nombre' => $request->Nombre,
+            'Opciones_id'=>$request->Opciones_id,
+        ]);
+        return redirect('/TablaRequisitos')->with('success', 'Actualizado correctamente');
     }
     
     public function update2(Request $request,  $id)
@@ -197,11 +208,12 @@ class AdminController extends Controller
     }
 
     
-    public function destroy(User $empelado, Plan $plan, Opcion $opcion)
+    public function destroy(User $empelado, Plan $plan, Opcion $opcion, Requisitoso $requisito)
     {
         $plan->delete(); 
         $empelado->delete();
         $opcion->delete();
+        $requisito->delete();
         return back()->with('succes', 'Eliminado correctamente');
     }
     

@@ -17,17 +17,18 @@ class Opcion extends Model
         'Nombre',
         'Descripcion',
         'Planes_id',
-        'requisito1',
-        'requisito2',
-        'requisito3',
-        'requisito4',
-        'requisito5',
-        'requisito6',
+
         
     ];
     public $table = "opciones";
-    public function requisitos(){
-        return $this->hasMany('App\Models\Requisito','Opciones_id','id');
 
+
+    public function requisitos(){
+        return $this->hasMany('App\Models\Requisito','Opciones_id','id', 'Nombre');
     }
+
+    public function plan(){
+        return $this->belongsTo('App\Models\Plan','Planes_id','id');
+    }
+   
 }

@@ -21,10 +21,12 @@ class Plan extends Model
 
 protected $table='planes';  
         public function opciones(){
-        return $this->hasMany('App\Models\Opcion','Planes_id','id', 'Nombre');
+            return $this->hasMany('App\Models\Opcion','Planes_id','id', 'Nombre');
+            return $this->belongsTo('App\Models\Egresado');
+        }
 
-        return $this->belongsTo('App\Models\Egresado');
-
-
-    }
+        public function requisitos(){
+            return $this->hasMany('App\Models\Requisito','Opciones_id','id', 'Nombre');
+    
+        }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRequisitososTable extends Migration
+class TramiteRequisito extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateRequisitososTable extends Migration
      */
     public function up()
     {
-        Schema::create('requisitosos', function (Blueprint $table) {
+        Schema::create('TramiteRequisito', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Planes_id');
             $table->string('Nombre'); 
-            $table->unsignedBigInteger('Opciones_id');
-            
-            $table->foreign('Planes_id')->references('id')->on('planes');
-            $table->foreign('Opciones_id')->references('id')->on('opciones');
+            $table->unsignedBigInteger('Tramite_id');
+
+            $table->foreign('Tramite_id')->references('id')->on('tramites');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateRequisitososTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requisitosos');
+        //
     }
 }

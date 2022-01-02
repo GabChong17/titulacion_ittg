@@ -5,33 +5,32 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-      <h2><p style="text-align:center; color: #140303;">Planes Opciones</p></h2>
+      <h2><p style="text-align:center; color: #140303;">Tabla Requisitos</p></h2>
       <a href="/TablaPlanes" class="btn btn-info"> Tabla Planes</a>
-      <a href="/TablaRequisitos" class="btn btn-info"> Tabla Requisitos</a>
-      <a href="/agregaOpcion" class="btn btn-info"> Agregar opcion</a>
+      <a href="/opcionesPlan" class="btn btn-info"> Tabla Opciones</a>
+      <a href="/agregaRequisitos" class="btn btn-info">Agrega Requisitos</a>
       <br><br>
       
                 <table id="usuarios" class="table table-striped ">
                 <thead class= "bg-primary text-white">
                     <tr>
                         <th>Plan</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
+                        <th>Opciones</th>
+                        <th>Requisito</th>
                         <th>Herramientas</th>
                     </tr>
                 </thead>
   
                 <tbody>
-                    @foreach($Opciones as $opcion)
+                    @foreach($Requisitoso as $requisito)
                     <tr>
-                        <td>{{$opcion->plan->Nombre}}</td>
-                        <td>{{$opcion['Nombre']}} </td>
-                        <td>{{$opcion['Descripcion']}} </td>
+                        <td>{{$requisito->plan->Nombre}}</td>
+                        <td>{{$requisito->opcion->Nombre}}</td>
+                        <td>{{$requisito['Nombre']}} </td>
+                        
                         {{-- <td>{{$admin['profesion']}}</td>  --}}
                         <td>
-                          <a href="/editarOpcion/{{$opcion->id}}" class=" btn btn-info"><i class="fas fa-user-edit"></i></a>   
-                          {{-- <a href="/agregaRequisitos/{{$opcion ->id}}" class=" btn btn-info"><i class="fas fa-folder-plus"></i></a>     --}}
-                          <form action="{{ route('eliminarOpcion', $opcion->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar esta opcion?')">
+                          <form action="{{ route('eliminarRequisito', $requisito->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿Esta seguro de eliminar este requisito?')">
                             @csrf
                             @method('DELETE')
                                 <button class="btn btn-danger" type="submit" rel="tooltip">

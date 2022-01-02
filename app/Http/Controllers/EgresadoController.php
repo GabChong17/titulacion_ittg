@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tramite;
 use App\Models\Requisito;
+use App\Models\Requisitoso;
+use App\Models\TramiteRequisito;
 use App\Models\Formato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,71 +39,47 @@ class EgresadoController extends Controller
 
     public function tramite($id)
     {
-        // $requisito = new Requisito();
-        // $requisito->opcion=$id;
-        // $requisito->egresado_id=Auth::user()->id;
-        // $requisito->save();
-        // $isAdmin = 1;
-        //  return view('egresado.tramite',  compact('isAdmin'));
+       
          $opcion = Opcion::find($id);
+         $opcionId = Opcion::find($id)->id;
          $tramite = Plan::find($id);
          $egresado = User::find($id);
+         
+         $planId = Auth::user()->plan->id;
+         $Requisitoso = Requisitoso::where('Planes_id',$planId)->where('Opciones_id', $opcionId)->get();
+        //  dd($Requisitoso);
          $isAdmin = 1;
-        //  $tramites = Tramite::where('egresado_id',Auth::id())->get();
-
-        return view('egresado.tramite',compact('tramite', 'isAdmin','opcion','egresado'));        
+        return view('egresado.tramite',compact('tramite', 'isAdmin','opcion','egresado','Requisitoso'));        
     }
    
     
     public function store(Request $request)
     {
+        // dd(sizeof($request->files));
+
         $valores = $request->all();
-       
+        $ArchivosVarios = (sizeof($request->files));
+        
         $tramite = new Tramite();
         $tramite->fill($valores);
         $tramite->opciones_id= $request->id;
         $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
-
-        
         //"proceso_exisoto" es parte para hacer uso del GATE
         $tramite->proceso_exitoso=1;
-        //$fileName = Str::slug(getClientOriginalName());
-
-        //Almacena Requisito 1
-        $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
-        $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
-
-        if ($request->file('requisito2') !=  NULL ){
-            //Almacena Requisito 2
-            $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
-            $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
-        }
-
-        if ($request->file('requisito3') !=  NULL ){
-            //Almacena Requisito 3
-            $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
-            $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
-        }
-
-         if ($request->file('requisito4') !=  NULL ){
-            //Almacena Requisito 4
-            $tramite['requisito4'] = $request->file('requisito4')->getClientOriginalName();
-            $request->file('requisito4')->storeAs('public/tramites/', $tramite['requisito4']);
-         }
-
-         if ($request->file('requisito5') !=  NULL ){
-                //Almacena Requisito 5
-            $tramite['requisito5'] = $request->file('requisito5')->getClientOriginalName();
-            $request->file('requisito5')->storeAs('public/tramites/', $tramite['requisito5']);
-         }
-        
-         if ($request->file('requisito6') !=  NULL ){
-            //Almacena Requisito 6
-            $tramite['requisito6'] = $request->file('requisito6')->getClientOriginalName();
-            $request->file('requisito6')->storeAs('public/tramites/', $tramite['requisito6']);
-         }
-         
+       
         $tramite->save();
+        for ($i=0;$i<$ArchivosVarios; $i++){
+            $Archivos = new TramiteRequisito();
+           
+            $Archivos['Nombre'] = $request->file('Nombre'.$i)->getClientOriginalName();
+            $Archivos['Tramite_id'] = $tramite->id;
+            $Archivos->save();
+            $request->file('Nombre'.$i)->storeAs('public/tramites/', $Archivos['Nombre']);
+        };
+
+        
+       
+        // dd( $tramite);
         $opcion = Opcion::find(1);
 
         return redirect('/crearCita/confirm');  

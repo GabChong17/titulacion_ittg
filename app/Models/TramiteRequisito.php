@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Requisitoso extends Model
+class TramiteRequisito extends Model
 {
     use HasFactory;
+
+    protected $table='TramiteRequisito';
 }

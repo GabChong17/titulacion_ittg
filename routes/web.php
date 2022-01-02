@@ -68,9 +68,11 @@ Route::get('/editarOpcion/{opcion}',[AdminController::class, 'editarOpcion']);
 Route::put('/editarOpcion/{opcion}',[AdminController::class, 'update3'])->name('editarOpcion');
 Route::get('/agregaOpcion',[AdminController::class, 'agregaOpcion']);
 Route::POST('/agregaOpcion',[AdminController::class, 'agregaOpcion2']);
-Route::get('/agregaRequisitos/{opcion}',[AdminController::class, 'agregaRequisitos']);
-Route::put('/agregaRequisitos/{opcion}',[AdminController::class, 'agregaRequisitos2'])->name('agregaRequisitos2');
 
+Route::get('/TablaRequisitos',[UsersController::class, 'requisitos'])->name('TablaRequisitos');
+Route::get('/agregaRequisitos',[AdminController::class, 'agregaRequisitos']);
+Route::POST('/agregaRequisitos2',[AdminController::class, 'agregaRequisitos2']);
+Route::delete('/eliminarRequisito/{requisito}',[AdminController::class, 'destroy'])->name('eliminarRequisito');
 
 
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');

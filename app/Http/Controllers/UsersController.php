@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Plan;
 use App\Models\Opcion;
+use App\Models\Requisitoso;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 
@@ -121,19 +122,20 @@ class UsersController extends Controller
     public function planes()
     {
         $Planes = Plan::orderBy('id', 'asc')->get();
-        
         return view('admin.tablaPlanes',compact('Planes'));
     }
     public function opciones()
     {
         $Opciones = Opcion::orderBy('id', 'asc')->get();
-
-        
         return view('admin.tablaOpciones',compact('Opciones'));
     }
     
-    
-
-   
+    public function requisitos()
+    {
+       
+        $Requisitoso = Requisitoso::orderBy('id', 'asc')->get();
+        return view('admin.tablaRequisitos',compact('Requisitoso'));
+        
+    }   
     
 }

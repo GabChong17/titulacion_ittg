@@ -87,18 +87,6 @@ class DivisionController extends Controller
         return view('division.jurado',compact('egresado','users_jurado_asignado'));
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public function recepcion(Request $request, $id)
     {
         $egresado = User::find($id);
@@ -128,12 +116,6 @@ class DivisionController extends Controller
 
         return redirect('/PaseLiberacion')->with('message', 'Cita de recepcion agregada!!');  
     }
-
-
-
-
-
-
 
     public function agregarIdestudianteaRecepcion(Request $request, $id)
     {
@@ -249,15 +231,6 @@ class DivisionController extends Controller
 
         $tramiteTabla = Tramite::where('egresado_id', $id)
         ->first();
-        
-        
-
-        // $asesores = Asesor::where('egresado_id', $id)
-        // ->first();
-        // $asesor = User::find($asesores->asesor_id);
-        // $revisor1 = User::find($asesores->revisor1_id);
-        // $revisor2 = User::find($asesores->revisor2_id);
-
 
         $pdf = \PDF::loadView('pdf.aval_asesores', compact('egresado', 'tramiteTabla'))->setOptions(['defaultFont' => 'sans-serif']);
        //return view('pdf.aval_de_academia');

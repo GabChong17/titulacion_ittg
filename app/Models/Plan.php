@@ -8,11 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
-    public function opciones(){
-        return $this->hasMany('App\Models\Opcion','Planes_id','id');
+   
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'Nombre',
+        
+    ];
 
-        return $this->belongsTo('App\Models\Egresado');
+protected $table='planes';  
+        public function opciones(){
+            return $this->hasMany('App\Models\Opcion','Planes_id','id', 'Nombre');
+            return $this->belongsTo('App\Models\Egresado');
+        }
 
-
-    }
+        public function requisitos(){
+            return $this->hasMany('App\Models\Requisito','Opciones_id','id', 'Nombre');
+    
+        }
 }

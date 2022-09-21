@@ -54,27 +54,43 @@
             {{-- @foreach ({{ Auth::user()->id }} ->plan->opciones as $opcion) --}}
             {{-- con est hacemos que el botton solo sea vicible por un administrador, necesitamos modificarlo para que sea visible para todo user con estado "tramite iniciado" --}}
             <!-- Nav Item - Menu inicio de tramite -->
+          
             @if (Auth::user()->estado === 'Tramite_Iniciado' or Auth::user()->estado === null )
+               
+                <!-- Nav Item - Inicio-->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-folder-plus"></i>
-                    <span>Inicio de Tramite</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Subida de documentos:</h6>
-                        <a class="collapse-item" href="/tesis">Tesis</a>
-                        <a class="collapse-item" href="/proyecto">Proyecto</a>
-                        <a class="collapse-item" href="/prototipo">Texto o prototipo</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="/inicioProceso">
+                    <i class="fas fa-scroll"></i>
+                    <span>Inicio</span></a>
             </li>
-            @else
 
+            @else
             @endif
+
+            @if (Auth::user()->estado === 'Documento_subido' or Auth::user()->estado === null )
+               
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-folder-plus"></i>
+                        <span>Inicio de Tramite</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">{{Auth::user()->plan->Nombre}}:</h6>
+                            @foreach (Auth::user()->plan->opciones as $opcion)
+                            <a class="collapse-item" href="/tramite/{{$opcion->id}}">{{$opcion->Nombre}}</a>
+                            
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
+
+            @else
+            @endif
+            
            
-            {{-- @endforeach --}}
+           
             
 
             <!-- Nav Item - Liberacion-->
@@ -96,7 +112,7 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="/img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>ITTG Pro</strong> Este sistema fue creado por el Instituto Tecnologico de Tuxtla Gutierrez - TecNM</p>
             </div>
 

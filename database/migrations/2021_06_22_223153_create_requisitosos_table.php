@@ -15,9 +15,11 @@ class CreateRequisitososTable extends Migration
     {
         Schema::create('requisitosos', function (Blueprint $table) {
             $table->id();
-            $table->string('Concepto');
-            $table->string('Descripcion');
+            $table->unsignedBigInteger('Planes_id');
+            $table->string('Nombre'); 
             $table->unsignedBigInteger('Opciones_id');
+            
+            $table->foreign('Planes_id')->references('id')->on('planes');
             $table->foreign('Opciones_id')->references('id')->on('opciones');
             $table->timestamps();
         });

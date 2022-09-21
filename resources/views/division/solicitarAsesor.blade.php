@@ -39,14 +39,14 @@
                       
                       <tr>
                       
-                        <td colspan="2">
+                        {{-- <td colspan="2">
                           Requisitos
                           <ul>
                             <li> <a href="{{ route('requisito1.download', $tramite->id) }}">{{$tramite->requisito1}}</a></li>
                             <li> <a href="{{ route('requisito2.download', $tramite->id) }}">{{$tramite->requisito2}}</a></li>
                             <li> <a href="{{ route('requisito3.download', $tramite->id) }}">{{$tramite->requisito3}}</a></li>
                           </ul>
-                         </td>
+                         </td> --}}
                         
                       </tr>
                       <tr>

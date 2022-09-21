@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Plan;
+use App\Models\Opcion;
+use App\Models\Requisitoso;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 
@@ -75,9 +78,20 @@ class UsersController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    // public function update(Request $request, $id)
+    // {
+    //     $plan = Plan::find($id);
+    //     $data = $request->only('Nombre');
+    //     $plan->update($data);
+    //     return redirect()->route('TablaPlanes', $plan->id)->with('success', 'Plan actualizado correctamente');
+    // }
+
+    public function update(Request $request,  $id)
     {
-        //
+        $plan = Plan::find($id);
+        $data = $request->only('Nombre');
+        $plan->update($data);
+        return redirect()->route('admin')->with('success', 'Actualizado correctamente');
     }
 
     /**
@@ -105,14 +119,23 @@ class UsersController extends Controller
         return view('admin.tablaUsers', compact('egresados','admins','divisiones','jefaturas','academias','escolaress','asesores'));
     }
 
-    // public function users()
-    // {
-    //     $egresado = User::where('rol', 'egresado')->get();
+    public function planes()
+    {
+        $Planes = Plan::orderBy('id', 'asc')->get();
+        return view('admin.tablaPlanes',compact('Planes'));
+    }
+    public function opciones()
+    {
+        $Opciones = Opcion::orderBy('id', 'asc')->get();
+        return view('admin.tablaOpciones',compact('Opciones'));
+    }
+    
+    public function requisitos()
+    {
+       
+        $Requisitoso = Requisitoso::orderBy('id', 'asc')->get();
+        return view('admin.tablaRequisitos',compact('Requisitoso'));
         
-
-    //     return view('admin.tablaUsers', compact('egresado'));
-    // }
-
-   
+    }   
     
 }

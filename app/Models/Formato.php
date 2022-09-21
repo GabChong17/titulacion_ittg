@@ -9,5 +9,13 @@ class Formato extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uuid', 'titulo', 'formato'] ;
+    protected $table='formatos';
+
+    protected $fillable = 
+    ['egresado_id', 
+     'documentoInicio1',
+     'documentoInicio2',
+     'documentoInicio3',
+     'documentoInicio4'
+    ] ;
 }

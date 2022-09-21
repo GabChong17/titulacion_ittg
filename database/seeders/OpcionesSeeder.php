@@ -15,35 +15,82 @@ class OpcionesSeeder extends Seeder
     public function run()
     {
         DB::table('opciones')->insert([
-            [
-                'Nombre'=>'Tesis de 93',
+            //plan 93
+            [//1
+                'Nombre'=>'Tesis profesional',
                 'Descripcion'=>'Trabajos que se deben desarrollar',     
+                'Planes_id'=>'1',
+            ], 
+            [//2
+                'Nombre'=>'Elaboracion de texto o prototipo didactico',
+                'Descripcion'=>'...',
+                'Planes_id'=>'1',             
+            ], 
+            [//3
+                'Nombre'=>'Proyecto de investigacion',
+                'Descripcion'=>'...',
+                'Planes_id'=>'1',                   
+            ], 
+            [//4
+                'Nombre'=>'Diseño o rediseño de equipo, aparato o maquina',
+                'Descripcion'=>'...',
+                'Planes_id'=>'1',                  
+            ], 
+            [//5
+                'Nombre'=>'Curso especial de titulacion',
+                'Descripcion'=>'...',
+                'Planes_id'=>'1',                     
+            ],
+            [//6
+                'Nombre'=>'Examen global por areas del conocimiento',
+                'Descripcion'=>'...',
+                'Planes_id'=>'1',                  
+            ],
+            [//7
+                'Nombre'=>'Memoria por experiencia profesional',
+                'Descripcion'=>'...',
                 'Planes_id'=>'1',               
-            ], 
-            [
-                'Nombre'=>'Texto o prototipo 93',
+            ],
+            [//8
+                'Nombre'=>'Escolaridad por promedio',
                 'Descripcion'=>'...',
                 'Planes_id'=>'1',                    
-            ], 
-            [
-                'Nombre'=>'Proyecto 93',
+            ],
+            [//9
+                'Nombre'=>'Escolaridad por estudios de posgrado',
                 'Descripcion'=>'...',
-                'Planes_id'=>'1',                    
-            ], 
-            [
-                'Nombre'=>'Tesis de 2004',
+                'Planes_id'=>'1',                  
+            ],
+            [//10
+                'Nombre'=>'Memoria de residencia profesional',
+                'Descripcion'=>'...',
+                'Planes_id'=>'1',           
+            ],
+            //plan 2004
+            [//11
+                'Nombre'=>'Tesis profesional',
                 'Descripcion'=>'Trabajos',
-                'Planes_id'=>'2',                    
+                'Planes_id'=>'2',                  
             ], 
-            [
-                'Nombre'=>'Texto o prototipo 2004',
+            [//12
+                'Nombre'=>'Proyecto de investigacion',
                 'Descripcion'=>'prototipo',
-                'Planes_id'=>'2',                    
+                'Planes_id'=>'2',                       
             ], 
-            [
-                'Nombre'=>'Proyecto 2004',
+            [//13
+                'Nombre'=>'Examen global por areas del conocimiento',
                 'Descripcion'=>'...',
-                'Planes_id'=>'2',                    
+                'Planes_id'=>'2',                   
+            ], 
+            [//14
+                'Nombre'=>'Escolaridad por promedio',
+                'Descripcion'=>'...',
+                'Planes_id'=>'2',                  
+            ], 
+            [//15
+                'Nombre'=>'Memoria de residencia profesional',
+                'Descripcion'=>'...',
+                'Planes_id'=>'2',                   
             ], 
         ]);
     }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Plan;
+use App\Models\Opcion;
+use App\Models\Requisitoso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,26 +30,17 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-
     public function protocolo()
     {
         return view('admin.subidaProtocolo');
     }
-//prueba de subida para protocolo
-    public function subproto(Request $request)
-    {
-        
-    }
-
     public function juramento()
     {
         return view('admin.subidaJuramento');
     }
-//prueba de subida para juramento
     public function subjura(Request $request)
     {
         return redirect()->route('admin.subidaJuramento');
-
     }
    
     public function agrega2(Request $request)
@@ -57,7 +51,6 @@ class AdminController extends Controller
             'a_paterno' => 'required|string|max:255',
             'a_materno' => 'required|string|max:255',
             'profesion' => 'required|string|max:255',
-            // 'cedula' => 'required|string|max:25',
             'rol'=>'required|string|max:255',
             'carrera' => 'required|string|max:255',
             'campus' => 'required|string|max:255',
@@ -73,7 +66,6 @@ class AdminController extends Controller
             'a_paterno'=>$request->a_paterno,
             'a_materno'=>$request->a_materno,
             'profesion'=>$request->profesion,
-            // 'cedula'=>$request->cedula,
             'rol'=>$request->rol,
             'carrera'=>$request->carrera,
             'campus'=>$request->campus,
@@ -84,6 +76,17 @@ class AdminController extends Controller
         //return redirect()->back()->with('message', 'Empleado agregado.');
         return view('admin.users.index')->with('message', 'Empleado agregado.');  
     }
+    public function agregaPlan2(Request $request)
+    {
+        $request->validate([
+            'Nombre' => 'required|string|max:255'            
+        ]);
+        $plan = Plan::create([
+            
+            'Nombre' => $request->Nombre,
+        ]);
+        return redirect('/TablaPlanes')->with('success', 'Actualizado correctamente');  
+    }
     public function agrega(Request $request)
     {
         return view('admin.agregarUsers');  
@@ -92,39 +95,93 @@ class AdminController extends Controller
     {
         return view('admin.division');
     }
-
     public function jefatura()
     {
         return view('admin.jefatura');
     }
-
     public function academia()
     {
         return view('admin.academia');
     }
-
     public function escolares()
     {
         return view('admin.escolares');
     }
-
     public function edit($id)
     {
-
         $empelado = User::find($id);
-        // abort_if(Gate::denies('user_edit'), 403);
-        // $roles = Role::all()->pluck('name', 'id');
-        // $empelado->load('roles');
         return view('admin.edit', compact('empelado'));
+    }
+    public function editPlan($id)
+    {
+        $plan = Plan::find($id);
+        return view('admin.editPlan', compact('plan'));
+    }
+    public function agregaPlan()
+    {
+        return view('admin.agregarPlan');
+    }
+    public function agregaOpcion()
+    {
+        $planes = Plan::all();
+        return view('admin.agregaOpcion', compact('planes'));
+    }
+    public function agregaOpcion2(Request $request)
+    {
+        $request->validate([
+            'Nombre' => 'required|string|max:255',
+            'Descripcion' => 'required|string|max:255',
+            'Nombre' => 'required|string|max:255'            
+        ]);
+        $Opcion = Opcion::create([
+            
+            'Nombre' => $request->Nombre,
+            'Descripcion'=>$request->Descripcion,
+            'Planes_id'=>$request->Planes_id,
+        ]);
+        return redirect('/opcionesPlan')->with('success', 'Actualizado correctamente');
+    }
+    public function agregaRequisitos()
+    {
+        $planes = Plan::all();
+        $Opciones = Opcion::all();
+
+        return view('admin.agregarRequisitos', compact('planes','Opciones'));
+    }
+
+    public function agregaRequisitos2(Request $request)
+    {
+
+        $request->validate([
+            'Nombre' => 'required|string|max:255',           
+        ]);
+
+        $Requisitoso = Requisitoso::create([
+            'Planes_id'=>$request->Planes_id,
+            'Nombre' => $request->Nombre,
+            'Opciones_id'=>$request->Opciones_id,
+        ]);
+        return redirect('/TablaRequisitos')->with('success', 'Actualizado correctamente');
+    }
+    
+    public function update2(Request $request,  $id)
+    {
+        $plan = Plan::find($id);
+        $data = $request->only('Nombre');
+        $plan->update($data);
+        return redirect('/TablaPlanes')->with('success', 'Actualizado correctamente');
+    } 
+    public function update3(Request $request,  $id)
+    {
+        $opcion = Opcion::find($id);
+        $data = $request->only('Nombre', 'Descripcion');
+        $opcion->update($data);
+        return redirect('/opcionesPlan')->with('success', 'Actualizado correctamente');
     }
     public function update(Request $request,  $id)
     {
-        // $user=User::findOrFail($id);
         $empelado = User::find($id);
         $data = $request->only('name', 'a_paterno', 'a_materno', 'profesion', 'rol', 'carrera', 'campus', 'email','telefono','cedula');
-        // $password=$request->input('password');
-        // if($password)
-        //     $data['password'] = bcrypt($password);
         if(trim($request->password)=='')
         {
             $data=$request->except('password');
@@ -133,26 +190,33 @@ class AdminController extends Controller
             $data=$request->all();
             $data['password']=bcrypt($request->password);
         }
-        
-
         $empelado->update($data);
-        return redirect()->route('TablaUsers', $empelado->id)->with('success', 'Usuario actualizado correctamente');
+        return redirect('/admin')->with('success', 'Actualizado correctamente');
     }
-    public function destroy(User $empelado)
+    public function actualizarPlan(Request $request, $id)
     {
-        // abort_if(Gate::denies('user_destroy'), 403);
-
-        // if (auth()->user()->id == $empelado->id) {
-        //     return redirect()->route('users.index');
-        // }
-
-        
-        // $admin->delete();
-        $empelado->delete();
-        // $divison->delete();
-        // $jefatura->delete();
-        // $academia->delete();
-        
-        return back()->with('succes', 'Usuario eliminado correctamente');
+        $plan = Plan::find($id);
+        $data = $request->only('Nombre');
+        $plan->update($data);
+        return redirect()->route('TablaPlanes', $plan->id)->with('success', 'Plan actualizado correctamente');
     }
+
+    public function editarOpcion(Request $request, $id)
+    {
+         $opcion = Opcion::find($id);
+        return view('admin.editOpcion', compact('opcion'));
+    }
+
+    
+    public function destroy(User $empelado, Plan $plan, Opcion $opcion, Requisitoso $requisito)
+    {
+        $plan->delete(); 
+        $empelado->delete();
+        $opcion->delete();
+        $requisito->delete();
+        return back()->with('succes', 'Eliminado correctamente');
+    }
+    
+
+    
 }

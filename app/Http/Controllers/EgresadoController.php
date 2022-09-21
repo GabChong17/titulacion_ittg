@@ -3,140 +3,121 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tramite;
+use App\Models\Requisito;
+use App\Models\Requisitoso;
+use App\Models\TramiteRequisito;
+use App\Models\Formato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Opcion;
 use App\Models\Egresado;
 use App\Models\User;
+use App\Models\Plan;
 use DB;
  
 
 
 class EgresadoController extends Controller
 {
+    public function inicio()
+    {
+        $egresado = User::where('rol', 'egresado')->get();
+    
+        $plan93 = User::where('planDeestudios', '=', '1')->get();
+        $plan2004 = User::where('planDeestudios', '=', '2')->get();
+      
 
+         return view('dashboard',compact('plan93','plan2004'));
+    }
+    public function inicioProceso()
+    {
+        $egresado = User::where('rol', 'egresado')->get();      
 
+        return view('egresado.inicioProceso');       
+    }
+
+    public function tramite($id)
+    {
+       
+         $opcion = Opcion::find($id);
+         $opcionId = Opcion::find($id)->id;
+         $tramite = Plan::find($id);
+         $egresado = User::find($id);
+         
+         $planId = Auth::user()->plan->id;
+         $Requisitoso = Requisitoso::where('Planes_id',$planId)->where('Opciones_id', $opcionId)->get();
+        //  dd($Requisitoso);
+         $isAdmin = 1;
+        return view('egresado.tramite',compact('tramite', 'isAdmin','opcion','egresado','Requisitoso'));        
+    }
+   
+    
+    public function store(Request $request)
+    {
+        // dd(sizeof($request->files));
+
+        $valores = $request->all();
+        $ArchivosVarios = (sizeof($request->files));
+        
+        $tramite = new Tramite();
+        $tramite->fill($valores);
+        $tramite->opciones_id= $request->id;
+        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
+        //"proceso_exisoto" es parte para hacer uso del GATE
+        $tramite->proceso_exitoso=1;
+       
+        $tramite->save();
+        for ($i=0;$i<$ArchivosVarios; $i++){
+            $Archivos = new TramiteRequisito();
+           
+            $Archivos['Nombre'] = $request->file('Nombre'.$i)->getClientOriginalName();
+            $Archivos['Tramite_id'] = $tramite->id;
+            $Archivos->save();
+            $request->file('Nombre'.$i)->storeAs('public/tramites/', $Archivos['Nombre']);
+        };
+
+        
+       
+        // dd( $tramite);
+        $opcion = Opcion::find(1);
+
+        return redirect('/crearCita/confirm');  
+    }
+    public function documentoInicio(Request $request, $id)
+    {
+        
+        $egresado = User::find($id);
+  
+        $recepcion = request()->except(['_token']);
+        $recepcion['egresado_id'] = Auth::id();
+  
+        //Almacena Requisito 1
+        $formatos['documentoInicio1'] = $request->file('documentoInicio1')->getClientOriginalName();
+        $request->file('documentoInicio1')->storeAs('public/documentoInicio/', $formatos['documentoInicio1']);
+
+        //Almacena Requisito 2
+        $formatos['documentoInicio2'] = $request->file('documentoInicio2')->getClientOriginalName();
+        $request->file('documentoInicio2')->storeAs('public/documentoInicio/', $formatos['documentoInicio2']);
+
+        //Almacena Requisito 3
+        $formatos['documentoInicio3'] = $request->file('documentoInicio3')->getClientOriginalName();
+        $request->file('documentoInicio3')->storeAs('public/documentoInicio/', $formatos['documentoInicio3']);
+
+        //Almacena Requisito 4
+        $formatos['documentoInicio4'] = $request->file('documentoInicio4')->getClientOriginalName();
+        $request->file('documentoInicio4')->storeAs('public/documentoInicio/', $formatos['documentoInicio4']);
+
+        $egresado->estado = 'Documento_subido';
+        $egresado->save();
+        
+        return redirect('/inicio');          
+    }
+    
+    
     
 
-    public function tesis(Request $request)
-    {
-        
-         return view('egresado.tesis');
-    }
-
-    public function proyecto()
-    {
-       
-         return view('egresado.proyecto');
-    }
-
-    public function prototipo()
-    {
-       
-         return view('egresado.prototipo');
-    }
-
-    public function storeTesis(Request $request)
-    {
-
-        $valores = $request->all();
-       
-        $tramite = new Tramite();
-        $tramite->fill($valores);
-        $tramite->opciones_id=1;
-        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
-
-        
-        //"proceso_exisoto" es parte para hacer uso del GATE
-        $tramite->proceso_exitoso=1;
-        //$fileName = Str::slug(getClientOriginalName());
-
-        //Almacena Requisito 1
-        $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
-        $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
-
-
-        //Almacena Requisito 2
-        $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
-        $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
-
-         //Almacena Requisito 3
-         $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
-         $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
-
-        $tramite->save();
-        $opcion = Opcion::find(1);
-        
-        // return redirect('/crearCita/confirm/{{$egresado->id}}')->with('message', 'Documento subido'); 
-            return redirect('/crearCita/confirm');  
-    }
-
-    public function storeProyecto(Request $request)
-    {
-        $valores = $request->all();
-       
-        $tramite = new Tramite();
-        $tramite->fill($valores);
-        $tramite->opciones_id=2;
-        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
-
-        
-        //"proceso_exisoto" es parte para hacer uso del GATE
-        $tramite->proceso_exitoso=1;
-
-      //Almacena Requisito 1
-      $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
-      $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
-
-
-      //Almacena Requisito 2
-      $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
-      $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
-
-       //Almacena Requisito 3
-       $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
-       $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
-
-        $opcion = Opcion::find(2); //no lo borres si sirve al final :v
-        $tramite->save();
- 
-        
-        return redirect('/crearCita/confirm');  
-    }
-
-    public function storePrototipo(Request $request)
-    {
-        $valores = $request->all();
-       
-        $tramite = new Tramite();
-        $tramite->fill($valores);
-        $tramite->opciones_id=3;
-        $tramite->egresado_id=Auth::user()->id;//nombre de la variable de autentificacion "user"
-
-        
-        //"proceso_exisoto" es parte para hacer uso del GATE
-        $tramite->proceso_exitoso=1;
-
-        //Almacena Requisito 1
-        $tramite['requisito1'] = $request->file('requisito1')->getClientOriginalName();
-        $request->file('requisito1')->storeAs('public/tramites', $tramite['requisito1']);
-
-
-        //Almacena Requisito 2
-        $tramite['requisito2'] = $request->file('requisito2')->getClientOriginalName();
-        $request->file('requisito2')->storeAs('public/tramites/', $tramite['requisito2']);
-
-         //Almacena Requisito 3
-         $tramite['requisito3'] = $request->file('requisito3')->getClientOriginalName();
-         $request->file('requisito3')->storeAs('public/tramites/', $tramite['requisito3']);
-
-        $opcion = Opcion::find(3); //no lo borres si sirve al final :v
-        $tramite->save();
- 
-        
-        return redirect('/crearCita/confirm');  
-    }
+   
     public function confirmar($id)
     {
         $egresado = User::find($id);

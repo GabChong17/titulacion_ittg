@@ -15,10 +15,13 @@ class CreateFormatosTable extends Migration
     {
         Schema::create('formatos',  function (Blueprint $table) {
             $table->id();
-            //$table->uuid(column:'uuid');
-            $table->string('titulo');
-            $table->string('formato')->nullable();
-            $table->timestamps();
+            $table->unsignedBigInteger('egresado_id')->nullable();
+            $table->string('documentoInicio1')->nullable();
+            $table->string('documentoInicio2')->nullable();
+            $table->string('documentoInicio3')->nullable();
+            $table->string('documentoInicio4')->nullable();
+
+            $table->foreign('egresado_id')->references('id')->on('users');
         });
     }
 

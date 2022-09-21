@@ -4,38 +4,13 @@
 @endsection
 @section('content')
 
-    <div class="contenedor-titulo">
-        <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px;">
-        <h2 style="padding: 50px 30px;">Proyecto para: {{ Auth::user()->name }} {{ Auth::user()->a_paterno }} {{ Auth::user()->a_materno }}</h2>
-    </div>
-    <script>
-        var documentos_subidos=false;
 
-        function validar() {
-    console.log( !document.getElementById('cita_d').value.length); 
-    document.getElementById("subir").disabled = !((document.getElementById('documento1').value.length)&&(document.getElementById('documento2').value.length)&&(document.getElementById('documento3').value.length));
-    if( !document.getElementById("subir").disabled)
-    {
-        documentos_subidos=true;
-        console.log("documentos_subidos"); 
+<div class="contenedor-titulo">
+  <img src="/Imagenes/ITTG_Escudo.png" style="width: 150px; height: 150px;">
+  <h2 style="padding: 50px 30px;">{{$opcion['Nombre']}}:</h2><br>
+  <h2 style="padding: 50px 30px;">{{ Auth::user()->name }} {{ Auth::user()->a_paterno }} {{ Auth::user()->a_materno }}</h2>
+</div>
 
-    }
-    }
-    function validar2() {
-    console.log( "va= "+documentos_subidos); 
-    if(documentos_subidos)
-    {
-    document.getElementById("boton_enviar").disabled = !((document.getElementById('cita_d').value.length)&& (document.getElementById('fecha').value.length) &&(document.getElementById('subir').disabled));
-    }
-    }
-
-</script>
-
-@if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-@endif
 
 <div class="card">
   <div class="card-body">
@@ -62,20 +37,20 @@
               <i class="fas fa-upload"></I>
             </button>
             </center>
-          </td>
-                                                    
+          </td>                                       
           </tr>
           <tr>
-            <td>
-            <br><br><br>
-              
-              </button>    
-  
-              
-            </td>
-            </tr>
+          <td>
+          <br><br><br>
+            
+
+            
+          </td>
+          </tr>
           
       </table>  
+
+     
     </div>
   </div> 
 
@@ -99,7 +74,7 @@
                     
                     
                     </div>
-                    <form method="POST" action="/tramite-proyecto" enctype="multipart/form-data"> 
+                    <form method="POST" action="/documento" enctype="multipart/form-data"> 
                         @csrf
 
                         <div class="row">
@@ -107,14 +82,17 @@
                           <div class="col-md-6 mb-3">
                             <p style="text-align:center; color: #190D47;">Agrega documento PDF:</p>
                            <br>
-                            <p style="text-align:center;">Documento 1: </p>
-                            <input type="file" id="documento1" onInput="validar()"  name="requisito1" multiple>
-                            <br>
-                            <p style="text-align:center;">Documento 2: </p>
-                            <input type="file" id="documento2" onInput="validar()"  name="requisito2" multiple>
-                            <br>
-                            <p style="text-align:center;">Documento 3: </p>
-                            <input type="file" id="documento3" onInput="validar()"  name="requisito3" multiple>
+                          @foreach ($Requisitoso as $requisito) 
+
+                          {{-- <input type="text" id="id" name="id" value= "{{Request::route('id')}}" style="display: none; "> --}}
+                          <h3 <p style="text-align:center;">{{$requisito->Nombre}}</p></h3>
+                          <input type="file" id="documento{{ $loop->index }}" onInput="validar()"  name="Nombre{{ $loop->index }}" multiple>
+                          <br><br>
+                          {{-- <a class="collapse-item" href="/tramite/{{$opcion->id}}">{{$opcion->Nombre}}</a> --}}
+                          
+                          @endforeach
+                       
+                        
                           </div>
                           <div class="col-md-6 mb-3">
                             <p style="text-align:center; color: #190D47;">Tema:</p>
@@ -130,7 +108,7 @@
 
                    {{-- footer de la ventana --}}
                   <div class="modal-footer">
-                    <button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" disabled >Subir</button>
+                    <button  style="background-color: #384085;" type="submit" class="btn btn-primary" id="subir" >Subir</button>
                     <button tyle="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     
                   </div>
@@ -147,6 +125,35 @@
         </div>
       </div>                      
     </div>
+
+{{-- <script>
+      var documentos_subidos=false;
+      function validar() {
+  console.log( !document.getElementById('cita_d').value.length); 
+  document.getElementById("subir").disabled = !((document.getElementById('documento1').value.length)&&(document.getElementById('documento2').value.length)&&(document.getElementById('documento3').value.length));
+  if( !document.getElementById("subir").disabled)
+  {
+      documentos_subidos=true;
+      console.log("documentos_subidos"); 
+  }
+  }
+  function validar2() {
+  console.log( "va= "+documentos_subidos); 
+  if(documentos_subidos)
+  {
+  document.getElementById("boton_enviar").disabled = !((document.getElementById('cita_d').value.length)&& (document.getElementById('fecha').value.length) &&(document.getElementById('subir').disabled));
+  }
+  }
+</script> --}}
+
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
+
+
+
         
     @endsection
     @section('js')        
@@ -157,15 +164,11 @@
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
   
     <script>
-      $(document).ready(function() {
-  $('#usuarios').DataTable({
-    "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
-  });
-  });
+            $(document).ready(function() {
+        $('#usuarios').DataTable({
+          "lengthMenu":[[5,7,10,25,50,-1], [5,7,10,25,50,"all"]]
+        });
+        });
     </script>
     
   @endsection
-
-
-
-    

@@ -55,19 +55,35 @@ Route::put('/actualizarEmpleado/{empelado}',[AdminController::class, 'update'])-
 Route::delete('/eliminarEmpleado/{empelado}',[AdminController::class, 'destroy'])->name('eliminarEmpleado');
 Route::POST('/agregaUsers2',[AdminController::class, 'agrega2']);
 
+Route::get('/TablaPlanes',[UsersController::class, 'planes'])->name('TablaPlanes');
+Route::get('/agregaPlan',[AdminController::class, 'agregaPlan']);
+Route::get('/editarPlan/{plan}',[AdminController::class, 'editPlan']);
+Route::put('/actualizarPlan/{plan}',[AdminController::class, 'update2'])->name('actualizarPlan');
+Route::POST('/agregaPlan',[AdminController::class, 'agregaPlan2']);
+Route::delete('/eliminarPlan/{plan}',[AdminController::class, 'destroy'])->name('eliminarPlan');
+
+Route::get('/opcionesPlan',[UsersController::class, 'opciones'])->name('TablaOpciones');
+Route::delete('/eliminarOpcion/{opcion}',[AdminController::class, 'destroy'])->name('eliminarOpcion');
+Route::get('/editarOpcion/{opcion}',[AdminController::class, 'editarOpcion']);
+Route::put('/editarOpcion/{opcion}',[AdminController::class, 'update3'])->name('editarOpcion');
+Route::get('/agregaOpcion',[AdminController::class, 'agregaOpcion']);
+Route::POST('/agregaOpcion',[AdminController::class, 'agregaOpcion2']);
+
+Route::get('/TablaRequisitos',[UsersController::class, 'requisitos'])->name('TablaRequisitos');
+Route::get('/agregaRequisitos',[AdminController::class, 'agregaRequisitos']);
+Route::POST('/agregaRequisitos2',[AdminController::class, 'agregaRequisitos2']);
+Route::delete('/eliminarRequisito/{requisito}',[AdminController::class, 'destroy'])->name('eliminarRequisito');
+
+
 //Route::get('/admin', [AdminController::class, 'index']) ->middleware('auth');
 
 //egresado
-Route::get('/inicio', function () {
-    return view('dashboard');
-})->middleware('egresado');
+
+Route::get('/inicio', [EgresadoController::class, 'inicio'])->middleware('egresado');
+Route::get('/inicioProceso', [EgresadoController::class, 'inicioProceso'])->middleware('egresado');
 Route::get('/liberacion',[AcademiaController::class, 'liberacion'])->middleware('egresado');
-Route::get('/tesis', [EgresadoController::class, 'tesis'])->middleware('egresado');
-Route::get('/proyecto', [EgresadoController::class, 'proyecto'])->middleware('egresado');
-Route::get('/prototipo', [EgresadoController::class, 'prototipo'])->middleware('egresado');
-Route::POST('/tramite-tesis',[EgresadoController::class, 'storeTesis' ])->middleware('egresado');
-Route::POST('/tramite-proyecto',[EgresadoController::class, 'storeProyecto' ])->middleware('egresado');
-Route::POST('/tramite-prototipo',[EgresadoController::class, 'storePrototipo' ])->middleware('egresado');
+
+Route::get('/tramite/{id}', [EgresadoController::class, 'tramite'])->middleware('egresado');
 
 Route::get('/confirmarEgresado/{Egresado}',[EgresadoController::class, 'confirmar' ])->middleware('egresado');
 
@@ -78,7 +94,7 @@ Route::get('/crearCita/{opcion}',[EgresadoController::class,'crearCita'])->middl
 Route::get('/imprimir_solicitud_autorizacion/{Egresado}',[EgresadoController::class, 'imprimir_solicitud_autorizacion']) ->middleware('egresado');//PDF
 
 // Route::get('/cita',[EgresadoController::class, 'citaEgresado'])->middleware('egresado');
-// Route::get('/tema',[EgresadoController::class, 'tema'])->middleware('egresado');
+// Route::get('/tema',[EgresadoController::class, 'tema'])->middleware('egrÑesado');
 // Route::get('/documentos',[EgresadoController::class, 'documentos'])->middleware('egresado');
 
 
@@ -87,6 +103,8 @@ Route::POST('/titulo',[EgresadoController::class, 'titulo' ])->middleware('egres
 Route::POST('/crearCita',[EgresadoController::class, 'agendada' ])->middleware('egresado');
 Route::POST('/protocolo',[DocumentosController::class, 'protocolo' ])->middleware('egresado');
 Route::POST('/documento',[EgresadoController::class, 'store' ])->middleware('egresado');
+Route::POST('/documentoInicio/{Egresado}',[EgresadoController::class, 'documentoInicio' ])->middleware('egresado');
+
 
 // //jefatura
 // Route::get('/jefatura', [AdminController::class, 'jefatura']) ->middleware('jefatura');
